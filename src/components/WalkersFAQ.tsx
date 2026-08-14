@@ -45,6 +45,19 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
   return (
     <section id="faq" className="py-20 lg:py-28 bg-[#f8fbfa] border-t border-[#e2ede7] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Heading */}
+        <div className="text-center mb-12 relative z-10">
+          <span 
+            className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
+            style={{ fontFamily: 'var(--font-caveat), cursive' }}
+          >
+            Helpful Information
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#002b49] mt-2">
+            <span className="font-bold">Frequently Asked Questions</span>
+          </h2>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Title Card with Image Background */}
           <div className="lg:col-span-5">

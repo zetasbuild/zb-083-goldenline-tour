@@ -30,7 +30,7 @@ export const WalkersHero: React.FC<WalkersHeroProps> = ({ onExploreClick }) => {
       <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16 flex flex-col items-center">
         {/* Top Script Text */}
         <span 
-          className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#e5dbcc] mb-[-10px] sm:mb-[-15px] z-10 rotate-[-2deg]"
+          className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 rotate-[-2deg]"
           style={{ fontFamily: 'var(--font-caveat), cursive' }}
         >
           Uncover the Magic of

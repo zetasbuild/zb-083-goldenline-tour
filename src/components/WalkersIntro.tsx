@@ -37,7 +37,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
               We Make Your Journey Extraordinary
             </h2>
 
-            <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed mb-8">
+            <p className="text-sm sm:text-base text-gray-800 font-normal leading-relaxed mb-8">
               We are committed to providing exceptional travel experiences with the best service, comfort, and unforgettable memories.
             </p>
 

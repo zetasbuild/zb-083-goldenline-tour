@@ -13,6 +13,7 @@ export const WalkersReviews: React.FC = () => {
       author: 'Shalini Castelli and Family',
       origin: 'United Kingdom',
       tour: '14-Day Bespoke Family Adventure',
+      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop',
     },
     {
       title: 'A Delightful Stay & Exceptional Chauffeur Service',
@@ -20,6 +21,7 @@ export const WalkersReviews: React.FC = () => {
       author: 'Joe & Margaret Richardson',
       origin: 'Australia',
       tour: 'Cultural Triangle & Coastlines',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop',
     },
     {
       title: 'Unforgettable 10-Day Wildlife and Tea Hills Tour',
@@ -27,6 +29,7 @@ export const WalkersReviews: React.FC = () => {
       author: 'Karin De Silva & Friends',
       origin: 'Canada',
       tour: 'Highlands & Yala Safari',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop',
     },
   ];
 
@@ -66,8 +69,18 @@ export const WalkersReviews: React.FC = () => {
 
         {/* Review Box Container */}
         <div className="max-w-4xl mx-auto bg-[#f8fbfa] border border-[#e2ede7] rounded-3xl p-8 sm:p-12 shadow-lg relative">
-          <div className="flex justify-center mb-4 text-[#0077b6]">
-            <Quote className="w-10 h-10 fill-[#0077b6]/15" />
+          <div className="flex justify-center mb-6 text-[#0077b6] relative">
+            <Quote className="w-10 h-10 fill-[#0077b6]/15 absolute -top-4 -left-4" />
+            <div className="flex flex-col items-center">
+              <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-[3px] border-white shadow-md relative z-10">
+                <img src={currentReview.avatar} alt={currentReview.author} className="w-full h-full object-cover" />
+              </div>
+              <div className="flex gap-1">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star key={star} className="w-4 h-4 fill-[#f59e0b] text-[#f59e0b]" />
+                ))}
+              </div>
+            </div>
           </div>
 
           <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#002b49] text-center mb-4">

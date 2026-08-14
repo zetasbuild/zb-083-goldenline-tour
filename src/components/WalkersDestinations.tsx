@@ -42,16 +42,22 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = ({
   }, []);
 
   return (
-    <section id="destinations" className="py-20 lg:py-32 bg-white relative overflow-hidden">
+    <section id="destinations" className="pt-20 pb-10 lg:pt-32 lg:pb-16 bg-white relative overflow-x-clip overflow-y-visible">
       {/* Background Watermark Text */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
         <span className="watermark-text text-[#f4f7f6]">destinations</span>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-16 sm:mt-24">
         {/* Centered Header matching Tour Packages UI */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6">
+          <span 
+            className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
+            style={{ fontFamily: 'var(--font-caveat), cursive' }}
+          >
+            Explore the Wonder of
+          </span>
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6 mt-2">
             Destinations in Sri Lanka
           </h2>
           <p className="text-[#55697a] sm:text-lg leading-relaxed">
@@ -115,7 +121,7 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = ({
                   <div className="next-btn-circle group-hover:scale-110 transition-transform">
                     <ArrowRight className="w-4 h-4 text-[#002b49]" />
                   </div>
-                  <span className="text-xs uppercase tracking-widest font-bold">Explore</span>
+                  <span className="text-xs uppercase tracking-widest font-bold bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">Explore</span>
                 </div>
               </div>
             </div>

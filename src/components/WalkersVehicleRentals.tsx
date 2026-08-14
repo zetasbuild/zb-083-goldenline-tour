@@ -64,8 +64,11 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
         
         {/* Centered Header matching Tour Packages UI */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold tracking-widest text-[#8ed1fc] uppercase mb-4 inline-block">
-            VEHICLE RENTALS
+          <span 
+            className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
+            style={{ fontFamily: 'var(--font-caveat), cursive' }}
+          >
+            Travel with Ease
           </span>
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6">
             Ride in Comfort, Travel in Style
@@ -167,23 +170,40 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
           ))}
         </div>
 
-        {/* Guarantees Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 pt-8 border-t border-gray-200 text-sm text-[#002b49]">
-          {guarantees.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div key={idx} className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
-                <div className="w-10 h-10 rounded-full bg-[#eef4f2] flex items-center justify-center text-[#8ed1fc] shrink-0">
-                  <Icon className="w-5 h-5" />
+        {/* Guarantees Marquee */}
+        <div className="mt-8 pt-8 border-t border-gray-200 overflow-hidden relative flex group">
+          {/* First Marquee Group */}
+          <div className="animate-marquee flex gap-16 md:gap-32 min-w-full justify-around shrink-0 pr-16 md:pr-32 py-2 group-hover:[animation-play-state:paused]">
+            {guarantees.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div key={idx} className="flex items-center gap-3 shrink-0 text-sm text-[#002b49]">
+                  <div className="w-10 h-10 rounded-full bg-[#eef4f2] flex items-center justify-center text-[#8ed1fc] shrink-0 transition-transform duration-300 hover:scale-110">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <span className="font-medium">{item.text}</span>
                 </div>
-                <span className="font-medium">{item.text}</span>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          {/* Second Marquee Group for seamless loop */}
+          <div className="animate-marquee flex gap-16 md:gap-32 min-w-full justify-around shrink-0 pr-16 md:pr-32 py-2 group-hover:[animation-play-state:paused]" aria-hidden="true">
+            {guarantees.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <div key={`dup-${idx}`} className="flex items-center gap-3 shrink-0 text-sm text-[#002b49]">
+                  <div className="w-10 h-10 rounded-full bg-[#eef4f2] flex items-center justify-center text-[#8ed1fc] shrink-0 transition-transform duration-300 hover:scale-110">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                  <span className="font-medium">{item.text}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Bottom Impact Image Section (Stats) */}
-        <div className="relative mt-16 rounded-3xl overflow-hidden h-[240px] sm:h-[300px]">
+        <div className="relative mt-16 rounded-3xl overflow-hidden h-[240px] sm:h-[300px] flex items-center">
           <Image
             src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1200&q=80"
             alt="Sri Lanka Coastline"
@@ -191,10 +211,10 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[#002b49]/60 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-black/40" />
           
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 text-center w-full max-w-5xl px-4">
+          <div className="relative w-full bg-[#001726]/80 backdrop-blur-md py-8 border-y border-white/10">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 text-center w-full max-w-5xl mx-auto px-4">
               <div>
                 <AnimatedCounter end={10} suffix="+" className="font-serif text-4xl sm:text-5xl font-bold text-white mb-2" />
                 <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-300">Years of Excellence</div>
