@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersHero } from '@/components/WalkersHero';
 import { WalkersIntro } from '@/components/WalkersIntro';
@@ -14,25 +15,13 @@ import { WalkersFAQ } from '@/components/WalkersFAQ';
 import { WalkersFooter } from '@/components/WalkersFooter';
 
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
-import { InquireDrawer } from '@/components/Modals/InquireDrawer';
-import { TourDetailModal } from '@/components/Modals/TourDetailModal';
-import { PlanTripModal } from '@/components/Modals/PlanTripModal';
-
-import { TourPackage } from '@/types';
 import { MessageSquare } from 'lucide-react';
 
 export default function HomePage() {
+  const router = useRouter();
+
   // Modal states
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [isPlanTripOpen, setIsPlanTripOpen] = useState(false);
-  const [selectedTour, setSelectedTour] = useState<TourPackage | null>(null);
-  const [inquireInterest, setInquireInterest] = useState('Tailor-made Bespoke Tour');
-
-  const handleOpenInquireWithInterest = (interest: string) => {
-    setInquireInterest(interest);
-    setIsInquireOpen(true);
-  };
 
   const scrollToPackages = () => {
     const el = document.getElementById('packages');
@@ -40,8 +29,7 @@ export default function HomePage() {
   };
 
   const scrollToAbout = () => {
-    const el = document.getElementById('about');
-    el?.scrollIntoView({ behavior: 'smooth' });
+    router.push('/about');
   };
 
   return (
@@ -49,7 +37,6 @@ export default function HomePage() {
       {/* Walkers Style Header */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenInquire={() => handleOpenInquireWithInterest('General Tour Inquiry')}
       />
 
       {/* Hero Banner Section */}
@@ -59,26 +46,20 @@ export default function HomePage() {
       <WalkersIntro onAboutClick={scrollToAbout} />
 
       {/* Destinations Section */}
-      <WalkersDestinations
-        onSelectDestination={(dest) => {
-          handleOpenInquireWithInterest(`Destination Inquiry: ${dest.name}`);
-        }}
-      />
+      <WalkersDestinations />
 
       {/* Tour Packages Section (with watermark) */}
-      <WalkersTourPackages
-        onSelectPackage={(pkg) => setSelectedTour(pkg)}
-      />
+      <WalkersTourPackages />
 
       {/* Tailor-Made Bespoke Tours Section */}
       <WalkersBespokeTours
-        onPlanTrip={() => setIsPlanTripOpen(true)}
+        onPlanTrip={() => router.push('/services')}
       />
 
       {/* Vehicle Rentals Section */}
       <WalkersVehicleRentals
-        onSelectVehicle={(vehicle) => handleOpenInquireWithInterest(`Rental Inquiry: ${vehicle.model}`)}
-        onViewAllVehicles={() => handleOpenInquireWithInterest('General Vehicle Rental')}
+        onSelectVehicle={() => router.push('/vehicles')}
+        onViewAllVehicles={() => router.push('/vehicles')}
       />
 
       {/* Guest Reviews & Real Stories Section */}
@@ -108,30 +89,13 @@ export default function HomePage() {
         </a>
       </div>
 
-      {/* Modals & Drawers */}
+      {/* Modals */}
       <OffcanvasSearch
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
         onSelectSearch={(term) => {
-          scrollToPackages();
+          router.push(`/destinations?q=${encodeURIComponent(term)}`);
         }}
-      />
-
-      <InquireDrawer
-        isOpen={isInquireOpen}
-        onClose={() => setIsInquireOpen(false)}
-        prefilledInterest={inquireInterest}
-      />
-
-      <TourDetailModal
-        pkg={selectedTour}
-        isOpen={Boolean(selectedTour)}
-        onClose={() => setSelectedTour(null)}
-      />
-
-      <PlanTripModal
-        isOpen={isPlanTripOpen}
-        onClose={() => setIsPlanTripOpen(false)}
       />
     </main>
   );

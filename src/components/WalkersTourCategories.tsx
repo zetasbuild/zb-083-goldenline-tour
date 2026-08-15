@@ -17,27 +17,27 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
     {
       id: 'classic',
       title: 'Classic Tours',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&q=80',
+      image: '/images/cultural.jpg',
     },
     {
       id: 'cultural',
       title: 'Cultural Tours',
-      image: 'https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=800&q=80',
+      image: '/images/kandy.webp',
     },
     {
       id: 'hill-country',
       title: 'Hill Country Scenic',
-      image: '/images/hero-ella.jpg',
+      image: '/images/hillcountry.jpg',
     },
     {
       id: 'wildlife-adventure',
       title: 'Wildlife & Adventure',
-      image: '/images/wildlife.webp',
+      image: '/images/yala.jpg',
     },
     {
       id: 'beach',
       title: 'Beach Holidays',
-      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+      image: '/images/mirissa.jpg',
     },
     {
       id: 'honeymoon',
@@ -47,7 +47,7 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
     {
       id: 'luxury',
       title: 'Luxury Tours',
-      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
+      image: '/images/nuwaraeliya.jpg',
     },
   ];
 

@@ -2,11 +2,10 @@
 
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
-import { DestinationDetailModal } from '@/components/Modals/DestinationDetailModal';
 import { PlanTripModal } from '@/components/Modals/PlanTripModal';
-import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { DESTINATIONS } from '@/data/travelData';
 import { Destination, DestinationCategory } from '@/types';
@@ -305,10 +304,10 @@ export default function DestinationsPage() {
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
               {filteredDestinations.map((dest) => (
-                <div
+                <Link
                   key={dest.id}
-                  onClick={() => setSelectedDestination(dest)}
-                  className="hover-box group flex-shrink-0 h-[440px] sm:h-[460px] cursor-pointer rounded-3xl overflow-hidden relative shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#001726]"
+                  href={`/tours`}
+                  className="hover-box group flex-shrink-0 h-[440px] sm:h-[460px] cursor-pointer rounded-3xl overflow-hidden relative shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#001726] block"
                 >
                   {/* Full Background Image */}
                   <Image
@@ -328,7 +327,11 @@ export default function DestinationsPage() {
                       {dest.category}
                     </span>
                     <button
-                      onClick={(e) => toggleWishlist(dest.id, e)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        toggleWishlist(dest.id, e);
+                      }}
                       aria-label="Save to wishlist"
                       className="w-9 h-9 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:scale-110 transition-transform cursor-pointer"
                     >
@@ -369,13 +372,11 @@ export default function DestinationsPage() {
                         <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
                           <ArrowRight className="w-4 h-4 text-[#002b49]" />
                         </div>
-                        <span className="text-xs uppercase tracking-widest font-bold bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">
-                          Explore
-                        </span>
+                        <span className="text-xs uppercase tracking-widest font-bold">Explore</span>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}
@@ -469,22 +470,6 @@ export default function DestinationsPage() {
         onSelectSearch={(term) => {
           setSearchQuery(term);
           scrollToGrid();
-        }}
-      />
-
-      <InquireDrawer
-        isOpen={isInquireOpen}
-        onClose={() => setIsInquireOpen(false)}
-        prefilledInterest={inquireInterest}
-      />
-
-      <DestinationDetailModal
-        destination={selectedDestination}
-        isOpen={Boolean(selectedDestination)}
-        onClose={() => setSelectedDestination(null)}
-        onPlanTripForDest={(destName) => {
-          setSelectedDestination(null);
-          handleOpenInquireWithInterest(`Custom Trip to ${destName}`);
         }}
       />
 

@@ -2,17 +2,16 @@
 
 import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, ChevronLeft, ChevronRight, MapPin } from 'lucide-react';
 import { DESTINATIONS } from '@/data/travelData';
 import { Destination } from '@/types';
 
 interface WalkersDestinationsProps {
-  onSelectDestination: (dest: Destination) => void;
+  onSelectDestination?: (dest: Destination) => void;
 }
 
-export const WalkersDestinations: React.FC<WalkersDestinationsProps> = ({
-  onSelectDestination,
-}) => {
+export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = (direction: 'left' | 'right') => {
@@ -26,17 +25,14 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = ({
   useEffect(() => {
     const interval = setInterval(() => {
       if (scrollRef.current) {
-        const maxScrollLeft = scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
-        
-        if (scrollRef.current.scrollLeft >= maxScrollLeft - 10) {
-          // If we reached the end, snap back to the beginning
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
           scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
-          // Otherwise, slide right
-          scrollRef.current.scrollBy({ left: 380, behavior: 'smooth' });
+          scrollRef.current.scrollBy({ left: 320, behavior: 'smooth' });
         }
       }
-    }, 4000); // Slide every 4 seconds
+    }, 4500);
 
     return () => clearInterval(interval);
   }, []);
@@ -50,48 +46,45 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = ({
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-0">
         {/* Centered Header matching Tour Packages UI */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-4">
           <span 
-            className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
+            className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1 inline-block -rotate-2"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
             Explore the Wonder of
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6 mt-2">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-3 mt-1">
             Destinations in Sri Lanka
           </h2>
-          <p className="text-[#55697a] sm:text-lg leading-relaxed">
+          <p className="text-[#55697a] sm:text-base leading-relaxed">
             Discover the breathtaking beauty, ancient heritage, and hidden tropical paradises across our beautiful island.
           </p>
         </div>
 
         {/* Actions & Navigation */}
-        <div className="flex justify-end items-center w-full mb-6">
+        <div className="flex justify-end items-center w-full mb-3">
           {/* Explore Button */}
-          <button 
-            onClick={() => {
-              const el = document.getElementById('destinations');
-              el?.scrollIntoView({ behavior: 'smooth' });
-            }}
+          <Link 
+            href="/destinations"
             className="next-btn next-btn--blue group cursor-pointer"
           >
             <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
               <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
             </div>
             <span className="text-xs uppercase tracking-widest font-bold text-[#002b49]">Explore</span>
-          </button>
+          </Link>
         </div>
 
-        {/* Destinations Carousel (Same Tall Card UI) */}
+        {/* Destinations Carousel */}
         <div
           ref={scrollRef}
           className="flex space-x-5 overflow-x-auto no-scrollbar pb-6 pt-2 snap-x snap-mandatory"
         >
           {DESTINATIONS.map((dest) => (
-            <div
+            <Link
               key={dest.id}
-              onClick={() => onSelectDestination(dest)}
-              className="hover-box group flex-shrink-0 w-[260px] sm:w-[290px] h-[400px] sm:h-[440px] cursor-pointer snap-start rounded-2xl overflow-hidden relative"
+              href={`/destinations?q=${encodeURIComponent(dest.name)}`}
+              className="hover-box group flex-shrink-0 w-[260px] sm:w-[290px] h-[400px] sm:h-[440px] cursor-pointer snap-start rounded-2xl overflow-hidden relative block"
             >
               <Image
                 src={dest.image}
@@ -120,10 +113,10 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = ({
                   <div className="next-btn-circle group-hover:scale-110 transition-transform">
                     <ArrowRight className="w-4 h-4 text-[#002b49]" />
                   </div>
-                  <span className="text-xs uppercase tracking-widest font-bold bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">Explore</span>
+                  <span className="text-xs uppercase tracking-widest font-bold">Explore</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

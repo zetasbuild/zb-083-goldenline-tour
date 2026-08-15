@@ -26,7 +26,7 @@ import { CurrencyType } from '@/types';
 
 interface WalkersHeaderProps {
   onOpenSearch: () => void;
-  onOpenInquire: () => void;
+  onOpenInquire?: () => void;
 }
 
 export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
@@ -66,6 +66,7 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
 
   return (
     <>
+      {/* Fixed Luxury Header in Walkers Tours Dark Luxury Style */}
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
@@ -92,11 +93,13 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
             >
               <span>Home</span>
               {/* White line with dot for active state */}
-              <div className="absolute -bottom-[5px] flex items-center justify-center opacity-100 transition-opacity">
-                <div className="h-[2px] w-8 bg-white relative flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 rounded-full bg-white absolute" />
+              {pathname === '/' && (
+                <div className="absolute -bottom-[5px] flex items-center justify-center opacity-100 transition-opacity">
+                  <div className="h-[2px] w-8 bg-white relative flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 rounded-full bg-white absolute" />
+                  </div>
                 </div>
-              </div>
+              )}
             </Link>
 
             <Link href="/destinations" className="hover:text-gray-200 transition-colors">
@@ -127,7 +130,12 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
           {/* Right Action Icons: Search + Inquire + Hamburger */}
           <div className="flex items-center space-x-4 sm:space-x-5">
             {/* WhatsApp Contact */}
-            <div className="hidden lg:flex items-center gap-2.5">
+            <a
+              href="https://wa.me/94771234567"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden lg:flex items-center gap-2.5 hover:opacity-90 transition-opacity"
+            >
               <div className="w-10 h-10 rounded-full border border-white/80 flex items-center justify-center text-white bg-white/10">
                 <Phone className="w-4 h-4" />
               </div>
@@ -135,7 +143,7 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
                 <span className="text-white font-bold text-[14.5px] leading-tight">+94 77 123 4567</span>
                 <span className="text-white/70 text-[11px] font-medium leading-tight">24/7 Support</span>
               </div>
-            </div>
+            </a>
 
             {/* Hamburger Button for Full Mega Menu */}
             <button
@@ -257,15 +265,15 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
                 </div>
               </div>
 
-              <button
-                onClick={() => {
-                  setMegaMenuOpen(false);
-                  onOpenInquire();
-                }}
-                className="w-full bg-[#0077b6] hover:bg-[#0096c7] text-white py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all shadow-lg cursor-pointer"
+              <a
+                href="https://wa.me/94771234567"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMegaMenuOpen(false)}
+                className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all shadow-lg text-center block cursor-pointer"
               >
-                Start Your Inquiry
-              </button>
+                Chat on WhatsApp
+              </a>
             </div>
           </div>
         </div>

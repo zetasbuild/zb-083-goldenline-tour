@@ -749,17 +749,6 @@ export default function VehiclesPage() {
         onClose={() => setIsSearchOpen(false)}
         onSelectSearch={(term) => setSearchQuery(term)}
       />
-
-      <InquireDrawer
-        isOpen={isInquireOpen}
-        onClose={() => setIsInquireOpen(false)}
-        prefilledInterest={inquireInterest}
-      />
-
-      <PlanTripModal
-        isOpen={isPlanTripOpen}
-        onClose={() => setIsPlanTripOpen(false)}
-      />
     </main>
   );
 }

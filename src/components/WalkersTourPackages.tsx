@@ -2,18 +2,17 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRight, Clock } from 'lucide-react';
 import { useCurrency } from '@/context/CurrencyContext';
 import { TourPackage } from '@/types';
 import { TOUR_PACKAGES } from '@/data/travelData';
 
 interface WalkersTourPackagesProps {
-  onSelectPackage: (pkg: TourPackage) => void;
+  onSelectPackage?: (pkg: TourPackage) => void;
 }
 
-export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = ({
-  onSelectPackage,
-}) => {
+export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
   const { formatPrice } = useCurrency();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
@@ -62,10 +61,10 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = ({
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-4 sm:px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                 selectedCategory === cat
                   ? 'bg-[#002b49] text-white shadow-md scale-105'
-                  : 'bg-[#f0f4f8] text-[#002b49] hover:bg-[#e2ebf2]'
+                  : 'bg-[#f4f7f6] text-[#002b49] hover:bg-[#e2ede7] hover:text-[#002b49]'
               }`}
             >
               {cat === 'All' ? 'All Packages' : cat}
@@ -82,9 +81,9 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = ({
                 return (
                   <React.Fragment key={pkg.id}>
                     {/* The Large Left Card */}
-                    <div
-                      onClick={() => onSelectPackage(pkg)}
-                      className="lg:col-span-1 lg:row-span-2 h-[460px] md:h-[600px] lg:h-full w-full group bg-[#001726] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end"
+                    <Link
+                      href={`/tours/${pkg.id}`}
+                      className="lg:col-span-1 lg:row-span-2 h-[460px] md:h-[600px] lg:h-full w-full group bg-[#001726] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
                     >
                       {/* Background Image */}
                       <Image
@@ -124,7 +123,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = ({
                           <span className="text-xs uppercase tracking-widest font-bold bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">Explore</span>
                         </div>
                       </div>
-                    </div>
+                    </Link>
 
                     {/* The Text Block (Col 2 & 3, Row 1) */}
                     <div className="lg:col-span-2 flex flex-col justify-center px-4 sm:px-8 py-8 lg:py-12 relative z-10 lg:pr-16">
@@ -142,15 +141,15 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = ({
                       <p className="text-sm sm:text-base text-gray-800 mb-8 leading-relaxed max-w-2xl">
                         Embark on an unforgettable journey through Sri Lanka's stunning landscapes, rich history, and culture. Whether it be adventure, heritage, or luxury relaxation, Ceylon Journeys crafts seamless, tailor-made experiences just for you.
                       </p>
-                      <button 
-                        onClick={() => setSelectedCategory('Classic Tours')}
+                      <Link 
+                        href="/tours"
                         className="next-btn next-btn--blue group cursor-pointer w-fit"
                       >
                         <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
                           <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
                         </div>
                         <span className="text-xs uppercase tracking-widest font-bold text-[#002b49]">Explore All Categories</span>
-                      </button>
+                      </Link>
                     </div>
                   </React.Fragment>
                 );
@@ -158,10 +157,10 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = ({
 
               // Normal Small Cards
               return (
-                <div
+                <Link
                   key={pkg.id}
-                  onClick={() => onSelectPackage(pkg)}
-                  className="hover-box group bg-[#001726] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end relative cursor-pointer h-[350px]"
+                  href={`/tours/${pkg.id}`}
+                  className="hover-box group bg-[#001726] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end relative cursor-pointer h-[350px] block"
                 >
                   {/* Background Image */}
                   <Image
@@ -196,7 +195,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = ({
                       <span className="text-xs uppercase tracking-widest font-bold bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">Explore</span>
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -204,10 +203,10 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = ({
           /* Filtered Category Grid */
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {filteredPackages.map((pkg) => (
-              <div
+              <Link
                 key={pkg.id}
-                onClick={() => onSelectPackage(pkg)}
-                className="hover-box group bg-[#001726] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end relative cursor-pointer h-[380px]"
+                href={`/tours/${pkg.id}`}
+                className="hover-box group bg-[#001726] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end relative cursor-pointer h-[380px] block"
               >
                 {/* Background Image */}
                 <Image
@@ -252,7 +251,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = ({
                     <span className="text-xs uppercase tracking-widest font-bold bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">Explore</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}

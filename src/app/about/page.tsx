@@ -661,17 +661,6 @@ export default function AboutUsPage() {
           router.push(`/destinations?q=${encodeURIComponent(term)}`);
         }}
       />
-
-      <InquireDrawer
-        isOpen={isInquireOpen}
-        onClose={() => setIsInquireOpen(false)}
-        prefilledInterest={inquireInterest}
-      />
-
-      <PlanTripModal
-        isOpen={isPlanTripOpen}
-        onClose={() => setIsPlanTripOpen(false)}
-      />
     </main>
   );
 }
