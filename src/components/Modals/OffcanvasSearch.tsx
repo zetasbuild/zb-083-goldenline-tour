@@ -20,14 +20,14 @@ export const OffcanvasSearch: React.FC<OffcanvasSearchProps> = ({
   if (!isOpen) return null;
 
   const popularSearches = [
-    'Beach Tours',
+    'Classic Tours Sri Lanka',
     'Cultural Tours',
-    'Wildlife Tours',
-    'Hill Country & Ella',
-    'Sigiriya Rock',
-    'Honeymoon Packages',
-    'Luxury Van Rental',
-    'Ayurveda & Wellness',
+    'Hill Country Scenic',
+    'Wildlife & Adventure',
+    'Beach Holidays',
+    'Honeymoon Tours',
+    'Tropical Highlights Tour',
+    'Luxury Tours',
   ];
 
   const handleSubmit = (e: React.FormEvent) => {

@@ -35,6 +35,14 @@ export interface Destination {
   attractions: string[];
 }
 
+export interface TourItineraryDay {
+  day: string;
+  title: string;
+  desc: string;
+  stay?: string;
+  image?: string;
+}
+
 export interface TourPackage {
   id: string;
   title: string;
@@ -47,6 +55,12 @@ export interface TourPackage {
   description: string;
   destinationsCovered: string[];
   includes: string[];
+  category?: string;
+  categoryLabel?: string;
+  categoryDesc?: string;
+  featured?: boolean;
+  highlights?: string[];
+  itinerary?: TourItineraryDay[];
 }
 
 export interface Vehicle {

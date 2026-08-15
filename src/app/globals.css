@@ -41,6 +41,17 @@ body {
   pointer-events: none;
   user-select: none;
   letter-spacing: -0.03em;
+  display: inline-block;
+  animation: bounceWatermark 5s ease-in-out infinite;
+}
+
+@keyframes bounceWatermark {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 /* Circular Next Button in Walkers Tours style */

@@ -42,13 +42,13 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = ({
   }, []);
 
   return (
-    <section id="destinations" className="pt-20 pb-10 lg:pt-32 lg:pb-16 bg-white relative overflow-x-clip overflow-y-visible">
+    <section id="destinations" className="pt-10 pb-10 lg:pt-16 lg:pb-16 bg-white relative overflow-x-clip overflow-y-visible">
       {/* Background Watermark Text */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
+      <div className="absolute -top-12 sm:-top-16 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
         <span className="watermark-text text-[#f4f7f6]">destinations</span>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-16 sm:mt-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-0">
         {/* Centered Header matching Tour Packages UI */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span 
@@ -65,21 +65,20 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = ({
           </p>
         </div>
 
-        {/* Carousel Navigation */}
-        <div className="flex justify-end items-center gap-3 mb-6">
-          <button
-            onClick={() => handleScroll('left')}
-            aria-label="Previous destination"
-            className="w-10 h-10 rounded-full border border-gray-200 bg-white hover:bg-[#002b49] hover:border-[#002b49] hover:text-white text-[#002b49] shadow-sm flex items-center justify-center transition-all cursor-pointer"
+        {/* Actions & Navigation */}
+        <div className="flex justify-end items-center w-full mb-6">
+          {/* Explore Button */}
+          <button 
+            onClick={() => {
+              const el = document.getElementById('destinations');
+              el?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="next-btn next-btn--blue group cursor-pointer"
           >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={() => handleScroll('right')}
-            aria-label="Next destination"
-            className="w-10 h-10 rounded-full border border-gray-200 bg-white hover:bg-[#002b49] hover:border-[#002b49] hover:text-white text-[#002b49] shadow-sm flex items-center justify-center transition-all cursor-pointer"
-          >
-            <ChevronRight className="w-5 h-5" />
+            <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
+              <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
+            </div>
+            <span className="text-xs uppercase tracking-widest font-bold text-[#002b49]">Explore</span>
           </button>
         </div>
 

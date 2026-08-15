@@ -30,7 +30,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
 
           {/* Center Content Matching 1st Image */}
           <div className="md:col-span-6 px-0 sm:px-6 lg:px-8 flex flex-col items-start justify-center">
-            <span className="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-bold mb-3 block">
+            <span className="font-caveat text-3xl sm:text-4xl text-[#cba258] -rotate-2 mb-4 inline-block w-max" style={{ fontFamily: 'var(--font-caveat), cursive' }}>
               Why Travel With Us
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a1a1a] mb-5 leading-tight">
@@ -41,7 +41,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
               We are committed to providing exceptional travel experiences with the best service, comfort, and unforgettable memories.
             </p>
 
-            <ul className="space-y-4 mb-10 w-full">
+            <ul className="space-y-4 mb-4 w-full">
               {[
                 'Best Price Guarantee',
                 'Safe & Reliable Travel',
@@ -57,11 +57,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
               ))}
             </ul>
 
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 w-full justify-between border-t border-gray-100 pt-8 mt-2">
-              <span className="font-caveat text-4xl text-[#cba258] -rotate-2" style={{ fontFamily: 'var(--font-caveat), cursive' }}>
-                Ceylon Journeys Team
-              </span>
-              
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 w-full justify-start border-t border-gray-100 pt-4">
               {/* Circular Next Button */}
               <button
                 onClick={onAboutClick}

@@ -30,8 +30,8 @@ export const WhyUsAndTestimonials: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Why Travel With Us + Image Collage */}
           <div className="lg:col-span-6 flex flex-col items-start">
-            <span className="text-[11px] font-bold tracking-widest text-[#0e382b] uppercase bg-[#e9f4ef] px-3 py-1 rounded-full mb-3 inline-block">
-              WHY TRAVEL WITH US
+            <span className="font-script text-3xl sm:text-4xl text-[#d49a37] font-semibold tracking-wide mb-4 inline-block w-max">
+              Why Travel With Us
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#072118] tracking-tight leading-tight mb-4">
               We Make Your Journey<br className="hidden sm:inline" /> Extraordinary
@@ -54,12 +54,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
               ))}
             </div>
 
-            {/* Handwritten Signature */}
-            <div className="mb-8">
-              <span className="font-script text-3xl sm:text-4xl text-[#d49a37] font-semibold tracking-wide block">
-                Ceylon Journeys Team
-              </span>
-            </div>
+
 
             {/* Aesthetic Sri Lanka Image Collage */}
             <div className="grid grid-cols-2 gap-3 w-full">

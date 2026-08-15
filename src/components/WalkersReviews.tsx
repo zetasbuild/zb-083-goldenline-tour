@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
 
 export const WalkersReviews: React.FC = () => {
@@ -53,17 +54,35 @@ export const WalkersReviews: React.FC = () => {
   const currentReview = reviews[currentIndex];
 
   return (
-    <section className="pt-12 pb-24 lg:pt-16 lg:pb-32 bg-white relative overflow-hidden">
+    <section className="pt-12 pb-24 lg:pt-16 lg:pb-32 relative overflow-hidden">
+      {/* Subtle Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1920&q=80"
+          alt="Sri Lanka scenery"
+          fill
+          className="object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-white/70" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Subtle Watermark */}
-        <div className="text-center -mb-8 sm:-mb-14 overflow-hidden">
+        <div className="text-center mb-2 sm:mb-6 overflow-hidden pointer-events-none select-none">
           <span className="watermark-text">real stories</span>
         </div>
 
         {/* Section Heading */}
         <div className="text-center mb-12 relative z-10">
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#002b49]">
-            <span className="font-bold">Real Experiences</span>
+          <span 
+            className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
+            style={{ fontFamily: 'var(--font-caveat), cursive' }}
+          >
+            Discover Their
+          </span>
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6 mt-2">
+            Real Experiences
           </h2>
         </div>
 

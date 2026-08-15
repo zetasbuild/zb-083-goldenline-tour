@@ -15,9 +15,9 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
 
   const categories = [
     {
-      id: 'beach',
-      title: 'Beach Tours',
-      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+      id: 'classic',
+      title: 'Classic Tours',
+      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 'cultural',
@@ -25,44 +25,29 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
       image: 'https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=800&q=80',
     },
     {
-      id: 'wildlife',
-      title: 'Wildlife Tours',
-      image: 'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      id: 'family',
-      title: 'Family Tours',
-      image: 'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      id: 'adventure',
-      title: 'Adventure Tours',
-      image: 'https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=800&q=80',
-    },
-    {
-      id: 'ramayana',
-      title: 'Ramayana Trail',
-      image: 'https://images.unsplash.com/photo-1588598198321-9735fd52455f?auto=format&fit=crop&w=800&q=80',
-    },
-    {
       id: 'hill-country',
-      title: 'Hill Country Tours',
+      title: 'Hill Country Scenic',
       image: '/images/hero-ella.jpg',
     },
     {
-      id: 'ayurvedic',
-      title: 'Ayurvedic Wellness',
-      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
+      id: 'wildlife-adventure',
+      title: 'Wildlife & Adventure',
+      image: '/images/wildlife.webp',
+    },
+    {
+      id: 'beach',
+      title: 'Beach Holidays',
+      image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 'honeymoon',
       title: 'Honeymoon Tours',
-      image: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80',
+      image: '/images/honeymoon.jpg',
     },
     {
-      id: 'golf',
-      title: 'Golf Tours',
-      image: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=800&q=80',
+      id: 'luxury',
+      title: 'Luxury Tours',
+      image: 'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80',
     },
   ];
 

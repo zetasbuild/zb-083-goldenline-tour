@@ -175,13 +175,14 @@ export const InquireDrawer: React.FC<InquireDrawerProps> = ({
                   className="w-full p-3 rounded-xl border border-gray-200 bg-[#f8fbfa] text-xs font-medium text-gray-800 outline-none focus:border-[#002b49]"
                 >
                   <option value="Tailor-made Bespoke Tour">Tailor-made Bespoke Tour</option>
-                  <option value="Wildlife Safari Tour">Wildlife &amp; Safari Tour</option>
-                  <option value="Hill Country & Ella">Hill Country &amp; Ella Train</option>
-                  <option value="Beach & Coastline Escape">Beach &amp; Coastline Escape</option>
-                  <option value="Cultural Odyssey">Cultural Triangle Odyssey</option>
-                  <option value="Ayurvedic Wellness Retreat">Ayurvedic Wellness Retreat</option>
-                  <option value="Honeymoon Special">Romantic Honeymoon Package</option>
-                  <option value="Corporate MICE & Event">Corporate MICE &amp; Events</option>
+                  <option value="Classic Tours Sri Lanka">Classic Tours Sri Lanka</option>
+                  <option value="Cultural Tours Sri Lanka">Cultural Tours Sri Lanka</option>
+                  <option value="Hill Country Scenic Tours">Hill Country Scenic Tours</option>
+                  <option value="Wildlife & Adventure Tours">Wildlife &amp; Adventure Tours</option>
+                  <option value="Beach Holidays">Beach Holidays</option>
+                  <option value="Honeymoon Tours">Honeymoon Tours</option>
+                  <option value="Luxury Tours">Luxury Tours</option>
+                  <option value="Corporate MICE & Events">Corporate MICE &amp; Events</option>
                 </select>
               </div>
 

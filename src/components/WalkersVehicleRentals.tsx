@@ -6,7 +6,6 @@ import { ChevronLeft, ChevronRight, Users, Briefcase, Cog, CarFront, Route, Spar
 import { VEHICLES } from '@/data/travelData';
 import { Vehicle } from '@/types';
 import { useCurrency } from '@/context/CurrencyContext';
-import { AnimatedCounter } from '@/components/AnimatedCounter';
 
 interface WalkersVehicleRentalsProps {
   onSelectVehicle: (v: Vehicle) => void;
@@ -56,11 +55,11 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
   return (
     <section id="rentals" className="pt-20 pb-10 lg:pt-32 lg:pb-16 bg-[#f8fbfa] relative overflow-hidden">
       {/* Background Watermark Text */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
         <span className="watermark-text text-[#eef4f2]">comfortable</span>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-6 sm:mt-10">
         
         {/* Centered Header matching Tour Packages UI */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -78,30 +77,20 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
           </p>
         </div>
 
-        {/* Carousel Navigation */}
-        <div className="flex justify-end items-center gap-3 mb-6 pr-4">
+        {/* Actions & Navigation */}
+        <div className="flex justify-end items-center w-full mb-6 pr-4">
+          {/* Explore Button */}
           {onViewAllVehicles && (
-            <button
+            <button 
               onClick={onViewAllVehicles}
-              className="hidden lg:block border border-gray-300 hover:bg-[#002b49] hover:text-white hover:border-[#002b49] text-[#002b49] px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all cursor-pointer mr-2"
+              className="next-btn next-btn--blue group cursor-pointer"
             >
-              View All
+              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
+                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
+              </div>
+              <span className="text-xs uppercase tracking-widest font-bold text-[#002b49]">Explore</span>
             </button>
           )}
-          <button
-            onClick={() => handleScroll('left')}
-            aria-label="Previous vehicle"
-            className="w-10 h-10 rounded-full border border-gray-300 text-gray-500 hover:bg-[#002b49] hover:text-white hover:border-[#002b49] flex items-center justify-center transition-all cursor-pointer"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={() => handleScroll('right')}
-            aria-label="Next vehicle"
-            className="w-10 h-10 rounded-full border border-gray-300 text-gray-500 hover:bg-[#002b49] hover:text-white hover:border-[#002b49] flex items-center justify-center transition-all cursor-pointer"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
         </div>
 
         {/* Vehicles Carousel */}
@@ -202,38 +191,7 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
           </div>
         </div>
 
-        {/* Bottom Impact Image Section (Stats) */}
-        <div className="relative mt-16 rounded-3xl overflow-hidden h-[240px] sm:h-[300px] flex items-center">
-          <Image
-            src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1200&q=80"
-            alt="Sri Lanka Coastline"
-            fill
-            className="object-cover"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-black/40" />
-          
-          <div className="relative w-full bg-[#001726]/80 backdrop-blur-md py-8 border-y border-white/10">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 text-center w-full max-w-5xl mx-auto px-4">
-              <div>
-                <AnimatedCounter end={10} suffix="+" className="font-serif text-4xl sm:text-5xl font-bold text-white mb-2" />
-                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-300">Years of Excellence</div>
-              </div>
-              <div>
-                <AnimatedCounter end={500} suffix="+" className="font-serif text-4xl sm:text-5xl font-bold text-white mb-2" />
-                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-300">Happy Travelers Daily</div>
-              </div>
-              <div>
-                <AnimatedCounter end={50} suffix="+" className="font-serif text-4xl sm:text-5xl font-bold text-white mb-2" />
-                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-300">Destinations</div>
-              </div>
-              <div>
-                <AnimatedCounter end={100} suffix="+" className="font-serif text-4xl sm:text-5xl font-bold text-white mb-2" />
-                <div className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-gray-300">Vehicles in Fleet</div>
-              </div>
-            </div>
-          </div>
-        </div>
+
 
       </div>
     </section>

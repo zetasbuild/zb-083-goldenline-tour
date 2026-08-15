@@ -49,12 +49,13 @@ export const WalkersFooter: React.FC = () => {
               Sri Lanka Tours
             </h4>
             <ul className="space-y-2.5">
-              <li><a href="/#packages" className="hover:text-white">Beach Tours</a></li>
-              <li><a href="/#packages" className="hover:text-white">Cultural Heritage</a></li>
-              <li><a href="/#packages" className="hover:text-white">Wildlife &amp; Safari</a></li>
-              <li><a href="/#packages" className="hover:text-white">Hill Country Escapes</a></li>
-              <li><a href="/#packages" className="hover:text-white">Honeymoon Packages</a></li>
-              <li><a href="/#packages" className="hover:text-white">Family Vacations</a></li>
+              <li><a href="/#packages" className="hover:text-white">Classic Tours</a></li>
+              <li><a href="/#packages" className="hover:text-white">Cultural Tours</a></li>
+              <li><a href="/#packages" className="hover:text-white">Hill Country Scenic</a></li>
+              <li><a href="/#packages" className="hover:text-white">Wildlife &amp; Adventure</a></li>
+              <li><a href="/#packages" className="hover:text-white">Beach Holidays</a></li>
+              <li><a href="/#packages" className="hover:text-white">Honeymoon Tours</a></li>
+              <li><a href="/#packages" className="hover:text-white">Luxury Tours</a></li>
             </ul>
           </div>
 

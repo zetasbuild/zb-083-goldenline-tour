@@ -3,7 +3,24 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, MessageSquare, Menu, X, ChevronDown, Phone, Mail } from 'lucide-react';
+import {
+  Search,
+  MessageSquare,
+  Menu,
+  X,
+  ChevronDown,
+  ChevronRight,
+  Phone,
+  Mail,
+  Sparkles,
+  Landmark,
+  Mountain,
+  Footprints,
+  Palmtree,
+  Heart,
+  Crown,
+  Compass,
+} from 'lucide-react';
 import { useCurrency } from '@/context/CurrencyContext';
 import { CurrencyType } from '@/types';
 
@@ -38,16 +55,13 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
   const currencies: CurrencyType[] = ['LKR', 'USD', 'EUR', 'GBP'];
 
   const tourCategories = [
-    { name: 'Beach Tours', href: '/#categories' },
-    { name: 'Cultural Tours', href: '/#categories' },
-    { name: 'Wildlife & Safari Tours', href: '/#categories' },
-    { name: 'Hill Country Tours', href: '/#categories' },
-    { name: 'Adventure Tours', href: '/#categories' },
-    { name: 'Family Tours', href: '/#categories' },
-    { name: 'Honeymoon Tours', href: '/#categories' },
-    { name: 'Ayurvedic Wellness', href: '/#categories' },
-    { name: 'Golf Tours', href: '/#categories' },
-    { name: 'Ramayana Trail', href: '/#categories' },
+    { name: 'Classic Tours Sri Lanka', href: '/tours/tropical-highlights-tour' },
+    { name: 'Cultural Tours Sri Lanka', href: '/tours' },
+    { name: 'Hill Country Scenic Tours', href: '/tours' },
+    { name: 'Wildlife & Adventure Tours', href: '/tours' },
+    { name: 'Beach Holidays', href: '/tours' },
+    { name: 'Honeymoon Tours', href: '/tours' },
+    { name: 'Luxury Tours', href: '/tours' },
   ];
 
   return (
@@ -89,46 +103,23 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
               Destinations
             </Link>
 
-            {/* Tour Packages Submenu */}
-            <div
-              className="relative group flex items-center cursor-pointer h-full py-2"
-              onMouseEnter={() => setTourDropdownOpen(true)}
-              onMouseLeave={() => setTourDropdownOpen(false)}
-            >
-              <Link href="/#packages" className="hover:text-gray-200 transition-colors flex items-center gap-1">
-                <span>Tour Packages</span>
-              </Link>
-              {tourDropdownOpen && (
-                <div className="absolute left-0 top-full mt-2 w-56 bg-[#001f35]/95 backdrop-blur-md rounded-xl shadow-2xl border border-white/10 p-2 z-50">
-                  <div className="flex flex-col">
-                    {tourCategories.map((cat) => (
-                      <Link
-                        key={cat.name}
-                        href={cat.href}
-                        onClick={() => setTourDropdownOpen(false)}
-                        className="px-3 py-2 rounded-lg text-sm text-white/90 hover:text-white hover:bg-white/10 transition-colors font-medium"
-                      >
-                        {cat.name}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+            <Link href="/tours" className="hover:text-gray-200 transition-colors">
+              Tour Packages
+            </Link>
 
-            <Link href="/#vehicles" className="hover:text-gray-200 transition-colors">
+            <Link href="/vehicles" className="hover:text-gray-200 transition-colors">
               Car Rentals
             </Link>
 
-            <Link href="/#services" className="hover:text-gray-200 transition-colors">
+            <Link href="/services" className="hover:text-gray-200 transition-colors">
               Services
             </Link>
 
-            <Link href="/#about" className="hover:text-gray-200 transition-colors">
+            <Link href="/about" className="hover:text-gray-200 transition-colors">
               About Us
             </Link>
 
-            <Link href="/#contact" className="hover:text-gray-200 transition-colors">
+            <Link href="/contact" className="hover:text-gray-200 transition-colors">
               Contact Us
             </Link>
           </nav>

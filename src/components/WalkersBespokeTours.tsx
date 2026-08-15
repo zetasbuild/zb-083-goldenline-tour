@@ -15,10 +15,17 @@ export const WalkersBespokeTours: React.FC<WalkersBespokeToursProps> = ({ onPlan
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Narrative Column */}
           <div className="lg:col-span-5 flex flex-col items-start">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#002b49] leading-tight mb-6">
-              <span className="font-bold">Tailor-made</span><br />
-              Bespoke Tours
-            </h2>
+            <div>
+              <span 
+                className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
+                style={{ fontFamily: 'var(--font-caveat), cursive' }}
+              >
+                Tailor-made
+              </span>
+              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6 mt-2">
+                Bespoke Tours
+              </h2>
+            </div>
 
             <h3 className="text-base sm:text-lg font-bold text-[#002b49] mb-3">
               Create your perfect Sri Lankan adventure with us…

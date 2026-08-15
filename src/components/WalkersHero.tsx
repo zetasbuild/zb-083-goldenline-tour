@@ -12,13 +12,13 @@ export const WalkersHero: React.FC<WalkersHeroProps> = ({ onExploreClick }) => {
   return (
     <section className="relative min-h-[90vh] lg:min-h-screen flex items-center justify-center text-white overflow-hidden">
       {/* Background Video */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="object-cover object-center w-full h-full filter brightness-95 scale-105 transition-transform duration-1000"
+          className="object-cover object-center w-full h-full filter brightness-95 scale-105 lg:scale-100 transition-transform duration-1000"
         >
           <source src="/videos/home-hero.mp4" type="video/mp4" />
         </video>
