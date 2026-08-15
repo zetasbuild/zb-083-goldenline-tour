@@ -17,12 +17,12 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
     {
       id: 'classic',
       title: 'Classic Tours',
-      image: '/images/cultural.jpg',
+      image: '/images/classic.webp',
     },
     {
       id: 'cultural',
       title: 'Cultural Tours',
-      image: '/images/kandy.webp',
+      image: '/images/cultural.jpg',
     },
     {
       id: 'hill-country',
@@ -32,7 +32,7 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
     {
       id: 'wildlife-adventure',
       title: 'Wildlife & Adventure',
-      image: '/images/yala.jpg',
+      image: '/images/wildlife.webp',
     },
     {
       id: 'beach',
@@ -47,7 +47,7 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
     {
       id: 'luxury',
       title: 'Luxury Tours',
-      image: '/images/nuwaraeliya.jpg',
+      image: '/images/luxury.jpg',
     },
   ];
 

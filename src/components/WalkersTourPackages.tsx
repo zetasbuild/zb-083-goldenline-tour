@@ -3,8 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Clock } from 'lucide-react';
-import { useCurrency } from '@/context/CurrencyContext';
+import { ArrowRight } from 'lucide-react';
 import { TourPackage } from '@/types';
 import { TOUR_PACKAGES } from '@/data/travelData';
 
@@ -13,7 +12,6 @@ interface WalkersTourPackagesProps {
 }
 
 export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
-  const { formatPrice } = useCurrency();
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
 
   const categories = [
@@ -107,15 +105,9 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                         <span className="text-[11px] uppercase tracking-widest text-[#8ed1fc] font-bold block mb-1">
                           {pkg.categoryLabel}
                         </span>
-                        <h3 className="font-serif text-2xl font-bold tracking-wide leading-snug mb-2 group-hover:text-[#8ed1fc] transition-colors">
+                        <h3 className="font-serif text-2xl font-bold tracking-wide leading-snug mb-4 group-hover:text-[#8ed1fc] transition-colors">
                           {pkg.title}
                         </h3>
-                        <div className="flex items-center gap-2 text-xs text-gray-300 mb-4 pb-3 border-b border-white/20">
-                          <Clock className="w-3.5 h-3.5 text-[#8ed1fc]" />
-                          <span className="font-medium">{pkg.duration}</span>
-                          <span className="mx-1">·</span>
-                          <span className="text-[#8ed1fc] font-bold">From {formatPrice(pkg.priceLKR)}</span>
-                        </div>
                         <div className="next-btn next-btn--white">
                           <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
                             <ArrowRight className="w-4 h-4 text-[#002b49]" />
@@ -179,15 +171,9 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                     <span className="text-[11px] uppercase tracking-widest text-[#8ed1fc] font-bold block mb-1">
                       {pkg.categoryLabel}
                     </span>
-                    <h3 className="font-serif text-2xl font-bold tracking-wide leading-snug mb-2 group-hover:text-[#8ed1fc] transition-colors">
+                    <h3 className="font-serif text-2xl font-bold tracking-wide leading-snug mb-4 group-hover:text-[#8ed1fc] transition-colors">
                       {pkg.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-xs text-gray-300 mb-4 pb-3 border-b border-white/20">
-                      <Clock className="w-3.5 h-3.5 text-[#8ed1fc]" />
-                      <span className="font-medium">{pkg.duration}</span>
-                      <span className="mx-1">·</span>
-                      <span className="text-[#8ed1fc] font-bold">From {formatPrice(pkg.priceLKR)}</span>
-                    </div>
                     <div className="next-btn next-btn--white">
                       <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
                         <ArrowRight className="w-4 h-4 text-[#002b49]" />
@@ -235,15 +221,9 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                   <h3 className="font-serif text-2xl font-bold tracking-wide leading-snug mb-2 group-hover:text-[#8ed1fc] transition-colors">
                     {pkg.title}
                   </h3>
-                  <p className="text-xs text-gray-300 line-clamp-2 mb-3 leading-relaxed">
+                  <p className="text-xs text-gray-300 line-clamp-2 mb-4 leading-relaxed">
                     {pkg.description}
                   </p>
-                  <div className="flex items-center gap-2 text-xs text-gray-300 mb-4 pb-3 border-b border-white/20">
-                    <Clock className="w-3.5 h-3.5 text-[#8ed1fc]" />
-                    <span className="font-medium">{pkg.duration}</span>
-                    <span className="mx-1">·</span>
-                    <span className="text-[#8ed1fc] font-bold">From {formatPrice(pkg.priceLKR)}</span>
-                  </div>
                   <div className="next-btn next-btn--white">
                     <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
                       <ArrowRight className="w-4 h-4 text-[#002b49]" />
