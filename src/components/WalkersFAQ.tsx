@@ -43,19 +43,27 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
   };
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-[#f8fbfa] border-t border-[#e2ede7] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-20 lg:py-28 bg-[#f8fbfa] border-t border-[#e2ede7] relative overflow-hidden">
+      {/* Background Watermark Text */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
+        <span className="watermark-text text-[#eef4f2]">answers</span>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
-        <div className="text-center mb-12 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
           <span 
             className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
             Helpful Information
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#002b49] mt-2">
-            <span className="font-bold">Frequently Asked Questions</span>
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6">
+            Frequently Asked Questions
           </h2>
+          <p className="text-gray-600 sm:text-lg leading-relaxed">
+            Everything you need to know before visiting Sri Lanka, from visa essentials to local customs and currency.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -78,10 +86,9 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
               </div>
 
               <div className="relative z-10">
-                <h2 className="font-serif text-3xl sm:text-4xl font-light text-white leading-tight mb-6">
-                  <span>Everything</span><br />
-                  <span className="font-bold">You Need to Know</span>
-                </h2>
+                <h3 className="font-serif text-3xl sm:text-4xl font-bold text-white uppercase tracking-wider leading-tight mb-6">
+                  Everything<br />You Need to Know
+                </h3>
 
                 <button
                   onClick={onViewAllFaq}

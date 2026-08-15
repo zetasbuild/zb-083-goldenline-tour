@@ -96,7 +96,7 @@ export const VehicleRentalsSection: React.FC<VehicleRentalsSectionProps> = ({
                       src={vehicle.image}
                       alt={vehicle.category}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 640px) 260px, 280px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0c241c] via-transparent to-transparent opacity-60" />

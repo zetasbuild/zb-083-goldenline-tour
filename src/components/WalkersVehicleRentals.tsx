@@ -102,47 +102,50 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
             <div
               key={vehicle.id}
               onClick={() => onSelectVehicle(vehicle)}
-              className="hover-box group flex-shrink-0 w-[280px] sm:w-[320px] h-[400px] sm:h-[440px] cursor-pointer snap-start rounded-3xl overflow-hidden relative"
+              className="hover-box group flex-shrink-0 w-[290px] sm:w-[320px] h-[430px] sm:h-[450px] cursor-pointer snap-start rounded-3xl overflow-hidden bg-[#001726] border border-white/10 hover:border-[#8ed1fc]/40 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between p-4 sm:p-5"
             >
-              {/* Vehicle Image (Full Background) */}
-              <Image
-                src={vehicle.image}
-                alt={vehicle.category}
-                fill
-                className="object-cover hover-box__img"
-                sizes="(max-width: 640px) 280px, 320px"
-              />
+              {/* Top Vehicle Showcase Canvas - Pure White for Seamless Blend */}
+              <div className="relative w-full h-[185px] sm:h-[205px] rounded-2xl overflow-hidden bg-white flex items-center justify-center p-3 border border-white/10 shadow-sm">
+                <Image
+                  src={vehicle.image}
+                  alt={vehicle.model}
+                  fill
+                  className="object-contain p-2 hover-box__img"
+                  sizes="(max-width: 640px) 280px, 320px"
+                />
+              </div>
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/95 via-[#001726]/40 to-transparent group-hover:from-[#001726]/98 transition-colors duration-300" />
-
-              {/* Card Footer Details */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white flex flex-col justify-end z-10">
-                <div className="border-b border-white/20 pb-4 mb-4 group-hover:border-white/40 transition-colors">
-                  <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-[#8ed1fc] font-bold tracking-widest uppercase mb-2">
-                    <Cog className="w-3.5 h-3.5" />
-                    <span>{vehicle.model}</span>
+              {/* Bottom Details Section */}
+              <div className="text-white flex flex-col justify-between flex-1 pt-4">
+                {/* Model & Category Title */}
+                <div>
+                  <div className="flex items-center gap-1.5 text-[11px] text-[#8ed1fc] font-bold tracking-wider uppercase mb-1 truncate">
+                    <Cog className="w-3.5 h-3.5 shrink-0" />
+                    <span className="truncate">{vehicle.model}</span>
                   </div>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold uppercase tracking-wider leading-none mb-4 group-hover:text-[#8ed1fc] transition-colors">
-                    {vehicle.category}
-                  </h3>
-                  
-                  {/* Specs row */}
-                  <div className="flex items-center gap-4 text-xs text-gray-300">
-                    <div className="flex items-center gap-1.5">
-                      <Users className="w-4 h-4 text-[#8ed1fc]" />
-                      <span className="font-medium">{vehicle.passengers} Seats</span>
-                    </div>
-                    <div className="flex items-center gap-1.5 border-l border-white/20 pl-4">
-                      <Briefcase className="w-4 h-4 text-[#8ed1fc]" />
-                      <span className="font-medium">{vehicle.luggage} Bags</span>
-                    </div>
+                  <div className="h-[48px] sm:h-[52px] flex items-center">
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold uppercase tracking-wider leading-tight group-hover:text-[#8ed1fc] transition-colors line-clamp-2">
+                      {vehicle.category}
+                    </h3>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between">
+                {/* Specs Row */}
+                <div className="border-y border-white/15 py-3 my-2 flex items-center gap-4 text-xs text-gray-300">
+                  <div className="flex items-center gap-1.5">
+                    <Users className="w-4 h-4 text-[#8ed1fc]" />
+                    <span className="font-medium">{vehicle.passengers} Seats</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 border-l border-white/15 pl-4">
+                    <Briefcase className="w-4 h-4 text-[#8ed1fc]" />
+                    <span className="font-medium">{vehicle.luggage} Bags</span>
+                  </div>
+                </div>
+
+                {/* Price & Action Button */}
+                <div className="flex items-center justify-between pt-1">
                   <div>
-                    <div className="text-sm font-bold text-white group-hover:text-[#8ed1fc] transition-colors">
+                    <div className="text-base font-bold text-white group-hover:text-[#8ed1fc] transition-colors">
                       {formatPrice(vehicle.pricePerDayLKR)}
                     </div>
                     <div className="text-[10px] text-gray-400 uppercase tracking-widest mt-0.5">/ Day</div>

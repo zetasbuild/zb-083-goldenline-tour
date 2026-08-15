@@ -78,7 +78,6 @@ export default function VehiclesPage() {
     'Passenger Vans',
     'Safari & Adventure 4x4',
     'VIP & Executive',
-    'Tour Coaches',
   ];
 
   const popularTransfers = [
@@ -309,15 +308,15 @@ export default function VehiclesPage() {
                 className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-[#e2ede7] transition-all duration-300 flex flex-col justify-between group"
               >
                 {/* Vehicle Image */}
-                <div className="relative h-52 w-full bg-[#001726] overflow-hidden">
+                <div className="relative h-52 w-full bg-[#001726] overflow-hidden flex items-center justify-center p-2">
                   <Image
                     src={vehicle.image}
                     alt={vehicle.model}
                     fill
-                    className="object-cover group-hover:scale-108 transition-transform duration-700"
+                    className="object-contain p-3 group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/80 via-transparent to-transparent pointer-events-none" />
 
                   {/* Badges */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">

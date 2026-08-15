@@ -54,23 +54,29 @@ export const WalkersReviews: React.FC = () => {
   const currentReview = reviews[currentIndex];
 
   return (
-    <section className="pt-12 pb-24 lg:pt-16 lg:pb-32 relative overflow-hidden">
-      {/* Subtle Background Image */}
+    <section className="pt-16 pb-24 lg:pt-20 lg:pb-32 relative overflow-hidden">
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1586861635167-e5223aadc9fe?auto=format&fit=crop&w=1920&q=80"
+          src="/images/reviws-bg.webp"
           alt="Sri Lanka scenery"
           fill
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-white/70" />
+        {/* Soft Dark Overlay to ensure high contrast and text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/90 via-[#001726]/65 to-[#001726]/80" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Subtle Watermark */}
-        <div className="text-center mb-2 sm:mb-6 overflow-hidden pointer-events-none select-none">
-          <span className="watermark-text">real stories</span>
+        <div className="text-center mb-2 sm:mb-4 overflow-hidden pointer-events-none select-none">
+          <span 
+            className="watermark-text"
+            style={{ color: 'rgba(255, 255, 255, 0.08)' }}
+          >
+            real stories
+          </span>
         </div>
 
         {/* Section Heading */}
@@ -81,17 +87,17 @@ export const WalkersReviews: React.FC = () => {
           >
             Discover Their
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6 mt-2">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 mt-2 drop-shadow-sm">
             Real Experiences
           </h2>
         </div>
 
-        {/* Review Box Container */}
-        <div className="max-w-4xl mx-auto bg-[#f8fbfa] border border-[#e2ede7] rounded-3xl p-8 sm:p-12 shadow-lg relative">
-          <div className="flex justify-center mb-6 text-[#0077b6] relative">
-            <Quote className="w-10 h-10 fill-[#0077b6]/15 absolute -top-4 -left-4" />
+        {/* Translucent Glass Review Box Container */}
+        <div className="max-w-4xl mx-auto bg-black/40 backdrop-blur-md border border-white/20 rounded-3xl p-8 sm:p-12 shadow-2xl relative text-white">
+          <div className="flex justify-center mb-6 relative">
+            <Quote className="w-12 h-12 text-white/15 fill-white/10 absolute -top-4 -left-4" />
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-[3px] border-white shadow-md relative z-10">
+              <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-[3px] border-white/80 shadow-lg relative z-10">
                 <img src={currentReview.avatar} alt={currentReview.author} className="w-full h-full object-cover" />
               </div>
               <div className="flex gap-1">
@@ -102,20 +108,20 @@ export const WalkersReviews: React.FC = () => {
             </div>
           </div>
 
-          <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#002b49] text-center mb-4">
+          <h3 className="font-serif text-xl sm:text-2xl font-bold text-white text-center mb-4 leading-snug">
             "{currentReview.title}"
           </h3>
 
-          <p className="text-sm sm:text-base text-[#4a6358] text-center leading-relaxed font-light mb-8 max-w-3xl mx-auto italic">
+          <p className="text-sm sm:text-base text-gray-200 text-center leading-relaxed font-light mb-8 max-w-3xl mx-auto italic">
             {currentReview.text}
           </p>
 
-          <div className="text-center border-t border-gray-200/80 pt-6">
-            <div className="font-serif text-base font-bold text-[#002b49]">
+          <div className="text-center border-t border-white/20 pt-6">
+            <div className="font-serif text-base font-bold text-white">
               — {currentReview.author} —
             </div>
-            <div className="text-xs text-gray-500 mt-0.5">
-              {currentReview.origin} · <span className="text-[#0077b6] font-medium">{currentReview.tour}</span>
+            <div className="text-xs text-gray-300 mt-1">
+              {currentReview.origin} · <span className="text-[#8ed1fc] font-medium">{currentReview.tour}</span>
             </div>
           </div>
 
@@ -124,14 +130,14 @@ export const WalkersReviews: React.FC = () => {
             <button
               onClick={handlePrev}
               aria-label="Previous review"
-              className="w-10 h-10 rounded-full bg-white border border-gray-200 text-[#002b49] flex items-center justify-center shadow-md hover:bg-[#002b49] hover:text-white transition-all pointer-events-auto cursor-pointer"
+              className="w-10 h-10 rounded-full bg-black/40 border border-white/30 text-white flex items-center justify-center shadow-lg hover:bg-white hover:text-[#002b49] transition-all pointer-events-auto cursor-pointer backdrop-blur-sm"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
               aria-label="Next review"
-              className="w-10 h-10 rounded-full bg-white border border-gray-200 text-[#002b49] flex items-center justify-center shadow-md hover:bg-[#002b49] hover:text-white transition-all pointer-events-auto cursor-pointer"
+              className="w-10 h-10 rounded-full bg-black/40 border border-white/30 text-white flex items-center justify-center shadow-lg hover:bg-white hover:text-[#002b49] transition-all pointer-events-auto cursor-pointer backdrop-blur-sm"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -145,7 +151,7 @@ export const WalkersReviews: React.FC = () => {
               key={idx}
               onClick={() => setCurrentIndex(idx)}
               className={`h-2 rounded-full transition-all cursor-pointer ${
-                currentIndex === idx ? 'w-8 bg-[#002b49]' : 'w-2 bg-gray-300'
+                currentIndex === idx ? 'w-8 bg-[#8ed1fc]' : 'w-2 bg-white/30 hover:bg-white/60'
               }`}
               aria-label={`Go to review ${idx + 1}`}
             />

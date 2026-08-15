@@ -102,29 +102,29 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
           {/* Center Content */}
           <div className="md:col-span-6 px-0 sm:px-6 lg:px-8 flex flex-col items-start justify-center">
             <span
-              className="font-caveat text-3xl sm:text-4xl text-[#cba258] -rotate-2 mb-4 inline-block w-max"
+              className="font-caveat text-3xl sm:text-4xl text-[#cba258] -rotate-2 mb-2 inline-block w-max"
               style={{ fontFamily: 'var(--font-caveat), cursive' }}
             >
               Why Travel With Us
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1a1a1a] mb-5 leading-tight">
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6 leading-tight">
               We Make Your Journey Extraordinary
             </h2>
 
-            <p className="text-sm sm:text-base text-gray-800 font-normal leading-relaxed mb-8">
+            <p className="text-gray-600 sm:text-lg leading-relaxed mb-8">
               We are committed to providing exceptional travel experiences with the best service, comfort, and unforgettable memories.
             </p>
 
-            <ul className="space-y-4 mb-6 w-full">
+            <ul className="space-y-4 mb-8 w-full">
               {[
                 'Best Price Guarantee',
                 'Safe & Reliable Travel',
                 'Professional Local Guides',
                 '24/7 Customer Support',
               ].map((item, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-sm font-semibold text-gray-800">
-                  <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0">
-                    <Check className="w-4 h-4 text-[#cba258]" strokeWidth={3} />
+                <li key={idx} className="flex items-center gap-3 text-base font-semibold text-[#002b49]">
+                  <div className="w-6 h-6 rounded-full bg-[#f4f7f6] flex items-center justify-center shrink-0">
+                    <Check className="w-4 h-4 text-[#cba258]" strokeWidth={2.5} />
                   </div>
                   <span>{item}</span>
                 </li>
