@@ -188,7 +188,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                       {selectedDestinations.length} selected
                     </span>
                   </div>
-                  <div className="flex flex-wrap gap-2 pt-1">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-3 pt-1">
                     {destinationsList.map((dest) => {
                       const isSelected = selectedDestinations.includes(dest);
                       return (
@@ -196,14 +196,14 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                           key={dest}
                           type="button"
                           onClick={() => toggleDestination(dest)}
-                          className={`px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
+                          className={`px-3 py-2.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-all duration-200 flex items-center justify-between w-full text-left cursor-pointer ${
                             isSelected
                               ? 'bg-[#002b49] text-white shadow-sm scale-[1.02]'
                               : 'bg-white text-gray-700 border border-gray-200 hover:border-[#002b49] hover:bg-gray-50'
                           }`}
                         >
-                          <span>{dest}</span>
-                          {isSelected && <Check className="w-3.5 h-3.5 text-[#cba258]" />}
+                          <span className="truncate pr-1">{dest}</span>
+                          {isSelected && <Check className="w-3.5 h-3.5 text-[#cba258] shrink-0" />}
                         </button>
                       );
                     })}
@@ -219,13 +219,13 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                         <Compass className="w-4 h-4 text-[#cba258]" />
                         <span>2. Preferred Travel Style</span>
                       </label>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="grid grid-cols-2 gap-2 sm:gap-3">
                         {tripTypes.map((t) => (
                           <button
                             key={t}
                             type="button"
                             onClick={() => setTripType(t)}
-                            className={`px-3.5 py-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+                            className={`px-3 py-2.5 rounded-xl text-[11px] sm:text-xs font-semibold border transition-all cursor-pointer w-full text-center truncate ${
                               tripType === t
                                 ? 'bg-[#002b49] text-white border-[#002b49] shadow-sm'
                                 : 'bg-white text-gray-700 border-gray-200 hover:border-[#002b49]'
@@ -409,23 +409,23 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 w-full sm:w-auto">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
                     <button
                       type="button"
                       onClick={handleWhatsAppDirect}
-                      className="h-12 sm:h-13 px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shrink-0"
+                      className="min-h-[3rem] sm:min-h-[3.25rem] px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shrink-0"
                       title="Instant WhatsApp Consultation"
                     >
-                      <WhatsAppIcon className="w-4 h-4 fill-white" />
+                      <WhatsAppIcon className="w-4 h-4 fill-white shrink-0" />
                       <span>WhatsApp</span>
                     </button>
 
                     <button
                       type="submit"
-                      className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
+                      className="min-h-[3rem] sm:min-h-[3.25rem] py-3 sm:py-0 px-6 sm:px-8 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                     >
                       <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
-                      <span>Submit &amp; Get Free Itinerary Quote</span>
+                      <span className="leading-tight text-center">Submit &amp; Get Free Itinerary Quote</span>
                     </button>
                   </div>
                 </div>

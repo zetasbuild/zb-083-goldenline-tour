@@ -81,6 +81,8 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
           data-reveal-stagger
           className="flex space-x-5 overflow-x-auto no-scrollbar pb-6 pt-2 snap-x snap-mandatory"
         >
+          {/* Spacer for alignment */}
+          <div className="w-4 sm:w-6 lg:w-8 shrink-0" aria-hidden="true" />
           {DESTINATIONS.map((dest) => (
             <Link
               key={dest.id}
@@ -119,6 +121,9 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
               </div>
             </Link>
           ))}
+
+          {/* Spacer for alignment */}
+          <div className="w-4 sm:w-6 lg:w-8 shrink-0" aria-hidden="true" />
         </div>
       </div>
     </section>

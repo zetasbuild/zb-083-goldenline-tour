@@ -92,13 +92,16 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
             </button>
           )}
         </div>
+      </div>
 
-        {/* Vehicles Carousel */}
-        <div
-          ref={scrollRef}
-          data-reveal-stagger
-          className="flex space-x-6 overflow-x-auto no-scrollbar pb-10 snap-x snap-mandatory"
-        >
+      {/* Vehicles Carousel */}
+      <div
+        ref={scrollRef}
+        data-reveal-stagger
+        className="flex space-x-6 overflow-x-auto no-scrollbar pb-10 snap-x snap-mandatory"
+      >
+        {/* Spacer to align first card with header */}
+        <div className="w-4 sm:w-6 lg:w-8 shrink-0" aria-hidden="true" />
           {VEHICLES.map((vehicle) => (
             <div
               key={vehicle.id}
@@ -161,6 +164,9 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
               </div>
             </div>
           ))}
+
+          {/* Spacer to align last card */}
+          <div className="w-4 sm:w-6 lg:w-8 shrink-0" aria-hidden="true" />
         </div>
 
         {/* Guarantees Marquee */}
@@ -197,7 +203,6 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
 
 
 
-      </div>
     </section>
   );
 };

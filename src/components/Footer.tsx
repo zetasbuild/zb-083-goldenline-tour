@@ -187,7 +187,7 @@ export const Footer: React.FC = () => {
         {/* Copyright & Legal Row */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
           <div>
-            © {new Date().getFullYear()} Ceylon Journeys. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Designed and Developed by <a href="https://www.zetasbuild.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#cba258] transition-colors underline decoration-[#18382d]/20 underline-offset-2">ZetasBuild</a>. All Rights Reserved.
           </div>
           <div className="flex items-center space-x-6">
             <a href="#" className="hover:text-[#0e382b] transition-colors">Privacy Policy</a>

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
+import { LotusBackground, TropicalLeafBackground } from '@/components/DecorativeBackgrounds';
 import { WalkersCustomTripForm } from '@/components/WalkersCustomTripForm';
 import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
@@ -250,9 +251,12 @@ export default function DestinationsPage() {
 
       {/* Main Content Section */}
       <section id="destinations-grid" className="pt-20 pb-24 lg:pt-28 lg:pb-32 bg-[#f8fbfa] relative overflow-hidden">
-        {/* Watermark */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none select-none z-0 opacity-60">
-          <span className="watermark-text text-[#ebf1f5]">destinations</span>
+        {/* Decorative Background SVGs */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
+          <LotusBackground className="w-full h-full" />
+        </div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#002b49]">
+          <TropicalLeafBackground className="w-full h-full" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -274,14 +278,17 @@ export default function DestinationsPage() {
           </div>
 
           {/* Quick Category Tabs */}
-          <div data-reveal="fade-down" className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-12">
+          <div data-reveal="fade-down" className="flex sm:flex-wrap items-center gap-2 sm:gap-3 mb-10 overflow-x-auto no-scrollbar pb-3 sm:pb-0 sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
             {categories.map((cat) => {
               const Icon = cat.icon;
               return (
                 <button
                   key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id as DestinationCategory)}
-                  className={`flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                  onClick={(e) => {
+                    setSelectedCategory(cat.id as DestinationCategory);
+                    e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                  }}
+                  className={`shrink-0 flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                     selectedCategory === cat.id
                       ? 'bg-[#002b49] text-white shadow-md scale-105'
                       : 'bg-white text-[#002b49] hover:bg-[#eaf3f8] border border-gray-200'

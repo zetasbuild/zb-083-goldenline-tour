@@ -111,7 +111,7 @@ export const WalkersFooter: React.FC = () => {
         {/* Bottom Copyright & Legal */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-400 gap-4">
           <div>
-            © {new Date().getFullYear()} Ceylon Journeys. All Rights Reserved. Inspired by Walkers Tours Luxury Standards.
+            &copy; {new Date().getFullYear()} Designed and Developed by <a href="https://www.zetasbuild.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline decoration-white/20 underline-offset-2">ZetasBuild</a>. All Rights Reserved.
           </div>
           <div className="flex items-center space-x-6">
             <a href="#" className="hover:text-white">Privacy Policy</a>

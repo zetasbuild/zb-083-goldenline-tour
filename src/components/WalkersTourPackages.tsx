@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { TourPackage } from '@/types';
 import { TOUR_PACKAGES } from '@/data/travelData';
+import { LotusBackground, TropicalLeafBackground } from './DecorativeBackgrounds';
 
 interface WalkersTourPackagesProps {
   onSelectPackage?: (pkg: TourPackage) => void;
@@ -46,20 +47,26 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
 
   return (
     <section id="packages" className="pt-16 pb-24 lg:pt-24 lg:pb-32 bg-white relative overflow-x-clip overflow-y-visible">
-      {/* Subtle Background Watermark Text */}
-      <div className="absolute -top-4 sm:top-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
-        <span className="watermark-text">unforgettable</span>
+      {/* Subtle Background Decorative SVGs */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
+        <LotusBackground className="w-full h-full" />
+      </div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#002b49]">
+        <TropicalLeafBackground className="w-full h-full" />
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-10 sm:mt-16 lg:mt-20">
 
         {/* Category Filter Pills */}
-        <div data-reveal="fade-down" className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-10">
+        <div data-reveal="fade-down" className="flex sm:flex-wrap items-center gap-2 sm:gap-3 mb-12 overflow-x-auto no-scrollbar pb-3 sm:pb-0 sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+              onClick={(e) => {
+                setSelectedCategory(cat);
+                e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+              }}
+              className={`shrink-0 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                 selectedCategory === cat
                   ? 'bg-[#002b49] text-white shadow-md scale-105'
                   : 'bg-[#f4f7f6] text-[#002b49] hover:bg-[#e2ede7] hover:text-[#002b49]'

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
+import { MandalaBackground, TropicalLeafBackground } from '@/components/DecorativeBackgrounds';
 import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
@@ -321,9 +322,12 @@ export default function ServicesPage() {
 
       {/* Services Grid Section */}
       <section id="services-grid" className="py-20 lg:py-28 bg-[#f8fbfa] relative overflow-hidden">
-        {/* Watermark */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none select-none z-0 opacity-60">
-          <span className="watermark-text text-[#e8eff4]">services</span>
+        {/* Decorative Background SVGs */}
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] -translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
+          <MandalaBackground className="w-full h-full" />
+        </div>
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#002b49]">
+          <TropicalLeafBackground className="w-full h-full" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
