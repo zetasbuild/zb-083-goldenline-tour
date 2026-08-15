@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Outfit, Playfair_Display, Caveat } from 'next/font/google';
 import './globals.css';
 import { CurrencyProvider } from '@/context/CurrencyContext';
+import { ScrollRevealProvider } from '@/components/ScrollRevealProvider';
 
 const outfit = Outfit({
   subsets: ['latin'],
@@ -53,7 +54,9 @@ export default function RootLayout({
     <html lang="en" className={`${outfit.variable} ${playfair.variable} ${caveat.variable} scroll-smooth`}>
       <body className="font-sans antialiased text-[#13261f] bg-[#fbfdfc] selection:bg-[#0e382b] selection:text-white">
         <CurrencyProvider>
-          {children}
+          <ScrollRevealProvider>
+            {children}
+          </ScrollRevealProvider>
         </CurrencyProvider>
       </body>
     </html>

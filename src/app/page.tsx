@@ -16,6 +16,7 @@ import { WalkersFooter } from '@/components/WalkersFooter';
 
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { MessageSquare } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 export default function HomePage() {
   const router = useRouter();
@@ -85,7 +86,7 @@ export default function HomePage() {
           aria-label="Chat on WhatsApp"
           className="w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl flex items-center justify-center hover:bg-[#20ba59] transition-all cursor-pointer"
         >
-          <MessageSquare className="w-7 h-7 fill-white" />
+          <WhatsAppIcon className="w-7 h-7 fill-white" />
         </a>
       </div>
 

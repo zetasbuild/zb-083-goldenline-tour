@@ -71,8 +71,8 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Portrait Image (Auto Changing with Cross-Fade) */}
-          <div className="md:col-span-3">
-            <div className="relative h-[400px] sm:h-[480px] rounded-2xl overflow-hidden shadow-lg group bg-[#001726]">
+          <div data-reveal="fade-right" data-reveal-duration="850" className="md:col-span-3">
+            <div className="relative h-[400px] sm:h-[480px] rounded-2xl overflow-hidden shadow-lg group bg-[#001726] hover-lift">
               {LEFT_IMAGES.map((img, index) => {
                 const isActive = activeSlide === index;
                 return (
@@ -100,7 +100,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
           </div>
 
           {/* Center Content */}
-          <div className="md:col-span-6 px-0 sm:px-6 lg:px-8 flex flex-col items-start justify-center">
+          <div data-reveal="fade-up" data-reveal-delay="150" className="md:col-span-6 px-0 sm:px-6 lg:px-8 flex flex-col items-start justify-center">
             <span
               className="font-caveat text-3xl sm:text-4xl text-[#cba258] -rotate-2 mb-2 inline-block w-max"
               style={{ fontFamily: 'var(--font-caveat), cursive' }}
@@ -115,7 +115,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
               We are committed to providing exceptional travel experiences with the best service, comfort, and unforgettable memories.
             </p>
 
-            <ul className="space-y-4 mb-8 w-full">
+            <ul data-reveal-stagger className="space-y-4 mb-8 w-full">
               {[
                 'Best Price Guarantee',
                 'Safe & Reliable Travel',
@@ -135,7 +135,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
               {/* Circular Next Button */}
               <button
                 onClick={onAboutClick}
-                className="next-btn next-btn--blue group cursor-pointer shrink-0"
+                className="next-btn next-btn--blue group cursor-pointer shrink-0 hover:scale-105 transition-transform"
               >
                 <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
                   <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
@@ -146,8 +146,8 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
           </div>
 
           {/* Right Portrait Image (Auto Changing with Cross-Fade) */}
-          <div className="md:col-span-3 hidden md:block">
-            <div className="relative h-[340px] sm:h-[420px] rounded-2xl overflow-hidden shadow-lg group bg-[#001726]">
+          <div data-reveal="fade-left" data-reveal-duration="850" data-reveal-delay="200" className="md:col-span-3 hidden md:block">
+            <div className="relative h-[340px] sm:h-[420px] rounded-2xl overflow-hidden shadow-lg group bg-[#001726] hover-lift">
               {RIGHT_IMAGES.map((img, index) => {
                 const isActive = activeSlide === index;
                 return (

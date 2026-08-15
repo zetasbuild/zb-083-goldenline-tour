@@ -821,6 +821,36 @@ export const TESTIMONIALS: Testimonial[] = [
     tourTaken: 'Cultural Triangle & Beaches',
     date: 'December 2025',
   },
+  {
+    id: 't-4',
+    author: 'Elena & Tom',
+    country: 'Germany',
+    avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80',
+    rating: 5,
+    text: 'A flawless experience. The attention to detail in our custom itinerary was incredible. Our driver was essentially a local guide, friend, and guardian all rolled into one!',
+    tourTaken: 'Bespoke Honeymoon Tour',
+    date: 'March 2026',
+  },
+  {
+    id: 't-5',
+    author: 'James Wilson',
+    country: 'USA',
+    avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80',
+    rating: 5,
+    text: 'Highly professional service from booking to drop-off. The luxury van we hired for our family of 6 was spacious, spotless, and handled the winding hill country roads perfectly.',
+    tourTaken: 'Scenic Escapes Tour',
+    date: 'November 2025',
+  },
+  {
+    id: 't-6',
+    author: 'The Chen Family',
+    country: 'Singapore',
+    avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80',
+    rating: 5,
+    text: 'We saw leopards, elephants, and bears on our safari. The glamping experience was out of this world, and the guides were true wildlife experts. Thank you Ceylon Journeys!',
+    tourTaken: 'Wild Adventures Tour',
+    date: 'January 2026',
+  },
 ];
 
 export const STATS = [

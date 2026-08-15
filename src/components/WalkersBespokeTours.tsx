@@ -14,7 +14,7 @@ export const WalkersBespokeTours: React.FC<WalkersBespokeToursProps> = ({ onPlan
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Narrative Column */}
-          <div className="lg:col-span-5 flex flex-col items-start">
+          <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-5 flex flex-col items-start">
             <div>
               <span 
                 className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
@@ -37,7 +37,7 @@ export const WalkersBespokeTours: React.FC<WalkersBespokeToursProps> = ({ onPlan
 
             <button
               onClick={onPlanTrip}
-              className="next-btn next-btn--blue group cursor-pointer"
+              className="next-btn next-btn--blue group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
@@ -47,8 +47,8 @@ export const WalkersBespokeTours: React.FC<WalkersBespokeToursProps> = ({ onPlan
           </div>
 
           {/* Right Dual Overlapping Photography */}
-          <div className="lg:col-span-7 relative">
-            <div className="relative h-[380px] sm:h-[460px] rounded-3xl overflow-hidden shadow-2xl z-10 w-full sm:w-4/5 ml-auto group">
+          <div data-reveal="fade-left" data-reveal-duration="850" data-reveal-delay="200" className="lg:col-span-7 relative">
+            <div className="relative h-[380px] sm:h-[460px] rounded-3xl overflow-hidden shadow-2xl z-10 w-full sm:w-4/5 ml-auto group hover-lift">
               <Image
                 src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1200&q=80"
                 alt="Bespoke Luxury Highlands Sri Lanka"
@@ -59,7 +59,7 @@ export const WalkersBespokeTours: React.FC<WalkersBespokeToursProps> = ({ onPlan
             </div>
 
             {/* Small Overlapping Foreground Image */}
-            <div className="hidden sm:block absolute -bottom-8 -left-6 w-60 h-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20 group">
+            <div className="hidden sm:block absolute -bottom-8 -left-6 w-60 h-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20 group hover-lift">
               <Image
                 src="/images/sigiriya.jpg"
                 alt="Sigiriya Heritage Journey"

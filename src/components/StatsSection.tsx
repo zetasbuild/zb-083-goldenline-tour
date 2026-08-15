@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { STATS } from '@/data/travelData';
+import { AnimatedCounter } from '@/components/AnimatedCounter';
 
 export const StatsSection: React.FC = () => {
   return (
@@ -27,7 +28,7 @@ export const StatsSection: React.FC = () => {
               className="bg-white/10 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/15 hover:border-[#e5a83b]/50 transition-all duration-300 hover:scale-105"
             >
               <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#e5a83b] mb-1">
-                {stat.value}
+                <AnimatedCounter value={stat.value} />
               </div>
               <div className="text-xs sm:text-sm font-semibold text-white/90 tracking-wide">
                 {stat.label}

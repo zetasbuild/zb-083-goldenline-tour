@@ -62,7 +62,7 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
     <section id="categories" className="py-20 lg:py-24 bg-[#eaf3f8] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end mb-12">
+        <div data-reveal="fade-up" className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end mb-12">
           <div className="md:col-span-4">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#002b49] leading-tight">
               <span>Tour</span><br />
@@ -80,14 +80,14 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
             <button
               onClick={() => handleScroll('left')}
               aria-label="Previous category"
-              className="w-10 h-10 rounded-full bg-white hover:bg-[#002b49] hover:text-white text-[#002b49] shadow-sm flex items-center justify-center transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full bg-white hover:bg-[#002b49] hover:text-white text-[#002b49] shadow-sm flex items-center justify-center transition-all cursor-pointer hover:scale-105 active:scale-95"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => handleScroll('right')}
               aria-label="Next category"
-              className="w-10 h-10 rounded-full bg-white hover:bg-[#002b49] hover:text-white text-[#002b49] shadow-sm flex items-center justify-center transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full bg-white hover:bg-[#002b49] hover:text-white text-[#002b49] shadow-sm flex items-center justify-center transition-all cursor-pointer hover:scale-105 active:scale-95"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -97,6 +97,7 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
         {/* Categories Carousel */}
         <div
           ref={scrollRef}
+          data-reveal-stagger
           className="flex space-x-5 overflow-x-auto no-scrollbar pb-6 pt-2 snap-x snap-mandatory"
         >
           {categories.map((cat) => (

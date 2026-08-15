@@ -45,7 +45,7 @@ export const WalkersBrandsExperiences: React.FC<WalkersBrandsExperiencesProps> =
     <section id="experiences" className="py-20 lg:py-28 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div data-reveal="fade-up" className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#002b49] leading-tight mb-4">
             A Symphony of <br />
             <span className="font-bold">Exclusive Experiences</span>
@@ -56,14 +56,14 @@ export const WalkersBrandsExperiences: React.FC<WalkersBrandsExperiencesProps> =
         </div>
 
         {/* 3 Brand Experience Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {brands.map((brand) => {
             const Icon = brand.icon;
             return (
               <div
                 key={brand.id}
                 onClick={() => onSelectBrand(brand.title)}
-                className="bg-[#f7fafc] rounded-3xl p-6 sm:p-8 border border-[#e2edf2] hover:border-[#002b49]/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer group"
+                className="bg-[#f7fafc] rounded-3xl p-6 sm:p-8 border border-[#e2edf2] hover:border-[#002b49]/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer group hover-lift"
               >
                 <div>
                   {/* Brand Image Preview */}

@@ -29,7 +29,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Why Travel With Us + Image Collage */}
-          <div className="lg:col-span-6 flex flex-col items-start">
+          <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-6 flex flex-col items-start">
             <span className="font-script text-3xl sm:text-4xl text-[#d49a37] font-semibold tracking-wide mb-4 inline-block w-max">
               Why Travel With Us
             </span>
@@ -41,7 +41,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
             </p>
 
             {/* Checklist */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 w-full">
+            <div data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 w-full">
               {highlights.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2.5">
                   <div className="w-5 h-5 rounded-full bg-[#edf7f2] flex items-center justify-center text-[#0e382b] shrink-0">
@@ -54,12 +54,10 @@ export const WhyUsAndTestimonials: React.FC = () => {
               ))}
             </div>
 
-
-
             {/* Aesthetic Sri Lanka Image Collage */}
             <div className="grid grid-cols-2 gap-3 w-full">
               {/* Top Main Image */}
-              <div className="col-span-2 relative h-44 sm:h-52 rounded-2xl overflow-hidden shadow-md group">
+              <div className="col-span-2 relative h-44 sm:h-52 rounded-2xl overflow-hidden shadow-md group hover-lift">
                 <Image
                   src="/images/hero-ella.jpg"
                   alt="Scenic Ella Train Sri Lanka"
@@ -74,7 +72,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
               </div>
 
               {/* Bottom Left: Elephant / Wildlife */}
-              <div className="relative h-32 sm:h-36 rounded-2xl overflow-hidden shadow-md group">
+              <div className="relative h-32 sm:h-36 rounded-2xl overflow-hidden shadow-md group hover-lift">
                 <Image
                   src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=800&q=80"
                   alt="Wild Elephant Sri Lanka"
@@ -88,7 +86,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
               </div>
 
               {/* Bottom Right: Mirissa Tropical Beach */}
-              <div className="relative h-32 sm:h-36 rounded-2xl overflow-hidden shadow-md group">
+              <div className="relative h-32 sm:h-36 rounded-2xl overflow-hidden shadow-md group hover-lift">
                 <Image
                   src="/images/mirissa.jpg"
                   alt="Mirissa Beach Coastline"
@@ -104,7 +102,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
           </div>
 
           {/* Right Column: What Our Travelers Say & Testimonial Carousel */}
-          <div className="lg:col-span-6 flex flex-col items-start justify-center">
+          <div data-reveal="fade-left" data-reveal-duration="850" data-reveal-delay="200" className="lg:col-span-6 flex flex-col items-start justify-center">
             <span className="text-[11px] font-bold tracking-widest text-[#0e382b] uppercase bg-[#e9f4ef] px-3 py-1 rounded-full mb-3 inline-block">
               WHAT OUR TRAVELERS SAY
             </span>

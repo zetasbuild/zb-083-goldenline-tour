@@ -54,7 +54,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-10 sm:mt-16 lg:mt-20">
 
         {/* Category Filter Pills */}
-        <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-10">
+        <div data-reveal="fade-down" className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-10">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -73,7 +73,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
         {/* Packages Grid */}
         {selectedCategory === 'All' ? (
           /* Bento Box Layout for All */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 auto-rows-min">
+          <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 auto-rows-min">
             {filteredPackages.map((pkg, index) => {
               if (index === 0) {
                 return (
@@ -186,8 +186,8 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
             })}
           </div>
         ) : (
-          /* Filtered Category Grid */
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          /* Standard Grid for filtered category */
+          <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {filteredPackages.map((pkg) => (
               <Link
                 key={pkg.id}

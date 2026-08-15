@@ -10,6 +10,7 @@ import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { DESTINATIONS } from '@/data/travelData';
 import { Destination, DestinationCategory } from '@/types';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 import {
   MapPin,
   Search,
@@ -134,6 +135,8 @@ export default function DestinationsPage() {
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 pb-20 flex flex-col items-center">
           {/* Top Script Text */}
           <span 
+            data-reveal="fade-down"
+            data-reveal-delay="100"
             className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
@@ -141,20 +144,28 @@ export default function DestinationsPage() {
           </span>
           
           {/* Huge Serif Main Title */}
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[95px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6">
+          <h1 
+            data-reveal="fade-up"
+            data-reveal-delay="200"
+            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[95px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
+          >
             DESTINATIONS
           </h1>
 
           {/* Subtitle */}
-          <p className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+          <p 
+            data-reveal="fade-up"
+            data-reveal-delay="350"
+            className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md"
+          >
             From mist-veiled mountain peaks and sacred ancient citadels to wild leopard sanctuaries and pristine tropical beaches.
           </p>
 
           {/* Action Buttons */}
-          <div className="flex items-center gap-4">
+          <div data-reveal="zoom-in" data-reveal-delay="450" className="flex items-center gap-4">
             <button
               onClick={scrollToGrid}
-              className="next-btn next-btn--white group cursor-pointer"
+              className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-[#002b49] group-hover:translate-x-0.5 transition-transform" />
@@ -172,7 +183,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* Floating Filter Card */}
-      <section className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-14 w-full">
+      <section data-reveal="zoom-in" data-reveal-delay="200" className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-14 w-full">
         <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-[0_20px_50px_rgba(0,43,73,0.15)] border border-[#e2ede7]">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
             {/* Field 1: Keyword Search */}
@@ -239,15 +250,15 @@ export default function DestinationsPage() {
 
       {/* Main Content Section */}
       <section id="destinations-grid" className="pt-20 pb-24 lg:pt-28 lg:pb-32 bg-[#f8fbfa] relative overflow-hidden">
-        {/* Bouncing Subtle Watermark */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
+        {/* Watermark */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none select-none z-0 opacity-60">
           <span className="watermark-text text-[#ebf1f5]">destinations</span>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Section Header with Signature Cursive */}
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-12">
             <span 
               className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
               style={{ fontFamily: 'var(--font-caveat), cursive' }}
@@ -263,7 +274,7 @@ export default function DestinationsPage() {
           </div>
 
           {/* Quick Category Tabs */}
-          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-12">
+          <div data-reveal="fade-down" className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-12">
             {categories.map((cat) => {
               const Icon = cat.icon;
               return (
@@ -303,7 +314,7 @@ export default function DestinationsPage() {
               </button>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+            <div data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
               {filteredDestinations.map((dest) => (
                 <Link
                   key={dest.id}
@@ -466,7 +477,7 @@ export default function DestinationsPage() {
           aria-label="Chat on WhatsApp"
           className="w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl flex items-center justify-center hover:bg-[#20ba59] transition-all cursor-pointer"
         >
-          <MessageSquare className="w-7 h-7 fill-white" />
+          <WhatsAppIcon className="w-7 h-7 fill-white" />
         </a>
       </div>
 

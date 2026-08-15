@@ -14,8 +14,8 @@ export const WalkersSustainability: React.FC<WalkersSustainabilityProps> = ({ on
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column */}
-          <div className="lg:col-span-5 flex flex-col items-start">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-[#8ee0bc] text-xs font-bold uppercase tracking-wider mb-4">
+          <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-5 flex flex-col items-start">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-[#8ee0bc] text-xs font-bold uppercase tracking-wider mb-4 shimmer-badge">
               <Leaf className="w-3.5 h-3.5" />
               <span>Responsible Travel</span>
             </div>
@@ -35,7 +35,7 @@ export const WalkersSustainability: React.FC<WalkersSustainabilityProps> = ({ on
 
             <button
               onClick={onExplore}
-              className="next-btn next-btn--white group cursor-pointer"
+              className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ee0bc] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-[#0d3827] group-hover:translate-x-0.5 transition-transform" />
@@ -45,9 +45,9 @@ export const WalkersSustainability: React.FC<WalkersSustainabilityProps> = ({ on
           </div>
 
           {/* Right Column: Dual Images */}
-          <div className="lg:col-span-7">
+          <div data-reveal="fade-left" data-reveal-duration="850" data-reveal-delay="200" className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="relative h-[340px] sm:h-[400px] rounded-2xl overflow-hidden shadow-xl group">
+              <div className="relative h-[340px] sm:h-[400px] rounded-2xl overflow-hidden shadow-xl group hover-lift">
                 <Image
                   src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=800&q=80"
                   alt="Reforestation and Tea Estates"
@@ -61,7 +61,7 @@ export const WalkersSustainability: React.FC<WalkersSustainabilityProps> = ({ on
                 </div>
               </div>
 
-              <div className="relative h-[340px] sm:h-[400px] rounded-2xl overflow-hidden shadow-xl group hidden sm:block mt-8">
+              <div className="relative h-[340px] sm:h-[400px] rounded-2xl overflow-hidden shadow-xl group hidden sm:block mt-8 hover-lift">
                 <Image
                   src="https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=800&q=80"
                   alt="Wildlife Conservation Sri Lanka"

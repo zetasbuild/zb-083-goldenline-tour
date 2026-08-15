@@ -31,6 +31,7 @@ import {
   Compass,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 export default function ContactPage() {
   const router = useRouter();
@@ -197,27 +198,37 @@ export default function ContactPage() {
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <span
+            data-reveal="fade-down"
+            data-reveal-delay="100"
             className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
             Always At Your Service &amp;
           </span>
 
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6">
+          <h1 
+            data-reveal="fade-up"
+            data-reveal-delay="200"
+            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
+          >
             CONTACT US
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md">
+          <p 
+            data-reveal="fade-up"
+            data-reveal-delay="350"
+            className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md"
+          >
             Our destination specialists and 24/7 concierge team are here to assist with tailor-made tour planning, private vehicle rentals, and holiday advice.
           </p>
 
-          <div className="flex items-center justify-center gap-4 flex-wrap">
+          <div data-reveal="zoom-in" data-reveal-delay="450" className="flex items-center justify-center gap-4 flex-wrap">
             <button
               onClick={() => {
                 const el = document.getElementById('contact-form-section');
                 el?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="next-btn next-btn--white group cursor-pointer"
+              className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-[#002b49]" />
@@ -227,7 +238,7 @@ export default function ContactPage() {
 
             <button
               onClick={handleWhatsAppContact}
-              className="bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg transition-all cursor-pointer"
+              className="bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
             >
               <MessageSquare className="w-4 h-4 fill-white" />
               <span>Instant WhatsApp Chat</span>
@@ -237,13 +248,13 @@ export default function ContactPage() {
       </section>
 
       {/* Quick Contact Bar */}
-      <section className="bg-[#002b49] text-white py-8 border-t border-white/10 relative z-20">
+      <section data-reveal="fade-up" className="bg-[#002b49] text-white py-8 border-t border-white/10 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
-            <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10 hover-lift">
               <div className="w-12 h-12 rounded-full bg-[#cba258]/20 text-[#cba258] flex items-center justify-center shrink-0">
-                <Phone className="w-6 h-6" />
+                <Phone className="w-6 h-6" strokeWidth={1.5} />
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block">24/7 Hotline</span>
@@ -255,7 +266,7 @@ export default function ContactPage() {
 
             <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
               <div className="w-12 h-12 rounded-full bg-[#8ed1fc]/20 text-[#8ed1fc] flex items-center justify-center shrink-0">
-                <Mail className="w-6 h-6" />
+                <Mail className="w-6 h-6" strokeWidth={1.5} />
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block">Email Inquiries</span>
@@ -267,7 +278,7 @@ export default function ContactPage() {
 
             <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
               <div className="w-12 h-12 rounded-full bg-[#25D366]/20 text-[#25D366] flex items-center justify-center shrink-0">
-                <MessageSquare className="w-6 h-6" />
+                <WhatsAppIcon className="w-6 h-6 fill-current" />
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block">WhatsApp Direct</span>
@@ -279,7 +290,7 @@ export default function ContactPage() {
 
             <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
               <div className="w-12 h-12 rounded-full bg-[#cba258]/20 text-[#cba258] flex items-center justify-center shrink-0">
-                <Clock className="w-6 h-6" />
+                <Clock className="w-6 h-6" strokeWidth={1.5} />
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block">Response Time</span>
@@ -295,8 +306,8 @@ export default function ContactPage() {
 
       {/* Main Interactive Contact Section */}
       <section id="contact-form-section" className="py-20 lg:py-28 bg-[#f8fbfa] relative overflow-hidden scroll-mt-20">
-        {/* Floating Subtle Watermark */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
+        {/* Watermark */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none select-none z-0 opacity-60">
           <span className="watermark-text text-[#e8eff4]">contact</span>
         </div>
 
@@ -667,7 +678,7 @@ export default function ContactPage() {
           aria-label="Chat on WhatsApp"
           className="w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl flex items-center justify-center hover:bg-[#20ba59] transition-all cursor-pointer"
         >
-          <MessageSquare className="w-7 h-7 fill-white" />
+          <WhatsAppIcon className="w-7 h-7 fill-white" />
         </a>
       </div>
 

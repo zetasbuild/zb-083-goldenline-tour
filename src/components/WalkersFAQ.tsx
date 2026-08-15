@@ -51,7 +51,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16 relative z-10">
+        <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-16 relative z-10">
           <span 
             className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
@@ -68,8 +68,8 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Title Card with Image Background */}
-          <div className="lg:col-span-5">
-            <div className="relative h-[420px] sm:h-[480px] rounded-3xl overflow-hidden shadow-xl flex flex-col justify-between p-8 text-white group">
+          <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-5">
+            <div className="relative h-[420px] sm:h-[480px] rounded-3xl overflow-hidden shadow-xl flex flex-col justify-between p-8 text-white group hover-lift">
               <Image
                 src="/images/sigiriya.jpg"
                 alt="Sri Lanka Travel FAQ"
@@ -92,7 +92,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
 
                 <button
                   onClick={onViewAllFaq}
-                  className="next-btn next-btn--white group cursor-pointer"
+                  className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
                 >
                   <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
                     <ArrowRight className="w-4 h-4 text-[#002b49]" />
@@ -104,7 +104,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
           </div>
 
           {/* Right Expandable Accordions */}
-          <div className="lg:col-span-7 space-y-3">
+          <div data-reveal-stagger className="lg:col-span-7 space-y-3">
             {faqs.map((faq, idx) => {
               const isOpen = openIndex === idx;
               return (

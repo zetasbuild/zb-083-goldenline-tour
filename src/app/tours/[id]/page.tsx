@@ -29,6 +29,7 @@ import {
   Check,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 export default function TourDetailPage() {
   const params = useParams();
@@ -116,7 +117,7 @@ export default function TourDetailPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Top Title Section */}
-          <div className="text-center max-w-4xl mx-auto mb-16 sm:mb-20">
+          <div data-reveal="fade-up" className="text-center max-w-4xl mx-auto mb-16 sm:mb-20">
             {/* Duration Subtitle */}
             <div className="text-xs sm:text-sm uppercase tracking-[0.25em] text-gray-500 font-semibold mb-3">
               {tour.duration}
@@ -156,6 +157,7 @@ export default function TourDetailPage() {
               return (
                 <div
                   key={idx}
+                  data-reveal="fade-up"
                   className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-center"
                 >
                   {isEven ? (
@@ -305,9 +307,9 @@ export default function TourDetailPage() {
             </div>
           </div>
 
-          {/* Dedicated Proper Booking & Customization Form Section (Light Theme) */}
+          {/* Custom Tour Inquiry & Booking Form (Standard Web Form) */}
           <div id="tour-booking-form" className="mt-20 pt-8 scroll-mt-24">
-            <div className="bg-white rounded-3xl p-8 sm:p-12 lg:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7] relative overflow-hidden">
+            <div data-reveal="zoom-in" className="bg-white rounded-3xl p-8 sm:p-12 lg:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7] relative overflow-hidden">
               
               {/* Subtle Ambient Light Gradients */}
               <div className="absolute top-0 right-0 w-96 h-96 bg-[#8ed1fc]/10 rounded-full blur-3xl pointer-events-none" />
@@ -315,7 +317,7 @@ export default function TourDetailPage() {
 
               <div className="relative z-10">
                 {/* Header of Form */}
-                <div className="text-center max-w-2xl mx-auto mb-10">
+                <div data-reveal="fade-up" className="text-center max-w-2xl mx-auto mb-10">
                   <span
                     className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1 inline-block -rotate-2"
                     style={{ fontFamily: 'var(--font-caveat), cursive' }}
@@ -359,7 +361,7 @@ export default function TourDetailPage() {
                     </div>
                   </div>
                 ) : (
-                  /* Full Responsive Booking Form (Light Mode) */
+                  /* Full Integrated Booking Form */
                   <form onSubmit={handleFormSubmit} className="space-y-6 max-w-4xl mx-auto">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                       
@@ -380,7 +382,7 @@ export default function TourDetailPage() {
                         />
                       </div>
 
-                      {/* Email */}
+                      {/* Email Address */}
                       <div>
                         <label className="text-[11px] font-bold uppercase tracking-wider text-gray-700 block mb-2 flex items-center gap-1.5">
                           <Mail className="w-3.5 h-3.5 text-[#cba258]" />
@@ -392,7 +394,7 @@ export default function TourDetailPage() {
                           name="email"
                           value={formData.email}
                           onChange={handleInputChange}
-                          placeholder="e.g. eleanor@example.com"
+                          placeholder="eleanor@example.com"
                           className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
                         />
                       </div>
@@ -549,7 +551,7 @@ export default function TourDetailPage() {
 
           {/* Other Tours in Collection */}
           {relatedTours.length > 0 && (
-            <div className="mt-20">
+            <div data-reveal="fade-up" className="mt-20">
               <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
                 <div>
                   <span
@@ -564,7 +566,7 @@ export default function TourDetailPage() {
                 </div>
                 <Link
                   href="/#packages"
-                  className="next-btn next-btn--blue group"
+                  className="next-btn next-btn--blue group hover:scale-105 transition-transform"
                 >
                   <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all">
                     <ArrowRight className="w-4 h-4 text-white" />
@@ -573,7 +575,7 @@ export default function TourDetailPage() {
                 </Link>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {relatedTours.map((relTour) => (
                   <Link
                     key={relTour.id}
@@ -638,7 +640,7 @@ export default function TourDetailPage() {
           aria-label="Chat on WhatsApp"
           className="w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl flex items-center justify-center hover:bg-[#20ba59] transition-all cursor-pointer"
         >
-          <MessageSquare className="w-7 h-7 fill-white" />
+          <WhatsAppIcon className="w-7 h-7 fill-white" />
         </a>
       </div>
 

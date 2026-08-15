@@ -30,6 +30,8 @@ export const WalkersHero: React.FC<WalkersHeroProps> = ({ onExploreClick }) => {
       <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16 flex flex-col items-center">
         {/* Top Script Text */}
         <span 
+          data-reveal="fade-down"
+          data-reveal-delay="100"
           className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 rotate-[-2deg]"
           style={{ fontFamily: 'var(--font-caveat), cursive' }}
         >
@@ -37,19 +39,29 @@ export const WalkersHero: React.FC<WalkersHeroProps> = ({ onExploreClick }) => {
         </span>
         
         {/* Huge Serif Main Title */}
-        <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[110px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6">
+        <h1 
+          data-reveal="fade-up"
+          data-reveal-delay="200"
+          className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[110px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
+        >
           SRI LANKA
         </h1>
 
         {/* Subtitle */}
-        <p className="text-sm sm:text-base md:text-lg text-white font-medium max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md">
+        <p 
+          data-reveal="fade-up"
+          data-reveal-delay="350"
+          className="text-sm sm:text-base md:text-lg text-white font-medium max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md"
+        >
           Premium tours, unforgettable experiences and reliable travel services.
         </p>
 
         {/* Circular Next Button in Walkers Tours Style */}
         <button
+          data-reveal="zoom-in"
+          data-reveal-delay="500"
           onClick={onExploreClick}
-          className="next-btn next-btn--white group cursor-pointer"
+          className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
         >
           <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
             <ArrowRight className="w-4 h-4 text-[#002b49] group-hover:translate-x-0.5 transition-transform" />

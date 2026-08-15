@@ -29,7 +29,7 @@ export const WalkersMICE: React.FC<WalkersMICEProps> = ({ onMiceInquire }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Text & Features */}
-          <div className="lg:col-span-6 flex flex-col items-start">
+          <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-6 flex flex-col items-start">
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#002b49] leading-tight mb-4">
               <span className="font-bold">Expert MICE Solutions for</span><br />
               Unforgettable Events
@@ -39,11 +39,11 @@ export const WalkersMICE: React.FC<WalkersMICEProps> = ({ onMiceInquire }) => {
               Sri Lanka is a premier MICE destination offering world-class conference facilities in Colombo for up to 2,000 attendees, as well as intimate executive incentive retreats blending business with pristine coastal resorts and cultural wonders.
             </p>
 
-            <div className="space-y-3.5 mb-8 w-full">
+            <div data-reveal-stagger className="space-y-3.5 mb-8 w-full">
               {miceFeatures.map((feat, idx) => {
                 const Icon = feat.icon;
                 return (
-                  <div key={idx} className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-[#e5eee9] shadow-sm">
+                  <div key={idx} className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-[#e5eee9] shadow-sm hover-lift">
                     <div className="w-10 h-10 rounded-xl bg-[#e6f3fa] text-[#002b49] flex items-center justify-center shrink-0">
                       <Icon className="w-4 h-4 text-[#0077b6]" />
                     </div>
@@ -57,7 +57,7 @@ export const WalkersMICE: React.FC<WalkersMICEProps> = ({ onMiceInquire }) => {
 
             <button
               onClick={onMiceInquire}
-              className="next-btn next-btn--blue group cursor-pointer"
+              className="next-btn next-btn--blue group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
@@ -67,8 +67,8 @@ export const WalkersMICE: React.FC<WalkersMICEProps> = ({ onMiceInquire }) => {
           </div>
 
           {/* Right Event Photography */}
-          <div className="lg:col-span-6">
-            <div className="relative h-[380px] sm:h-[460px] rounded-3xl overflow-hidden shadow-2xl group">
+          <div data-reveal="fade-left" data-reveal-duration="850" data-reveal-delay="200" className="lg:col-span-6">
+            <div className="relative h-[380px] sm:h-[460px] rounded-3xl overflow-hidden shadow-2xl group hover-lift">
               <Image
                 src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80"
                 alt="Corporate MICE and Luxury Events Sri Lanka"

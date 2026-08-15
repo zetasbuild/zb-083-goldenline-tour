@@ -9,6 +9,7 @@ import { WalkersFooter } from '@/components/WalkersFooter';
 import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
+import { AnimatedCounter } from '@/components/AnimatedCounter';
 import { TESTIMONIALS } from '@/data/travelData';
 import {
   Compass,
@@ -30,6 +31,7 @@ import {
   ChevronRight,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 export default function AboutUsPage() {
   const router = useRouter();
@@ -49,6 +51,28 @@ export default function AboutUsPage() {
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  // Reviews Slider State
+  const [reviewStartIndex, setReviewStartIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFading(true);
+      setTimeout(() => {
+        setReviewStartIndex((prev) => (prev + 3 >= TESTIMONIALS.length ? 0 : prev + 3));
+        setIsFading(false);
+      }, 500); // 500ms fade duration
+    }, 6000); // Slide every 6 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const visibleReviews = [
+    TESTIMONIALS[reviewStartIndex % TESTIMONIALS.length],
+    TESTIMONIALS[(reviewStartIndex + 1) % TESTIMONIALS.length],
+    TESTIMONIALS[(reviewStartIndex + 2) % TESTIMONIALS.length],
+  ];
 
   const stats = [
     { value: '25+', label: 'Years of Heritage', sub: 'Pioneering Sri Lanka tourism since 2001' },
@@ -150,27 +174,37 @@ export default function AboutUsPage() {
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <span
+            data-reveal="fade-down"
+            data-reveal-delay="100"
             className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
             Pioneering Authentic Hospitality &amp;
           </span>
 
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6">
+          <h1 
+            data-reveal="fade-up"
+            data-reveal-delay="200"
+            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
+          >
             ABOUT US
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md">
+          <p 
+            data-reveal="fade-up"
+            data-reveal-delay="350"
+            className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md"
+          >
             Founded on an enduring love for Sri Lanka, Ceylon Journeys handcrafts bespoke private holidays that celebrate the island&apos;s ancient heritage, untamed wildlife, and warm tropical spirit.
           </p>
 
-          <div className="flex items-center justify-center gap-4 flex-wrap">
+          <div data-reveal="zoom-in" data-reveal-delay="450" className="flex items-center justify-center gap-4 flex-wrap">
             <button
               onClick={() => {
                 const el = document.getElementById('our-story');
                 el?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="next-btn next-btn--white group cursor-pointer"
+              className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-[#002b49]" />
@@ -180,7 +214,7 @@ export default function AboutUsPage() {
 
             <button
               onClick={handleWhatsAppContact}
-              className="bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg transition-all cursor-pointer"
+              className="bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
             >
               <MessageSquare className="w-4 h-4 fill-white" />
               <span>Chat With Our Team</span>
@@ -190,13 +224,13 @@ export default function AboutUsPage() {
       </section>
 
       {/* Verified Stats Strip */}
-      <section className="bg-[#002b49] text-white py-10 border-t border-white/10 relative z-20">
+      <section data-reveal="fade-up" className="bg-[#002b49] text-white py-10 border-t border-white/10 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div data-reveal-stagger className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, idx) => (
               <div key={idx} className="flex flex-col items-center">
                 <span className="font-serif text-4xl sm:text-5xl font-bold text-[#cba258] mb-1">
-                  {stat.value}
+                  <AnimatedCounter value={stat.value} />
                 </span>
                 <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white mb-1">
                   {stat.label}
@@ -213,7 +247,7 @@ export default function AboutUsPage() {
       {/* Our Story & Heritage Section */}
       <section id="our-story" className="py-20 lg:py-28 bg-[#f8fbfa] relative overflow-hidden">
         {/* Watermark */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none select-none z-0 opacity-60">
           <span className="watermark-text text-[#e8eff4]">heritage</span>
         </div>
 
@@ -443,39 +477,38 @@ export default function AboutUsPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {TESTIMONIALS.slice(0, 3).map((rev) => (
-              <div
-                key={rev.id}
-                className="p-8 rounded-3xl bg-[#f8fbfa] border border-[#e2ede7] flex flex-col justify-between"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center gap-1 text-[#cba258] text-xs">
-                    {'★'.repeat(rev.rating)}
-                  </div>
-                  <p className="text-xs sm:text-sm text-gray-700 leading-relaxed italic font-normal">
-                    &ldquo;{rev.text}&rdquo;
-                  </p>
-                </div>
-
-                <div className="pt-6 border-t border-gray-200 mt-6 flex items-center gap-3">
-                  <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-200 shrink-0">
-                    <Image
-                      src={rev.avatar}
-                      alt={rev.author}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-[#002b49]">{rev.author}</h4>
-                    <span className="text-[11px] text-gray-500">{rev.country} · {rev.tourTaken}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 transition-opacity duration-500 ease-in-out ${isFading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+            {visibleReviews.map((rev, idx) => (
+        <div
+          key={`${rev.id}-${reviewStartIndex}`}
+          className="p-8 rounded-3xl bg-[#f8fbfa] border border-[#e2ede7] flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
+        >
+          <div className="space-y-4">
+            <div className="flex items-center gap-1 text-[#cba258] text-xs">
+              {'★'.repeat(rev.rating)}
+            </div>
+            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed italic font-normal">
+              &ldquo;{rev.text}&rdquo;
+            </p>
           </div>
 
+          <div className="pt-6 border-t border-gray-200 mt-6 flex items-center gap-3">
+            <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-200 shrink-0">
+              <Image
+                src={rev.avatar}
+                alt={rev.author}
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <h4 className="text-xs font-bold text-[#002b49]">{rev.author}</h4>
+              <span className="text-[11px] text-gray-500">{rev.country} · {rev.tourTaken}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+          </div>
         </div>
       </section>
 
@@ -638,7 +671,7 @@ export default function AboutUsPage() {
           aria-label="Chat on WhatsApp"
           className="w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl flex items-center justify-center hover:bg-[#20ba59] transition-all cursor-pointer"
         >
-          <MessageSquare className="w-7 h-7 fill-white" />
+          <WhatsAppIcon className="w-7 h-7 fill-white" />
         </a>
       </div>
 

@@ -46,7 +46,7 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-0">
         {/* Centered Header matching Tour Packages UI */}
-        <div className="text-center max-w-3xl mx-auto mb-4">
+        <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-4">
           <span 
             className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1 inline-block -rotate-2"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
@@ -62,11 +62,11 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
         </div>
 
         {/* Actions & Navigation */}
-        <div className="flex justify-end items-center w-full mb-3">
+        <div data-reveal="fade-up" data-reveal-delay="100" className="flex justify-end items-center w-full mb-3">
           {/* Explore Button */}
           <Link 
             href="/destinations"
-            className="next-btn next-btn--blue group cursor-pointer"
+            className="next-btn next-btn--blue group cursor-pointer hover:scale-105 transition-transform"
           >
             <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
               <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
@@ -78,6 +78,7 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
         {/* Destinations Carousel */}
         <div
           ref={scrollRef}
+          data-reveal-stagger
           className="flex space-x-5 overflow-x-auto no-scrollbar pb-6 pt-2 snap-x snap-mandatory"
         >
           {DESTINATIONS.map((dest) => (

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Plane, Headphones, ShieldCheck, Clock, Hotel } from 'lucide-react';
+import { AnimatedCounter } from '@/components/AnimatedCounter';
 
 export const WalkersWhyUsCounters: React.FC = () => {
   const iconBoxes = [
@@ -83,7 +84,7 @@ export const WalkersWhyUsCounters: React.FC = () => {
                   className="p-6 sm:p-8 rounded-3xl bg-white border border-[#e5eee9] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center"
                 >
                   <div className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#002b49] leading-none mb-2">
-                    {counter.value}
+                    <AnimatedCounter value={counter.value} />
                   </div>
                   <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#55697a]">
                     {counter.label}

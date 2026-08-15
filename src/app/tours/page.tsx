@@ -12,6 +12,7 @@ import { WalkersCustomTripForm } from '@/components/WalkersCustomTripForm';
 import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
 import { TOUR_PACKAGES, CLASSIC_TOURS_INTRO } from '@/data/travelData';
 import { useCurrency } from '@/context/CurrencyContext';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 import {
   MapPin,
   Star,
@@ -77,27 +78,31 @@ export default function ToursOverviewPage() {
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <span
+            data-reveal="fade-down"
+            data-reveal-delay="100"
             className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
             Explore the Wonder of
           </span>
 
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6">
+          <h1 
+            data-reveal="fade-up"
+            data-reveal-delay="200"
+            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
+          >
             TOUR PACKAGES
           </h1>
 
-          <p className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md">
-            {CLASSIC_TOURS_INTRO.description}
-          </p>
 
-          <div className="flex items-center justify-center gap-4 flex-wrap">
+
+          <div data-reveal="zoom-in" data-reveal-delay="450" className="flex items-center justify-center gap-4 flex-wrap">
             <button
               onClick={() => {
                 const el = document.getElementById('packages-list');
                 el?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="next-btn next-btn--white group cursor-pointer"
+              className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-[#002b49]" />
@@ -110,7 +115,7 @@ export default function ToursOverviewPage() {
                 const el = document.getElementById('custom-tour-form');
                 el?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="next-btn next-btn--white group cursor-pointer"
+              className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
                 <Sparkles className="w-4 h-4 text-[#002b49]" />
@@ -123,15 +128,15 @@ export default function ToursOverviewPage() {
 
       {/* Filter Section */}
       <section id="packages-list" className="py-16 lg:py-24 bg-[#f8fbfa] relative overflow-hidden">
-        {/* Floating Subtle Watermark */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
+        {/* Watermark */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none select-none z-0 opacity-60">
           <span className="watermark-text text-[#e8eff4]">journeys</span>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto mb-10">
+          <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-10">
             <span
               className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
               style={{ fontFamily: 'var(--font-caveat), cursive' }}
@@ -147,7 +152,7 @@ export default function ToursOverviewPage() {
           </div>
 
           {/* Category Tabs */}
-          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-12">
+          <div data-reveal="fade-down" className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-12">
             {categories.map((cat) => (
               <button
                 key={cat.id}
@@ -164,7 +169,7 @@ export default function ToursOverviewPage() {
           </div>
 
           {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPackages.map((pkg) => (
               <div
                 key={pkg.id}
@@ -271,7 +276,7 @@ export default function ToursOverviewPage() {
           aria-label="Chat on WhatsApp"
           className="w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl flex items-center justify-center hover:bg-[#20ba59] transition-all cursor-pointer"
         >
-          <MessageSquare className="w-7 h-7 fill-white" />
+          <WhatsAppIcon className="w-7 h-7 fill-white" />
         </a>
       </div>
 

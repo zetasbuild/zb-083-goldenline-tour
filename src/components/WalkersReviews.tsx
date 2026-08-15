@@ -80,7 +80,7 @@ export const WalkersReviews: React.FC = () => {
         </div>
 
         {/* Section Heading */}
-        <div className="text-center mb-12 relative z-10">
+        <div data-reveal="fade-up" className="text-center mb-12 relative z-10">
           <span 
             className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
@@ -93,7 +93,7 @@ export const WalkersReviews: React.FC = () => {
         </div>
 
         {/* Translucent Glass Review Box Container */}
-        <div className="max-w-4xl mx-auto bg-black/40 backdrop-blur-md border border-white/20 rounded-3xl p-8 sm:p-12 shadow-2xl relative text-white">
+        <div data-reveal="zoom-in" data-reveal-duration="900" className="max-w-4xl mx-auto bg-black/40 backdrop-blur-md border border-white/20 rounded-3xl p-8 sm:p-12 shadow-2xl relative text-white">
           <div className="flex justify-center mb-6 relative">
             <Quote className="w-12 h-12 text-white/15 fill-white/10 absolute -top-4 -left-4" />
             <div className="flex flex-col items-center">

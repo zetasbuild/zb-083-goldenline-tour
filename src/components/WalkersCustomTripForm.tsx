@@ -9,11 +9,11 @@ import {
   Sparkles,
   Check,
   Send,
-  MessageSquare,
   ShieldCheck,
   Building2,
   Compass,
 } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 import confetti from 'canvas-confetti';
 
 interface WalkersCustomTripFormProps {
@@ -119,7 +119,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
     <section id={id} className={`py-20 lg:py-28 bg-[#f8fbfa] border-t border-[#e2ede7] scroll-mt-20 ${className}`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="bg-white rounded-3xl p-6 sm:p-10 lg:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7] relative overflow-hidden">
+        <div data-reveal="zoom-in" data-reveal-duration="850" className="bg-white rounded-3xl p-6 sm:p-10 lg:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7] relative overflow-hidden">
           
           {/* Subtle Ambient Background Gradients */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#8ed1fc]/15 rounded-full blur-3xl pointer-events-none" />
@@ -127,7 +127,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
 
           <div className="relative z-10">
             {/* Form Section Header */}
-            <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+            <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
               <span
                 className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1.5 inline-block -rotate-2"
                 style={{ fontFamily: 'var(--font-caveat), cursive' }}
@@ -161,7 +161,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                     onClick={handleWhatsAppDirect}
                     className="flex-1 h-12 bg-[#25D366] hover:bg-[#20ba59] text-white px-6 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
                   >
-                    <MessageSquare className="w-4 h-4 fill-white" />
+                    <WhatsAppIcon className="w-4 h-4 fill-white" />
                     <span>Chat on WhatsApp</span>
                   </button>
                   <button
@@ -416,7 +416,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                       className="h-12 sm:h-13 px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shrink-0"
                       title="Instant WhatsApp Consultation"
                     >
-                      <MessageSquare className="w-4 h-4 fill-white" />
+                      <WhatsAppIcon className="w-4 h-4 fill-white" />
                       <span>WhatsApp</span>
                     </button>
 
