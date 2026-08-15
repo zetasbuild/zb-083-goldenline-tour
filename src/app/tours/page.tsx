@@ -8,7 +8,8 @@ import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
 import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
-import { PlanTripModal } from '@/components/Modals/PlanTripModal';
+import { WalkersCustomTripForm } from '@/components/WalkersCustomTripForm';
+import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
 import { TOUR_PACKAGES, CLASSIC_TOURS_INTRO } from '@/data/travelData';
 import { useCurrency } from '@/context/CurrencyContext';
 import {
@@ -20,6 +21,7 @@ import {
   ChevronDown,
   Layers,
   Sparkles,
+  SlidersHorizontal,
 } from 'lucide-react';
 
 export default function ToursOverviewPage() {
@@ -30,7 +32,6 @@ export default function ToursOverviewPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [isPlanTripOpen, setIsPlanTripOpen] = useState(false);
   const [inquireInterest, setInquireInterest] = useState('Classic Tours Inquiry');
 
   const categories = [
@@ -67,19 +68,12 @@ export default function ToursOverviewPage() {
         onOpenInquire={() => setIsInquireOpen(true)}
       />
 
-      {/* Hero */}
+      {/* Hero with Background Auto Slider */}
       <section className="relative min-h-[75vh] lg:min-h-[85vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1600&q=80"
-            alt="Sri Lanka Classic Tours"
-            fill
-            priority
-            className="object-cover object-center filter brightness-90 scale-105 transition-transform duration-1000"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-[#001726] z-10" />
-        </div>
+        <BackgroundAutoSlider
+          intervalMs={4500}
+          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#001726]"
+        />
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <span
@@ -97,7 +91,7 @@ export default function ToursOverviewPage() {
             {CLASSIC_TOURS_INTRO.description}
           </p>
 
-          <div className="flex justify-center">
+          <div className="flex items-center justify-center gap-4 flex-wrap">
             <button
               onClick={() => {
                 const el = document.getElementById('packages-list');
@@ -109,6 +103,19 @@ export default function ToursOverviewPage() {
                 <ArrowRight className="w-4 h-4 text-[#002b49]" />
               </div>
               <span className="text-xs uppercase tracking-widest font-bold">Discover Itineraries</span>
+            </button>
+
+            <button
+              onClick={() => {
+                const el = document.getElementById('custom-tour-form');
+                el?.scrollIntoView({ behavior: 'smooth' });
+              }}
+              className="next-btn next-btn--white group cursor-pointer"
+            >
+              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
+                <Sparkles className="w-4 h-4 text-[#002b49]" />
+              </div>
+              <span className="text-xs uppercase tracking-widest font-bold">Plan Custom Trip</span>
             </button>
           </div>
         </div>
@@ -249,8 +256,24 @@ export default function ToursOverviewPage() {
         </div>
       </section>
 
+      {/* Embedded On-Page Custom Itinerary Planning Form */}
+      <WalkersCustomTripForm id="custom-tour-form" />
+
       {/* Footer */}
       <WalkersFooter />
+
+      {/* Floating WhatsApp Quick Action Button */}
+      <div className="floating-whatsapp">
+        <a
+          href="https://wa.me/94771234567"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chat on WhatsApp"
+          className="w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl flex items-center justify-center hover:bg-[#20ba59] transition-all cursor-pointer"
+        >
+          <MessageSquare className="w-7 h-7 fill-white" />
+        </a>
+      </div>
 
       {/* Modals */}
       <OffcanvasSearch

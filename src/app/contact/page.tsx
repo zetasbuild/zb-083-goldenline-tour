@@ -8,7 +8,7 @@ import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
 import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
-import { PlanTripModal } from '@/components/Modals/PlanTripModal';
+import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
 import {
   Phone,
   Mail,
@@ -19,14 +19,15 @@ import {
   Award,
   Sparkles,
   Send,
-  Check,
-  CheckCircle2,
   HelpCircle,
+  Headphones,
+  CheckCircle2,
   ArrowRight,
-  Globe,
   User,
   Calendar,
   Users,
+  Check,
+  Globe,
   Compass,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -37,18 +38,17 @@ export default function ContactPage() {
   // Modals state
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [isPlanTripOpen, setIsPlanTripOpen] = useState(false);
-  const [inquireInterest, setInquireInterest] = useState('Contact Page General Inquiry');
+  const [inquireInterest, setInquireInterest] = useState('Contact Page Inquiry');
 
-  // Form State
+  // Contact Form State
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
-    country: '',
+    country: 'United Kingdom',
     inquiryType: 'Bespoke Tour Package Customization',
     travelMonth: '',
-    guests: '2 Adults',
+    guests: '2 Adults (Couple)',
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -88,22 +88,61 @@ export default function ContactPage() {
     },
   ];
 
+  const contactCards = [
+    {
+      icon: Phone,
+      title: 'Direct Phone & Hotline',
+      value: '+94 77 123 4567',
+      sub: '24/7 Islandwide Emergency & Guest Support',
+      action: 'tel:+94771234567',
+      actionText: 'Call Now',
+      color: 'bg-[#002b49] text-white',
+    },
+    {
+      icon: MessageSquare,
+      title: 'Official WhatsApp Concierge',
+      value: '+94 77 123 4567',
+      sub: 'Instant replies within ~5-10 minutes',
+      action: 'https://wa.me/94771234567',
+      actionText: 'Chat on WhatsApp',
+      color: 'bg-[#25D366] text-white',
+    },
+    {
+      icon: Mail,
+      title: 'Inquiries & Reservations',
+      value: 'inquiries@ceylonjourneys.com',
+      sub: 'Detailed quotes & day-by-day custom plans',
+      action: 'mailto:inquiries@ceylonjourneys.com',
+      actionText: 'Send Email',
+      color: 'bg-[#0077b6] text-white',
+    },
+    {
+      icon: MapPin,
+      title: 'Headquarters & Welcome Lounge',
+      value: 'York Street, Colombo 01',
+      sub: 'Open Mon - Sat: 8:30 AM to 6:00 PM',
+      action: 'https://maps.google.com',
+      actionText: 'Get Directions',
+      color: 'bg-[#cba258] text-white',
+    },
+  ];
+
   const faqs = [
     {
-      q: 'How fast will I receive a customized itinerary quote?',
-      a: 'Our destination specialists reply within 2 hours during business hours with a comprehensive itemized quote and recommendations.',
+      q: 'How fast will I receive my custom trip itinerary proposal?',
+      a: 'During working hours (GMT+5:30), our travel designers review and send an initial customized proposal with accurate quotes within 2 to 4 hours. You can also chat immediately via WhatsApp for urgent itineraries.',
     },
     {
-      q: 'Do you provide airport meet-and-greet services?',
-      a: 'Yes! Our private tourist chauffeur will be waiting inside the airport arrivals terminal holding a personalized name board with chilled mineral water.',
+      q: 'Do you arrange airport pickups at any hour of the day or night?',
+      a: 'Yes! Our English-speaking chauffeurs monitor your live flight number and provide 24/7 meet-and-greet services inside the arrivals hall with personalized name signage, regardless of flight delays.',
     },
     {
-      q: 'Can I customize any day or activity in the itinerary?',
-      a: 'Absolutely. 100% of our tours are flexible. You can add extra days in the hill country, upgrade to luxury boutique villas, or add safari game drives at any time.',
+      q: 'Are your tours private or shared with strangers?',
+      a: 'All our custom journeys and chauffeur tour packages are 100% private. You have exclusive use of the dedicated vehicle, driver-guide, and flexible daily pacing customized solely for your group.',
     },
     {
-      q: 'What payment methods do you accept?',
-      a: 'We accept secure online credit card payments (Visa, MasterCard, Amex) with 3D Secure verification, direct international bank wire transfers, and currency payments.',
+      q: 'What is your cancellation and booking flexibility policy?',
+      a: 'We offer flexible booking terms with low initial deposits. Should unforeseen events disrupt your flight, dates can be rescheduled or refunded according to our traveler-first guarantee.',
     },
   ];
 
@@ -130,14 +169,17 @@ export default function ContactPage() {
 
   const handleWhatsAppContact = () => {
     const text = encodeURIComponent(
-      'Hello Ceylon Journeys! I would like to inquire about planning a trip to Sri Lanka. Please connect me with a tour specialist.'
+      `Hello Ceylon Journeys! My name is ${formData.fullName || 'Guest'} (${formData.country}).\n` +
+      `Estimated Travel Date: ${formData.travelMonth || 'Flexible'}\n` +
+      `Guests: ${formData.guests}\n` +
+      `Inquiry / Wishlist: ${formData.message || 'I would like to plan a trip to Sri Lanka.'}`
     );
     window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
   };
 
   return (
     <main className="min-h-screen flex flex-col bg-white relative">
-      {/* Walkers Luxury Navigation */}
+      {/* Walkers Header Navigation */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
         onOpenInquire={() => {
@@ -146,19 +188,12 @@ export default function ContactPage() {
         }}
       />
 
-      {/* Hero Banner */}
+      {/* Hero Banner with Background Auto Slider */}
       <section className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1600&q=80"
-            alt="Contact Ceylon Journeys"
-            fill
-            priority
-            className="object-cover object-center filter brightness-90 scale-105 transition-transform duration-1000"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-[#001726] z-10" />
-        </div>
+        <BackgroundAutoSlider
+          intervalMs={4500}
+          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#001726]"
+        />
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <span
@@ -551,18 +586,18 @@ export default function ContactPage() {
                         <button
                           type="button"
                           onClick={handleWhatsAppContact}
-                          className="bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-md cursor-pointer shrink-0"
+                          className="h-12 sm:h-13 px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shrink-0"
                           title="Instant WhatsApp Chat"
                         >
                           <MessageSquare className="w-4 h-4 fill-white" />
-                          <span className="hidden sm:inline">WhatsApp</span>
+                          <span>WhatsApp</span>
                         </button>
 
                         <button
                           type="submit"
-                          className="flex-1 sm:flex-initial bg-[#002b49] hover:bg-[#0077b6] text-white px-8 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
+                          className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                         >
-                          <Sparkles className="w-4 h-4 text-[#cba258]" />
+                          <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
                           <span>Send Your Inquiry</span>
                         </button>
                       </div>

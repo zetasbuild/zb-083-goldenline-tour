@@ -64,6 +64,23 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
     { name: 'Luxury Tours', href: '/tours' },
   ];
 
+  const navLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'Destinations', href: '/destinations' },
+    { name: 'Tour Packages', href: '/tours' },
+    { name: 'Car Rentals', href: '/vehicles' },
+    { name: 'Services', href: '/services' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Contact Us', href: '/contact' },
+  ];
+
+  const isActive = (href: string) => {
+    if (href === '/') {
+      return pathname === '/';
+    }
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   return (
     <>
       {/* Fixed Luxury Header in Walkers Tours Dark Luxury Style */}
@@ -87,44 +104,34 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
 
           {/* Center: Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8 text-white text-[15px] font-semibold">
-            <Link
-              href="/"
-              className="flex flex-col items-center group relative text-white"
-            >
-              <span>Home</span>
-              {/* White line with dot for active state */}
-              {pathname === '/' && (
-                <div className="absolute -bottom-[5px] flex items-center justify-center opacity-100 transition-opacity">
-                  <div className="h-[2px] w-8 bg-white relative flex items-center justify-center">
-                    <div className="w-1.5 h-1.5 rounded-full bg-white absolute" />
-                  </div>
-                </div>
-              )}
-            </Link>
-
-            <Link href="/destinations" className="hover:text-gray-200 transition-colors">
-              Destinations
-            </Link>
-
-            <Link href="/tours" className="hover:text-gray-200 transition-colors">
-              Tour Packages
-            </Link>
-
-            <Link href="/vehicles" className="hover:text-gray-200 transition-colors">
-              Car Rentals
-            </Link>
-
-            <Link href="/services" className="hover:text-gray-200 transition-colors">
-              Services
-            </Link>
-
-            <Link href="/about" className="hover:text-gray-200 transition-colors">
-              About Us
-            </Link>
-
-            <Link href="/contact" className="hover:text-gray-200 transition-colors">
-              Contact Us
-            </Link>
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="flex flex-col items-center group relative text-white py-1 transition-colors"
+                >
+                  <span className={`transition-colors duration-200 ${active ? 'text-white font-bold' : 'text-white/90 hover:text-white'}`}>
+                    {link.name}
+                  </span>
+                  {/* White line with dot for active state */}
+                  {active ? (
+                    <div className="absolute -bottom-[5px] flex items-center justify-center opacity-100 transition-opacity">
+                      <div className="h-[2px] w-8 bg-white relative flex items-center justify-center">
+                        <div className="w-1.5 h-1.5 rounded-full bg-white absolute" />
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="absolute -bottom-[5px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200">
+                      <div className="h-[2px] w-6 bg-white/60 relative flex items-center justify-center">
+                        <div className="w-1 h-1 rounded-full bg-white/60 absolute" />
+                      </div>
+                    </div>
+                  )}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Right Action Icons: Search + Inquire + Hamburger */}
@@ -190,14 +197,13 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
                 Quick Navigation
               </h3>
               <ul className="space-y-3 text-sm">
-                <li><Link href="/" onClick={() => setMegaMenuOpen(false)} className="hover:text-[#00b4d8]">Home</Link></li>
-                <li><Link href="/destinations" onClick={() => setMegaMenuOpen(false)} className="hover:text-[#00b4d8]">Destinations Guide</Link></li>
-                <li><a href="/#packages" onClick={() => setMegaMenuOpen(false)} className="hover:text-[#00b4d8]">Tour Packages</a></li>
-                <li><a href="/#bespoke" onClick={() => setMegaMenuOpen(false)} className="hover:text-[#00b4d8]">Tailor-made Tours</a></li>
-                <li><a href="/#experiences" onClick={() => setMegaMenuOpen(false)} className="hover:text-[#00b4d8]">Our Brands</a></li>
-                <li><a href="/#sustainability" onClick={() => setMegaMenuOpen(false)} className="hover:text-[#00b4d8]">Sustainability</a></li>
-                <li><a href="/#mice" onClick={() => setMegaMenuOpen(false)} className="hover:text-[#00b4d8]">MICE &amp; Events</a></li>
-                <li><a href="/#faq" onClick={() => setMegaMenuOpen(false)} className="hover:text-[#00b4d8]">Traveler FAQ</a></li>
+                <li><Link href="/" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname === '/' ? 'text-[#00b4d8] font-bold' : 'hover:text-[#00b4d8]'}`}>Home</Link></li>
+                <li><Link href="/destinations" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname.startsWith('/destinations') ? 'text-[#00b4d8] font-bold' : 'hover:text-[#00b4d8]'}`}>Destinations Guide</Link></li>
+                <li><Link href="/tours" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname.startsWith('/tours') ? 'text-[#00b4d8] font-bold' : 'hover:text-[#00b4d8]'}`}>Tour Packages</Link></li>
+                <li><Link href="/vehicles" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname.startsWith('/vehicles') ? 'text-[#00b4d8] font-bold' : 'hover:text-[#00b4d8]'}`}>Car Rentals</Link></li>
+                <li><Link href="/services" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname.startsWith('/services') ? 'text-[#00b4d8] font-bold' : 'hover:text-[#00b4d8]'}`}>Services</Link></li>
+                <li><Link href="/about" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname.startsWith('/about') ? 'text-[#00b4d8] font-bold' : 'hover:text-[#00b4d8]'}`}>About Us</Link></li>
+                <li><Link href="/contact" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname.startsWith('/contact') ? 'text-[#00b4d8] font-bold' : 'hover:text-[#00b4d8]'}`}>Contact Us</Link></li>
               </ul>
             </div>
 

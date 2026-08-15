@@ -5,7 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
-import { PlanTripModal } from '@/components/Modals/PlanTripModal';
+import { WalkersCustomTripForm } from '@/components/WalkersCustomTripForm';
+import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { DESTINATIONS } from '@/data/travelData';
 import { Destination, DestinationCategory } from '@/types';
@@ -37,7 +38,6 @@ export default function DestinationsPage() {
 
   // Modals state
   const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
-  const [isPlanTripOpen, setIsPlanTripOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isInquireOpen, setIsInquireOpen] = useState(false);
   const [inquireInterest, setInquireInterest] = useState('General Destination Inquiry');
@@ -54,6 +54,15 @@ export default function DestinationsPage() {
     { id: 'Waterfalls', label: 'Waterfalls', icon: Droplets },
     { id: 'Island', label: 'Islands & Marine', icon: Sun },
   ] as const;
+
+  const destinationSlides = [
+    { image: '/images/sigiriya.jpg', alt: 'Sigiriya Ancient Rock Fortress', location: 'Sigiriya' },
+    { image: '/images/hero-ella.jpg', alt: 'Ella Nine Arch Bridge and Tea Hills', location: 'Ella' },
+    { image: '/images/mirissa.jpg', alt: 'Mirissa Palm Trees and Tropical Ocean', location: 'Mirissa' },
+    { image: '/images/yala.jpg', alt: 'Yala National Park Wildlife Safari', location: 'Yala' },
+    { image: '/images/nuwaraeliya.jpg', alt: 'Nuwara Eliya Tea Gardens', location: 'Nuwara Eliya' },
+    { image: '/images/gallefort.png', alt: 'Historic Galle Fort & Lighthouse', location: 'Galle Fort' },
+  ];
 
   const regions = [
     'All Regions',
@@ -113,21 +122,13 @@ export default function DestinationsPage() {
         onOpenInquire={() => handleOpenInquireWithInterest('Destination Guide Inquiry')}
       />
 
-      {/* Hero Banner Section */}
+      {/* Hero Banner Section with Background Auto Slider */}
       <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center text-white overflow-hidden">
-        {/* Background Image with Deep Overlay */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/sigiriya.jpg"
-            alt="Sigiriya Rock Fortress and Sri Lanka Landscapes"
-            fill
-            priority
-            className="object-cover object-center filter brightness-90 scale-105 transition-transform duration-1000"
-            sizes="100vw"
-          />
-          {/* Gradients */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/85 z-10" />
-        </div>
+        <BackgroundAutoSlider
+          slides={destinationSlides}
+          intervalMs={4500}
+          overlayGradient="bg-gradient-to-b from-black/80 via-black/40 to-black/85"
+        />
 
         {/* Hero Central Content */}
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-28 pb-20 flex flex-col items-center">
@@ -410,7 +411,10 @@ export default function DestinationsPage() {
               </p>
 
               <button
-                onClick={() => setIsPlanTripOpen(true)}
+                onClick={() => {
+                  const el = document.getElementById('custom-tour-form');
+                  el?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="next-btn next-btn--blue group cursor-pointer"
               >
                 <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
@@ -447,6 +451,9 @@ export default function DestinationsPage() {
         </div>
       </section>
 
+      {/* Embedded On-Page Custom Itinerary Planning Form */}
+      <WalkersCustomTripForm id="custom-tour-form" />
+
       {/* Mega Footer */}
       <WalkersFooter />
 
@@ -471,11 +478,6 @@ export default function DestinationsPage() {
           setSearchQuery(term);
           scrollToGrid();
         }}
-      />
-
-      <PlanTripModal
-        isOpen={isPlanTripOpen}
-        onClose={() => setIsPlanTripOpen(false)}
       />
     </main>
   );

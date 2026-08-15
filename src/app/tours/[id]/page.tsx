@@ -8,7 +8,6 @@ import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
 import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
-import { PlanTripModal } from '@/components/Modals/PlanTripModal';
 import { TOUR_PACKAGES } from '@/data/travelData';
 import { useCurrency } from '@/context/CurrencyContext';
 import {
@@ -43,7 +42,6 @@ export default function TourDetailPage() {
   // Modals state
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [isPlanTripOpen, setIsPlanTripOpen] = useState(false);
   const [inquireInterest, setInquireInterest] = useState(`Booking Inquiry: ${tour.title}`);
 
   // Inline Form State
@@ -525,18 +523,18 @@ export default function TourDetailPage() {
                         <button
                           type="button"
                           onClick={() => handleWhatsAppInquiry()}
-                          className="bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-md cursor-pointer shrink-0"
+                          className="h-12 sm:h-13 px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shrink-0"
                           title="Instant WhatsApp Chat"
                         >
                           <MessageSquare className="w-4 h-4 fill-white" />
-                          <span className="hidden sm:inline">WhatsApp</span>
+                          <span>WhatsApp</span>
                         </button>
 
                         <button
                           type="submit"
-                          className="flex-1 sm:flex-initial bg-[#002b49] hover:bg-[#0077b6] text-white px-8 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
+                          className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                         >
-                          <Sparkles className="w-4 h-4 text-[#cba258]" />
+                          <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
                           <span>Submit Booking Request</span>
                         </button>
                       </div>

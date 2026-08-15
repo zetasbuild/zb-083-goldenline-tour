@@ -53,7 +53,7 @@ export default function HomePage() {
 
       {/* Tailor-Made Bespoke Tours Section */}
       <WalkersBespokeTours
-        onPlanTrip={() => router.push('/services')}
+        onPlanTrip={() => router.push('/tours#custom-tour-form')}
       />
 
       {/* Vehicle Rentals Section */}

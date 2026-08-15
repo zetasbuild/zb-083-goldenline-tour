@@ -8,7 +8,7 @@ import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
 import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
-import { PlanTripModal } from '@/components/Modals/PlanTripModal';
+import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
 import { TESTIMONIALS } from '@/data/travelData';
 import {
   Compass,
@@ -37,7 +37,6 @@ export default function AboutUsPage() {
   // Modals state
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [isPlanTripOpen, setIsPlanTripOpen] = useState(false);
   const [inquireInterest, setInquireInterest] = useState('About Us - General Inquiry');
 
   // Contact Form State
@@ -106,9 +105,7 @@ export default function AboutUsPage() {
     },
   ];
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -129,14 +126,13 @@ export default function AboutUsPage() {
 
   const handleWhatsAppContact = () => {
     const text = encodeURIComponent(
-      'Hello Ceylon Journeys! I would like to learn more about your private tours, custom itineraries, and travel planning services.'
+      `Hello Ceylon Journeys! My name is ${formData.fullName || 'Guest'}. I am contacting you regarding: ${formData.message || 'General Travel Inquiry'}`
     );
     window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
   };
 
   return (
     <main className="min-h-screen flex flex-col bg-white relative">
-      {/* Walkers Header Navigation */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
         onOpenInquire={() => {
@@ -145,19 +141,12 @@ export default function AboutUsPage() {
         }}
       />
 
-      {/* Hero Banner */}
+      {/* Hero Banner with Background Auto Slider */}
       <section className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1600&q=80"
-            alt="About Ceylon Journeys Sri Lanka"
-            fill
-            priority
-            className="object-cover object-center filter brightness-90 scale-105 transition-transform duration-1000"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/45 to-[#001726] z-10" />
-        </div>
+        <BackgroundAutoSlider
+          intervalMs={4500}
+          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#001726]"
+        />
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <span
@@ -613,18 +602,18 @@ export default function AboutUsPage() {
                     <button
                       type="button"
                       onClick={handleWhatsAppContact}
-                      className="bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors shadow-md cursor-pointer shrink-0"
+                      className="h-12 sm:h-13 px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shrink-0"
                       title="Instant WhatsApp Chat"
                     >
                       <MessageSquare className="w-4 h-4 fill-white" />
-                      <span className="hidden sm:inline">WhatsApp</span>
+                      <span>WhatsApp</span>
                     </button>
 
                     <button
                       type="submit"
-                      className="flex-1 sm:flex-initial bg-[#002b49] hover:bg-[#0077b6] text-white px-8 py-4 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
+                      className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                     >
-                      <Sparkles className="w-4 h-4 text-[#cba258]" />
+                      <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
                       <span>Send Message</span>
                     </button>
                   </div>
