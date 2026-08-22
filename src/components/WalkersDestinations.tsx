@@ -38,7 +38,7 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
   }, []);
 
   return (
-    <section id="destinations" className="pt-10 pb-10 lg:pt-16 lg:pb-16 bg-white relative overflow-x-clip overflow-y-visible">
+    <section id="destinations" className="pt-10 pb-10 lg:pt-16 lg:pb-16 bg-[#F5F2E6] relative overflow-x-clip overflow-y-visible">
       {/* Background Watermark Text */}
       <div className="absolute -top-12 sm:-top-16 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
         <span className="watermark-text text-[#f4f7f6]">destinations</span>
@@ -53,7 +53,7 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
           >
             Explore the Wonder of
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-3 mt-1">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-3 mt-1">
             Destinations in Sri Lanka
           </h2>
           <p className="text-[#55697a] sm:text-base leading-relaxed">
@@ -71,7 +71,7 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
             <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
               <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
             </div>
-            <span className="text-xs uppercase tracking-widest font-bold text-[#002b49]">Explore</span>
+            <span className="text-xs uppercase tracking-widest font-bold text-[var(--color-primary)]">Explore</span>
           </Link>
         </div>
 
@@ -103,7 +103,7 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
               {/* Card Footer Details */}
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white flex flex-col justify-end z-10">
                 <div className="border-b border-white/30 pb-4 mb-4 group-hover:border-white transition-colors">
-                  <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-[#8ed1fc] font-bold tracking-widest uppercase mb-2">
+                  <div className="flex items-center gap-1.5 text-[10px] sm:text-xs text-[#cba258] font-bold tracking-widest uppercase mb-2">
                     <MapPin className="w-3.5 h-3.5" />
                     <span>{dest.region}</span>
                   </div>
@@ -114,7 +114,7 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
 
                 <div className="next-btn next-btn--white">
                   <div className="next-btn-circle group-hover:scale-110 transition-transform">
-                    <ArrowRight className="w-4 h-4 text-[#002b49]" />
+                    <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
                   </div>
                   <span className="text-xs uppercase tracking-widest font-bold">Explore</span>
                 </div>

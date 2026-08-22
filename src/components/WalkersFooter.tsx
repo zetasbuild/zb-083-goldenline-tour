@@ -7,7 +7,7 @@ import { Phone, Mail, Globe, MapPin, Send, CheckCircle2, ShieldCheck, Award } fr
 export const WalkersFooter: React.FC = () => {
 
   return (
-    <footer className="bg-[#001726] text-white pt-20 pb-10 border-t border-white/10">
+    <footer className="bg-[#041B2D] text-white pt-20 pb-10 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* 5-Column Navigation Grid */}
@@ -19,7 +19,7 @@ export const WalkersFooter: React.FC = () => {
                 className="font-caveat text-3xl sm:text-4xl text-white whitespace-nowrap group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
                 style={{ fontFamily: 'var(--font-caveat), cursive' }}
               >
-                Ceylon Journeys
+                GoldenLine TOUR
               </span>
             </Link>
 
@@ -38,7 +38,7 @@ export const WalkersFooter: React.FC = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#8ed1fc] shrink-0" />
-                <a href="mailto:info@ceylonjourneys.lk" className="hover:text-white">info@ceylonjourneys.lk</a>
+                <a href="mailto:info@goldenlinetour.lk" className="hover:text-white">info@goldenlinetour.lk</a>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@ export const WalkersFooter: React.FC = () => {
               Company
             </h4>
             <ul className="space-y-2.5">
-              <li><a href="/#about" className="hover:text-white">About Ceylon Journeys</a></li>
+              <li><a href="/#about" className="hover:text-white">About GoldenLine TOUR</a></li>
               <li><a href="/#sustainability" className="hover:text-white">Sustainability &amp; CSR</a></li>
               <li><a href="/#faq" className="hover:text-white">Travel FAQs</a></li>
               <li><a href="/#bespoke" className="hover:text-white">Custom Itinerary Builder</a></li>

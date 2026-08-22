@@ -165,7 +165,7 @@ export default function VehiclesPage() {
   const handleWhatsAppVehicleInquiry = (vehicleModel?: string) => {
     const interest = vehicleModel ? `rental for "${vehicleModel}"` : 'vehicle rental with chauffeur in Sri Lanka';
     const text = encodeURIComponent(
-      `Hello Ceylon Journeys! I would like to inquire about the ${interest}. Please share the rates and availability.`
+      `Hello GoldenLine TOUR! I would like to inquire about the ${interest}. Please share the rates and availability.`
     );
     window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
   };
@@ -176,7 +176,7 @@ export default function VehiclesPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-white relative">
+    <main className="min-h-screen flex flex-col bg-[#F5F2E6] relative">
       {/* Walkers Navigation Header */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
@@ -191,7 +191,7 @@ export default function VehiclesPage() {
         <BackgroundAutoSlider
           slides={vehicleSlides}
           intervalMs={4500}
-          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#001726]"
+          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]"
         />
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -226,7 +226,7 @@ export default function VehiclesPage() {
               className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
-                <ArrowRight className="w-4 h-4 text-[#002b49]" />
+                <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
               </div>
               <span className="text-xs uppercase tracking-widest font-bold">Explore Our Fleet</span>
             </button>
@@ -243,7 +243,7 @@ export default function VehiclesPage() {
       </section>
 
       {/* Trust Highlights Strip - Auto Sliding Marquee */}
-      <section data-reveal="fade-up" className="bg-[#002b49] text-white py-6 border-t border-white/10 relative z-20 overflow-hidden">
+      <section data-reveal="fade-up" className="bg-[var(--color-primary)] text-white py-6 border-t border-white/10 relative z-20 overflow-hidden">
         <div className="flex group relative w-full">
           {/* First Marquee Group */}
           <div className="animate-marquee flex gap-12 md:gap-24 min-w-full justify-around shrink-0 pr-12 md:pr-24 group-hover:[animation-play-state:paused]">
@@ -284,7 +284,7 @@ export default function VehiclesPage() {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
           <MandalaBackground className="w-full h-full" />
         </div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#002b49]">
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[var(--color-primary)]">
           <TropicalLeafBackground className="w-full h-full" />
         </div>
 
@@ -298,7 +298,7 @@ export default function VehiclesPage() {
             >
               Immaculate Comfort
             </span>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-4">
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-4">
               Our Vehicle Fleet
             </h2>
             <p className="text-gray-600 sm:text-base leading-relaxed">
@@ -314,8 +314,8 @@ export default function VehiclesPage() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                   selectedCategory === cat
-                    ? 'bg-[#002b49] text-white shadow-md scale-105'
-                    : 'bg-white text-[#002b49] hover:bg-[#eaf3f8] border border-gray-200'
+                    ? 'bg-[var(--color-primary)] text-white shadow-md scale-105'
+                    : 'bg-[#F5F2E6] text-[var(--color-primary)] hover:bg-[#eaf3f8] border border-gray-200'
                 }`}
               >
                 {cat === 'All' ? 'All Vehicles' : cat}
@@ -328,10 +328,10 @@ export default function VehiclesPage() {
             {filteredVehicles.map((vehicle) => (
               <div
                 key={vehicle.id}
-                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-[#e2ede7] transition-all duration-300 flex flex-col justify-between group"
+                className="bg-[#F5F2E6] rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-[#e2ede7] transition-all duration-300 flex flex-col justify-between group"
               >
                 {/* Vehicle Image */}
-                <div className="relative h-52 w-full bg-[#001726] overflow-hidden flex items-center justify-center p-2">
+                <div className="relative h-52 w-full bg-[#041B2D] overflow-hidden flex items-center justify-center p-2">
                   <Image
                     src={vehicle.image}
                     alt={vehicle.model}
@@ -339,11 +339,11 @@ export default function VehiclesPage() {
                     className="object-contain p-3 group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/80 via-transparent to-transparent pointer-events-none" />
 
                   {/* Badges */}
                   <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-                    <span className="bg-[#002b49]/85 backdrop-blur-md text-[#8ed1fc] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-white/10">
+                    <span className="bg-[var(--color-primary)]/85 backdrop-blur-md text-[#8ed1fc] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-white/10">
                       {vehicle.category}
                     </span>
                     <span className="bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
@@ -390,14 +390,14 @@ export default function VehiclesPage() {
                   <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
                     <div>
                       <div className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">Daily Rate From</div>
-                      <div className="font-serif text-lg font-bold text-[#002b49]">
+                      <div className="font-serif text-lg font-bold text-[var(--color-primary)]">
                         {formatPrice(vehicle.pricePerDayLKR)}
                       </div>
                     </div>
 
                     <button
                       onClick={() => handleSelectVehicleForBooking(vehicle.model)}
-                      className="bg-[#002b49] hover:bg-[#0077b6] text-white px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
+                      className="bg-[var(--color-primary)] hover:bg-[#0077b6] text-white px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
                     >
                       Book Now
                     </button>
@@ -411,7 +411,7 @@ export default function VehiclesPage() {
       </section>
 
       {/* Popular Fixed Rate Airport Transfers */}
-      <section className="py-16 bg-white border-t border-[#e2ede7]">
+      <section className="py-16 bg-[#F5F2E6] border-t border-[#e2ede7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
             <div>
@@ -421,7 +421,7 @@ export default function VehiclesPage() {
               >
                 Fixed Price Guarantee
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#002b49]">
+              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">
                 Popular Airport Transfers
               </h2>
             </div>
@@ -434,13 +434,13 @@ export default function VehiclesPage() {
             {popularTransfers.map((tf, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-3xl bg-[#f8fbfa] border border-[#e2ede7] hover:border-[#002b49] transition-all hover:shadow-md flex flex-col justify-between space-y-4"
+                className="p-6 rounded-3xl bg-[#f8fbfa] border border-[#e2ede7] hover:border-[var(--color-primary)] transition-all hover:shadow-md flex flex-col justify-between space-y-4"
               >
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[#0077b6] bg-[#eaf3f8] px-2.5 py-1 rounded-full">
                     {tf.badge}
                   </span>
-                  <h3 className="font-serif text-lg font-bold text-[#002b49] mt-3">
+                  <h3 className="font-serif text-lg font-bold text-[var(--color-primary)] mt-3">
                     {tf.route}
                   </h3>
                   <div className="flex items-center gap-1.5 text-xs text-gray-500 mt-1">
@@ -450,7 +450,7 @@ export default function VehiclesPage() {
                 </div>
 
                 <div className="pt-3 border-t border-gray-200 flex items-center justify-between">
-                  <div className="font-serif text-lg font-bold text-[#002b49]">
+                  <div className="font-serif text-lg font-bold text-[var(--color-primary)]">
                     {formatPrice(tf.priceLKR)}
                   </div>
                   <button
@@ -480,7 +480,7 @@ export default function VehiclesPage() {
       <section id="rental-booking-form" className="py-20 bg-[#f8fbfa] border-t border-[#e2ede7] scroll-mt-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7]">
+          <div className="bg-[#F5F2E6] rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7]">
             
             <div className="text-center max-w-2xl mx-auto mb-10">
               <span
@@ -518,7 +518,7 @@ export default function VehiclesPage() {
                   </button>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer"
+                    className="bg-[#F5F2E6] hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer"
                   >
                     Submit Another Request
                   </button>
@@ -541,7 +541,7 @@ export default function VehiclesPage() {
                       value={formData.fullName}
                       onChange={handleInputChange}
                       placeholder="e.g. David Miller"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                     />
                   </div>
 
@@ -558,7 +558,7 @@ export default function VehiclesPage() {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="david@example.com"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                     />
                   </div>
 
@@ -575,7 +575,7 @@ export default function VehiclesPage() {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="+1 (555) 000-0000"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                     />
                   </div>
 
@@ -589,7 +589,7 @@ export default function VehiclesPage() {
                       name="selectedVehicle"
                       value={formData.selectedVehicle}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white cursor-pointer"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] cursor-pointer"
                     >
                       {VEHICLES.map((v) => (
                         <option key={v.id} value={v.model}>
@@ -609,7 +609,7 @@ export default function VehiclesPage() {
                       name="serviceType"
                       value={formData.serviceType}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white cursor-pointer"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] cursor-pointer"
                     >
                       <option value="With Private English-Speaking Chauffeur">
                         With Private Tourist Chauffeur Guide
@@ -636,7 +636,7 @@ export default function VehiclesPage() {
                       name="passengers"
                       value={formData.passengers}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white cursor-pointer"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] cursor-pointer"
                     >
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 12, '15+'].map((pax) => (
                         <option key={pax} value={pax}>
@@ -658,7 +658,7 @@ export default function VehiclesPage() {
                       name="pickupDate"
                       value={formData.pickupDate}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white cursor-pointer"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] cursor-pointer"
                     />
                   </div>
 
@@ -674,7 +674,7 @@ export default function VehiclesPage() {
                       value={formData.pickupLocation}
                       onChange={handleInputChange}
                       placeholder="e.g. Airport CMB / Hotel Name"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] transition-all"
                     />
                   </div>
 
@@ -690,7 +690,7 @@ export default function VehiclesPage() {
                       value={formData.dropoffLocation}
                       onChange={handleInputChange}
                       placeholder="e.g. Kandy / Galle / Airport"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] transition-all"
                     />
                   </div>
 
@@ -707,7 +707,7 @@ export default function VehiclesPage() {
                     value={formData.notes}
                     onChange={handleInputChange}
                     placeholder="Provide any flight arrival details, infant car seat requirements, planned sightseeing stops..."
-                    className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all resize-none"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all resize-none"
                   />
                 </div>
 
@@ -733,7 +733,7 @@ export default function VehiclesPage() {
 
                     <button
                       type="submit"
-                      className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
+                      className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[var(--color-primary)] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                     >
                       <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
                       <span>Confirm Vehicle Booking</span>

@@ -41,14 +41,14 @@ export const WalkersWhyUsCounters: React.FC = () => {
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-16">
           <div className="lg:col-span-6">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#002b49] leading-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[var(--color-primary)] leading-tight">
               <span className="font-bold">Why Book with</span><br />
-              Ceylon Journeys?
+              GoldenLine TOUR?
             </h2>
           </div>
           <div className="lg:col-span-6">
             <p className="text-sm sm:text-base text-[#55697a] font-normal leading-relaxed">
-              At Ceylon Journeys, we customize each itinerary to fit your exact preferences, ensuring a seamless, safe, and truly unforgettable experience.
+              At GoldenLine TOUR, we customize each itinerary to fit your exact preferences, ensuring a seamless, safe, and truly unforgettable experience.
             </p>
           </div>
         </div>
@@ -62,12 +62,12 @@ export const WalkersWhyUsCounters: React.FC = () => {
               return (
                 <div
                   key={idx}
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-white border border-[#e5eee9] shadow-sm hover:shadow-md hover:border-[#002b49]/30 transition-all duration-300 group"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-[#F5F2E6] border border-[#e5eee9] shadow-sm hover:shadow-md hover:border-[var(--color-primary)]/30 transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[#e6f3fa] text-[#002b49] group-hover:bg-[#002b49] group-hover:text-white flex items-center justify-center shrink-0 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-[#e6f3fa] text-[var(--color-primary)] group-hover:bg-[var(--color-primary)] group-hover:text-white flex items-center justify-center shrink-0 transition-all duration-300">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <p className="text-xs sm:text-sm font-semibold text-[#002b49] leading-snug">
+                  <p className="text-xs sm:text-sm font-semibold text-[var(--color-primary)] leading-snug">
                     {box.title}
                   </p>
                 </div>
@@ -81,9 +81,9 @@ export const WalkersWhyUsCounters: React.FC = () => {
               {counters.map((counter, idx) => (
                 <div
                   key={idx}
-                  className="p-6 sm:p-8 rounded-3xl bg-white border border-[#e5eee9] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center"
+                  className="p-6 sm:p-8 rounded-3xl bg-[#F5F2E6] border border-[#e5eee9] shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col justify-center"
                 >
-                  <div className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[#002b49] leading-none mb-2">
+                  <div className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-[var(--color-primary)] leading-none mb-2">
                     <AnimatedCounter value={counter.value} />
                   </div>
                   <div className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#55697a]">

@@ -65,14 +65,14 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
   }, []);
 
   return (
-    <section id="about" className="py-20 lg:py-28 bg-white overflow-hidden">
+    <section id="about" className="py-20 lg:py-28 bg-[#F5F2E6] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* 3-Column Asymmetric Layout */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Portrait Image (Auto Changing with Cross-Fade) */}
           <div data-reveal="fade-right" data-reveal-duration="850" className="md:col-span-3">
-            <div className="relative h-[400px] sm:h-[480px] rounded-2xl overflow-hidden shadow-lg group bg-[#001726] hover-lift">
+            <div className="relative h-[400px] sm:h-[480px] rounded-2xl overflow-hidden shadow-lg group bg-[#041B2D] hover-lift">
               {LEFT_IMAGES.map((img, index) => {
                 const isActive = activeSlide === index;
                 return (
@@ -107,7 +107,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
             >
               Why Travel With Us
             </span>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6 leading-tight">
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-6 leading-tight">
               We Make Your Journey Extraordinary
             </h2>
 
@@ -122,7 +122,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
                 'Professional Local Guides',
                 '24/7 Customer Support',
               ].map((item, idx) => (
-                <li key={idx} className="flex items-center gap-3 text-base font-semibold text-[#002b49]">
+                <li key={idx} className="flex items-center gap-3 text-base font-semibold text-[var(--color-primary)]">
                   <div className="w-6 h-6 rounded-full bg-[#f4f7f6] flex items-center justify-center shrink-0">
                     <Check className="w-4 h-4 text-[#cba258]" strokeWidth={2.5} />
                   </div>
@@ -147,7 +147,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
 
           {/* Right Portrait Image (Auto Changing with Cross-Fade) */}
           <div data-reveal="fade-left" data-reveal-duration="850" data-reveal-delay="200" className="md:col-span-3 hidden md:block">
-            <div className="relative h-[340px] sm:h-[420px] rounded-2xl overflow-hidden shadow-lg group bg-[#001726] hover-lift">
+            <div className="relative h-[340px] sm:h-[420px] rounded-2xl overflow-hidden shadow-lg group bg-[#041B2D] hover-lift">
               {RIGHT_IMAGES.map((img, index) => {
                 const isActive = activeSlide === index;
                 return (

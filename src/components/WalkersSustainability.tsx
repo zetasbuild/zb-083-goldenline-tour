@@ -15,7 +15,7 @@ export const WalkersSustainability: React.FC<WalkersSustainabilityProps> = ({ on
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column */}
           <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-5 flex flex-col items-start">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 text-[#8ee0bc] text-xs font-bold uppercase tracking-wider mb-4 shimmer-badge">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F5F2E6]/10 text-[#8ee0bc] text-xs font-bold uppercase tracking-wider mb-4 shimmer-badge">
               <Leaf className="w-3.5 h-3.5" />
               <span>Responsible Travel</span>
             </div>

@@ -41,7 +41,7 @@ export const DestinationsSection: React.FC<DestinationsSectionProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-8">
           {/* Left Intro Block */}
           <div className="lg:col-span-4 flex flex-col items-start">
-            <span className="text-[11px] font-bold tracking-widest text-[#0e382b] uppercase bg-[#e9f4ef] px-3 py-1 rounded-full mb-3">
+            <span className="text-[11px] font-bold tracking-widest text-[#D4AF37] uppercase bg-[#e9f4ef] px-3 py-1 rounded-full mb-3">
               POPULAR DESTINATIONS
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#072118] tracking-tight leading-tight mb-3">
@@ -52,10 +52,10 @@ export const DestinationsSection: React.FC<DestinationsSectionProps> = ({
             </p>
             <button
               onClick={onViewAll}
-              className="bg-[#0e382b] hover:bg-[#165b40] text-white px-6 py-3 rounded-full text-xs font-bold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 group cursor-pointer"
+              className="bg-[#D4AF37] hover:bg-[#AA8C2C] text-white px-6 py-3 rounded-full text-xs font-bold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg flex items-center gap-2 group cursor-pointer"
             >
               <span>View All Destinations</span>
-              <ArrowRight className="w-4 h-4 text-[#e5a83b] group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 text-[#FFDF00] group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
@@ -64,14 +64,14 @@ export const DestinationsSection: React.FC<DestinationsSectionProps> = ({
             <button
               onClick={() => handleScroll('left')}
               aria-label="Previous destinations"
-              className="w-10 h-10 rounded-full border border-gray-200 bg-white hover:bg-[#0e382b] hover:text-white hover:border-[#0e382b] text-gray-700 flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+              className="w-10 h-10 rounded-full border border-gray-200 bg-[#F5F2E6] hover:bg-[#D4AF37] hover:text-white hover:border-[#D4AF37] text-gray-700 flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => handleScroll('right')}
               aria-label="Next destinations"
-              className="w-10 h-10 rounded-full border border-gray-200 bg-white hover:bg-[#0e382b] hover:text-white hover:border-[#0e382b] text-gray-700 flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
+              className="w-10 h-10 rounded-full border border-gray-200 bg-[#F5F2E6] hover:bg-[#D4AF37] hover:text-white hover:border-[#D4AF37] text-gray-700 flex items-center justify-center transition-all duration-200 shadow-sm cursor-pointer"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -104,18 +104,18 @@ export const DestinationsSection: React.FC<DestinationsSectionProps> = ({
 
               {/* Top Tag & Rating Pill */}
               <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[#0e382b]">
+                <span className="text-[10px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-[#F5F2E6]/90 backdrop-blur-md text-[#D4AF37]">
                   {dest.subtitle}
                 </span>
                 <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/50 backdrop-blur-md text-white text-xs font-bold">
-                  <Star className="w-3.5 h-3.5 fill-[#e5a83b] text-[#e5a83b]" />
+                  <Star className="w-3.5 h-3.5 fill-[#FFDF00] text-[#FFDF00]" />
                   <span>{dest.rating}</span>
                 </div>
               </div>
 
               {/* Bottom Card Content */}
               <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col justify-end text-white z-10">
-                <div className="flex items-center gap-1.5 text-xs text-[#e5a83b] font-medium mb-1">
+                <div className="flex items-center gap-1.5 text-xs text-[#FFDF00] font-medium mb-1">
                   <MapPin className="w-3.5 h-3.5" />
                   <span>{dest.region}</span>
                 </div>

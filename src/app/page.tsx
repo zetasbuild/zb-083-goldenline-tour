@@ -9,8 +9,8 @@ import { WalkersTourCategories } from '@/components/WalkersTourCategories';
 import { WalkersDestinations } from '@/components/WalkersDestinations';
 import { WalkersTourPackages } from '@/components/WalkersTourPackages';
 import { WalkersBespokeTours } from '@/components/WalkersBespokeTours';
-import { WalkersVehicleRentals } from '@/components/WalkersVehicleRentals';
-import { WalkersReviews } from '@/components/WalkersReviews';
+import { WalkersGallery } from '@/components/WalkersGallery';
+import { RealTravelerExperiences } from '@/components/RealTravelerExperiences';
 import { WalkersFAQ } from '@/components/WalkersFAQ';
 import { WalkersFooter } from '@/components/WalkersFooter';
 
@@ -34,7 +34,7 @@ export default function HomePage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-white relative">
+    <main className="min-h-screen flex flex-col bg-[#F5F2E6] relative">
       {/* Walkers Style Header */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
@@ -57,14 +57,11 @@ export default function HomePage() {
         onPlanTrip={() => router.push('/tours#custom-tour-form')}
       />
 
-      {/* Vehicle Rentals Section */}
-      <WalkersVehicleRentals
-        onSelectVehicle={() => router.push('/vehicles')}
-        onViewAllVehicles={() => router.push('/vehicles')}
-      />
+      {/* Auto Slider for Guest Memories */}
+      <WalkersGallery />
 
-      {/* Guest Reviews & Real Stories Section */}
-      <WalkersReviews />
+      {/* Real Traveler Experiences */}
+      <RealTravelerExperiences />
 
       {/* Travel Essentials FAQ */}
       <WalkersFAQ

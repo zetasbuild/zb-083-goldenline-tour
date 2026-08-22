@@ -45,7 +45,7 @@ export const OffcanvasSearch: React.FC<OffcanvasSearchProps> = ({
         <button
           onClick={onClose}
           aria-label="Close search"
-          className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer"
+          className="w-12 h-12 rounded-full bg-[#F5F2E6]/10 hover:bg-[#F5F2E6]/20 text-white flex items-center justify-center transition-all cursor-pointer"
         >
           <X className="w-6 h-6" />
         </button>
@@ -64,7 +64,7 @@ export const OffcanvasSearch: React.FC<OffcanvasSearchProps> = ({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search by Keyword (e.g. Wildlife, Ella, Beach, 7 Days...)"
-            className="w-full bg-white/10 border-2 border-white/30 hover:border-white focus:border-white rounded-full px-6 py-4 text-base sm:text-lg text-white placeholder-gray-400 outline-none transition-all pr-14"
+            className="w-full bg-[#F5F2E6]/10 border-2 border-white/30 hover:border-white focus:border-white rounded-full px-6 py-4 text-base sm:text-lg text-white placeholder-gray-400 outline-none transition-all pr-14"
           />
           <button
             type="submit"
@@ -91,7 +91,7 @@ export const OffcanvasSearch: React.FC<OffcanvasSearchProps> = ({
                     onClose();
                   }
                 }}
-                className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/25 text-xs text-white transition-all cursor-pointer border border-white/10"
+                className="px-4 py-2 rounded-full bg-[#F5F2E6]/10 hover:bg-[#F5F2E6]/25 text-xs text-white transition-all cursor-pointer border border-white/10"
               >
                 {term}
               </button>

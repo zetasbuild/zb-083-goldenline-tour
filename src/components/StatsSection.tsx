@@ -17,7 +17,7 @@ export const StatsSection: React.FC = () => {
           className="object-cover object-center filter brightness-90"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#072118]/85 via-[#0e382b]/75 to-[#072118]/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#072118]/85 via-[#D4AF37]/75 to-[#072118]/85" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,9 +25,9 @@ export const StatsSection: React.FC = () => {
           {STATS.map((stat, idx) => (
             <div
               key={idx}
-              className="bg-white/10 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/15 hover:border-[#e5a83b]/50 transition-all duration-300 hover:scale-105"
+              className="bg-[#F5F2E6]/10 backdrop-blur-md rounded-3xl p-6 sm:p-8 border border-white/15 hover:border-[#FFDF00]/50 transition-all duration-300 hover:scale-105"
             >
-              <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#e5a83b] mb-1">
+              <div className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-[#FFDF00] mb-1">
                 <AnimatedCounter value={stat.value} />
               </div>
               <div className="text-xs sm:text-sm font-semibold text-white/90 tracking-wide">

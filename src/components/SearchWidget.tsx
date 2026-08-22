@@ -58,7 +58,7 @@ export const SearchWidget: React.FC<SearchWidgetProps> = ({ onSearch }) => {
 
   return (
     <div className="relative z-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20">
-      <div className="bg-white rounded-3xl p-4 sm:p-6 shadow-[0_20px_50px_rgba(14,56,43,0.12)] border border-[#e2ede7]">
+      <div className="bg-[#F5F2E6] rounded-3xl p-4 sm:p-6 shadow-[0_20px_50px_rgba(14,56,43,0.12)] border border-[#e2ede7]">
         {/* Service Selection Tabs */}
         <div className="flex items-center space-x-1 sm:space-x-2 border-b border-gray-100 pb-3 sm:pb-4 mb-4 overflow-x-auto no-scrollbar">
           {tabs.map((tab) => {
@@ -70,11 +70,11 @@ export const SearchWidget: React.FC<SearchWidgetProps> = ({ onSearch }) => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 whitespace-nowrap cursor-pointer ${
                   isActive
-                    ? 'bg-[#0e382b] text-white shadow-sm'
-                    : 'bg-transparent text-gray-600 hover:text-[#0e382b] hover:bg-[#f0f6f3]'
+                    ? 'bg-[#D4AF37] text-white shadow-sm'
+                    : 'bg-transparent text-gray-600 hover:text-[#D4AF37] hover:bg-[#f0f6f3]'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#e5a83b]' : 'text-gray-400'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#FFDF00]' : 'text-gray-400'}`} />
                 <span>{tab.label}</span>
               </button>
             );
@@ -94,9 +94,9 @@ export const SearchWidget: React.FC<SearchWidgetProps> = ({ onSearch }) => {
                   setDestOpen(!destOpen);
                   setTravelerOpen(false);
                 }}
-                className="flex items-center gap-2.5 p-3 rounded-2xl border border-gray-200 hover:border-[#0e382b] bg-[#fafcfb] cursor-pointer transition-colors"
+                className="flex items-center gap-2.5 p-3 rounded-2xl border border-gray-200 hover:border-[#D4AF37] bg-[#fafcfb] cursor-pointer transition-colors"
               >
-                <MapPin className="w-4 h-4 text-[#0e382b] shrink-0" />
+                <MapPin className="w-4 h-4 text-[#D4AF37] shrink-0" />
                 <div className="flex-1 truncate text-xs sm:text-sm font-medium text-gray-800">
                   {destination ? destination : <span className="text-gray-400">Select Destination</span>}
                 </div>
@@ -105,7 +105,7 @@ export const SearchWidget: React.FC<SearchWidgetProps> = ({ onSearch }) => {
 
               {/* Destination Dropdown */}
               {destOpen && (
-                <div className="absolute left-0 right-0 top-full mt-2 bg-white rounded-2xl shadow-xl border border-gray-100 py-2 z-50 max-h-60 overflow-y-auto">
+                <div className="absolute left-0 right-0 top-full mt-2 bg-[#F5F2E6] rounded-2xl shadow-xl border border-gray-100 py-2 z-50 max-h-60 overflow-y-auto">
                   <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-gray-400">
                     Popular Destinations
                   </div>
@@ -117,10 +117,10 @@ export const SearchWidget: React.FC<SearchWidgetProps> = ({ onSearch }) => {
                         setDestination(dest);
                         setDestOpen(false);
                       }}
-                      className="w-full text-left px-3 py-2 text-xs font-medium hover:bg-[#f0f6f3] flex items-center justify-between text-gray-700 hover:text-[#0e382b]"
+                      className="w-full text-left px-3 py-2 text-xs font-medium hover:bg-[#f0f6f3] flex items-center justify-between text-gray-700 hover:text-[#D4AF37]"
                     >
                       <span>{dest}</span>
-                      {destination === dest && <Check className="w-3.5 h-3.5 text-[#0e382b]" />}
+                      {destination === dest && <Check className="w-3.5 h-3.5 text-[#D4AF37]" />}
                     </button>
                   ))}
                 </div>
@@ -132,8 +132,8 @@ export const SearchWidget: React.FC<SearchWidgetProps> = ({ onSearch }) => {
               <label className="text-[11px] font-bold uppercase tracking-wider text-gray-500 block mb-1">
                 Check In
               </label>
-              <div className="flex items-center gap-2 p-3 rounded-2xl border border-gray-200 hover:border-[#0e382b] bg-[#fafcfb] transition-colors">
-                <Calendar className="w-4 h-4 text-[#0e382b] shrink-0" />
+              <div className="flex items-center gap-2 p-3 rounded-2xl border border-gray-200 hover:border-[#D4AF37] bg-[#fafcfb] transition-colors">
+                <Calendar className="w-4 h-4 text-[#D4AF37] shrink-0" />
                 <input
                   type="date"
                   value={checkIn}
@@ -149,8 +149,8 @@ export const SearchWidget: React.FC<SearchWidgetProps> = ({ onSearch }) => {
               <label className="text-[11px] font-bold uppercase tracking-wider text-gray-500 block mb-1">
                 Check Out
               </label>
-              <div className="flex items-center gap-2 p-3 rounded-2xl border border-gray-200 hover:border-[#0e382b] bg-[#fafcfb] transition-colors">
-                <Calendar className="w-4 h-4 text-[#0e382b] shrink-0" />
+              <div className="flex items-center gap-2 p-3 rounded-2xl border border-gray-200 hover:border-[#D4AF37] bg-[#fafcfb] transition-colors">
+                <Calendar className="w-4 h-4 text-[#D4AF37] shrink-0" />
                 <input
                   type="date"
                   value={checkOut}
@@ -171,9 +171,9 @@ export const SearchWidget: React.FC<SearchWidgetProps> = ({ onSearch }) => {
                   setTravelerOpen(!travelerOpen);
                   setDestOpen(false);
                 }}
-                className="flex items-center gap-2.5 p-3 rounded-2xl border border-gray-200 hover:border-[#0e382b] bg-[#fafcfb] cursor-pointer transition-colors"
+                className="flex items-center gap-2.5 p-3 rounded-2xl border border-gray-200 hover:border-[#D4AF37] bg-[#fafcfb] cursor-pointer transition-colors"
               >
-                <Users className="w-4 h-4 text-[#0e382b] shrink-0" />
+                <Users className="w-4 h-4 text-[#D4AF37] shrink-0" />
                 <div className="flex-1 truncate text-xs sm:text-sm font-medium text-gray-800">
                   {adults} Adults · {children} Child
                 </div>
@@ -182,7 +182,7 @@ export const SearchWidget: React.FC<SearchWidgetProps> = ({ onSearch }) => {
 
               {/* Travelers Dropdown Modal */}
               {travelerOpen && (
-                <div className="absolute right-0 top-full mt-2 w-64 bg-white rounded-2xl shadow-xl border border-gray-100 p-4 z-50">
+                <div className="absolute right-0 top-full mt-2 w-64 bg-[#F5F2E6] rounded-2xl shadow-xl border border-gray-100 p-4 z-50">
                   <div className="space-y-4">
                     {/* Adults counter */}
                     <div className="flex items-center justify-between">
@@ -237,7 +237,7 @@ export const SearchWidget: React.FC<SearchWidgetProps> = ({ onSearch }) => {
                     <button
                       type="button"
                       onClick={() => setTravelerOpen(false)}
-                      className="w-full bg-[#0e382b] text-white py-1.5 rounded-xl text-xs font-semibold hover:bg-[#165b40]"
+                      className="w-full bg-[#D4AF37] text-white py-1.5 rounded-xl text-xs font-semibold hover:bg-[#AA8C2C]"
                     >
                       Done
                     </button>
@@ -250,10 +250,10 @@ export const SearchWidget: React.FC<SearchWidgetProps> = ({ onSearch }) => {
             <div className="md:col-span-2 pt-1 md:pt-4">
               <button
                 type="submit"
-                className="w-full bg-[#0e382b] hover:bg-[#165b40] text-white p-3 sm:py-3.5 rounded-2xl text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer group"
+                className="w-full bg-[#D4AF37] hover:bg-[#AA8C2C] text-white p-3 sm:py-3.5 rounded-2xl text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer group"
               >
                 <span>Explore Now</span>
-                <Search className="w-4 h-4 text-[#e5a83b] group-hover:scale-110 transition-transform" />
+                <Search className="w-4 h-4 text-[#FFDF00] group-hover:scale-110 transition-transform" />
               </button>
             </div>
           </div>

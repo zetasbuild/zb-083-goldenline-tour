@@ -10,7 +10,7 @@ export const WalkersReviews: React.FC = () => {
   const reviews = [
     {
       title: 'Wonderful Family Trip to Sri Lanka',
-      text: 'Wonderful family trip to Sri Lanka. We were a multi-generational group and our chauffeur guide was able to navigate our interests seamlessly. He was extremely knowledgeable about the sites and provided great suggestions to enhance our experience all the time. For example, he suggested we do a scenic train trip in Ella for a few stops which allowed the kids to experience the journey without the full 8-hour trip. Overall, an incredible experience using Ceylon Journeys!',
+      text: 'Wonderful family trip to Sri Lanka. We were a multi-generational group and our chauffeur guide was able to navigate our interests seamlessly. He was extremely knowledgeable about the sites and provided great suggestions to enhance our experience all the time. For example, he suggested we do a scenic train trip in Ella for a few stops which allowed the kids to experience the journey without the full 8-hour trip. Overall, an incredible experience using GoldenLine TOUR!',
       author: 'Shalini Castelli and Family',
       origin: 'United Kingdom',
       tour: '14-Day Bespoke Family Adventure',
@@ -18,7 +18,7 @@ export const WalkersReviews: React.FC = () => {
     },
     {
       title: 'A Delightful Stay & Exceptional Chauffeur Service',
-      text: 'Ceylon Journeys arranged all our transport and private tours in Sri Lanka. The vehicle was an immaculate luxury SUV with high comfort for long mountain stretches. Our driver was also a certified naturalist who shared deep historical context for every temple and fortress. All vehicles and drivers were of an exceptional five-star standard.',
+      text: 'GoldenLine TOUR arranged all our transport and private tours in Sri Lanka. The vehicle was an immaculate luxury SUV with high comfort for long mountain stretches. Our driver was also a certified naturalist who shared deep historical context for every temple and fortress. All vehicles and drivers were of an exceptional five-star standard.',
       author: 'Joe & Margaret Richardson',
       origin: 'Australia',
       tour: 'Cultural Triangle & Coastlines',
@@ -65,7 +65,7 @@ export const WalkersReviews: React.FC = () => {
           sizes="100vw"
         />
         {/* Soft Dark Overlay to ensure high contrast and text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/90 via-[#001726]/65 to-[#001726]/80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/90 via-[#041B2D]/65 to-[#041B2D]/80" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -130,14 +130,14 @@ export const WalkersReviews: React.FC = () => {
             <button
               onClick={handlePrev}
               aria-label="Previous review"
-              className="w-10 h-10 rounded-full bg-black/40 border border-white/30 text-white flex items-center justify-center shadow-lg hover:bg-white hover:text-[#002b49] transition-all pointer-events-auto cursor-pointer backdrop-blur-sm"
+              className="w-10 h-10 rounded-full bg-black/40 border border-white/30 text-white flex items-center justify-center shadow-lg hover:bg-[#F5F2E6] hover:text-[var(--color-primary)] transition-all pointer-events-auto cursor-pointer backdrop-blur-sm"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
               aria-label="Next review"
-              className="w-10 h-10 rounded-full bg-black/40 border border-white/30 text-white flex items-center justify-center shadow-lg hover:bg-white hover:text-[#002b49] transition-all pointer-events-auto cursor-pointer backdrop-blur-sm"
+              className="w-10 h-10 rounded-full bg-black/40 border border-white/30 text-white flex items-center justify-center shadow-lg hover:bg-[#F5F2E6] hover:text-[var(--color-primary)] transition-all pointer-events-auto cursor-pointer backdrop-blur-sm"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -151,7 +151,7 @@ export const WalkersReviews: React.FC = () => {
               key={idx}
               onClick={() => setCurrentIndex(idx)}
               className={`h-2 rounded-full transition-all cursor-pointer ${
-                currentIndex === idx ? 'w-8 bg-[#8ed1fc]' : 'w-2 bg-white/30 hover:bg-white/60'
+                currentIndex === idx ? 'w-8 bg-[#8ed1fc]' : 'w-2 bg-[#F5F2E6]/30 hover:bg-[#F5F2E6]/60'
               }`}
               aria-label={`Go to review ${idx + 1}`}
             />

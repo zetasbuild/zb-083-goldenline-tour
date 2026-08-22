@@ -55,7 +55,7 @@ export const BackgroundAutoSlider: React.FC<BackgroundAutoSliderProps> = ({
   intervalMs = 4500,
   showIndicators = true,
   className = '',
-  overlayGradient = 'bg-gradient-to-b from-black/80 via-black/45 to-[#001726]',
+  overlayGradient = 'bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]',
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -112,7 +112,7 @@ export const BackgroundAutoSlider: React.FC<BackgroundAutoSliderProps> = ({
                 className={`transition-all duration-300 rounded-full cursor-pointer ${
                   isActive
                     ? 'w-8 h-1.5 bg-[#cba258] shadow-sm'
-                    : 'w-2 h-1.5 bg-white/40 hover:bg-white/80'
+                    : 'w-2 h-1.5 bg-[#F5F2E6]/40 hover:bg-[#F5F2E6]/80'
                 }`}
               />
             );

@@ -63,7 +63,7 @@ export const PlanTripModal: React.FC<PlanTripModalProps> = ({ isOpen, onClose })
 
   const openWhatsAppDirect = () => {
     const text = encodeURIComponent(
-      `Hello Ceylon Journeys! I would like to plan a custom Sri Lanka trip.\n` +
+      `Hello GoldenLine TOUR! I would like to plan a custom Sri Lanka trip.\n` +
       `Destinations: ${selectedDestinations.join(', ')}\n` +
       `Duration: ${duration}\n` +
       `Travelers: ${travelers}\n` +

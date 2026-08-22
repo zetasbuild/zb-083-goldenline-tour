@@ -64,7 +64,7 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
         {/* Header */}
         <div data-reveal="fade-up" className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end mb-12">
           <div className="md:col-span-4">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#002b49] leading-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[var(--color-primary)] leading-tight">
               <span>Tour</span><br />
               <span className="font-bold">Categories</span>
             </h2>
@@ -80,14 +80,14 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
             <button
               onClick={() => handleScroll('left')}
               aria-label="Previous category"
-              className="w-10 h-10 rounded-full bg-white hover:bg-[#002b49] hover:text-white text-[#002b49] shadow-sm flex items-center justify-center transition-all cursor-pointer hover:scale-105 active:scale-95"
+              className="w-10 h-10 rounded-full bg-[#F5F2E6] hover:bg-[var(--color-primary)] hover:text-white text-[var(--color-primary)] shadow-sm flex items-center justify-center transition-all cursor-pointer hover:scale-105 active:scale-95"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => handleScroll('right')}
               aria-label="Next category"
-              className="w-10 h-10 rounded-full bg-white hover:bg-[#002b49] hover:text-white text-[#002b49] shadow-sm flex items-center justify-center transition-all cursor-pointer hover:scale-105 active:scale-95"
+              className="w-10 h-10 rounded-full bg-[#F5F2E6] hover:bg-[var(--color-primary)] hover:text-white text-[var(--color-primary)] shadow-sm flex items-center justify-center transition-all cursor-pointer hover:scale-105 active:scale-95"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -127,7 +127,7 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
 
                 <div className="next-btn next-btn--white">
                   <div className="next-btn-circle group-hover:scale-110 transition-transform">
-                    <ArrowRight className="w-4 h-4 text-[#002b49]" />
+                    <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
                   </div>
                   <span className="text-xs uppercase tracking-widest font-bold">Explore</span>
                 </div>

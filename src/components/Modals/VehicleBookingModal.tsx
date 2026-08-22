@@ -50,7 +50,7 @@ export const VehicleBookingModal: React.FC<VehicleBookingModalProps> = ({
 
   const handleWhatsAppBooking = () => {
     const text = encodeURIComponent(
-      `Hello Ceylon Journeys! I would like to reserve the following vehicle:\n` +
+      `Hello GoldenLine TOUR! I would like to reserve the following vehicle:\n` +
       `Vehicle: ${vehicle.category} (${vehicle.model})\n` +
       `Duration: ${days} Days\n` +
       `Chauffeur Guide: ${withDriver ? 'Yes' : 'Self Drive'}\n` +
@@ -64,11 +64,11 @@ export const VehicleBookingModal: React.FC<VehicleBookingModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col max-h-[90vh]">
+      <div className="bg-[#F5F2E6] w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col max-h-[90vh]">
         {/* Header */}
         <div className="bg-[#0c241c] text-white p-5 sm:p-6 flex items-center justify-between">
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#e5a83b]">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[#FFDF00]">
               Vehicle Reservation &amp; Quote
             </span>
             <h3 className="font-serif text-2xl font-bold">{vehicle.category}</h3>
@@ -76,7 +76,7 @@ export const VehicleBookingModal: React.FC<VehicleBookingModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer"
+            className="w-9 h-9 rounded-full bg-[#F5F2E6]/10 hover:bg-[#F5F2E6]/20 text-white flex items-center justify-center transition-all cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -86,10 +86,10 @@ export const VehicleBookingModal: React.FC<VehicleBookingModalProps> = ({
         <div className="p-6 overflow-y-auto flex-1">
           {isBooked ? (
             <div className="py-8 text-center flex flex-col items-center">
-              <div className="w-16 h-16 rounded-full bg-[#edf7f2] text-[#0f8b53] flex items-center justify-center mb-4">
+              <div className="w-16 h-16 rounded-full bg-[#edf7f2] text-[#D4AF37] flex items-center justify-center mb-4">
                 <Check className="w-8 h-8" />
               </div>
-              <h4 className="font-serif text-2xl font-bold text-[#0e382b] mb-2">
+              <h4 className="font-serif text-2xl font-bold text-[#D4AF37] mb-2">
                 Booking Request Sent!
               </h4>
               <p className="text-xs text-gray-600 max-w-md mb-6 leading-relaxed">
@@ -98,7 +98,7 @@ export const VehicleBookingModal: React.FC<VehicleBookingModalProps> = ({
               <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md">
                 <button
                   onClick={handleWhatsAppBooking}
-                  className="flex-1 bg-[#0f8b53] hover:bg-[#0c7043] text-white py-3 rounded-2xl text-xs font-bold flex items-center justify-center gap-2 shadow-md"
+                  className="flex-1 bg-[#D4AF37] hover:bg-[#AA8C2C] text-white py-3 rounded-2xl text-xs font-bold flex items-center justify-center gap-2 shadow-md"
                 >
                   <MessageSquare className="w-4 h-4" />
                   <span>Instant WhatsApp Confirmation</span>
@@ -116,15 +116,15 @@ export const VehicleBookingModal: React.FC<VehicleBookingModalProps> = ({
               {/* Vehicle Specs Bar */}
               <div className="grid grid-cols-3 gap-3 p-3 bg-[#f7faf8] rounded-2xl border border-gray-200 text-center text-xs text-gray-700">
                 <div className="flex items-center justify-center gap-1.5">
-                  <Users className="w-4 h-4 text-[#0e382b]" />
+                  <Users className="w-4 h-4 text-[#D4AF37]" />
                   <span>{vehicle.passengers} Passengers</span>
                 </div>
                 <div className="flex items-center justify-center gap-1.5 border-x border-gray-200">
-                  <Briefcase className="w-4 h-4 text-[#0e382b]" />
+                  <Briefcase className="w-4 h-4 text-[#D4AF37]" />
                   <span>{vehicle.luggage} Luggage</span>
                 </div>
                 <div className="flex items-center justify-center gap-1.5">
-                  <Cog className="w-4 h-4 text-[#0e382b]" />
+                  <Cog className="w-4 h-4 text-[#D4AF37]" />
                   <span>{vehicle.transmission}</span>
                 </div>
               </div>
@@ -158,15 +158,15 @@ export const VehicleBookingModal: React.FC<VehicleBookingModalProps> = ({
                     onClick={() => setWithDriver(true)}
                     className={`p-3 rounded-2xl text-xs font-semibold border transition-all text-left flex items-center justify-between cursor-pointer ${
                       withDriver
-                        ? 'bg-[#0e382b] text-white border-[#0e382b]'
-                        : 'bg-[#f7faf8] text-gray-700 border-gray-200 hover:border-[#0e382b]'
+                        ? 'bg-[#D4AF37] text-white border-[#D4AF37]'
+                        : 'bg-[#f7faf8] text-gray-700 border-gray-200 hover:border-[#D4AF37]'
                     }`}
                   >
                     <div>
                       <div>With Chauffeur</div>
                       <div className="text-[10px] opacity-75">English guide included</div>
                     </div>
-                    {withDriver && <Check className="w-4 h-4 text-[#e5a83b]" />}
+                    {withDriver && <Check className="w-4 h-4 text-[#FFDF00]" />}
                   </button>
 
                   <button
@@ -174,15 +174,15 @@ export const VehicleBookingModal: React.FC<VehicleBookingModalProps> = ({
                     onClick={() => setWithDriver(false)}
                     className={`p-3 rounded-2xl text-xs font-semibold border transition-all text-left flex items-center justify-between cursor-pointer ${
                       !withDriver
-                        ? 'bg-[#0e382b] text-white border-[#0e382b]'
-                        : 'bg-[#f7faf8] text-gray-700 border-gray-200 hover:border-[#0e382b]'
+                        ? 'bg-[#D4AF37] text-white border-[#D4AF37]'
+                        : 'bg-[#f7faf8] text-gray-700 border-gray-200 hover:border-[#D4AF37]'
                     }`}
                   >
                     <div>
                       <div>Self Drive</div>
                       <div className="text-[10px] opacity-75">Valid license required</div>
                     </div>
-                    {!withDriver && <Check className="w-4 h-4 text-[#e5a83b]" />}
+                    {!withDriver && <Check className="w-4 h-4 text-[#FFDF00]" />}
                   </button>
                 </div>
               </div>
@@ -197,7 +197,7 @@ export const VehicleBookingModal: React.FC<VehicleBookingModalProps> = ({
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Full Name"
-                    className="w-full p-2.5 rounded-xl border border-gray-200 bg-[#f7faf8] text-xs font-medium text-gray-800 outline-none focus:border-[#0e382b]"
+                    className="w-full p-2.5 rounded-xl border border-gray-200 bg-[#f7faf8] text-xs font-medium text-gray-800 outline-none focus:border-[#D4AF37]"
                   />
                 </div>
                 <div>
@@ -208,7 +208,7 @@ export const VehicleBookingModal: React.FC<VehicleBookingModalProps> = ({
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+94 ..."
-                    className="w-full p-2.5 rounded-xl border border-gray-200 bg-[#f7faf8] text-xs font-medium text-gray-800 outline-none focus:border-[#0e382b]"
+                    className="w-full p-2.5 rounded-xl border border-gray-200 bg-[#f7faf8] text-xs font-medium text-gray-800 outline-none focus:border-[#D4AF37]"
                   />
                 </div>
               </div>
@@ -225,23 +225,23 @@ export const VehicleBookingModal: React.FC<VehicleBookingModalProps> = ({
                     <span>{formatPrice(driverRatePerDay * days)}</span>
                   </div>
                 )}
-                <div className="flex items-center justify-between pt-2 border-t border-[#c6dfd4] text-sm font-black text-[#0e382b]">
+                <div className="flex items-center justify-between pt-2 border-t border-[#c6dfd4] text-sm font-black text-[#D4AF37]">
                   <span>Estimated Total</span>
-                  <span className="text-[#0e382b] text-base">{formatPrice(totalLKR)}</span>
+                  <span className="text-[#D4AF37] text-base">{formatPrice(totalLKR)}</span>
                 </div>
               </div>
 
               <div className="pt-2 flex flex-col sm:flex-row gap-2">
                 <button
                   type="submit"
-                  className="flex-1 bg-[#0e382b] hover:bg-[#165b40] text-white py-3 rounded-2xl text-xs font-bold shadow-md transition-all cursor-pointer"
+                  className="flex-1 bg-[#D4AF37] hover:bg-[#AA8C2C] text-white py-3 rounded-2xl text-xs font-bold shadow-md transition-all cursor-pointer"
                 >
                   Reserve Online
                 </button>
                 <button
                   type="button"
                   onClick={handleWhatsAppBooking}
-                  className="flex-1 bg-[#0f8b53] hover:bg-[#0c7043] text-white py-3 rounded-2xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
+                  className="flex-1 bg-[#D4AF37] hover:bg-[#AA8C2C] text-white py-3 rounded-2xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-md cursor-pointer"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>Book via WhatsApp</span>

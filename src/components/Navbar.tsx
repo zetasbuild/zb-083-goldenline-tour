@@ -52,16 +52,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlanTrip }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm py-3 border-b border-[#e5eee9]'
-          : 'bg-white/90 backdrop-blur-sm py-4'
+          ? 'bg-[#F5F2E6]/95 backdrop-blur-md shadow-sm py-3 border-b border-[#e5eee9]'
+          : 'bg-[#F5F2E6]/90 backdrop-blur-sm py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-full bg-[#0e382b] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-200">
+          <div className="w-10 h-10 rounded-full bg-[#D4AF37] flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-200">
             <svg
-              className="w-6 h-6 text-[#e5a83b]"
+              className="w-6 h-6 text-[#FFDF00]"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -76,11 +76,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlanTrip }) => {
             </svg>
           </div>
           <div className="flex flex-col">
-            <span className="text-xl font-bold tracking-wider font-serif text-[#0e382b] leading-tight">
-              CEYLON JOURNEYS
+            <span className="text-xl font-bold tracking-wider font-serif text-[#D4AF37] leading-tight">
+              GoldenLine TOUR
             </span>
-            <span className="text-xs font-script text-[#e5a83b] tracking-wide font-semibold -mt-0.5">
-              Explore Sri Lanka
+            <span className="text-xs font-script text-[#FFDF00] tracking-wide font-semibold -mt-0.5">
+              Premium Tours
             </span>
           </div>
         </Link>
@@ -94,12 +94,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlanTrip }) => {
                 key={link.name}
                 href={link.href}
                 className={`text-sm font-medium transition-colors relative py-1 group ${
-                  active ? 'text-[#0e382b] font-bold' : 'text-[#2d473e] hover:text-[#0e382b]'
+                  active ? 'text-[#D4AF37] font-bold' : 'text-[#2d473e] hover:text-[#D4AF37]'
                 }`}
               >
                 {link.name}
                 <span
-                  className={`absolute bottom-0 left-0 h-0.5 bg-[#0e382b] transition-all duration-300 ${
+                  className={`absolute bottom-0 left-0 h-0.5 bg-[#D4AF37] transition-all duration-300 ${
                     active ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}
                 />
@@ -121,7 +121,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlanTrip }) => {
             </button>
 
             {currencyDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-28 bg-white rounded-xl shadow-lg border border-[#e2ece7] py-1 z-50">
+              <div className="absolute right-0 mt-2 w-28 bg-[#F5F2E6] rounded-xl shadow-lg border border-[#e2ece7] py-1 z-50">
                 {currencies.map((curr) => (
                   <button
                     key={curr}
@@ -130,11 +130,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlanTrip }) => {
                       setCurrencyDropdownOpen(false);
                     }}
                     className={`w-full text-left px-4 py-2 text-xs font-medium hover:bg-[#f4f8f6] flex items-center justify-between ${
-                      currency === curr ? 'text-[#0e382b] font-bold bg-[#edf5f1]' : 'text-gray-700'
+                      currency === curr ? 'text-[#D4AF37] font-bold bg-[#edf5f1]' : 'text-gray-700'
                     }`}
                   >
                     <span>{curr}</span>
-                    {currency === curr && <span className="w-1.5 h-1.5 rounded-full bg-[#0e382b]" />}
+                    {currency === curr && <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />}
                   </button>
                 ))}
               </div>
@@ -148,11 +148,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlanTrip }) => {
             rel="noopener noreferrer"
             className="flex items-center space-x-2.5 group"
           >
-            <div className="w-9 h-9 rounded-full bg-[#e8f6ef] text-[#0f8b53] flex items-center justify-center group-hover:scale-105 transition-transform">
+            <div className="w-9 h-9 rounded-full bg-[#e8f6ef] text-[#D4AF37] flex items-center justify-center group-hover:scale-105 transition-transform">
               <MessageSquare className="w-4 h-4" />
             </div>
             <div className="flex flex-col text-left">
-              <span className="text-xs font-bold text-[#0e382b] leading-tight group-hover:text-[#165b40]">
+              <span className="text-xs font-bold text-[#D4AF37] leading-tight group-hover:text-[#AA8C2C]">
                 +94 77 123 4567
               </span>
               <span className="text-[10px] text-gray-500 font-medium">24/7 Support</span>
@@ -162,9 +162,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlanTrip }) => {
           {/* Plan My Trip CTA Button */}
           <button
             onClick={onOpenPlanTrip}
-            className="bg-[#0e382b] hover:bg-[#165b40] text-white px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-1.5 cursor-pointer"
+            className="bg-[#D4AF37] hover:bg-[#AA8C2C] text-white px-5 py-2.5 rounded-full text-xs font-semibold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-1.5 cursor-pointer"
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#e5a83b]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#FFDF00]" />
             <span>Plan My Trip</span>
           </button>
         </div>
@@ -176,14 +176,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlanTrip }) => {
               const nextIndex = (currencies.indexOf(currency) + 1) % currencies.length;
               setCurrency(currencies[nextIndex]);
             }}
-            className="px-2 py-1 text-xs font-semibold rounded border border-[#e2ece7] text-[#0e382b]"
+            className="px-2 py-1 text-xs font-semibold rounded border border-[#e2ece7] text-[#D4AF37]"
           >
             {currency}
           </button>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-[#0e382b] hover:bg-[#edf5f1] rounded-lg transition-colors"
+            className="p-2 text-[#D4AF37] hover:bg-[#edf5f1] rounded-lg transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -193,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlanTrip }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-t border-[#e2ece7] px-6 py-5 shadow-xl animate-in slide-in-from-top duration-300">
+        <div className="md:hidden bg-[#F5F2E6] border-t border-[#e2ece7] px-6 py-5 shadow-xl animate-in slide-in-from-top duration-300">
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <Link
@@ -202,8 +202,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlanTrip }) => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`text-base font-medium py-1 border-b border-gray-100 ${
                   isCurrentActive(link.href)
-                    ? 'text-[#0e382b] font-bold'
-                    : 'text-[#1e3c31] hover:text-[#0e382b]'
+                    ? 'text-[#D4AF37] font-bold'
+                    : 'text-[#1e3c31] hover:text-[#D4AF37]'
                 }`}
               >
                 {link.name}
@@ -217,11 +217,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlanTrip }) => {
                 rel="noopener noreferrer"
                 className="flex items-center space-x-3 p-2 bg-[#f0f8f4] rounded-xl"
               >
-                <div className="w-8 h-8 rounded-full bg-[#0f8b53] text-white flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-[#D4AF37] text-white flex items-center justify-center">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <div className="text-xs font-bold text-[#0e382b]">+94 77 123 4567</div>
+                  <div className="text-xs font-bold text-[#D4AF37]">+94 77 123 4567</div>
                   <div className="text-[10px] text-gray-500">24/7 Dedicated Support</div>
                 </div>
               </a>
@@ -231,9 +231,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenPlanTrip }) => {
                   setMobileMenuOpen(false);
                   onOpenPlanTrip();
                 }}
-                className="w-full bg-[#0e382b] text-white py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 shadow-md cursor-pointer"
+                className="w-full bg-[#D4AF37] text-white py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2 shadow-md cursor-pointer"
               >
-                <Sparkles className="w-4 h-4 text-[#e5a83b]" />
+                <Sparkles className="w-4 h-4 text-[#FFDF00]" />
                 Plan My Trip
               </button>
             </div>

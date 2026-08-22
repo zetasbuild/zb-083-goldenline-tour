@@ -22,16 +22,16 @@ export const DestinationDetailModal: React.FC<DestinationDetailModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col max-h-[90vh]">
+      <div className="bg-[#F5F2E6] w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col max-h-[90vh]">
         {/* Destination Image Hero */}
-        <div className="relative h-64 sm:h-72 w-full bg-[#001726] shrink-0">
+        <div className="relative h-64 sm:h-72 w-full bg-[#041B2D] shrink-0">
           <Image
             src={destination.image}
             alt={destination.name}
             fill
             className="object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/95 via-[#001726]/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/30 to-transparent" />
 
           {/* Close Button */}
           <button
@@ -65,14 +65,14 @@ export const DestinationDetailModal: React.FC<DestinationDetailModalProps> = ({
         <div className="p-6 overflow-y-auto space-y-6">
           <div>
             <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">About Destination</h4>
-            <p className="text-sm text-[#002b49] leading-relaxed">
+            <p className="text-sm text-[var(--color-primary)] leading-relaxed">
               {destination.description}
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="p-4 rounded-2xl bg-[#f8fbfa] border border-[#e2ede7]">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#002b49] mb-1">
+              <div className="flex items-center gap-2 text-xs font-bold text-[var(--color-primary)] mb-1">
                 <Calendar className="w-4 h-4 text-[#cba258]" />
                 <span>Best Time to Visit</span>
               </div>
@@ -80,7 +80,7 @@ export const DestinationDetailModal: React.FC<DestinationDetailModalProps> = ({
             </div>
 
             <div className="p-4 rounded-2xl bg-[#f8fbfa] border border-[#e2ede7]">
-              <div className="flex items-center gap-2 text-xs font-bold text-[#002b49] mb-1">
+              <div className="flex items-center gap-2 text-xs font-bold text-[var(--color-primary)] mb-1">
                 <Compass className="w-4 h-4 text-[#cba258]" />
                 <span>Top Category</span>
               </div>
@@ -92,7 +92,7 @@ export const DestinationDetailModal: React.FC<DestinationDetailModalProps> = ({
             <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Key Highlights &amp; Attractions</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {destination.attractions.map((att, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-[#002b49] p-2.5 rounded-xl bg-[#f0f4f8]">
+                <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-[var(--color-primary)] p-2.5 rounded-xl bg-[#f0f4f8]">
                   <Check className="w-4 h-4 text-[#0077b6]" />
                   <span>{att}</span>
                 </div>
@@ -114,7 +114,7 @@ export const DestinationDetailModal: React.FC<DestinationDetailModalProps> = ({
               onClose();
               onPlanTripForDest(destination.name);
             }}
-            className="bg-[#002b49] hover:bg-[#0077b6] text-white px-6 py-2.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-md transition-colors cursor-pointer"
+            className="bg-[var(--color-primary)] hover:bg-[#0077b6] text-white px-6 py-2.5 rounded-full text-xs font-bold flex items-center gap-1.5 shadow-md transition-colors cursor-pointer"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#cba258]" />
             <span>Customize Trip to {destination.name}</span>

@@ -69,7 +69,7 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
           >
             Travel with Ease
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-6">
             Ride in Comfort, Travel in Style
           </h2>
           <p className="text-gray-600 sm:text-lg leading-relaxed">
@@ -88,7 +88,7 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
               </div>
-              <span className="text-xs uppercase tracking-widest font-bold text-[#002b49]">Explore</span>
+              <span className="text-xs uppercase tracking-widest font-bold text-[var(--color-primary)]">Explore</span>
             </button>
           )}
         </div>
@@ -106,10 +106,10 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
             <div
               key={vehicle.id}
               onClick={() => onSelectVehicle(vehicle)}
-              className="hover-box group flex-shrink-0 w-[290px] sm:w-[320px] h-[430px] sm:h-[450px] cursor-pointer snap-start rounded-3xl overflow-hidden bg-[#001726] border border-white/10 hover:border-[#8ed1fc]/40 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between p-4 sm:p-5"
+              className="hover-box group flex-shrink-0 w-[290px] sm:w-[320px] h-[430px] sm:h-[450px] cursor-pointer snap-start rounded-3xl overflow-hidden bg-[#041B2D] border border-white/10 hover:border-[#8ed1fc]/40 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between p-4 sm:p-5"
             >
               {/* Top Vehicle Showcase Canvas - Pure White for Seamless Blend */}
-              <div className="relative w-full h-[185px] sm:h-[205px] rounded-2xl overflow-hidden bg-white flex items-center justify-center p-3 border border-white/10 shadow-sm">
+              <div className="relative w-full h-[185px] sm:h-[205px] rounded-2xl overflow-hidden bg-[#F5F2E6] flex items-center justify-center p-3 border border-white/10 shadow-sm">
                 <Image
                   src={vehicle.image}
                   alt={vehicle.model}
@@ -157,7 +157,7 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
 
                   <div className="next-btn next-btn--white">
                     <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
-                      <ArrowRight className="w-4 h-4 text-[#002b49]" />
+                      <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
                     </div>
                   </div>
                 </div>
@@ -176,7 +176,7 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
             {guarantees.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={idx} className="flex items-center gap-3 shrink-0 text-sm text-[#002b49]">
+                <div key={idx} className="flex items-center gap-3 shrink-0 text-sm text-[var(--color-primary)]">
                   <div className="w-10 h-10 rounded-full bg-[#eef4f2] flex items-center justify-center text-[#8ed1fc] shrink-0 transition-transform duration-300 hover:scale-110">
                     <Icon className="w-5 h-5" />
                   </div>
@@ -190,7 +190,7 @@ export const WalkersVehicleRentals: React.FC<WalkersVehicleRentalsProps> = ({
             {guarantees.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={`dup-${idx}`} className="flex items-center gap-3 shrink-0 text-sm text-[#002b49]">
+                <div key={`dup-${idx}`} className="flex items-center gap-3 shrink-0 text-sm text-[var(--color-primary)]">
                   <div className="w-10 h-10 rounded-full bg-[#eef4f2] flex items-center justify-center text-[#8ed1fc] shrink-0 transition-transform duration-300 hover:scale-110">
                     <Icon className="w-5 h-5" />
                   </div>

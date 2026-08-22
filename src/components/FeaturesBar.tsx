@@ -44,7 +44,7 @@ export const FeaturesBar: React.FC = () => {
   ];
 
   return (
-    <section id="features" className="py-14 sm:py-16 bg-white border-b border-[#e5eee9]">
+    <section id="features" className="py-14 sm:py-16 bg-[#F5F2E6] border-b border-[#e5eee9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8">
           {features.map((item) => {
@@ -55,10 +55,10 @@ export const FeaturesBar: React.FC = () => {
                 className="group flex flex-col items-center text-center p-3 rounded-2xl hover:bg-[#f2f8f5] transition-all duration-300 cursor-default"
               >
                 {/* Circular Icon Container with emerald & gold accents */}
-                <div className="w-14 h-14 rounded-full bg-[#edf5f1] border border-[#d6e7df] flex items-center justify-center text-[#0e382b] mb-3 group-hover:scale-110 group-hover:bg-[#0e382b] group-hover:text-white transition-all duration-300 shadow-sm">
-                  <Icon className="w-6 h-6 stroke-[1.8] group-hover:text-[#e5a83b] transition-colors" />
+                <div className="w-14 h-14 rounded-full bg-[#edf5f1] border border-[#d6e7df] flex items-center justify-center text-[#D4AF37] mb-3 group-hover:scale-110 group-hover:bg-[#D4AF37] group-hover:text-white transition-all duration-300 shadow-sm">
+                  <Icon className="w-6 h-6 stroke-[1.8] group-hover:text-[#FFDF00] transition-colors" />
                 </div>
-                <h2 className="text-xs sm:text-sm font-bold text-[#143228] mb-0.5 leading-snug group-hover:text-[#0e382b]">
+                <h2 className="text-xs sm:text-sm font-bold text-[#2B2A29] mb-0.5 leading-snug group-hover:text-[#D4AF37]">
                   {item.title}
                 </h2>
                 <p className="text-[11px] text-gray-500 hidden sm:block">

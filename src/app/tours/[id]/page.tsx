@@ -91,7 +91,7 @@ export default function TourDetailPage() {
   const handleWhatsAppInquiry = (dayTitle?: string) => {
     const interest = dayTitle ? `"${tour.title}" (${dayTitle})` : `"${tour.title}" (${tour.duration})`;
     const text = encodeURIComponent(
-      `Hello Ceylon Journeys! I would like to book or customize the ${interest}. Please share the detailed itinerary quotation and available dates.`
+      `Hello GoldenLine TOUR! I would like to book or customize the ${interest}. Please share the detailed itinerary quotation and available dates.`
     );
     window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
   };
@@ -102,7 +102,7 @@ export default function TourDetailPage() {
   ).slice(0, 3);
 
   return (
-    <main className="min-h-screen flex flex-col bg-white relative">
+    <main className="min-h-screen flex flex-col bg-[#F5F2E6] relative">
       {/* Walkers Luxury Navigation */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
@@ -113,7 +113,7 @@ export default function TourDetailPage() {
       />
 
       {/* Main Tour Page Container */}
-      <div className="w-full bg-white pt-28 sm:pt-36 pb-20">
+      <div className="w-full bg-[#F5F2E6] pt-28 sm:pt-36 pb-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Top Title Section */}
@@ -281,7 +281,7 @@ export default function TourDetailPage() {
                   >
                     Included In Your Journey
                   </span>
-                  <h3 className="font-serif text-3xl font-bold text-[#002b49] mb-4">
+                  <h3 className="font-serif text-3xl font-bold text-[var(--color-primary)] mb-4">
                     Everything Taken Care Of
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
@@ -289,7 +289,7 @@ export default function TourDetailPage() {
                   </p>
                   <button
                     onClick={() => scrollToBookingForm()}
-                    className="bg-[#002b49] hover:bg-[#0077b6] text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-md cursor-pointer"
+                    className="bg-[var(--color-primary)] hover:bg-[#0077b6] text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-md cursor-pointer"
                   >
                     Customize This Tour
                   </button>
@@ -297,9 +297,9 @@ export default function TourDetailPage() {
 
                 <div className="lg:col-span-6 space-y-3">
                   {tour.includes.map((inc, i) => (
-                    <div key={i} className="flex items-start gap-3 p-3 rounded-2xl bg-white border border-gray-100 shadow-sm">
+                    <div key={i} className="flex items-start gap-3 p-3 rounded-2xl bg-[#F5F2E6] border border-gray-100 shadow-sm">
                       <CheckCircle2 className="w-4 h-4 text-[#0077b6] shrink-0 mt-0.5" />
-                      <span className="text-xs sm:text-sm font-semibold text-[#002b49]">{inc}</span>
+                      <span className="text-xs sm:text-sm font-semibold text-[var(--color-primary)]">{inc}</span>
                     </div>
                   ))}
                 </div>
@@ -309,7 +309,7 @@ export default function TourDetailPage() {
 
           {/* Custom Tour Inquiry & Booking Form (Standard Web Form) */}
           <div id="tour-booking-form" className="mt-20 pt-8 scroll-mt-24">
-            <div data-reveal="zoom-in" className="bg-white rounded-3xl p-8 sm:p-12 lg:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7] relative overflow-hidden">
+            <div data-reveal="zoom-in" className="bg-[#F5F2E6] rounded-3xl p-8 sm:p-12 lg:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7] relative overflow-hidden">
               
               {/* Subtle Ambient Light Gradients */}
               <div className="absolute top-0 right-0 w-96 h-96 bg-[#8ed1fc]/10 rounded-full blur-3xl pointer-events-none" />
@@ -354,7 +354,7 @@ export default function TourDetailPage() {
                       </button>
                       <button
                         onClick={() => setIsSubmitted(false)}
-                        className="bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer"
+                        className="bg-[#F5F2E6] hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer"
                       >
                         Submit Another Request
                       </button>
@@ -378,7 +378,7 @@ export default function TourDetailPage() {
                           value={formData.fullName}
                           onChange={handleInputChange}
                           placeholder="e.g. Eleanor Vance"
-                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                         />
                       </div>
 
@@ -395,7 +395,7 @@ export default function TourDetailPage() {
                           value={formData.email}
                           onChange={handleInputChange}
                           placeholder="eleanor@example.com"
-                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                         />
                       </div>
 
@@ -412,7 +412,7 @@ export default function TourDetailPage() {
                           value={formData.phone}
                           onChange={handleInputChange}
                           placeholder="+1 (555) 000-0000"
-                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                         />
                       </div>
 
@@ -428,7 +428,7 @@ export default function TourDetailPage() {
                           name="arrivalDate"
                           value={formData.arrivalDate}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all cursor-pointer"
+                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all cursor-pointer"
                         />
                       </div>
 
@@ -443,7 +443,7 @@ export default function TourDetailPage() {
                             name="adults"
                             value={formData.adults}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white cursor-pointer"
+                            className="w-full px-3 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] cursor-pointer"
                           >
                             {[1, 2, 3, 4, 5, 6, 8, 10, '12+'].map((n) => (
                               <option key={n} value={n}>
@@ -455,7 +455,7 @@ export default function TourDetailPage() {
                             name="children"
                             value={formData.children}
                             onChange={handleInputChange}
-                            className="w-full px-3 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white cursor-pointer"
+                            className="w-full px-3 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] cursor-pointer"
                           >
                             {[0, 1, 2, 3, 4, 5].map((n) => (
                               <option key={n} value={n}>
@@ -476,7 +476,7 @@ export default function TourDetailPage() {
                           name="hotelType"
                           value={formData.hotelType}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white cursor-pointer"
+                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] cursor-pointer"
                         >
                           <option value="4-Star Boutique & Resorts">
                             4-Star Boutique &amp; Resorts (Standard)
@@ -503,7 +503,7 @@ export default function TourDetailPage() {
                         value={formData.specialNotes}
                         onChange={handleInputChange}
                         placeholder="Tell us any special preferences, dietary requirements, preferred beach towns, or optional activities..."
-                        className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all resize-none"
+                        className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all resize-none"
                       />
                     </div>
 
@@ -534,7 +534,7 @@ export default function TourDetailPage() {
 
                         <button
                           type="submit"
-                          className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
+                          className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[var(--color-primary)] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                         >
                           <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
                           <span>Submit Booking Request</span>
@@ -560,7 +560,7 @@ export default function TourDetailPage() {
                   >
                     More Classic Journeys
                   </span>
-                  <h3 className="font-serif text-3xl font-bold text-[#002b49]">
+                  <h3 className="font-serif text-3xl font-bold text-[var(--color-primary)]">
                     Other Classic Tours
                   </h3>
                 </div>
@@ -580,7 +580,7 @@ export default function TourDetailPage() {
                   <Link
                     key={relTour.id}
                     href={`/tours/${relTour.id}`}
-                    className="hover-box group rounded-3xl overflow-hidden relative h-[400px] shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#001726] block"
+                    className="hover-box group rounded-3xl overflow-hidden relative h-[400px] shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#041B2D] block"
                   >
                     <Image
                       src={relTour.image}
@@ -589,7 +589,7 @@ export default function TourDetailPage() {
                       className="object-cover hover-box__img"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/95 via-[#001726]/30 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/30 to-transparent" />
 
                     <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20">
                       <span className="text-[10px] font-bold uppercase tracking-widest text-[#8ed1fc] bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
@@ -613,7 +613,7 @@ export default function TourDetailPage() {
                         </div>
                         <div className="next-btn next-btn--white">
                           <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
-                            <ArrowRight className="w-4 h-4 text-[#002b49]" />
+                            <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
                           </div>
                           <span className="text-xs uppercase tracking-widest font-bold">Explore</span>
                         </div>

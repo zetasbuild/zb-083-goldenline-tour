@@ -115,11 +115,7 @@ export const ScrollRevealProvider: React.FC<{ children: React.ReactNode }> = ({ 
 
   return (
     <>
-      {/* Top Luxury Gold & Cyan Scroll Progress Indicator Bar */}
-      <div 
-        className="fixed top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#cba258] via-[#8ed1fc] to-[#cba258] z-[99999] pointer-events-none transition-transform duration-75 origin-left"
-        style={{ transform: `scaleX(${scrollProgress})` }}
-      />
+
       {children}
     </>
   );

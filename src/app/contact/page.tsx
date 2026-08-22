@@ -61,7 +61,7 @@ export default function ContactPage() {
       type: 'Headquarters & Tour Operations',
       address: 'No. 45/A, Galle Face Terrace, Colombo 03, Sri Lanka',
       phone: '+94 11 234 5678',
-      email: 'colombo@ceylonjourneys.com',
+      email: 'colombo@goldenlinetour.com',
       hours: 'Mon – Sat: 8:00 AM – 7:00 PM (IST)',
     },
     {
@@ -69,7 +69,7 @@ export default function ContactPage() {
       type: '24/7 Meet & Greet Desk',
       address: 'Arrivals Lobby, Bandaranaike International Airport (CMB), Katunayake',
       phone: '+94 77 123 4567',
-      email: 'airport@ceylonjourneys.com',
+      email: 'airport@goldenlinetour.com',
       hours: 'Open 24/7 / 365 Days',
     },
     {
@@ -77,7 +77,7 @@ export default function ContactPage() {
       type: 'Hill Country Operations',
       address: 'No. 12, Temple Street, Kandy, Sri Lanka',
       phone: '+94 81 222 3344',
-      email: 'kandy@ceylonjourneys.com',
+      email: 'kandy@goldenlinetour.com',
       hours: 'Mon – Sat: 8:30 AM – 6:00 PM',
     },
     {
@@ -85,7 +85,7 @@ export default function ContactPage() {
       type: 'South Coast Experience Center',
       address: 'No. 28, Church Street, Galle Fort, Sri Lanka',
       phone: '+94 91 223 4455',
-      email: 'galle@ceylonjourneys.com',
+      email: 'galle@goldenlinetour.com',
       hours: 'Daily: 9:00 AM – 8:00 PM',
     },
   ];
@@ -112,9 +112,9 @@ export default function ContactPage() {
     {
       icon: Mail,
       title: 'Inquiries & Reservations',
-      value: 'inquiries@ceylonjourneys.com',
+      value: 'inquiries@goldenlinetour.com',
       sub: 'Detailed quotes & day-by-day custom plans',
-      action: 'mailto:inquiries@ceylonjourneys.com',
+      action: 'mailto:inquiries@goldenlinetour.com',
       actionText: 'Send Email',
       color: 'bg-[#0077b6] text-white',
     },
@@ -171,7 +171,7 @@ export default function ContactPage() {
 
   const handleWhatsAppContact = () => {
     const text = encodeURIComponent(
-      `Hello Ceylon Journeys! My name is ${formData.fullName || 'Guest'} (${formData.country}).\n` +
+      `Hello GoldenLine TOUR! My name is ${formData.fullName || 'Guest'} (${formData.country}).\n` +
       `Estimated Travel Date: ${formData.travelMonth || 'Flexible'}\n` +
       `Guests: ${formData.guests}\n` +
       `Inquiry / Wishlist: ${formData.message || 'I would like to plan a trip to Sri Lanka.'}`
@@ -194,7 +194,7 @@ export default function ContactPage() {
       <section className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
         <BackgroundAutoSlider
           intervalMs={4500}
-          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#001726]"
+          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]"
         />
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -271,8 +271,8 @@ export default function ContactPage() {
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block">Email Inquiries</span>
-                <a href="mailto:info@ceylonjourneys.com" className="text-sm font-bold text-white hover:text-[#8ed1fc] transition-colors">
-                  info@ceylonjourneys.com
+                <a href="mailto:info@goldenlinetour.com" className="text-sm font-bold text-white hover:text-[#8ed1fc] transition-colors">
+                  info@goldenlinetour.com
                 </a>
               </div>
             </div>

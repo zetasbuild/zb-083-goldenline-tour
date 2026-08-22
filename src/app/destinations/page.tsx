@@ -117,7 +117,7 @@ export default function DestinationsPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-white relative">
+    <main className="min-h-screen flex flex-col bg-[#F5F2E6] relative">
       {/* Walkers Style Header */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
@@ -169,7 +169,7 @@ export default function DestinationsPage() {
               className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
-                <ArrowRight className="w-4 h-4 text-[#002b49] group-hover:translate-x-0.5 transition-transform" />
+                <ArrowRight className="w-4 h-4 text-[var(--color-primary)] group-hover:translate-x-0.5 transition-transform" />
               </div>
               <span className="text-xs uppercase tracking-widest font-bold">Discover Places</span>
             </button>
@@ -179,21 +179,21 @@ export default function DestinationsPage() {
         {/* Subtle Scroll Indicator */}
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/60 pointer-events-none">
           <span className="text-[10px] uppercase tracking-widest mb-1">Scroll</span>
-          <div className="w-0.5 h-6 bg-white/40 animate-pulse" />
+          <div className="w-0.5 h-6 bg-[#F5F2E6]/40 animate-pulse" />
         </div>
       </section>
 
       {/* Floating Filter Card */}
       <section data-reveal="zoom-in" data-reveal-delay="200" className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-14 w-full">
-        <div className="bg-white rounded-3xl p-5 sm:p-6 shadow-[0_20px_50px_rgba(0,43,73,0.15)] border border-[#e2ede7]">
+        <div className="bg-[#F5F2E6] rounded-3xl p-5 sm:p-6 shadow-[0_20px_50px_rgba(0,43,73,0.15)] border border-[#e2ede7]">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
             {/* Field 1: Keyword Search */}
             <div className="md:col-span-5">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-[#002b49] block mb-1.5">
+              <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary)] block mb-1.5">
                 Search Destination or Landmark
               </label>
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl border border-gray-200 hover:border-[#002b49] bg-[#f8fbfa] transition-colors">
-                <Search className="w-4 h-4 text-[#002b49] shrink-0" />
+              <div className="flex items-center gap-2.5 p-3 rounded-2xl border border-gray-200 hover:border-[var(--color-primary)] bg-[#f8fbfa] transition-colors">
+                <Search className="w-4 h-4 text-[var(--color-primary)] shrink-0" />
                 <input
                   type="text"
                   value={searchQuery}
@@ -206,14 +206,14 @@ export default function DestinationsPage() {
 
             {/* Field 2: Category Selector */}
             <div className="md:col-span-4">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-[#002b49] block mb-1.5">
+              <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary)] block mb-1.5">
                 Category
               </label>
               <div className="relative">
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value as DestinationCategory)}
-                  className="w-full p-3 rounded-2xl border border-gray-200 hover:border-[#002b49] bg-[#f8fbfa] text-xs sm:text-sm font-medium text-gray-800 outline-none appearance-none cursor-pointer pr-10"
+                  className="w-full p-3 rounded-2xl border border-gray-200 hover:border-[var(--color-primary)] bg-[#f8fbfa] text-xs sm:text-sm font-medium text-gray-800 outline-none appearance-none cursor-pointer pr-10"
                 >
                   {categories.map((cat) => (
                     <option key={cat.id} value={cat.id}>
@@ -227,14 +227,14 @@ export default function DestinationsPage() {
 
             {/* Field 3: Region Selector */}
             <div className="md:col-span-3">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-[#002b49] block mb-1.5">
+              <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary)] block mb-1.5">
                 Region
               </label>
               <div className="relative">
                 <select
                   value={selectedRegion}
                   onChange={(e) => setSelectedRegion(e.target.value)}
-                  className="w-full p-3 rounded-2xl border border-gray-200 hover:border-[#002b49] bg-[#f8fbfa] text-xs sm:text-sm font-medium text-gray-800 outline-none appearance-none cursor-pointer pr-10"
+                  className="w-full p-3 rounded-2xl border border-gray-200 hover:border-[var(--color-primary)] bg-[#f8fbfa] text-xs sm:text-sm font-medium text-gray-800 outline-none appearance-none cursor-pointer pr-10"
                 >
                   {regions.map((reg) => (
                     <option key={reg} value={reg}>
@@ -255,7 +255,7 @@ export default function DestinationsPage() {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
           <LotusBackground className="w-full h-full" />
         </div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#002b49]">
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[var(--color-primary)]">
           <TropicalLeafBackground className="w-full h-full" />
         </div>
 
@@ -269,11 +269,11 @@ export default function DestinationsPage() {
             >
               Handcrafted Highlights
             </span>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-4">
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-4">
               Iconic Places of Sri Lanka
             </h2>
             <p className="text-gray-600 sm:text-base leading-relaxed">
-              Showing <strong className="text-[#002b49]">{filteredDestinations.length}</strong> remarkable destinations tailored for bespoke adventures.
+              Showing <strong className="text-[var(--color-primary)]">{filteredDestinations.length}</strong> remarkable destinations tailored for bespoke adventures.
             </p>
           </div>
 
@@ -290,8 +290,8 @@ export default function DestinationsPage() {
                   }}
                   className={`shrink-0 flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                     selectedCategory === cat.id
-                      ? 'bg-[#002b49] text-white shadow-md scale-105'
-                      : 'bg-white text-[#002b49] hover:bg-[#eaf3f8] border border-gray-200'
+                      ? 'bg-[var(--color-primary)] text-white shadow-md scale-105'
+                      : 'bg-[#F5F2E6] text-[var(--color-primary)] hover:bg-[#eaf3f8] border border-gray-200'
                   }`}
                 >
                   <Icon className="w-3.5 h-3.5" />
@@ -303,9 +303,9 @@ export default function DestinationsPage() {
 
           {/* Destinations Grid (Matching Walkers Luxury Card UI) */}
           {filteredDestinations.length === 0 ? (
-            <div className="bg-white rounded-3xl p-12 text-center max-w-md mx-auto shadow-sm border border-gray-200">
+            <div className="bg-[#F5F2E6] rounded-3xl p-12 text-center max-w-md mx-auto shadow-sm border border-gray-200">
               <Compass className="w-12 h-12 text-[#cba258] mx-auto mb-4 animate-bounce" />
-              <h3 className="font-serif text-xl font-bold text-[#002b49] mb-2">No Destinations Found</h3>
+              <h3 className="font-serif text-xl font-bold text-[var(--color-primary)] mb-2">No Destinations Found</h3>
               <p className="text-xs text-gray-500 mb-6">
                 Try clearing your search query or selecting a different category.
               </p>
@@ -315,7 +315,7 @@ export default function DestinationsPage() {
                   setSelectedCategory('All');
                   setSelectedRegion('All Regions');
                 }}
-                className="bg-[#002b49] hover:bg-[#0077b6] text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                className="bg-[var(--color-primary)] hover:bg-[#0077b6] text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
               >
                 Reset Filters
               </button>
@@ -326,7 +326,7 @@ export default function DestinationsPage() {
                 <Link
                   key={dest.id}
                   href={`/tours`}
-                  className="hover-box group flex-shrink-0 h-[440px] sm:h-[460px] cursor-pointer rounded-3xl overflow-hidden relative shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#001726] block"
+                  className="hover-box group flex-shrink-0 h-[440px] sm:h-[460px] cursor-pointer rounded-3xl overflow-hidden relative shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#041B2D] block"
                 >
                   {/* Full Background Image */}
                   <Image
@@ -338,7 +338,7 @@ export default function DestinationsPage() {
                   />
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/95 via-[#001726]/35 to-transparent group-hover:from-[#001726]/98 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/35 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
 
                   {/* Top Badges (Category + Wishlist) */}
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20">
@@ -389,7 +389,7 @@ export default function DestinationsPage() {
                       {/* Next Button Style */}
                       <div className="next-btn next-btn--white">
                         <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
-                          <ArrowRight className="w-4 h-4 text-[#002b49]" />
+                          <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
                         </div>
                         <span className="text-xs uppercase tracking-widest font-bold">Explore</span>
                       </div>
@@ -403,7 +403,7 @@ export default function DestinationsPage() {
       </section>
 
       {/* Tailor-Made Bespoke Callout Section */}
-      <section className="py-20 lg:py-28 bg-white border-t border-[#e2ede7] overflow-hidden">
+      <section className="py-20 lg:py-28 bg-[#F5F2E6] border-t border-[#e2ede7] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left Narrative Column */}
@@ -415,12 +415,12 @@ export default function DestinationsPage() {
                 >
                   Tailor-made Itineraries
                 </span>
-                <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6 mt-2">
+                <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-6 mt-2">
                   Can't Decide Where to Go?
                 </h2>
               </div>
 
-              <h3 className="text-base sm:text-lg font-bold text-[#002b49] mb-3">
+              <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)] mb-3">
                 Let our destination specialists build your dream holiday.
               </h3>
 

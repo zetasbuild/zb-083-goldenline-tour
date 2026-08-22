@@ -63,7 +63,7 @@ export default function ToursOverviewPage() {
   }, [selectedCategory, searchQuery]);
 
   return (
-    <main className="min-h-screen flex flex-col bg-white relative">
+    <main className="min-h-screen flex flex-col bg-[#F5F2E6] relative">
       {/* Header */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
@@ -74,7 +74,7 @@ export default function ToursOverviewPage() {
       <section className="relative min-h-[75vh] lg:min-h-[85vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
         <BackgroundAutoSlider
           intervalMs={4500}
-          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#001726]"
+          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]"
         />
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -106,7 +106,7 @@ export default function ToursOverviewPage() {
               className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
-                <ArrowRight className="w-4 h-4 text-[#002b49]" />
+                <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
               </div>
               <span className="text-xs uppercase tracking-widest font-bold">Discover Itineraries</span>
             </button>
@@ -119,7 +119,7 @@ export default function ToursOverviewPage() {
               className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
-                <Sparkles className="w-4 h-4 text-[#002b49]" />
+                <Sparkles className="w-4 h-4 text-[var(--color-primary)]" />
               </div>
               <span className="text-xs uppercase tracking-widest font-bold">Plan Custom Trip</span>
             </button>
@@ -133,7 +133,7 @@ export default function ToursOverviewPage() {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
           <MandalaBackground className="w-full h-full" />
         </div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#002b49]">
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[var(--color-primary)]">
           <TropicalLeafBackground className="w-full h-full" />
         </div>
 
@@ -147,7 +147,7 @@ export default function ToursOverviewPage() {
             >
               Handcrafted Itineraries
             </span>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-4">
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-4">
               Classic &amp; Curated Tours
             </h2>
             <p className="text-gray-600 sm:text-base leading-relaxed">
@@ -166,8 +166,8 @@ export default function ToursOverviewPage() {
                 }}
                 className={`shrink-0 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                   selectedCategory === cat.id
-                    ? 'bg-[#002b49] text-white shadow-md scale-105'
-                    : 'bg-white text-[#002b49] hover:bg-[#eaf3f8] border border-gray-200'
+                    ? 'bg-[var(--color-primary)] text-white shadow-md scale-105'
+                    : 'bg-[#F5F2E6] text-[var(--color-primary)] hover:bg-[#eaf3f8] border border-gray-200'
                 }`}
               >
                 {cat.label}
@@ -180,10 +180,10 @@ export default function ToursOverviewPage() {
             {filteredPackages.map((pkg) => (
               <div
                 key={pkg.id}
-                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl border border-[#e2ede7] transition-all duration-500 flex flex-col justify-between group"
+                className="bg-[#F5F2E6] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl border border-[#e2ede7] transition-all duration-500 flex flex-col justify-between group"
               >
                 {/* Image Cover */}
-                <div className="relative h-64 w-full bg-[#001726] overflow-hidden">
+                <div className="relative h-64 w-full bg-[#041B2D] overflow-hidden">
                   <Image
                     src={pkg.image}
                     alt={pkg.title}
@@ -191,15 +191,15 @@ export default function ToursOverviewPage() {
                     className="object-cover group-hover:scale-108 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/90 via-[#001726]/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/90 via-[#041B2D]/20 to-transparent" />
 
                   {/* Badges */}
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                    <span className="bg-[#002b49]/80 backdrop-blur-md text-[#8ed1fc] text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/10">
+                    <span className="bg-[var(--color-primary)]/80 backdrop-blur-md text-[#8ed1fc] text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/10">
                       {pkg.duration}
                     </span>
                     {pkg.badge && (
-                      <span className="bg-[#cba258] text-[#002b49] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
+                      <span className="bg-[#cba258] text-[var(--color-primary)] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
                         {pkg.badge}
                       </span>
                     )}
@@ -228,7 +228,7 @@ export default function ToursOverviewPage() {
                     </span>
                     <div className="flex flex-wrap gap-1.5">
                       {pkg.destinationsCovered.slice(0, 5).map((d) => (
-                        <span key={d} className="text-[11px] font-semibold text-[#002b49] bg-[#f0f4f8] px-2.5 py-1 rounded-md flex items-center gap-1">
+                        <span key={d} className="text-[11px] font-semibold text-[var(--color-primary)] bg-[#f0f4f8] px-2.5 py-1 rounded-md flex items-center gap-1">
                           <MapPin className="w-2.5 h-2.5 text-[#0077b6]" />
                           {d}
                         </span>
@@ -245,7 +245,7 @@ export default function ToursOverviewPage() {
                   <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
                     <div>
                       <div className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">Price From</div>
-                      <div className="font-serif text-xl font-bold text-[#002b49]">
+                      <div className="font-serif text-xl font-bold text-[var(--color-primary)]">
                         {formatPrice(pkg.priceLKR)}
                       </div>
                     </div>

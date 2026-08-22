@@ -30,7 +30,7 @@ export const WalkersMICE: React.FC<WalkersMICEProps> = ({ onMiceInquire }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Text & Features */}
           <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-6 flex flex-col items-start">
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#002b49] leading-tight mb-4">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[var(--color-primary)] leading-tight mb-4">
               <span className="font-bold">Expert MICE Solutions for</span><br />
               Unforgettable Events
             </h2>
@@ -43,11 +43,11 @@ export const WalkersMICE: React.FC<WalkersMICEProps> = ({ onMiceInquire }) => {
               {miceFeatures.map((feat, idx) => {
                 const Icon = feat.icon;
                 return (
-                  <div key={idx} className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-[#e5eee9] shadow-sm hover-lift">
-                    <div className="w-10 h-10 rounded-xl bg-[#e6f3fa] text-[#002b49] flex items-center justify-center shrink-0">
+                  <div key={idx} className="flex items-center gap-3.5 p-3 rounded-2xl bg-[#F5F2E6] border border-[#e5eee9] shadow-sm hover-lift">
+                    <div className="w-10 h-10 rounded-xl bg-[#e6f3fa] text-[var(--color-primary)] flex items-center justify-center shrink-0">
                       <Icon className="w-4 h-4 text-[#0077b6]" />
                     </div>
-                    <span className="text-xs sm:text-sm font-semibold text-[#002b49]">
+                    <span className="text-xs sm:text-sm font-semibold text-[var(--color-primary)]">
                       {feat.title}
                     </span>
                   </div>

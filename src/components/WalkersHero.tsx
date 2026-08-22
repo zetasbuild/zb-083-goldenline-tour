@@ -56,7 +56,7 @@ export const WalkersHero: React.FC<WalkersHeroProps> = ({ onExploreClick }) => {
           Premium tours, unforgettable experiences and reliable travel services.
         </p>
 
-        {/* Circular Next Button in Walkers Tours Style */}
+        {/* Circular Next Button in GoldenLine TOUR Style */}
         <button
           data-reveal="zoom-in"
           data-reveal-delay="500"
@@ -64,7 +64,7 @@ export const WalkersHero: React.FC<WalkersHeroProps> = ({ onExploreClick }) => {
           className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
         >
           <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
-            <ArrowRight className="w-4 h-4 text-[#002b49] group-hover:translate-x-0.5 transition-transform" />
+            <ArrowRight className="w-4 h-4 text-[var(--color-primary)] group-hover:translate-x-0.5 transition-transform" />
           </div>
           <span className="text-xs uppercase tracking-widest font-bold">Explore</span>
         </button>
@@ -73,7 +73,7 @@ export const WalkersHero: React.FC<WalkersHeroProps> = ({ onExploreClick }) => {
       {/* Subtle Scroll Indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/60 pointer-events-none">
         <span className="text-[10px] uppercase tracking-widest mb-1">Scroll</span>
-        <div className="w-0.5 h-6 bg-white/40 animate-pulse" />
+        <div className="w-0.5 h-6 bg-[#F5F2E6]/40 animate-pulse" />
       </div>
     </section>
   );

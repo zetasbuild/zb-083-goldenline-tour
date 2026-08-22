@@ -34,7 +34,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
     },
     {
       q: 'Why should I use a travel agency to plan my trip to Sri Lanka?',
-      a: 'Planning a round tour in Sri Lanka requires reliable transport, vetted hotel partners, and local knowledge of roads and train ticketing. As an established DMC with over 50 years of experience, Ceylon Journeys handles all logistics, private chauffeurs, entry permits, and 24/7 support so you can relax completely.',
+      a: 'Planning a round tour in Sri Lanka requires reliable transport, vetted hotel partners, and local knowledge of roads and train ticketing. As an established DMC with over 50 years of experience, GoldenLine TOUR handles all logistics, private chauffeurs, entry permits, and 24/7 support so you can relax completely.',
     },
   ];
 
@@ -58,7 +58,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
           >
             Helpful Information
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-6">
             Frequently Asked Questions
           </h2>
           <p className="text-gray-600 sm:text-lg leading-relaxed">
@@ -77,7 +77,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 1024px) 100vw, 40vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/95 via-[#001726]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent" />
 
               <div className="relative z-10 flex items-center gap-2">
                 <span className="text-xs uppercase tracking-widest text-[#8ed1fc] font-bold">
@@ -95,7 +95,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
                   className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
                 >
                   <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
-                    <ArrowRight className="w-4 h-4 text-[#002b49]" />
+                    <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
                   </div>
                   <span className="text-xs uppercase tracking-widest font-bold">View All FAQ</span>
                 </button>
@@ -110,19 +110,19 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
               return (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl border border-[#e2ede7] overflow-hidden shadow-sm transition-all duration-200"
+                  className="bg-[#F5F2E6] rounded-2xl border border-[#e2ede7] overflow-hidden shadow-sm transition-all duration-200"
                 >
                   <button
                     type="button"
                     onClick={() => toggleAccordion(idx)}
                     className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-gray-50/70 transition-colors"
                   >
-                    <span className="font-serif text-base sm:text-lg font-bold text-[#002b49]">
+                    <span className="font-serif text-base sm:text-lg font-bold text-[var(--color-primary)]">
                       {faq.q}
                     </span>
                     <div
-                      className={`w-8 h-8 rounded-full bg-[#f0f6fa] text-[#002b49] flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                        isOpen ? 'rotate-180 bg-[#002b49] text-white' : ''
+                      className={`w-8 h-8 rounded-full bg-[#f0f6fa] text-[var(--color-primary)] flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180 bg-[var(--color-primary)] text-white' : ''
                       }`}
                     >
                       <ChevronDown className="w-4 h-4" />

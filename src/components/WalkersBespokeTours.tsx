@@ -22,17 +22,17 @@ export const WalkersBespokeTours: React.FC<WalkersBespokeToursProps> = ({ onPlan
               >
                 Tailor-made
               </span>
-              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-6 mt-2">
+              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-6 mt-2">
                 Bespoke Tours
               </h2>
             </div>
 
-            <h3 className="text-base sm:text-lg font-bold text-[#002b49] mb-3">
+            <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)] mb-3">
               Create your perfect Sri Lankan adventure with us…
             </h3>
 
             <p className="text-sm sm:text-base text-[#55697a] font-normal leading-relaxed mb-8">
-              Tailor-made tours are our hallmark specialty at Ceylon Journeys. For decades, we have been crafting bespoke Sri Lankan journeys tailored to individual client requests. Our expert planners and guides ensure every guest enjoys a truly unique, seamless, and personalized experience.
+              Tailor-made tours are our hallmark specialty at GoldenLine TOUR. For decades, we have been crafting bespoke Sri Lankan journeys tailored to individual client requests. Our expert planners and guides ensure every guest enjoys a truly unique, seamless, and personalized experience.
             </p>
 
             <button

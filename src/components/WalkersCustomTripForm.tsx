@@ -100,7 +100,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
 
   const handleWhatsAppDirect = () => {
     const text = encodeURIComponent(
-      `Hello Ceylon Journeys! I would like to plan a custom Sri Lanka tour itinerary.\n\n` +
+      `Hello GoldenLine TOUR! I would like to plan a custom Sri Lanka tour itinerary.\n\n` +
       `• Destinations: ${selectedDestinations.join(', ')}\n` +
       `• Travel Style: ${tripType}\n` +
       `• Duration: ${duration}\n` +

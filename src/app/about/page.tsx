@@ -151,13 +151,13 @@ export default function AboutUsPage() {
 
   const handleWhatsAppContact = () => {
     const text = encodeURIComponent(
-      `Hello Ceylon Journeys! My name is ${formData.fullName || 'Guest'}. I am contacting you regarding: ${formData.message || 'General Travel Inquiry'}`
+      `Hello GoldenLine TOUR! My name is ${formData.fullName || 'Guest'}. I am contacting you regarding: ${formData.message || 'General Travel Inquiry'}`
     );
     window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-white relative">
+    <main className="min-h-screen flex flex-col bg-[#F5F2E6] relative">
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
         onOpenInquire={() => {
@@ -170,7 +170,7 @@ export default function AboutUsPage() {
       <section className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
         <BackgroundAutoSlider
           intervalMs={4500}
-          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#001726]"
+          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]"
         />
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -196,7 +196,7 @@ export default function AboutUsPage() {
             data-reveal-delay="350"
             className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md"
           >
-            Founded on an enduring love for Sri Lanka, Ceylon Journeys handcrafts bespoke private holidays that celebrate the island&apos;s ancient heritage, untamed wildlife, and warm tropical spirit.
+            Founded on an enduring love for Sri Lanka, GoldenLine TOUR handcrafts bespoke private holidays that celebrate the island&apos;s ancient heritage, untamed wildlife, and warm tropical spirit.
           </p>
 
           <div data-reveal="zoom-in" data-reveal-delay="450" className="flex items-center justify-center gap-4 flex-wrap">
@@ -208,7 +208,7 @@ export default function AboutUsPage() {
               className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
-                <ArrowRight className="w-4 h-4 text-[#002b49]" />
+                <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
               </div>
               <span className="text-xs uppercase tracking-widest font-bold">Discover Our Story</span>
             </button>
@@ -225,7 +225,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* Verified Stats Strip */}
-      <section data-reveal="fade-up" className="bg-[#002b49] text-white py-10 border-t border-white/10 relative z-20">
+      <section data-reveal="fade-up" className="bg-[var(--color-primary)] text-white py-10 border-t border-white/10 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div data-reveal-stagger className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, idx) => (
@@ -251,7 +251,7 @@ export default function AboutUsPage() {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
           <LotusBackground className="w-full h-full" />
         </div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#002b49]">
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[var(--color-primary)]">
           <MandalaBackground className="w-full h-full" />
         </div>
 
@@ -260,25 +260,25 @@ export default function AboutUsPage() {
             
             {/* Left Multi-Layer Photo Collage */}
             <div className="lg:col-span-6 relative">
-              <div className="relative h-[420px] sm:h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-[#001726]">
+              <div className="relative h-[420px] sm:h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-[#041B2D]">
                 <Image
                   src="/images/sigiriya.jpg"
-                  alt="Ceylon Journeys Historical Roots"
+                  alt="GoldenLine TOUR Historical Roots"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/60 via-transparent to-transparent" />
               </div>
 
               {/* Overlapping Floating Inset Card */}
-              <div className="hidden sm:block absolute -bottom-8 -right-8 w-64 bg-white rounded-3xl p-6 shadow-2xl border border-[#e2ede7]">
+              <div className="hidden sm:block absolute -bottom-8 -right-8 w-64 bg-[#F5F2E6] rounded-3xl p-6 shadow-2xl border border-[#e2ede7]">
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="w-10 h-10 rounded-full bg-[#002b49] text-[#cba258] flex items-center justify-center font-bold">
+                  <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] text-[#cba258] flex items-center justify-center font-bold">
                     ★
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-[#002b49]">SLTDA Licensed</div>
+                    <div className="text-xs font-bold text-[var(--color-primary)]">SLTDA Licensed</div>
                     <div className="text-[10px] text-gray-500">Reg No: TS/2026/SL</div>
                   </div>
                 </div>
@@ -297,12 +297,12 @@ export default function AboutUsPage() {
                 Our Passion &amp; Purpose
               </span>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#002b49] leading-tight mb-6">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] leading-tight mb-6">
                 Curating Sri Lanka Beyond The Ordinary
               </h2>
 
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
-                At <strong>Ceylon Journeys</strong>, travel is not merely about visiting landmarks—it is about heartfelt connections. For over two decades, our destination specialists, naturalist trackers, and certified chauffeur guides have opened doors to the hidden soul of Sri Lanka.
+                At <strong>GoldenLine TOUR</strong>, travel is not merely about visiting landmarks—it is about heartfelt connections. For over two decades, our destination specialists, naturalist trackers, and certified chauffeur guides have opened doors to the hidden soul of Sri Lanka.
               </p>
 
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
@@ -319,7 +319,7 @@ export default function AboutUsPage() {
                   'Ethical Wildlife Safaris',
                   'Comprehensive Travel Protection',
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-xs font-bold text-[#002b49]">
+                  <div key={idx} className="flex items-center gap-2.5 text-xs font-bold text-[var(--color-primary)]">
                     <CheckCircle2 className="w-4 h-4 text-[#0077b6] shrink-0" />
                     <span>{item}</span>
                   </div>
@@ -332,7 +332,7 @@ export default function AboutUsPage() {
                     const el = document.getElementById('contact-section');
                     el?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="bg-[#002b49] hover:bg-[#0077b6] text-white px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-md cursor-pointer"
+                  className="bg-[var(--color-primary)] hover:bg-[#0077b6] text-white px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-md cursor-pointer"
                 >
                   Plan Your Escape
                 </button>
@@ -345,7 +345,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-20 bg-white border-t border-[#e2ede7]">
+      <section className="py-20 bg-[#F5F2E6] border-t border-[#e2ede7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -355,7 +355,7 @@ export default function AboutUsPage() {
             >
               Guiding Principles
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#002b49] mb-4">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-4">
               Our Core Values
             </h2>
             <p className="text-gray-600 sm:text-base leading-relaxed">
@@ -369,13 +369,13 @@ export default function AboutUsPage() {
               return (
                 <div
                   key={idx}
-                  className="p-8 rounded-3xl bg-[#f8fbfa] border border-[#e2ede7] hover:border-[#002b49] transition-all hover:shadow-lg flex flex-col justify-between"
+                  className="p-8 rounded-3xl bg-[#f8fbfa] border border-[#e2ede7] hover:border-[var(--color-primary)] transition-all hover:shadow-lg flex flex-col justify-between"
                 >
                   <div>
-                    <div className="w-14 h-14 rounded-2xl bg-[#002b49] text-[#cba258] flex items-center justify-center mb-6 shadow-sm">
+                    <div className="w-14 h-14 rounded-2xl bg-[var(--color-primary)] text-[#cba258] flex items-center justify-center mb-6 shadow-sm">
                       <Icon className="w-7 h-7" />
                     </div>
-                    <h3 className="font-serif text-xl font-bold text-[#002b49] mb-3">
+                    <h3 className="font-serif text-xl font-bold text-[var(--color-primary)] mb-3">
                       {val.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-normal">
@@ -402,7 +402,7 @@ export default function AboutUsPage() {
               >
                 Specialized Travel Collections
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#002b49]">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)]">
                 Our Signature Brands
               </h2>
             </div>
@@ -415,9 +415,9 @@ export default function AboutUsPage() {
             {brandPortfolios.map((brand, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-[#e2ede7] transition-all duration-500 flex flex-col justify-between group"
+                className="bg-[#F5F2E6] rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-[#e2ede7] transition-all duration-500 flex flex-col justify-between group"
               >
-                <div className="relative h-60 w-full overflow-hidden bg-[#001726]">
+                <div className="relative h-60 w-full overflow-hidden bg-[#041B2D]">
                   <Image
                     src={brand.image}
                     alt={brand.title}
@@ -425,10 +425,10 @@ export default function AboutUsPage() {
                     className="object-cover group-hover:scale-108 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/80 via-transparent to-transparent" />
                   
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="bg-[#002b49]/90 backdrop-blur-md text-[#8ed1fc] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-white/10">
+                    <span className="bg-[var(--color-primary)]/90 backdrop-blur-md text-[#8ed1fc] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-white/10">
                       {brand.tag}
                     </span>
                   </div>
@@ -463,7 +463,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* Guest Reviews Preview */}
-      <section className="py-20 bg-white border-t border-[#e2ede7]">
+      <section className="py-20 bg-[#F5F2E6] border-t border-[#e2ede7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -473,7 +473,7 @@ export default function AboutUsPage() {
             >
               Real Traveler Experiences
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#002b49] mb-3">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-3">
               Loved By Travelers Worldwide
             </h2>
             <div className="flex items-center justify-center gap-1 text-[#cba258] text-sm font-bold">
@@ -506,7 +506,7 @@ export default function AboutUsPage() {
               />
             </div>
             <div>
-              <h4 className="text-xs font-bold text-[#002b49]">{rev.author}</h4>
+              <h4 className="text-xs font-bold text-[var(--color-primary)]">{rev.author}</h4>
               <span className="text-[11px] text-gray-500">{rev.country} · {rev.tourTaken}</span>
             </div>
           </div>
@@ -519,7 +519,7 @@ export default function AboutUsPage() {
       {/* Light-Theme Contact / Inquiry Section */}
       <section id="contact-section" className="py-20 bg-[#f8fbfa] border-t border-[#e2ede7] scroll-mt-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7]">
+          <div className="bg-[#F5F2E6] rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7]">
             
             <div className="text-center max-w-2xl mx-auto mb-10">
               <span
@@ -557,7 +557,7 @@ export default function AboutUsPage() {
                   </button>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer"
+                    className="bg-[#F5F2E6] hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer"
                   >
                     Send Another Note
                   </button>
@@ -578,7 +578,7 @@ export default function AboutUsPage() {
                       value={formData.fullName}
                       onChange={handleInputChange}
                       placeholder="e.g. Thomas Brown"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                     />
                   </div>
 
@@ -593,7 +593,7 @@ export default function AboutUsPage() {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="thomas@example.com"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                     />
                   </div>
 
@@ -608,7 +608,7 @@ export default function AboutUsPage() {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="+1 (555) 000-0000"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                     />
                   </div>
 
@@ -625,7 +625,7 @@ export default function AboutUsPage() {
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Tell us about your dream Sri Lanka journey, estimated travel dates, group size, and any questions..."
-                    className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all resize-none"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all resize-none"
                   />
                 </div>
 
@@ -648,7 +648,7 @@ export default function AboutUsPage() {
 
                     <button
                       type="submit"
-                      className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
+                      className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[var(--color-primary)] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                     >
                       <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
                       <span>Send Message</span>

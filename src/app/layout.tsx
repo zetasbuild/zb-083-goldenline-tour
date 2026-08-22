@@ -23,25 +23,25 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: 'Ceylon Journeys | Explore Sri Lanka - Premium Tours & Vehicle Rentals',
+  title: 'GoldenLine TOUR | Premium Tours & Vehicle Rentals',
   description:
-    'Uncover the magic of Sri Lanka with Ceylon Journeys. Premium handcrafted tour packages, comfortable vehicle rentals, luxury chauffeur service, and authentic local experiences.',
+    'Uncover the magic of Sri Lanka with GoldenLine TOUR. Premium handcrafted tour packages, comfortable vehicle rentals, luxury chauffeur service, and authentic local experiences.',
   keywords: [
     'Sri Lanka Tourism',
-    'Ceylon Journeys',
+    'GoldenLine TOUR',
     'Sri Lanka Car Rental',
     'Sri Lanka Tour Packages',
     'Ella Sri Lanka',
     'Sigiriya',
     'Luxury Van Rental Sri Lanka',
   ],
-  authors: [{ name: 'Ceylon Journeys' }],
+  authors: [{ name: 'GoldenLine TOUR' }],
   openGraph: {
-    title: 'Ceylon Journeys | Uncover the Magic of Sri Lanka',
+    title: 'GoldenLine TOUR | Uncover the Magic of Sri Lanka',
     description: 'Premium tours, unforgettable experiences and reliable vehicle rental services in Sri Lanka.',
     type: 'website',
     locale: 'en_US',
-    siteName: 'Ceylon Journeys',
+    siteName: 'GoldenLine TOUR',
   },
 };
 
@@ -52,7 +52,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${outfit.variable} ${playfair.variable} ${caveat.variable} scroll-smooth`}>
-      <body className="font-sans antialiased text-[#13261f] bg-[#fbfdfc] selection:bg-[#0e382b] selection:text-white">
+      <body className="font-sans antialiased text-[#13261f] bg-[#fbfdfc] selection:bg-[#D4AF37] selection:text-white">
         <CurrencyProvider>
           <ScrollRevealProvider>
             {children}

@@ -40,18 +40,18 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
 
   const handleWhatsApp = () => {
     const text = encodeURIComponent(
-      `Hello Ceylon Journeys! I would like to inquire about "${pkg.title}" (${pkg.duration}).`
+      `Hello GoldenLine TOUR! I would like to inquire about "${pkg.title}" (${pkg.duration}).`
     );
     window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="bg-white w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col max-h-[90vh]">
+      <div className="bg-[#F5F2E6] w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col max-h-[90vh]">
         {/* Header Image */}
-        <div className="relative h-56 sm:h-64 w-full bg-[#001726] shrink-0">
+        <div className="relative h-56 sm:h-64 w-full bg-[#041B2D] shrink-0">
           <Image src={pkg.image} alt={pkg.title} fill className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/95 via-[#001726]/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/30 to-transparent" />
 
           <button
             onClick={onClose}
@@ -63,7 +63,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
 
           <div className="absolute bottom-4 left-6 right-6 text-white">
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-[#cba258] text-[#001726]">
+              <span className="text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-[#cba258] text-[#041B2D]">
                 {pkg.duration}
               </span>
               <div className="flex items-center gap-1 text-xs font-bold bg-black/40 px-2 py-0.5 rounded-full">
@@ -85,7 +85,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
               <div className="w-16 h-16 rounded-full bg-[#eaf7f0] text-emerald-600 flex items-center justify-center mb-4">
                 <Check className="w-8 h-8" />
               </div>
-              <h4 className="font-serif text-2xl font-bold text-[#002b49] mb-2">
+              <h4 className="font-serif text-2xl font-bold text-[var(--color-primary)] mb-2">
                 Tour Reservation Received!
               </h4>
               <p className="text-xs text-gray-600 max-w-md mb-6 leading-relaxed">
@@ -126,7 +126,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
 
               <div>
                 <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Tour Overview</h4>
-                <p className="text-xs sm:text-sm text-[#002b49] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[var(--color-primary)] leading-relaxed">
                   {pkg.description}
                 </p>
               </div>
@@ -138,7 +138,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
                   <div className="space-y-2 max-h-56 overflow-y-auto pr-1">
                     {pkg.itinerary.map((item, idx) => (
                       <div key={idx} className="p-3 bg-[#f8fbfa] rounded-2xl border border-gray-100 text-xs">
-                        <div className="flex items-center justify-between font-bold text-[#002b49] mb-1">
+                        <div className="flex items-center justify-between font-bold text-[var(--color-primary)] mb-1">
                           <span className="text-[#0077b6]">{item.day}: {item.title}</span>
                         </div>
                         <p className="text-gray-600 line-clamp-2">{item.desc}</p>
@@ -158,7 +158,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
                 <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Destinations Covered</h4>
                 <div className="flex flex-wrap gap-2">
                   {pkg.destinationsCovered.map((d) => (
-                    <span key={d} className="px-3 py-1 bg-[#f0f4f8] text-[#002b49] rounded-full text-xs font-semibold flex items-center gap-1">
+                    <span key={d} className="px-3 py-1 bg-[#f0f4f8] text-[var(--color-primary)] rounded-full text-xs font-semibold flex items-center gap-1">
                       <MapPin className="w-3 h-3 text-[#0077b6]" />
                       {d}
                     </span>
@@ -180,7 +180,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
 
               {/* Quick Booking Form */}
               <form onSubmit={handleBooking} className="pt-4 border-t border-gray-100 space-y-4">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#002b49]">Reserve Tour Dates</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary)]">Reserve Tour Dates</h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
                     <label className="text-xs font-bold text-gray-700 block mb-1">Your Name</label>
@@ -190,7 +190,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Full Name"
-                      className="w-full p-2.5 rounded-xl border border-gray-200 bg-[#f8fbfa] text-xs font-medium outline-none focus:border-[#002b49]"
+                      className="w-full p-2.5 rounded-xl border border-gray-200 bg-[#f8fbfa] text-xs font-medium outline-none focus:border-[var(--color-primary)]"
                     />
                   </div>
                   <div>
@@ -201,7 +201,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="+1 (555) 000-0000"
-                      className="w-full p-2.5 rounded-xl border border-gray-200 bg-[#f8fbfa] text-xs font-medium outline-none focus:border-[#002b49]"
+                      className="w-full p-2.5 rounded-xl border border-gray-200 bg-[#f8fbfa] text-xs font-medium outline-none focus:border-[var(--color-primary)]"
                     />
                   </div>
                 </div>
@@ -214,7 +214,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
                       required
                       value={date}
                       onChange={(e) => setDate(e.target.value)}
-                      className="w-full p-2.5 rounded-xl border border-gray-200 bg-[#f8fbfa] text-xs font-medium outline-none focus:border-[#002b49]"
+                      className="w-full p-2.5 rounded-xl border border-gray-200 bg-[#f8fbfa] text-xs font-medium outline-none focus:border-[var(--color-primary)]"
                     />
                   </div>
                   <div>
@@ -222,7 +222,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
                     <select
                       value={travelers}
                       onChange={(e) => setTravelers(Number(e.target.value))}
-                      className="w-full p-2.5 rounded-xl border border-gray-200 bg-[#f8fbfa] text-xs font-medium outline-none focus:border-[#002b49] cursor-pointer"
+                      className="w-full p-2.5 rounded-xl border border-gray-200 bg-[#f8fbfa] text-xs font-medium outline-none focus:border-[var(--color-primary)] cursor-pointer"
                     >
                       {[1, 2, 3, 4, 5, 6, 7, 8, '10+'].map((num) => (
                         <option key={num} value={num}>
@@ -236,7 +236,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
                   <button
                     type="submit"
-                    className="flex-1 bg-[#002b49] hover:bg-[#0077b6] text-white py-3 rounded-2xl text-xs font-bold tracking-wide transition-all shadow-md cursor-pointer flex items-center justify-center gap-1.5"
+                    className="flex-1 bg-[var(--color-primary)] hover:bg-[#0077b6] text-white py-3 rounded-2xl text-xs font-bold tracking-wide transition-all shadow-md cursor-pointer flex items-center justify-center gap-1.5"
                   >
                     <Sparkles className="w-3.5 h-3.5 text-[#cba258]" />
                     <span>Request Quotation</span>
@@ -261,7 +261,7 @@ export const TourDetailModal: React.FC<TourDetailModalProps> = ({ pkg, isOpen, o
           <Link
             href={`/tours/${pkg.id}`}
             onClick={onClose}
-            className="font-bold text-[#002b49] hover:underline flex items-center gap-1"
+            className="font-bold text-[var(--color-primary)] hover:underline flex items-center gap-1"
           >
             <span>View Full Day-by-Day Page</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#cba258]" />

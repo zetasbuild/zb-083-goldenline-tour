@@ -17,7 +17,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
         {/* Header */}
         <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
           <div className="bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full text-white text-xs font-semibold flex items-center gap-1.5 border border-white/20">
-            <Sparkles className="w-3.5 h-3.5 text-[#e5a83b]" />
+            <Sparkles className="w-3.5 h-3.5 text-[#FFDF00]" />
             <span>Uncover The Wonder of Sri Lanka</span>
           </div>
           <button
@@ -34,7 +34,7 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
           <iframe
             className="w-full h-full"
             src="https://www.youtube-nocookie.com/embed/5T5BgO35f-Y?autoplay=1&mute=0&rel=0"
-            title="Explore Sri Lanka Cinematic Video"
+            title="GoldenLine TOUR Cinematic Video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           />
@@ -43,12 +43,12 @@ export const VideoModal: React.FC<VideoModalProps> = ({ isOpen, onClose }) => {
         {/* Footer info in modal */}
         <div className="p-4 sm:p-5 bg-[#072118] text-white flex flex-col sm:flex-row items-center justify-between gap-3 text-xs border-t border-white/10">
           <div className="flex items-center gap-2 text-gray-300">
-            <MapPin className="w-4 h-4 text-[#e5a83b]" />
+            <MapPin className="w-4 h-4 text-[#FFDF00]" />
             <span>Nine Arch Bridge · Sigiriya · Mirissa · Kandy · Yala National Park</span>
           </div>
           <button
             onClick={onClose}
-            className="bg-[#0e382b] hover:bg-[#165b40] text-white px-4 py-2 rounded-xl text-xs font-bold border border-white/20 transition-all cursor-pointer"
+            className="bg-[#D4AF37] hover:bg-[#AA8C2C] text-white px-4 py-2 rounded-xl text-xs font-bold border border-white/20 transition-all cursor-pointer"
           >
             Close &amp; Plan Trip
           </button>

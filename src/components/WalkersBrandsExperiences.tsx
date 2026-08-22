@@ -42,16 +42,16 @@ export const WalkersBrandsExperiences: React.FC<WalkersBrandsExperiencesProps> =
   ];
 
   return (
-    <section id="experiences" className="py-20 lg:py-28 bg-white overflow-hidden">
+    <section id="experiences" className="py-20 lg:py-28 bg-[#F5F2E6] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div data-reveal="fade-up" className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[#002b49] leading-tight mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-[var(--color-primary)] leading-tight mb-4">
             A Symphony of <br />
             <span className="font-bold">Exclusive Experiences</span>
           </h2>
           <p className="text-sm sm:text-base text-[#55697a] font-normal leading-relaxed">
-            Ceylon Journeys offers dedicated signature brands specializing in luxury, holistic wellness, accessible tourism, and raw adventure.
+            GoldenLine TOUR offers dedicated signature brands specializing in luxury, holistic wellness, accessible tourism, and raw adventure.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ export const WalkersBrandsExperiences: React.FC<WalkersBrandsExperiencesProps> =
               <div
                 key={brand.id}
                 onClick={() => onSelectBrand(brand.title)}
-                className="bg-[#f7fafc] rounded-3xl p-6 sm:p-8 border border-[#e2edf2] hover:border-[#002b49]/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer group hover-lift"
+                className="bg-[#f7fafc] rounded-3xl p-6 sm:p-8 border border-[#e2edf2] hover:border-[var(--color-primary)]/30 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer group hover-lift"
               >
                 <div>
                   {/* Brand Image Preview */}
@@ -75,7 +75,7 @@ export const WalkersBrandsExperiences: React.FC<WalkersBrandsExperiencesProps> =
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
-                    <div className="absolute top-3 left-3 w-9 h-9 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-[#002b49] shadow-sm">
+                    <div className="absolute top-3 left-3 w-9 h-9 rounded-full bg-[#F5F2E6]/90 backdrop-blur-md flex items-center justify-center text-[var(--color-primary)] shadow-sm">
                       <Icon className="w-4 h-4 text-[#0077b6]" />
                     </div>
                   </div>
@@ -84,7 +84,7 @@ export const WalkersBrandsExperiences: React.FC<WalkersBrandsExperiencesProps> =
                     {brand.badge}
                   </span>
 
-                  <h3 className="font-serif text-2xl font-bold text-[#002b49] leading-snug mb-3">
+                  <h3 className="font-serif text-2xl font-bold text-[var(--color-primary)] leading-snug mb-3">
                     {brand.title}
                   </h3>
 

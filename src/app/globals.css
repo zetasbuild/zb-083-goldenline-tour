@@ -5,7 +5,7 @@
   --font-serif: var(--font-playfair), Georgia, serif;
   --font-script: var(--font-caveat), cursive;
 
-  --color-primary: #002b49; /* Walkers Tours Deep Navy */
+  --color-primary: #002b49; /* GoldenLine TOUR Deep Navy */
   --color-primary-dark: #001a2c;
   --color-primary-blue: #0b4d75;
   --color-accent: #0077b6;
@@ -31,7 +31,7 @@ body {
   font-family: var(--font-script);
 }
 
-/* Watermark typography in Walkers Tours style */
+/* Watermark typography in GoldenLine TOUR style */
 .watermark-text {
   font-size: clamp(4rem, 12vw, 11rem);
   line-height: 0.85;
@@ -53,7 +53,7 @@ body {
   }
 }
 
-/* Circular Next Button in Walkers Tours style */
+/* Circular Next Button in GoldenLine TOUR style */
 .next-btn {
   display: inline-flex;
   align-items: center;
@@ -106,7 +106,7 @@ body {
   background-color: #0b4d75;
 }
 
-/* Hover Box Card in Walkers Tours style */
+/* Hover Box Card in GoldenLine TOUR style */
 .hover-box {
   position: relative;
   overflow: hidden;

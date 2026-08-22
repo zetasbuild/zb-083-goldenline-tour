@@ -32,7 +32,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenVideo }) => {
           <div className="lg:col-span-8 flex flex-col items-start z-10">
             {/* Script overline */}
             <div className="inline-flex items-center gap-2 mb-1">
-              <span className="font-script text-3xl sm:text-4xl text-[#0e382b] font-medium tracking-wide">
+              <span className="font-script text-3xl sm:text-4xl text-[#D4AF37] font-medium tracking-wide">
                 Uncover the Magic of
               </span>
             </div>
@@ -48,11 +48,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenVideo }) => {
             </p>
 
             {/* 4 Trust Badges Row */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-2 border-t border-[#0e382b]/10 w-full max-w-2xl">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-2 border-t border-[#D4AF37]/10 w-full max-w-2xl">
               {/* Badge 1 */}
               <div className="flex items-center space-x-2.5">
-                <div className="w-8 h-8 rounded-full bg-[#0e382b]/5 border border-[#0e382b]/15 flex items-center justify-center text-[#0e382b] shrink-0">
-                  <Award className="w-4 h-4 text-[#e5a83b]" />
+                <div className="w-8 h-8 rounded-full bg-[#D4AF37]/5 border border-[#D4AF37]/15 flex items-center justify-center text-[#D4AF37] shrink-0">
+                  <Award className="w-4 h-4 text-[#FFDF00]" />
                 </div>
                 <div className="text-xs font-semibold text-[#18362b] leading-snug">
                   Best Price<br /><span className="text-gray-500 font-normal">Guarantee</span>
@@ -61,8 +61,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenVideo }) => {
 
               {/* Badge 2 */}
               <div className="flex items-center space-x-2.5">
-                <div className="w-8 h-8 rounded-full bg-[#0e382b]/5 border border-[#0e382b]/15 flex items-center justify-center text-[#0e382b] shrink-0">
-                  <Clock className="w-4 h-4 text-[#0e382b]" />
+                <div className="w-8 h-8 rounded-full bg-[#D4AF37]/5 border border-[#D4AF37]/15 flex items-center justify-center text-[#D4AF37] shrink-0">
+                  <Clock className="w-4 h-4 text-[#D4AF37]" />
                 </div>
                 <div className="text-xs font-semibold text-[#18362b] leading-snug">
                   24/7<br /><span className="text-gray-500 font-normal">Support</span>
@@ -71,8 +71,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenVideo }) => {
 
               {/* Badge 3 */}
               <div className="flex items-center space-x-2.5">
-                <div className="w-8 h-8 rounded-full bg-[#0e382b]/5 border border-[#0e382b]/15 flex items-center justify-center text-[#0e382b] shrink-0">
-                  <Compass className="w-4 h-4 text-[#e5a83b]" />
+                <div className="w-8 h-8 rounded-full bg-[#D4AF37]/5 border border-[#D4AF37]/15 flex items-center justify-center text-[#D4AF37] shrink-0">
+                  <Compass className="w-4 h-4 text-[#FFDF00]" />
                 </div>
                 <div className="text-xs font-semibold text-[#18362b] leading-snug">
                   Local Expert<br /><span className="text-gray-500 font-normal">Guides</span>
@@ -81,8 +81,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenVideo }) => {
 
               {/* Badge 4 */}
               <div className="flex items-center space-x-2.5">
-                <div className="w-8 h-8 rounded-full bg-[#0e382b]/5 border border-[#0e382b]/15 flex items-center justify-center text-[#0e382b] shrink-0">
-                  <ShieldCheck className="w-4 h-4 text-[#0e382b]" />
+                <div className="w-8 h-8 rounded-full bg-[#D4AF37]/5 border border-[#D4AF37]/15 flex items-center justify-center text-[#D4AF37] shrink-0">
+                  <ShieldCheck className="w-4 h-4 text-[#D4AF37]" />
                 </div>
                 <div className="text-xs font-semibold text-[#18362b] leading-snug">
                   Trusted &amp;<br /><span className="text-gray-500 font-normal">Safe Travel</span>
@@ -95,21 +95,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenVideo }) => {
           <div className="lg:col-span-4 flex justify-start lg:justify-end">
             <button
               onClick={onOpenVideo}
-              className="group flex items-center gap-3.5 bg-white/80 hover:bg-white backdrop-blur-md px-5 py-3 rounded-full shadow-lg border border-white/60 hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
+              className="group flex items-center gap-3.5 bg-[#F5F2E6]/80 hover:bg-[#F5F2E6] backdrop-blur-md px-5 py-3 rounded-full shadow-lg border border-white/60 hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer"
             >
               <div className="relative flex items-center justify-center">
-                <div className="absolute w-11 h-11 bg-[#0e382b]/20 rounded-full animate-ping opacity-75" />
-                <div className="w-10 h-10 rounded-full bg-[#0e382b] text-white flex items-center justify-center shadow-md group-hover:bg-[#165b40] transition-colors">
+                <div className="absolute w-11 h-11 bg-[#D4AF37]/20 rounded-full animate-ping opacity-75" />
+                <div className="w-10 h-10 rounded-full bg-[#D4AF37] text-white flex items-center justify-center shadow-md group-hover:bg-[#AA8C2C] transition-colors">
                   <Play className="w-4 h-4 fill-white ml-0.5" />
                 </div>
               </div>
               <div className="text-left">
-                <div className="text-xs font-bold text-[#0e382b] group-hover:text-[#165b40]">
+                <div className="text-xs font-bold text-[#D4AF37] group-hover:text-[#AA8C2C]">
                   Watch Video
                 </div>
                 <div className="text-[11px] text-gray-500 font-medium flex items-center gap-1">
                   <span>Sri Lanka Awaits</span>
-                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#e5a83b]" />
+                  <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FFDF00]" />
                 </div>
               </div>
             </button>

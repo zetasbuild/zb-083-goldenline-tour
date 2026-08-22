@@ -25,7 +25,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
   ];
 
   return (
-    <section id="why-us" className="py-20 bg-white">
+    <section id="why-us" className="py-20 bg-[#F5F2E6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Why Travel With Us + Image Collage */}
@@ -44,8 +44,8 @@ export const WhyUsAndTestimonials: React.FC = () => {
             <div data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6 w-full">
               {highlights.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-[#edf7f2] flex items-center justify-center text-[#0e382b] shrink-0">
-                    <CheckCircle2 className="w-4 h-4 text-[#0f8b53]" />
+                  <div className="w-5 h-5 rounded-full bg-[#edf7f2] flex items-center justify-center text-[#D4AF37] shrink-0">
+                    <CheckCircle2 className="w-4 h-4 text-[#D4AF37]" />
                   </div>
                   <span className="text-xs sm:text-sm font-semibold text-[#18382d]">
                     {item}
@@ -103,7 +103,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
 
           {/* Right Column: What Our Travelers Say & Testimonial Carousel */}
           <div data-reveal="fade-left" data-reveal-duration="850" data-reveal-delay="200" className="lg:col-span-6 flex flex-col items-start justify-center">
-            <span className="text-[11px] font-bold tracking-widest text-[#0e382b] uppercase bg-[#e9f4ef] px-3 py-1 rounded-full mb-3 inline-block">
+            <span className="text-[11px] font-bold tracking-widest text-[#D4AF37] uppercase bg-[#e9f4ef] px-3 py-1 rounded-full mb-3 inline-block">
               WHAT OUR TRAVELERS SAY
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#072118] tracking-tight leading-tight mb-8">
@@ -113,8 +113,8 @@ export const WhyUsAndTestimonials: React.FC = () => {
             {/* Testimonial Card */}
             <div className="w-full bg-[#fafdfc] border border-[#e2ede7] rounded-3xl p-7 sm:p-9 shadow-lg relative flex flex-col justify-between min-h-[300px]">
               {/* Decorative Quote Mark */}
-              <div className="text-[#0e382b]/15 mb-4">
-                <Quote className="w-10 h-10 fill-[#0e382b]/10 text-[#0e382b]" />
+              <div className="text-[#D4AF37]/15 mb-4">
+                <Quote className="w-10 h-10 fill-[#D4AF37]/10 text-[#D4AF37]" />
               </div>
 
               {/* Quote text */}
@@ -125,7 +125,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
               {/* Author Info + Rating */}
               <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#e5a83b] shadow-sm">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#FFDF00] shadow-sm">
                     <Image
                       src={currentTestimonial.avatar}
                       alt={currentTestimonial.author}
@@ -135,11 +135,11 @@ export const WhyUsAndTestimonials: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-[#0e382b]">
+                    <h4 className="text-sm font-bold text-[#D4AF37]">
                       {currentTestimonial.author}
                     </h4>
                     <div className="text-xs text-gray-500 font-medium">
-                      {currentTestimonial.country} · <span className="text-[#0f8b53]">{currentTestimonial.tourTaken}</span>
+                      {currentTestimonial.country} · <span className="text-[#D4AF37]">{currentTestimonial.tourTaken}</span>
                     </div>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
                 {/* 5 Stars */}
                 <div className="flex items-center space-x-1">
                   {[...Array(currentTestimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#e5a83b] text-[#e5a83b]" />
+                    <Star key={i} className="w-4 h-4 fill-[#FFDF00] text-[#FFDF00]" />
                   ))}
                 </div>
               </div>
@@ -161,7 +161,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
                   onClick={() => setCurrentTestimonialIndex(idx)}
                   className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                     currentTestimonialIndex === idx
-                      ? 'w-8 bg-[#0e382b]'
+                      ? 'w-8 bg-[#D4AF37]'
                       : 'w-2.5 bg-gray-300 hover:bg-gray-400'
                   }`}
                   aria-label={`Go to testimonial ${idx + 1}`}

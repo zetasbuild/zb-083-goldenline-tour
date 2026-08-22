@@ -208,15 +208,15 @@ export default function ServicesPage() {
   };
 
   const handleWhatsAppServiceInquiry = (serviceTitle?: string) => {
-    const interest = serviceTitle ? `"${serviceTitle}"` : 'Ceylon Journeys travel & transport services';
+    const interest = serviceTitle ? `"${serviceTitle}"` : 'GoldenLine TOUR travel & transport services';
     const text = encodeURIComponent(
-      `Hello Ceylon Journeys! I would like to inquire about your ${interest}. Please share details and pricing.`
+      `Hello GoldenLine TOUR! I would like to inquire about your ${interest}. Please share details and pricing.`
     );
     window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-white relative">
+    <main className="min-h-screen flex flex-col bg-[#F5F2E6] relative">
       {/* Walkers Navigation Header */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
@@ -230,7 +230,7 @@ export default function ServicesPage() {
       <section className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
         <BackgroundAutoSlider
           intervalMs={4500}
-          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#001726]"
+          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]"
         />
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -268,7 +268,7 @@ export default function ServicesPage() {
               className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
-                <ArrowRight className="w-4 h-4 text-[#002b49]" />
+                <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
               </div>
               <span className="text-xs uppercase tracking-widest font-bold">Explore Services</span>
             </button>
@@ -285,7 +285,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Trust Highlights Strip - Auto Sliding Marquee */}
-      <section data-reveal="fade-up" className="bg-[#002b49] text-white py-6 border-t border-white/10 relative z-20 overflow-hidden">
+      <section data-reveal="fade-up" className="bg-[var(--color-primary)] text-white py-6 border-t border-white/10 relative z-20 overflow-hidden">
         <div className="flex group relative w-full">
           {/* First Marquee Group */}
           <div className="animate-marquee flex gap-12 md:gap-24 min-w-full justify-around shrink-0 pr-12 md:pr-24 group-hover:[animation-play-state:paused]">
@@ -326,7 +326,7 @@ export default function ServicesPage() {
         <div className="absolute top-0 left-0 w-[500px] h-[500px] -translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
           <MandalaBackground className="w-full h-full" />
         </div>
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#002b49]">
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[var(--color-primary)]">
           <TropicalLeafBackground className="w-full h-full" />
         </div>
 
@@ -340,7 +340,7 @@ export default function ServicesPage() {
             >
               Comprehensive Travel Solutions
             </span>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#002b49] mb-4">
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-4">
               What We Do For You
             </h2>
             <p className="text-gray-600 sm:text-base leading-relaxed">
@@ -358,13 +358,13 @@ export default function ServicesPage() {
                 <div
                   key={service.id}
                   data-reveal="fade-up"
-                  className="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 shadow-sm hover:shadow-xl border border-[#e2ede7] transition-all duration-300 hover-lift"
+                  className="bg-[#F5F2E6] rounded-3xl p-6 sm:p-10 lg:p-12 shadow-sm hover:shadow-xl border border-[#e2ede7] transition-all duration-300 hover-lift"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     
                     {/* Media Column */}
                     <div className={`lg:col-span-6 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                      <div className="relative h-[280px] sm:h-[360px] lg:h-[400px] rounded-3xl overflow-hidden shadow-md group bg-[#001726]">
+                      <div className="relative h-[280px] sm:h-[360px] lg:h-[400px] rounded-3xl overflow-hidden shadow-md group bg-[#041B2D]">
                         <Image
                           src={service.image}
                           alt={service.title}
@@ -372,10 +372,10 @@ export default function ServicesPage() {
                           className="object-cover group-hover:scale-105 transition-transform duration-700"
                           sizes="(max-width: 1024px) 100vw, 50vw"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#001726]/80 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/80 via-transparent to-transparent" />
                         
                         <div className="absolute top-4 left-4 z-10">
-                          <span className="bg-[#002b49]/90 backdrop-blur-md text-[#8ed1fc] text-[11px] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
+                          <span className="bg-[var(--color-primary)]/90 backdrop-blur-md text-[#8ed1fc] text-[11px] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
                             <Icon className="w-3.5 h-3.5 text-[#cba258]" />
                             <span>{service.category}</span>
                           </span>
@@ -392,7 +392,7 @@ export default function ServicesPage() {
                         {service.category}
                       </span>
 
-                      <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#002b49] leading-tight mb-4">
+                      <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-primary)] leading-tight mb-4">
                         {service.title}
                       </h3>
 
@@ -403,7 +403,7 @@ export default function ServicesPage() {
                       {/* Features Bullet List */}
                       <div className="space-y-2.5 mb-8">
                         {service.features.map((feat, i) => (
-                          <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#002b49] font-medium">
+                          <div key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--color-primary)] font-medium">
                             <CheckCircle2 className="w-4 h-4 text-[#0077b6] shrink-0 mt-0.5" />
                             <span>{feat}</span>
                           </div>
@@ -414,7 +414,7 @@ export default function ServicesPage() {
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => handleOpenInquireForService(service.title)}
-                          className="bg-[#002b49] hover:bg-[#0077b6] text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-sm cursor-pointer flex items-center gap-2"
+                          className="bg-[var(--color-primary)] hover:bg-[#0077b6] text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-sm cursor-pointer flex items-center gap-2"
                         >
                           <span>Inquire About This</span>
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -441,7 +441,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Service Inquiry Form (Light Theme) */}
-      <section id="service-inquiry-form" className="py-20 bg-white border-t border-[#e2ede7] scroll-mt-20">
+      <section id="service-inquiry-form" className="py-20 bg-[#F5F2E6] border-t border-[#e2ede7] scroll-mt-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-[#f8fbfa] rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7]">
             
@@ -461,7 +461,7 @@ export default function ServicesPage() {
             </div>
 
             {isSubmitted ? (
-              <div className="bg-white rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto border border-[#e2ede7] shadow-sm">
+              <div className="bg-[#F5F2E6] rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto border border-[#e2ede7] shadow-sm">
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-200">
                   <Check className="w-8 h-8" />
                 </div>
@@ -481,7 +481,7 @@ export default function ServicesPage() {
                   </button>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer"
+                    className="bg-[#F5F2E6] hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer"
                   >
                     Submit Another Request
                   </button>
@@ -504,7 +504,7 @@ export default function ServicesPage() {
                       value={formData.fullName}
                       onChange={handleInputChange}
                       placeholder="e.g. Rachel Adams"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-white border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#F5F2E6] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                     />
                   </div>
 
@@ -521,7 +521,7 @@ export default function ServicesPage() {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="rachel@example.com"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-white border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#F5F2E6] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                     />
                   </div>
 
@@ -538,7 +538,7 @@ export default function ServicesPage() {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="+1 (555) 000-0000"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-white border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#F5F2E6] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                     />
                   </div>
 
@@ -552,7 +552,7 @@ export default function ServicesPage() {
                       name="serviceType"
                       value={formData.serviceType}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-white border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] cursor-pointer"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#F5F2E6] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] cursor-pointer"
                     >
                       {servicesList.map((s) => (
                         <option key={s.id} value={s.title}>
@@ -573,7 +573,7 @@ export default function ServicesPage() {
                       name="travelDate"
                       value={formData.travelDate}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-white border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] cursor-pointer"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#F5F2E6] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] cursor-pointer"
                     />
                   </div>
 
@@ -587,7 +587,7 @@ export default function ServicesPage() {
                       name="guests"
                       value={formData.guests}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-white border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] cursor-pointer"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#F5F2E6] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] cursor-pointer"
                     >
                       {['Solo Traveler', '2 Guests (Couple)', '3-4 Guests (Family)', '5-8 Guests (Small Group)', '9+ Guests (Large Tour / MICE)'].map((g) => (
                         <option key={g} value={g}>
@@ -610,7 +610,7 @@ export default function ServicesPage() {
                     value={formData.notes}
                     onChange={handleInputChange}
                     placeholder="Tell us any specific requirements, preferred hotel standards, activities, or special assistance..."
-                    className="w-full px-4 py-3.5 rounded-2xl bg-white border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:ring-2 focus:ring-[#002b49]/10 transition-all resize-none"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-[#F5F2E6] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all resize-none"
                   />
                 </div>
 
@@ -636,7 +636,7 @@ export default function ServicesPage() {
 
                     <button
                       type="submit"
-                      className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
+                      className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[var(--color-primary)] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                     >
                       <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
                       <span>Submit Service Inquiry</span>
