@@ -38,25 +38,27 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
   }, []);
 
   return (
-    <section id="destinations" className="pt-10 pb-10 lg:pt-16 lg:pb-16 bg-[#F5F2E6] relative overflow-x-clip overflow-y-visible">
+    <section id="destinations" className="py-20 lg:py-28 bg-[#F5F2E6] relative overflow-hidden">
       {/* Background Watermark Text */}
-      <div className="absolute -top-12 sm:-top-16 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
-        <span className="watermark-text text-[#f4f7f6]">destinations</span>
+      <div className="absolute top-2 sm:top-4 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
+        <span className="watermark-text" style={{ color: 'rgba(4, 27, 45, 0.05)' }}>
+          destinations
+        </span>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-2 sm:mt-4">
         {/* Centered Header matching Tour Packages UI */}
-        <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-4">
+        <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <span 
-            className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1 inline-block -rotate-2"
+            className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
             Explore the Wonder of
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-3 mt-1">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-4 mt-1 leading-tight">
             Destinations in Sri Lanka
           </h2>
-          <p className="text-[#55697a] sm:text-base leading-relaxed">
+          <p className="text-[#55697a] sm:text-lg leading-relaxed max-w-2xl mx-auto">
             Discover the breathtaking beauty, ancient heritage, and hidden tropical paradises across our beautiful island.
           </p>
         </div>
