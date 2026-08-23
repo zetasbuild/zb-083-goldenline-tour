@@ -378,73 +378,70 @@ export default function SedanTransfersPage() {
               FILTER & SEARCH TOOLBAR
           ====================================================================== */}
           <div className="bg-white rounded-3xl p-4 sm:p-6 shadow-sm border border-gray-200 mb-8">
-            <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+            <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
               
               {/* Search Box */}
-              <div className="relative flex-1">
-                <Search className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
+              <div className="relative flex-1 min-w-0">
+                <Search className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <input
                   type="text"
-                  placeholder={`Search destination from ${currentHubInfo.title} (e.g. Galle, Sigiriya, Ella)...`}
+                  placeholder={`Search destination from ${currentHubInfo.title}...`}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 bg-[#F5F2E6]/60 border border-gray-200 rounded-full text-xs sm:text-sm text-[#041B2D] placeholder:text-gray-400 focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                  className="w-full pl-11 pr-10 py-3 bg-[#F5F2E6]/60 border border-gray-200 rounded-full text-xs sm:text-sm text-[#041B2D] placeholder:text-gray-400 focus:outline-none focus:border-[#cba258] focus:bg-white transition-all truncate"
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-gray-600"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-gray-600 font-bold"
                   >
-                    Clear
+                    ×
                   </button>
                 )}
               </div>
 
-              {/* View Switcher */}
-              <div className="flex items-center justify-end gap-2 shrink-0">
-                <span className="text-xs font-bold text-gray-500 uppercase tracking-wider mr-1 hidden sm:inline">
-                  View:
-                </span>
+              {/* View Switcher Pills */}
+              <div className="flex items-center justify-center sm:justify-end gap-1.5 bg-[#F5F2E6] p-1.5 rounded-full border border-gray-200 shrink-0">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                  className={`px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 transition-all duration-300 cursor-pointer ${
                     viewMode === 'grid'
                       ? 'bg-[#041B2D] text-[#cba258] shadow-sm'
-                      : 'bg-[#F5F2E6] text-gray-600 hover:bg-gray-200'
+                      : 'text-gray-600 hover:text-[#041B2D]'
                   }`}
-                  aria-label="Grid view"
+                  aria-label="Cards view"
                 >
-                  <LayoutGrid className="w-4 h-4" />
-                  <span className="hidden sm:inline">Cards</span>
+                  <LayoutGrid className="w-3.5 h-3.5" />
+                  <span>Cards</span>
                 </button>
                 <button
                   onClick={() => setViewMode('table')}
-                  className={`p-2.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                  className={`px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 transition-all duration-300 cursor-pointer ${
                     viewMode === 'table'
                       ? 'bg-[#041B2D] text-[#cba258] shadow-sm'
-                      : 'bg-[#F5F2E6] text-gray-600 hover:bg-gray-200'
+                      : 'text-gray-600 hover:text-[#041B2D]'
                   }`}
-                  aria-label="Table view"
+                  aria-label="Price table view"
                 >
-                  <TableIcon className="w-4 h-4" />
-                  <span className="hidden sm:inline">Table</span>
+                  <TableIcon className="w-3.5 h-3.5" />
+                  <span>Price Table</span>
                 </button>
               </div>
             </div>
 
             {/* Category Pills */}
-            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pt-4 mt-4 border-t border-gray-100">
-              <span className="text-[11px] font-bold uppercase text-gray-400 shrink-0">
-                Category:
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pt-4 mt-4 border-t border-gray-100 sm:justify-center">
+              <span className="text-[11px] font-bold uppercase text-gray-400 shrink-0 mr-1">
+                Filter:
               </span>
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                  className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-300 cursor-pointer shrink-0 ${
                     selectedCategory === cat
-                      ? 'bg-[#cba258] text-[#041B2D] font-bold shadow-sm'
-                      : 'bg-[#F5F2E6] text-gray-600 hover:bg-gray-200'
+                      ? 'bg-[#041B2D] text-[#cba258] shadow-md scale-105'
+                      : 'bg-[#F5F2E6] text-gray-600 hover:bg-[#eae1c8] border border-gray-200'
                   }`}
                 >
                   {cat}
