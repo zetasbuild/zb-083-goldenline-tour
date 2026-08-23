@@ -136,6 +136,13 @@ body {
   transition: transform 0.2s ease;
 }
 
+@media (max-width: 768px) {
+  .floating-whatsapp {
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
 .floating-whatsapp:hover {
   transform: scale(1.1);
 }

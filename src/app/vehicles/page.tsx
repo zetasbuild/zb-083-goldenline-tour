@@ -329,7 +329,7 @@ export default function SedanTransfersPage() {
           {/* =====================================================================
               3 ORIGIN HUB TABS (Airport, Kandy, Nuwara Eliya)
           ====================================================================== */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+          <div className="flex md:grid md:grid-cols-3 gap-4 mb-8 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-4 -mx-4 px-4 sm:mx-0 sm:px-0">
             {ORIGIN_HUBS.map((hub) => {
               const isSelected = selectedHub === hub.slug;
               return (
@@ -339,33 +339,33 @@ export default function SedanTransfersPage() {
                     setSelectedHub(hub.slug);
                     setSelectedCategory('All');
                   }}
-                  className={`relative text-left p-5 sm:p-6 rounded-3xl transition-all duration-300 cursor-pointer overflow-hidden border ${
+                  className={`relative text-left p-4 sm:p-5 rounded-2xl transition-all duration-300 cursor-pointer overflow-hidden border flex-shrink-0 w-[260px] sm:w-[280px] md:w-auto snap-start ${
                     isSelected
-                      ? 'bg-[#041B2D] text-white border-[#cba258] shadow-xl scale-[1.02] ring-2 ring-[#cba258]/50'
-                      : 'bg-white text-[#041B2D] border-gray-200 hover:border-[#cba258]/50 hover:shadow-md'
+                      ? 'bg-white text-[#041B2D] border-[#cba258] shadow-md ring-1 ring-[#cba258] scale-[1.02]'
+                      : 'bg-white/60 text-gray-500 border-gray-200 hover:border-[#cba258]/50 hover:bg-white hover:shadow-sm'
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className={`text-[10px] sm:text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${
-                      isSelected ? 'bg-[#cba258] text-[#041B2D]' : 'bg-[#F5F2E6] text-[#cba258]'
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className={`text-[9px] sm:text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${
+                      isSelected ? 'bg-[#F5F2E6] text-[#cba258]' : 'bg-gray-100 text-gray-500'
                     }`}>
                       {hub.badge}
                     </span>
-                    {hub.slug === 'colombo-airport' && <Plane className={`w-5 h-5 ${isSelected ? 'text-[#cba258]' : 'text-gray-400'}`} />}
-                    {hub.slug === 'kandy' && <Compass className={`w-5 h-5 ${isSelected ? 'text-[#cba258]' : 'text-gray-400'}`} />}
-                    {hub.slug === 'nuwara-eliya' && <MapPin className={`w-5 h-5 ${isSelected ? 'text-[#cba258]' : 'text-gray-400'}`} />}
+                    {hub.slug === 'colombo-airport' && <Plane className={`w-4 h-4 shrink-0 ${isSelected ? 'text-[#cba258]' : 'text-gray-400'}`} />}
+                    {hub.slug === 'kandy' && <Compass className={`w-4 h-4 shrink-0 ${isSelected ? 'text-[#cba258]' : 'text-gray-400'}`} />}
+                    {hub.slug === 'nuwara-eliya' && <MapPin className={`w-4 h-4 shrink-0 ${isSelected ? 'text-[#cba258]' : 'text-gray-400'}`} />}
                   </div>
 
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold mb-1">
+                  <h3 className={`font-serif text-lg sm:text-xl font-bold mb-1 ${isSelected ? 'text-[#041B2D]' : 'text-gray-600'}`}>
                     {hub.title}
                   </h3>
-                  <p className={`text-xs leading-relaxed line-clamp-2 ${isSelected ? 'text-gray-300' : 'text-gray-500'}`}>
+                  <p className={`text-[11px] leading-relaxed line-clamp-2 ${isSelected ? 'text-gray-600' : 'text-gray-400'}`}>
                     {hub.subtitle}
                   </p>
 
-                  <div className="mt-4 pt-3 border-t border-current/10 flex items-center justify-between text-xs font-semibold">
-                    <span>19 Direct Routes</span>
-                    <span className={`flex items-center gap-1 ${isSelected ? 'text-[#cba258]' : 'text-[#041B2D]'}`}>
+                  <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between text-[11px] font-semibold">
+                    <span className={isSelected ? 'text-gray-600' : 'text-gray-400'}>19 Direct Routes</span>
+                    <span className={`flex items-center gap-1 shrink-0 ${isSelected ? 'text-[#cba258]' : 'text-gray-400 group-hover:text-gray-600'}`}>
                       View Price List <ChevronRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
@@ -451,7 +451,7 @@ export default function SedanTransfersPage() {
           </div>
 
           {/* Active Hub Title & Count Banner */}
-          <div className="flex items-center justify-between gap-4 mb-6 px-2">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-6 px-2 items-start">
             <div>
               <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#041B2D]">
                 {currentHubInfo.title} ➔ All Destinations
@@ -461,8 +461,8 @@ export default function SedanTransfersPage() {
               </p>
             </div>
 
-            <div className="flex items-center gap-2 text-xs font-bold text-[#cba258] bg-white px-3.5 py-1.5 rounded-full border border-gray-200 shadow-sm">
-              <Car className="w-3.5 h-3.5" />
+            <div className="flex items-center gap-2 text-xs font-bold text-[#cba258] bg-white px-3.5 py-1.5 rounded-full border border-gray-200 shadow-sm shrink-0 whitespace-nowrap">
+              <Car className="w-3.5 h-3.5 shrink-0" />
               <span>Air-Conditioned Sedan</span>
             </div>
           </div>
@@ -570,14 +570,14 @@ export default function SedanTransfersPage() {
 
               {/* Responsive Table Container */}
               <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
+                <table className="w-full text-left border-collapse whitespace-nowrap">
                   <thead>
                     <tr className="border-b border-[#cba258]/40 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#cba258]">
-                      <th className="py-3.5 px-4">Route</th>
+                      <th className="py-3.5 px-4 min-w-[200px]">Route</th>
                       <th className="py-3.5 px-4 hidden md:table-cell">Category</th>
                       <th className="py-3.5 px-4 hidden sm:table-cell">Est. Duration</th>
-                      <th className="py-3.5 px-4 text-right">Sedan Price (LKR)</th>
-                      <th className="py-3.5 px-4 text-center">Instant Action</th>
+                      <th className="py-3.5 px-4 text-right min-w-[130px]">Sedan Price (LKR)</th>
+                      <th className="py-3.5 px-4 text-center min-w-[120px]">Instant Action</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/10 text-xs sm:text-sm font-medium">
@@ -590,7 +590,7 @@ export default function SedanTransfersPage() {
                           <div className="flex items-center gap-2">
                             <MapPin className="w-4 h-4 text-[#cba258] shrink-0" />
                             <div>
-                              <span className="font-bold text-white text-sm sm:text-base">
+                              <span className="font-bold text-white text-sm sm:text-base whitespace-normal line-clamp-2">
                                 {route.from} ➔ {route.to}
                               </span>
                             </div>
@@ -1035,9 +1035,9 @@ export default function SedanTransfersPage() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
-          className="w-14 h-14 rounded-full bg-[#25D366] text-white shadow-2xl flex items-center justify-center hover:bg-[#20ba59] transition-all cursor-pointer"
+          className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-2xl flex items-center justify-center hover:bg-[#20ba59] transition-all cursor-pointer"
         >
-          <WhatsAppIcon className="w-7 h-7 fill-white" />
+          <WhatsAppIcon className="w-6 h-6 sm:w-7 sm:h-7 fill-white" />
         </a>
       </div>
 

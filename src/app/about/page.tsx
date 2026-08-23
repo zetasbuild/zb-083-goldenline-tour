@@ -11,7 +11,7 @@ import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
-import { TESTIMONIALS } from '@/data/travelData';
+import { RealTravelerExperiences } from '@/components/RealTravelerExperiences';
 import {
   Compass,
   ShieldCheck,
@@ -53,27 +53,7 @@ export default function AboutUsPage() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Reviews Slider State
-  const [reviewStartIndex, setReviewStartIndex] = useState(0);
-  const [isFading, setIsFading] = useState(false);
 
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setIsFading(true);
-      setTimeout(() => {
-        setReviewStartIndex((prev) => (prev + 3 >= TESTIMONIALS.length ? 0 : prev + 3));
-        setIsFading(false);
-      }, 500); // 500ms fade duration
-    }, 6000); // Slide every 6 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const visibleReviews = [
-    TESTIMONIALS[reviewStartIndex % TESTIMONIALS.length],
-    TESTIMONIALS[(reviewStartIndex + 1) % TESTIMONIALS.length],
-    TESTIMONIALS[(reviewStartIndex + 2) % TESTIMONIALS.length],
-  ];
 
   const stats = [
     { value: '25+', label: 'Years of Heritage', sub: 'Pioneering Sri Lanka tourism since 2001' },
@@ -462,59 +442,8 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* Guest Reviews Preview */}
-      <section className="py-20 bg-[#F5F2E6] border-t border-[#e2ede7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span
-              className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1 inline-block -rotate-2"
-              style={{ fontFamily: 'var(--font-caveat), cursive' }}
-            >
-              Real Traveler Experiences
-            </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-3">
-              Loved By Travelers Worldwide
-            </h2>
-            <div className="flex items-center justify-center gap-1 text-[#cba258] text-sm font-bold">
-              ★ ★ ★ ★ ★ <span className="text-gray-600 ml-2 font-normal">(4.9/5 Average Rating)</span>
-            </div>
-          </div>
-
-          <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 transition-opacity duration-500 ease-in-out ${isFading ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
-            {visibleReviews.map((rev, idx) => (
-        <div
-          key={`${rev.id}-${reviewStartIndex}`}
-          className="p-8 rounded-3xl bg-[#f8fbfa] border border-[#e2ede7] flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow"
-        >
-          <div className="space-y-4">
-            <div className="flex items-center gap-1 text-[#cba258] text-xs">
-              {'★'.repeat(rev.rating)}
-            </div>
-            <p className="text-xs sm:text-sm text-gray-700 leading-relaxed italic font-normal">
-              &ldquo;{rev.text}&rdquo;
-            </p>
-          </div>
-
-          <div className="pt-6 border-t border-gray-200 mt-6 flex items-center gap-3">
-            <div className="relative w-10 h-10 rounded-full overflow-hidden bg-gray-200 shrink-0">
-              <Image
-                src={rev.avatar}
-                alt={rev.author}
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <h4 className="text-xs font-bold text-[var(--color-primary)]">{rev.author}</h4>
-              <span className="text-[11px] text-gray-500">{rev.country} · {rev.tourTaken}</span>
-            </div>
-          </div>
-        </div>
-      ))}
-          </div>
-        </div>
-      </section>
+      {/* Real Traveler Experiences */}
+      <RealTravelerExperiences />
 
       {/* Light-Theme Contact / Inquiry Section */}
       <section id="contact-section" className="py-20 bg-[#f8fbfa] border-t border-[#e2ede7] scroll-mt-20">
