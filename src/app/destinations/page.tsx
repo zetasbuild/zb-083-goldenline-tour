@@ -186,26 +186,9 @@ export default function DestinationsPage() {
       {/* Floating Filter Card */}
       <section data-reveal="zoom-in" data-reveal-delay="200" className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-14 w-full">
         <div className="bg-[#F5F2E6] rounded-3xl p-5 sm:p-6 shadow-[0_20px_50px_rgba(0,43,73,0.15)] border border-[#e2ede7]">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 items-center">
-            {/* Field 1: Keyword Search */}
-            <div className="md:col-span-5">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary)] block mb-1.5">
-                Search Destination or Landmark
-              </label>
-              <div className="flex items-center gap-2.5 p-3 rounded-2xl border border-gray-200 hover:border-[var(--color-primary)] bg-[#f8fbfa] transition-colors">
-                <Search className="w-4 h-4 text-[var(--color-primary)] shrink-0" />
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="e.g. Ella, Sigiriya, Mirissa..."
-                  className="w-full bg-transparent text-xs sm:text-sm font-medium text-gray-800 outline-none"
-                />
-              </div>
-            </div>
-
-            {/* Field 2: Category Selector */}
-            <div className="md:col-span-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 items-center">
+            {/* Field 1: Category Selector */}
+            <div className="w-full">
               <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary)] block mb-1.5">
                 Category
               </label>
@@ -225,8 +208,8 @@ export default function DestinationsPage() {
               </div>
             </div>
 
-            {/* Field 3: Region Selector */}
-            <div className="md:col-span-3">
+            {/* Field 2: Region Selector */}
+            <div className="w-full">
               <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary)] block mb-1.5">
                 Region
               </label>

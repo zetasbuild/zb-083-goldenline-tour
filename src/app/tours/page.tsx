@@ -77,11 +77,11 @@ export default function ToursOverviewPage() {
           overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]"
         />
 
-        <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-0">
           <span
             data-reveal="fade-down"
             data-reveal-delay="100"
-            className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
+            className="font-caveat text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#cba258] mb-[-5px] sm:mb-[-10px] md:mb-[-15px] z-10 -rotate-2 inline-block"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
             Explore the Wonder of
@@ -90,25 +90,25 @@ export default function ToursOverviewPage() {
           <h1 
             data-reveal="fade-up"
             data-reveal-delay="200"
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
+            className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6 lg:mb-8 mt-2"
           >
             TOUR PACKAGES
           </h1>
 
 
 
-          <div data-reveal="zoom-in" data-reveal-delay="450" className="flex items-center justify-center gap-4 flex-wrap">
+          <div data-reveal="zoom-in" data-reveal-delay="450" className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full max-w-[280px] sm:max-w-none mx-auto">
             <button
               onClick={() => {
                 const el = document.getElementById('packages-list');
                 el?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
+              className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform w-full sm:w-auto justify-start sm:justify-center"
             >
-              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
+              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300 shrink-0">
                 <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
               </div>
-              <span className="text-xs uppercase tracking-widest font-bold">Discover Itineraries</span>
+              <span className="text-xs uppercase tracking-widest font-bold text-left">Discover Itineraries</span>
             </button>
 
             <button
@@ -116,12 +116,12 @@ export default function ToursOverviewPage() {
                 const el = document.getElementById('custom-tour-form');
                 el?.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
+              className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform w-full sm:w-auto justify-start sm:justify-center"
             >
-              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
+              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300 shrink-0">
                 <Sparkles className="w-4 h-4 text-[var(--color-primary)]" />
               </div>
-              <span className="text-xs uppercase tracking-widest font-bold">Plan Custom Trip</span>
+              <span className="text-xs uppercase tracking-widest font-bold text-left">Plan Custom Trip</span>
             </button>
           </div>
         </div>
@@ -195,7 +195,7 @@ export default function ToursOverviewPage() {
 
                   {/* Badges */}
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                    <span className="bg-[var(--color-primary)]/80 backdrop-blur-md text-[#8ed1fc] text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/10">
+                    <span className="bg-black/40 backdrop-blur-md text-[#cba258] text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/10">
                       {pkg.duration}
                     </span>
                     {pkg.badge && (
@@ -209,7 +209,7 @@ export default function ToursOverviewPage() {
                     <div className="flex items-center gap-1 text-xs font-bold text-[#cba258] mb-1">
                       ★ {pkg.rating} <span className="text-gray-300 font-normal">({pkg.reviewsCount}+ reviews)</span>
                     </div>
-                    <h3 className="font-serif text-2xl font-bold uppercase tracking-wider leading-tight group-hover:text-[#8ed1fc] transition-colors">
+                    <h3 className="font-serif text-2xl font-bold uppercase tracking-wider leading-tight group-hover:text-[#cba258] transition-colors">
                       {pkg.title}
                     </h3>
                   </div>
@@ -229,7 +229,7 @@ export default function ToursOverviewPage() {
                     <div className="flex flex-wrap gap-1.5">
                       {pkg.destinationsCovered.slice(0, 5).map((d) => (
                         <span key={d} className="text-[11px] font-semibold text-[var(--color-primary)] bg-[#f0f4f8] px-2.5 py-1 rounded-md flex items-center gap-1">
-                          <MapPin className="w-2.5 h-2.5 text-[#0077b6]" />
+                          <MapPin className="w-2.5 h-2.5 text-[#cba258]" />
                           {d}
                         </span>
                       ))}
@@ -254,7 +254,7 @@ export default function ToursOverviewPage() {
                       href={`/tours/${pkg.id}`}
                       className="next-btn next-btn--blue group"
                     >
-                      <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all">
+                      <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all">
                         <ArrowRight className="w-4 h-4 text-white" />
                       </div>
                       <span className="text-xs uppercase tracking-widest font-bold">View Itinerary</span>
