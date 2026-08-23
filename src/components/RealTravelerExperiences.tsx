@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import { Star, ChevronLeft, ChevronRight, CheckCircle, Quote } from 'lucide-react';
+import { Star, CheckCircle, Quote } from 'lucide-react';
 
 interface ReviewItem {
   author: string;
@@ -15,11 +15,6 @@ interface ReviewItem {
 }
 
 export const RealTravelerExperiences: React.FC = () => {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
-  const [activeIndex, setActiveIndex] = useState(0);
 
   const reviews: ReviewItem[] = [
     {
@@ -105,62 +100,7 @@ export const RealTravelerExperiences: React.FC = () => {
     }
   ];
 
-  const updateScrollState = () => {
-    if (scrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-      setCanScrollLeft(scrollLeft > 20);
-      setCanScrollRight(scrollLeft + clientWidth < scrollWidth - 20);
 
-      // Compute active dot index
-      const cardWidth = 400; // approximate width
-      const index = Math.round(scrollLeft / cardWidth);
-      setActiveIndex(Math.min(Math.max(0, index), reviews.length - 1));
-    }
-  };
-
-  const handleScroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const cardWidth = scrollRef.current.clientWidth < 640 ? 320 : 400;
-      const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
-
-  const scrollToIndex = (index: number) => {
-    if (scrollRef.current) {
-      const cardWidth = scrollRef.current.clientWidth < 640 ? 320 : 400;
-      scrollRef.current.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
-      setActiveIndex(index);
-    }
-  };
-
-  // Auto Slider functionality with Pause-on-Hover
-  useEffect(() => {
-    if (isPaused) return;
-
-    const interval = setInterval(() => {
-      if (scrollRef.current) {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
-        const cardWidth = clientWidth < 640 ? 320 : 400;
-
-        if (scrollLeft + clientWidth >= scrollWidth - 25) {
-          scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          scrollRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
-        }
-      }
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [isPaused]);
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    if (el) {
-      el.addEventListener('scroll', updateScrollState, { passive: true });
-      return () => el.removeEventListener('scroll', updateScrollState);
-    }
-  }, []);
 
   return (
     <section className="py-20 lg:py-28 bg-[#F5F2E6] relative overflow-hidden">
@@ -197,97 +137,95 @@ export const RealTravelerExperiences: React.FC = () => {
           <span className="text-xs uppercase tracking-widest font-bold text-[#55697a]">
             Verified Guest Reviews
           </span>
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => handleScroll('left')}
-              aria-label="Previous review"
-              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all cursor-pointer ${
-                canScrollLeft
-                  ? 'bg-white border-[#e2ede7] text-[#041B2D] shadow-sm hover:bg-[#041B2D] hover:text-white'
-                  : 'bg-white/60 border-gray-200 text-gray-400 cursor-default'
-              }`}
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => handleScroll('right')}
-              aria-label="Next review"
-              className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all cursor-pointer ${
-                canScrollRight
-                  ? 'bg-[#041B2D] border-[#041B2D] text-white shadow-md hover:bg-[#0077b6]'
-                  : 'bg-white/60 border-gray-200 text-gray-400 cursor-default'
-              }`}
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
         </div>
 
-        {/* Auto Slider Cards Track */}
-        <div
-          ref={scrollRef}
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onTouchStart={() => setIsPaused(true)}
-          onTouchEnd={() => setIsPaused(false)}
-          data-reveal-stagger
-          className="flex space-x-5 sm:space-x-6 overflow-x-auto no-scrollbar pb-6 pt-2 snap-x snap-mandatory"
-        >
-          {reviews.map((review, idx) => (
-            <div 
-              key={idx}
-              className="bg-white rounded-3xl p-7 sm:p-9 shadow-sm border border-[#e2ede7] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col flex-shrink-0 w-[300px] sm:w-[370px] md:w-[390px] snap-start relative group"
-            >
-              <Quote className="w-10 h-10 text-[#cba258]/15 absolute top-6 right-6 pointer-events-none" />
+        {/* Auto Slider Cards Track (Continuous Infinite Loop) */}
+        <div className="relative w-full overflow-hidden flex group mt-6 pb-8 pt-2">
+          {/* First loop track */}
+          <div className="animate-marquee flex gap-5 sm:gap-6 min-w-full justify-around shrink-0 pr-5 sm:pr-6 group-hover:[animation-play-state:paused]">
+            {reviews.map((review, idx) => (
+              <div 
+                key={idx}
+                className="bg-white rounded-3xl p-7 sm:p-9 shadow-sm border border-[#e2ede7] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col flex-shrink-0 w-[300px] sm:w-[370px] md:w-[390px] relative"
+              >
+                <Quote className="w-10 h-10 text-[#cba258]/15 absolute top-6 right-6 pointer-events-none" />
 
-              {/* Stars and Tour Tag */}
-              <div className="flex items-center justify-between gap-2 mb-4">
-                <div className="flex gap-1">
-                  {[...Array(review.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-[#cba258] text-[#cba258]" />
-                  ))}
-                </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#cba258] bg-[#F5F2E6] px-2.5 py-1 rounded-full">
-                  Verified Trip
-                </span>
-              </div>
-              
-              {/* Review Text */}
-              <p className="text-[#243e34] italic leading-relaxed mb-6 flex-grow text-sm sm:text-base whitespace-pre-wrap line-clamp-6 overflow-hidden">
-                "{review.text}"
-              </p>
-              
-              {/* Author & Tour Info */}
-              <div className="border-t border-gray-100 pt-5 flex items-center gap-3.5 mt-auto">
-                <div className="overflow-hidden">
-                  <div className="flex items-center gap-1.5">
-                    <h4 className="text-[#041B2D] font-bold text-sm sm:text-base truncate">
-                      {review.author}
-                    </h4>
+                {/* Stars and Tour Tag */}
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <div className="flex gap-1">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-[#cba258] text-[#cba258]" />
+                    ))}
                   </div>
-                  <p className="text-[#55697a] text-xs font-medium truncate mt-0.5">
-                    {review.location} · <span className="text-[#cba258] font-semibold">{review.tour}</span>
-                  </p>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#cba258] bg-[#F5F2E6] px-2.5 py-1 rounded-full whitespace-nowrap">
+                    Verified Trip
+                  </span>
+                </div>
+                
+                {/* Review Text */}
+                <p className="text-[#243e34] italic leading-relaxed mb-6 flex-grow text-sm sm:text-base whitespace-pre-wrap line-clamp-6 overflow-hidden">
+                  "{review.text}"
+                </p>
+                
+                {/* Author & Tour Info */}
+                <div className="border-t border-gray-100 pt-5 flex items-center gap-3.5 mt-auto">
+                  <div className="overflow-hidden">
+                    <div className="flex items-center gap-1.5">
+                      <h4 className="text-[#041B2D] font-bold text-sm sm:text-base truncate">
+                        {review.author}
+                      </h4>
+                    </div>
+                    <p className="text-[#55697a] text-xs font-medium truncate mt-0.5">
+                      {review.location} · <span className="text-[#cba258] font-semibold">{review.tour}</span>
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Indicator Dots */}
-        <div className="flex justify-center items-center gap-2 mt-4">
-          {reviews.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => scrollToIndex(idx)}
-              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                activeIndex === idx
-                  ? 'w-8 bg-[#041B2D]'
-                  : 'w-2 bg-[#041B2D]/20 hover:bg-[#041B2D]/40'
-              }`}
-              aria-label={`Go to slide ${idx + 1}`}
-            />
-          ))}
+          {/* Second loop track (Clone for seamless infinity) */}
+          <div className="animate-marquee flex gap-5 sm:gap-6 min-w-full justify-around shrink-0 pr-5 sm:pr-6 group-hover:[animation-play-state:paused]" aria-hidden="true">
+            {reviews.map((review, idx) => (
+              <div 
+                key={`clone-${idx}`}
+                className="bg-white rounded-3xl p-7 sm:p-9 shadow-sm border border-[#e2ede7] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col flex-shrink-0 w-[300px] sm:w-[370px] md:w-[390px] relative"
+              >
+                <Quote className="w-10 h-10 text-[#cba258]/15 absolute top-6 right-6 pointer-events-none" />
+
+                {/* Stars and Tour Tag */}
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <div className="flex gap-1">
+                    {[...Array(review.rating)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-[#cba258] text-[#cba258]" />
+                    ))}
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#cba258] bg-[#F5F2E6] px-2.5 py-1 rounded-full whitespace-nowrap">
+                    Verified Trip
+                  </span>
+                </div>
+                
+                {/* Review Text */}
+                <p className="text-[#243e34] italic leading-relaxed mb-6 flex-grow text-sm sm:text-base whitespace-pre-wrap line-clamp-6 overflow-hidden">
+                  "{review.text}"
+                </p>
+                
+                {/* Author & Tour Info */}
+                <div className="border-t border-gray-100 pt-5 flex items-center gap-3.5 mt-auto">
+                  <div className="overflow-hidden">
+                    <div className="flex items-center gap-1.5">
+                      <h4 className="text-[#041B2D] font-bold text-sm sm:text-base truncate">
+                        {review.author}
+                      </h4>
+                    </div>
+                    <p className="text-[#55697a] text-xs font-medium truncate mt-0.5">
+                      {review.location} · <span className="text-[#cba258] font-semibold">{review.tour}</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* TripAdvisor Link */}
