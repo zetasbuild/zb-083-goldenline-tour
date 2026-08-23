@@ -157,20 +157,13 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
               </div>
             </a>
 
-            {/* Quick Search Button */}
-            <button
-              onClick={onOpenSearch}
-              aria-label="Search"
-              className="w-10 h-10 rounded-full border border-white/30 hover:border-white/80 flex items-center justify-center text-white hover:bg-white/10 transition-all cursor-pointer"
-            >
-              <Search className="w-4 h-4" />
-            </button>
+
 
             {/* Hamburger Button for Mobile & Mega Menu */}
             <button
               onClick={() => setMegaMenuOpen(true)}
               aria-label="Open menu"
-              className="w-10 h-10 rounded-full border border-white/30 hover:border-white/80 flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-all cursor-pointer"
+              className="lg:hidden w-10 h-10 rounded-full border border-white/30 hover:border-white/80 flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-all cursor-pointer"
             >
               <span className="w-5 h-0.5 bg-[#F5F2E6] rounded-full"></span>
               <span className="w-5 h-0.5 bg-[#F5F2E6] rounded-full"></span>
