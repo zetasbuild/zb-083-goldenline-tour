@@ -80,7 +80,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent" />
 
               <div className="relative z-10 flex items-center gap-2">
-                <span className="text-xs uppercase tracking-widest text-[#8ed1fc] font-bold">
+                <span className="text-xs uppercase tracking-widest text-[#cba258] font-bold">
                   Travel Essentials
                 </span>
               </div>
@@ -94,7 +94,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
                   onClick={onViewAllFaq}
                   className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
                 >
-                  <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
+                  <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
                     <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
                   </div>
                   <span className="text-xs uppercase tracking-widest font-bold">View All FAQ</span>

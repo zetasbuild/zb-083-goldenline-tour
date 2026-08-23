@@ -27,9 +27,9 @@ export const RealTravelerExperiences: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-[#F5F2E6]">
+    <section className="pt-4 pb-16 lg:pt-8 lg:pb-24 bg-[#F5F2E6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-16">
+        <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <span 
             className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}

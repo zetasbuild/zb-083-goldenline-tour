@@ -7,7 +7,7 @@ export const WalkersGallery: React.FC = () => {
   const images = Array.from({ length: 11 }, (_, i) => `/images/${i + 1}.jpeg`);
 
   return (
-    <section className="pt-10 pb-16 lg:pt-16 lg:pb-24 bg-[#F5F2E6] overflow-hidden">
+    <section className="pt-10 pb-6 lg:pt-16 lg:pb-8 bg-[#F5F2E6] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-8 sm:mb-12">
         <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto">
           <span 
