@@ -46,7 +46,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
         );
 
   return (
-    <section id="packages" className="pt-16 pb-24 lg:pt-24 lg:pb-32 bg-[#F5F2E6] relative overflow-x-clip overflow-y-visible">
+    <section id="packages" className="pt-8 pb-24 lg:pt-12 lg:pb-32 bg-[#F5F2E6] relative overflow-x-clip overflow-y-visible">
       {/* Subtle Background Decorative SVGs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
         <LotusBackground className="w-full h-full" />
@@ -55,7 +55,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
         <TropicalLeafBackground className="w-full h-full" />
       </div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-10 sm:mt-16 lg:mt-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Category Filter Pills */}
         <div data-reveal="fade-down" className="flex sm:flex-wrap items-center gap-2 sm:gap-3 mb-12 overflow-x-auto no-scrollbar pb-3 sm:pb-0 sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">

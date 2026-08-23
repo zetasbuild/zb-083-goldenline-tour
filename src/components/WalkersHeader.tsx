@@ -13,13 +13,9 @@ import {
   Phone,
   Mail,
   Sparkles,
-  Landmark,
-  Mountain,
-  Footprints,
-  Palmtree,
-  Heart,
-  Crown,
+  MapPin,
   Compass,
+  ArrowRight,
 } from 'lucide-react';
 import { useCurrency } from '@/context/CurrencyContext';
 import { CurrencyType } from '@/types';
@@ -35,9 +31,8 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
-  const [tourDropdownOpen, setTourDropdownOpen] = useState(false);
+  const [toursAccordionOpen, setToursAccordionOpen] = useState(false);
   const { currency, setCurrency } = useCurrency();
-  const [currencyDropdownOpen, setCurrencyDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -52,16 +47,26 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const currencies: CurrencyType[] = ['LKR', 'USD', 'EUR', 'GBP'];
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (megaMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [megaMenuOpen]);
 
   const tourCategories = [
     { name: 'Classic Tours Sri Lanka', href: '/tours/tropical-highlights-tour' },
-    { name: 'Cultural Tours Sri Lanka', href: '/tours' },
+    { name: 'Cultural Heritage Tours', href: '/tours' },
     { name: 'Hill Country Scenic Tours', href: '/tours' },
-    { name: 'Wildlife & Adventure Tours', href: '/tours' },
-    { name: 'Beach Holidays', href: '/tours' },
-    { name: 'Honeymoon Tours', href: '/tours' },
-    { name: 'Luxury Tours', href: '/tours' },
+    { name: 'Wildlife & Safari Tours', href: '/tours' },
+    { name: 'Tropical Beach Holidays', href: '/tours' },
+    { name: 'Honeymoon & Romantic Tours', href: '/tours' },
+    { name: 'Ultra-Luxury Bespoke Tours', href: '/tours' },
   ];
 
   const navLinks = [
@@ -87,8 +92,8 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-black/40 backdrop-blur-md shadow-sm border-b border-white/10 py-3'
-            : 'bg-gradient-to-b from-black/60 to-transparent py-5'
+            ? 'bg-black/50 backdrop-blur-md shadow-md border-b border-white/10 py-3'
+            : 'bg-gradient-to-b from-black/70 via-black/30 to-transparent py-4 sm:py-5'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -115,17 +120,17 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
                   <span className={`transition-colors duration-200 ${active ? 'text-white font-bold' : 'text-white/90 hover:text-white'}`}>
                     {link.name}
                   </span>
-                  {/* White line with dot for active state */}
+                  {/* Gold line with dot for active state */}
                   {active ? (
                     <div className="absolute -bottom-[5px] flex items-center justify-center opacity-100 transition-opacity">
-                      <div className="h-[2px] w-8 bg-[#F5F2E6] relative flex items-center justify-center">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#F5F2E6] absolute" />
+                      <div className="h-[2px] w-8 bg-[#C79636] relative flex items-center justify-center">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#C79636] absolute" />
                       </div>
                     </div>
                   ) : (
                     <div className="absolute -bottom-[5px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200">
-                      <div className="h-[2px] w-6 bg-[#F5F2E6]/60 relative flex items-center justify-center">
-                        <div className="w-1 h-1 rounded-full bg-[#F5F2E6]/60 absolute" />
+                      <div className="h-[2px] w-6 bg-[#C79636]/60 relative flex items-center justify-center">
+                        <div className="w-1 h-1 rounded-full bg-[#C79636]/60 absolute" />
                       </div>
                     </div>
                   )}
@@ -134,9 +139,9 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
             })}
           </nav>
 
-          {/* Right Action Icons: Search + Inquire + Hamburger */}
-          <div className="flex items-center space-x-4 sm:space-x-5">
-            {/* WhatsApp Contact */}
+          {/* Right Action Icons: Search + Contact + Hamburger */}
+          <div className="flex items-center space-x-3 sm:space-x-4">
+            {/* Desktop WhatsApp Contact */}
             <a
               href="https://wa.me/94771234567"
               target="_blank"
@@ -152,26 +157,39 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
               </div>
             </a>
 
-            {/* Hamburger Button for Full Mega Menu */}
+            {/* Quick Search Button */}
+            <button
+              onClick={onOpenSearch}
+              aria-label="Search"
+              className="w-10 h-10 rounded-full border border-white/30 hover:border-white/80 flex items-center justify-center text-white hover:bg-white/10 transition-all cursor-pointer"
+            >
+              <Search className="w-4 h-4" />
+            </button>
+
+            {/* Hamburger Button for Mobile & Mega Menu */}
             <button
               onClick={() => setMegaMenuOpen(true)}
-              aria-label="Open mega menu"
-              className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 hover:opacity-80 transition-opacity cursor-pointer pl-2"
+              aria-label="Open menu"
+              className="w-10 h-10 rounded-full border border-white/30 hover:border-white/80 flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-all cursor-pointer"
             >
-              <span className="w-6 h-0.5 bg-[#F5F2E6] rounded-full"></span>
-              <span className="w-6 h-0.5 bg-[#F5F2E6] rounded-full"></span>
-              <span className="w-6 h-0.5 bg-[#F5F2E6] rounded-full"></span>
+              <span className="w-5 h-0.5 bg-[#F5F2E6] rounded-full"></span>
+              <span className="w-5 h-0.5 bg-[#F5F2E6] rounded-full"></span>
+              <span className="w-3.5 h-0.5 bg-[#F5F2E6] rounded-full self-start ml-2.5"></span>
             </button>
           </div>
         </div>
       </header>
 
-      {/* Full-Screen Mega Menu Drawer in GoldenLine TOUR style */}
+      {/* Full-Screen Drawer Menu */}
       {megaMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-[#041B2D]/98 backdrop-blur-lg flex flex-col justify-between p-6 sm:p-12 overflow-y-auto animate-in fade-in duration-300 text-white">
-          {/* Mega Menu Top Bar */}
-          <div className="flex items-center justify-between pb-8 border-b border-white/10 max-w-7xl mx-auto w-full">
-            <Link href="/" onClick={() => setMegaMenuOpen(false)} className="flex items-center">
+        <div className="fixed inset-0 z-50 bg-[#041B2D]/98 backdrop-blur-xl flex flex-col overflow-y-auto animate-in fade-in duration-300 text-white">
+          {/* Top Bar with Brand & Close */}
+          <div className="sticky top-0 z-20 bg-[#041B2D]/95 backdrop-blur-md px-5 sm:px-8 py-4 sm:py-6 border-b border-white/10 flex items-center justify-between max-w-7xl mx-auto w-full">
+            <Link 
+              href="/" 
+              onClick={() => setMegaMenuOpen(false)} 
+              className="flex items-center group"
+            >
               <span 
                 className="font-caveat text-3xl sm:text-4xl text-white whitespace-nowrap"
                 style={{ fontFamily: 'var(--font-caveat), cursive' }}
@@ -183,103 +201,121 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
             <button
               onClick={() => setMegaMenuOpen(false)}
               aria-label="Close menu"
-              className="w-12 h-12 rounded-full border border-white/20 hover:border-white flex items-center justify-center text-white text-lg font-bold hover:bg-[#F5F2E6]/10 transition-all cursor-pointer"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/30 hover:border-white flex items-center justify-center text-white hover:bg-white/10 transition-all cursor-pointer"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </button>
           </div>
 
-          {/* Mega Menu Grid Columns */}
-          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-4 gap-8 py-10">
-            {/* Col 1: Quick Links */}
-            <div>
-              <h3 className="text-xs uppercase tracking-widest text-[#C79636] font-bold mb-4">
-                Quick Navigation
-              </h3>
-              <ul className="space-y-3 text-sm">
-                <li><Link href="/" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname === '/' ? 'text-[#C79636] font-bold' : 'hover:text-[#C79636]'}`}>Home</Link></li>
-                <li><Link href="/destinations" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname.startsWith('/destinations') ? 'text-[#C79636] font-bold' : 'hover:text-[#C79636]'}`}>Destinations Guide</Link></li>
-                <li><Link href="/tours" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname.startsWith('/tours') ? 'text-[#C79636] font-bold' : 'hover:text-[#C79636]'}`}>Tour Packages</Link></li>
-                <li><Link href="/vehicles" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname.startsWith('/vehicles') ? 'text-[#C79636] font-bold' : 'hover:text-[#C79636]'}`}>Car Rentals</Link></li>
-                <li><Link href="/services" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname.startsWith('/services') ? 'text-[#C79636] font-bold' : 'hover:text-[#C79636]'}`}>Services</Link></li>
-                <li><Link href="/about" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname.startsWith('/about') ? 'text-[#C79636] font-bold' : 'hover:text-[#C79636]'}`}>About Us</Link></li>
-                <li><Link href="/contact" onClick={() => setMegaMenuOpen(false)} className={`transition-colors ${pathname.startsWith('/contact') ? 'text-[#C79636] font-bold' : 'hover:text-[#C79636]'}`}>Contact Us</Link></li>
-              </ul>
-            </div>
-
-            {/* Col 2: Sri Lanka Tours */}
-            <div>
-              <h3 className="text-xs uppercase tracking-widest text-[#C79636] font-bold mb-4">
-                Sri Lanka Tours
-              </h3>
-              <ul className="space-y-2.5 text-xs text-gray-300">
-                {tourCategories.map((t) => (
-                  <li key={t.name}>
-                    <a href={t.href} onClick={() => setMegaMenuOpen(false)} className="hover:text-white transition-colors">
-                      {t.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Col 3: Signature Brands */}
-            <div>
-              <h3 className="text-xs uppercase tracking-widest text-[#C79636] font-bold mb-4">
-                Exclusive Experiences
-              </h3>
-              <ul className="space-y-3 text-sm text-gray-300">
-                <li>
-                  <a href="/#experiences" onClick={() => setMegaMenuOpen(false)} className="hover:text-white block">
-                    <strong className="text-white block text-sm">Artisan Luxury Travel</strong>
-                    <span className="text-xs text-gray-400">Curating luxury bespoke escapes</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/#experiences" onClick={() => setMegaMenuOpen(false)} className="hover:text-white block">
-                    <strong className="text-white block text-sm">Ayu Wellness &amp; Healing</strong>
-                    <span className="text-xs text-gray-400">Holistic Ayurvedic retreats</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/#experiences" onClick={() => setMegaMenuOpen(false)} className="hover:text-white block">
-                    <strong className="text-white block text-sm">Nature Odyssey</strong>
-                    <span className="text-xs text-gray-400">Wildlife &amp; off-grid expeditions</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            {/* Col 4: Contact & Inquire */}
-            <div className="flex flex-col justify-between">
-              <div>
-                <h3 className="text-xs uppercase tracking-widest text-[#C79636] font-bold mb-4">
-                  Direct Contact
+          {/* Menu Body Content */}
+          <div className="flex-1 max-w-7xl mx-auto w-full px-5 sm:px-8 py-6 sm:py-10">
+            {/* Responsive Layout: Single Clean Column on Mobile, 3 Columns on Desktop */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+              
+              {/* Col 1: Main Navigation Links */}
+              <div className="space-y-2">
+                <h3 className="text-xs uppercase tracking-widest text-[#C79636] font-bold mb-3 flex items-center gap-2">
+                  <Compass className="w-3.5 h-3.5" />
+                  Navigation
                 </h3>
-                <div className="space-y-3 text-xs text-gray-300 mb-6">
-                  <div className="flex items-center gap-2 text-white">
-                    <Phone className="w-4 h-4 text-[#C79636]" />
-                    <a href="tel:+94117311611" className="text-sm font-bold">+94 11 7311 611</a>
-                  </div>
-                  <div className="flex items-center gap-2 text-white">
-                    <Mail className="w-4 h-4 text-[#C79636]" />
-                    <a href="mailto:info@goldenlinetour.lk" className="text-xs">info@goldenlinetour.lk</a>
-                  </div>
-                  <p className="text-xs text-gray-400">
-                    24/7 Airport Travel Counter &amp; Concierge Service
-                  </p>
-                </div>
+                <nav className="flex flex-col space-y-1">
+                  {navLinks.map((link) => {
+                    const active = isActive(link.href);
+                    return (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        onClick={() => setMegaMenuOpen(false)}
+                        className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
+                          active
+                            ? 'bg-white/15 text-[#C79636] font-bold'
+                            : 'text-white/90 hover:text-white hover:bg-white/5 font-medium'
+                        }`}
+                      >
+                        <span className="text-base sm:text-lg">{link.name}</span>
+                        <ChevronRight className={`w-4 h-4 transition-transform ${active ? 'text-[#C79636] translate-x-0.5' : 'text-white/40'}`} />
+                      </Link>
+                    );
+                  })}
+                </nav>
               </div>
 
-              <a
-                href="https://wa.me/94771234567"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMegaMenuOpen(false)}
-                className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all shadow-lg text-center block cursor-pointer"
-              >
-                Chat on WhatsApp
-              </a>
+              {/* Col 2: Sri Lanka Tours */}
+              <div className="border-t border-white/10 md:border-t-0 pt-6 md:pt-0">
+                <div className="flex items-center justify-between mb-3">
+                  <h3 className="text-xs uppercase tracking-widest text-[#C79636] font-bold flex items-center gap-2">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    Popular Tour Styles
+                  </h3>
+                  <button
+                    onClick={() => setToursAccordionOpen(!toursAccordionOpen)}
+                    className="md:hidden text-xs text-gray-400 hover:text-white flex items-center gap-1"
+                  >
+                    {toursAccordionOpen ? 'Show less' : 'View all'}
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${toursAccordionOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
+
+                <ul className={`space-y-2 ${toursAccordionOpen ? 'block' : 'hidden md:block'}`}>
+                  {tourCategories.map((t) => (
+                    <li key={t.name}>
+                      <a
+                        href={t.href}
+                        onClick={() => setMegaMenuOpen(false)}
+                        className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors group"
+                      >
+                        <span>{t.name}</span>
+                        <ArrowRight className="w-3.5 h-3.5 text-[#C79636] opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Col 3: Direct Contact & WhatsApp */}
+              <div className="border-t border-white/10 md:border-t-0 pt-6 md:pt-0 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xs uppercase tracking-widest text-[#C79636] font-bold mb-3 flex items-center gap-2">
+                    <Phone className="w-3.5 h-3.5" />
+                    Direct Contact
+                  </h3>
+                  <div className="space-y-3 text-xs text-gray-300 mb-6 bg-white/5 p-4 rounded-2xl border border-white/10">
+                    <div className="flex items-center gap-3 text-white">
+                      <div className="w-8 h-8 rounded-full bg-[#C79636]/20 flex items-center justify-center text-[#C79636] shrink-0">
+                        <Phone className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-gray-400 block uppercase font-semibold">Call or WhatsApp</span>
+                        <a href="tel:+94771234567" className="text-sm font-bold hover:text-[#C79636] transition-colors">+94 77 123 4567</a>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-3 text-white pt-2 border-t border-white/10">
+                      <div className="w-8 h-8 rounded-full bg-[#C79636]/20 flex items-center justify-center text-[#C79636] shrink-0">
+                        <Mail className="w-4 h-4" />
+                      </div>
+                      <div>
+                        <span className="text-[10px] text-gray-400 block uppercase font-semibold">Email Inquiries</span>
+                        <a href="mailto:info@goldenlinetour.lk" className="text-xs font-semibold hover:text-[#C79636] transition-colors">info@goldenlinetour.lk</a>
+                      </div>
+                    </div>
+                    <p className="text-[11px] text-gray-400 pt-1">
+                      24/7 Airport Counter &amp; Chauffeur Concierge Service
+                    </p>
+                  </div>
+                </div>
+
+                <a
+                  href="https://wa.me/94771234567"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMegaMenuOpen(false)}
+                  className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 px-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all shadow-lg text-center flex items-center justify-center gap-2 cursor-pointer mt-2"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </div>
+
             </div>
           </div>
         </div>

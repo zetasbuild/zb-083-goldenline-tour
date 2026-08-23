@@ -38,7 +38,7 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
   }, []);
 
   return (
-    <section id="destinations" className="py-20 lg:py-28 bg-[#F5F2E6] relative overflow-hidden">
+    <section id="destinations" className="pt-20 pb-8 lg:pt-28 lg:pb-12 bg-[#F5F2E6] relative overflow-hidden">
       {/* Background Watermark Text */}
       <div className="absolute top-2 sm:top-4 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
         <span className="watermark-text" style={{ color: 'rgba(4, 27, 45, 0.05)' }}>
@@ -64,16 +64,15 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
         </div>
 
         {/* Actions & Navigation */}
-        <div data-reveal="fade-up" data-reveal-delay="100" className="flex justify-end items-center w-full mb-3">
-          {/* Explore Button */}
+        <div data-reveal="fade-up" className="flex flex-col sm:flex-row items-center justify-between gap-6 mb-8 sm:mb-10">
           <Link 
             href="/destinations"
-            className="next-btn next-btn--blue group cursor-pointer hover:scale-105 transition-transform"
+            className="next-btn next-btn--blue group cursor-pointer w-full sm:w-auto justify-center sm:justify-start order-2 sm:order-1"
           >
-            <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
+            <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
               <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
             </div>
-            <span className="text-xs uppercase tracking-widest font-bold text-[var(--color-primary)]">Explore</span>
+            <span className="text-xs uppercase tracking-widest font-bold text-[var(--color-primary)]">View All Destinations</span>
           </Link>
         </div>
 

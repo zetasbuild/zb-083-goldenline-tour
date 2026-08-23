@@ -168,7 +168,7 @@ export default function DestinationsPage() {
               onClick={scrollToGrid}
               className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
-              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
+              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-[var(--color-primary)] group-hover:translate-x-0.5 transition-transform" />
               </div>
               <span className="text-xs uppercase tracking-widest font-bold">Discover Places</span>
@@ -315,7 +315,7 @@ export default function DestinationsPage() {
                   setSelectedCategory('All');
                   setSelectedRegion('All Regions');
                 }}
-                className="bg-[var(--color-primary)] hover:bg-[#0077b6] text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                className="bg-[var(--color-primary)] hover:bg-[#cba258] text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
               >
                 Reset Filters
               </button>
@@ -342,7 +342,7 @@ export default function DestinationsPage() {
 
                   {/* Top Badges (Category + Wishlist) */}
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#8ed1fc] bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#cba258] bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
                       {dest.category}
                     </span>
                     <button
@@ -367,11 +367,11 @@ export default function DestinationsPage() {
                   {/* Card Footer Details */}
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white flex flex-col justify-end z-10">
                     <div className="border-b border-white/20 pb-3 mb-3 group-hover:border-white/40 transition-colors">
-                      <div className="flex items-center gap-1.5 text-[10px] text-[#8ed1fc] font-bold tracking-widest uppercase mb-1">
+                      <div className="flex items-center gap-1.5 text-[10px] text-[#cba258] font-bold tracking-widest uppercase mb-1">
                         <MapPin className="w-3 h-3" />
                         <span>{dest.region}</span>
                       </div>
-                      <h3 className="font-serif text-2xl font-bold uppercase tracking-wider leading-tight group-hover:text-[#8ed1fc] transition-colors">
+                      <h3 className="font-serif text-2xl font-bold uppercase tracking-wider leading-tight group-hover:text-[#cba258] transition-colors">
                         {dest.name}
                       </h3>
                       <p className="text-xs text-gray-300 line-clamp-2 mt-2 leading-relaxed">
@@ -388,7 +388,7 @@ export default function DestinationsPage() {
 
                       {/* Next Button Style */}
                       <div className="next-btn next-btn--white">
-                        <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
+                        <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
                           <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
                         </div>
                         <span className="text-xs uppercase tracking-widest font-bold">Explore</span>
@@ -435,7 +435,7 @@ export default function DestinationsPage() {
                 }}
                 className="next-btn next-btn--blue group cursor-pointer"
               >
-                <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
+                <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
                   <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
                 </div>
                 <span className="text-xs uppercase tracking-widest font-bold">Plan Your Custom Trip</span>
