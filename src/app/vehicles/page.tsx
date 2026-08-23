@@ -3,24 +3,24 @@
 import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
 import { MandalaBackground, TropicalLeafBackground } from '@/components/DecorativeBackgrounds';
 import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
-import { VEHICLES } from '@/data/travelData';
-import { Vehicle } from '@/types';
 import { useCurrency } from '@/context/CurrencyContext';
 import {
-  Users,
-  Luggage,
-  Wind,
-  Gauge,
-  Fuel,
-  Check,
-  CheckCircle2,
+  TRANSFER_ROUTES,
+  ORIGIN_HUBS,
+  SERVICE_PILLARS,
+  SERVICE_TYPES,
+  CONTACT_INFO,
+  TransferRoute,
+} from '@/data/transferRates';
+import {
+  Plane,
+  Car,
   ShieldCheck,
   Award,
   Clock,
@@ -32,105 +32,86 @@ import {
   User,
   MessageSquare,
   ArrowRight,
-  Car,
+  Search,
   Compass,
   Star,
-  ChevronDown,
   ChevronRight,
   Headphones,
+  CheckCircle2,
+  BadgePercent,
+  SlidersHorizontal,
+  Table as TableIcon,
+  LayoutGrid,
+  Info,
+  Navigation,
+  Luggage,
+  Users,
+  Check,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
-export default function VehiclesPage() {
-  const router = useRouter();
+export default function SedanTransfersPage() {
   const { formatPrice } = useCurrency();
 
-  // Filter State
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [selectedPassengers, setSelectedPassengers] = useState<string>('All');
+  // Active Origin Hub Tab
+  const [selectedHub, setSelectedHub] = useState<'colombo-airport' | 'kandy' | 'nuwara-eliya'>('colombo-airport');
+  
+  // Search & Category Filter State
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [viewMode, setViewMode] = useState<'grid' | 'table'>('grid');
 
   // Modals state
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [inquireInterest, setInquireInterest] = useState('Vehicle Rental Inquiry');
+  const [inquireInterest, setInquireInterest] = useState('Sedan Transfer Inquiry');
 
-  // Booking Form State
+  // Booking / Fare Inquiry Form State
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
-    pickupLocation: 'Bandaranaike International Airport (CMB)',
-    dropoffLocation: 'Round Island Tour / Multiple Destinations',
+    pickupLocation: 'Colombo Airport (CMB)',
+    dropoffLocation: 'Kandy Hill Capital',
     pickupDate: '',
-    returnDate: '',
-    selectedVehicle: 'Toyota KDH Super GL (Mini Van)',
-    serviceType: 'With Private English-Speaking Chauffeur',
+    pickupTime: '',
+    flightNumber: '',
     passengers: '2',
+    luggage: '2',
     notes: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const categories = [
-    'All',
-    'Sedans & Hybrids',
-    'SUVs & Crossovers',
-    'Passenger Vans',
-    'Safari & Adventure 4x4',
-    'VIP & Executive',
+  const categories = ['All', 'Popular', 'Beaches', 'Hill Country', 'Cultural', 'Wildlife', 'North & East'];
+
+  const transferSlides = [
+    { image: '/images/hero-ella.jpg', alt: 'Scenic Sri Lanka Mountain Highway & Tea Country', location: 'Highland Scenic Routes' },
+    { image: '/images/sigiriya.jpg', alt: 'Sigiriya Rock Citadel Cultural Transfers', location: 'Cultural Triangle' },
+    { image: '/images/mirissa.jpg', alt: 'Southern Expressway & Beach Resort Transfers', location: 'South Coast Beaches' },
+    { image: '/images/nuwaraeliya.jpg', alt: 'Nuwara Eliya Tea Gardens Chauffeur Drive', location: 'Little England Highlands' },
+    { image: '/images/gallefort.png', alt: 'Historic Galle Fort Lighthouse Coastal Drop', location: 'Galle & Southern Coast' },
+    { image: '/images/yala.jpg', alt: 'Yala National Park Safari Chauffeur Drop', location: 'Yala & Deep South' },
   ];
 
-  const popularTransfers = [
-    {
-      route: 'Airport (CMB) → Colombo City Hotels',
-      duration: '45 Mins',
-      priceLKR: 9500,
-      badge: 'Fixed Rate',
-    },
-    {
-      route: 'Airport (CMB) → Kandy Hill Capital',
-      duration: '3.5 Hours',
-      priceLKR: 18500,
-      badge: 'Scenic Route',
-    },
-    {
-      route: 'Airport (CMB) → Galle / Mirissa Coast',
-      duration: '2.5 Hours (Highway)',
-      priceLKR: 21000,
-      badge: 'Expressway',
-    },
-    {
-      route: 'Airport (CMB) → Sigiriya / Cultural Triangle',
-      duration: '4 Hours',
-      priceLKR: 24000,
-      badge: 'Heritage',
-    },
-  ];
+  // Current Active Hub Information
+  const currentHubInfo = useMemo(() => {
+    return ORIGIN_HUBS.find((h) => h.slug === selectedHub) || ORIGIN_HUBS[0];
+  }, [selectedHub]);
 
-  const vehicleSlides = [
-    { image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1920&q=85', alt: 'Scenic Coastal Highway Drive Sri Lanka', location: 'Southern Expressway' },
-    { image: 'https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1920&q=85', alt: 'Highland Tea Estate Drive Nuwara Eliya', location: 'Hill Country Roads' },
-    { image: 'https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=1920&q=85', alt: 'Wildlife Safari 4x4 Jeep Expedition', location: 'Yala & Udawalawe' },
-    { image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1920&q=85', alt: 'Cultural Heritage Tours Chauffeur Transport', location: 'Cultural Triangle' },
-  ];
-
-  const filteredVehicles = useMemo(() => {
-    return VEHICLES.filter((v) => {
-      const matchCat = selectedCategory === 'All' || v.category === selectedCategory;
-      const matchPax =
-        selectedPassengers === 'All' ||
-        (selectedPassengers === '1-3' && v.passengers <= 3) ||
-        (selectedPassengers === '4-7' && v.passengers >= 4 && v.passengers <= 7) ||
-        (selectedPassengers === '8+' && v.passengers >= 8);
+  // Filtered Routes for selected hub and search filters
+  const filteredRoutes = useMemo(() => {
+    return TRANSFER_ROUTES.filter((route) => {
+      const matchHub = route.fromSlug === selectedHub;
+      const matchCategory = selectedCategory === 'All' || route.category === selectedCategory;
       const matchSearch =
-        searchQuery === '' ||
-        v.model.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        v.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        v.features.some((f) => f.toLowerCase().includes(searchQuery.toLowerCase()));
-      return matchCat && matchPax && matchSearch;
+        searchQuery.trim() === '' ||
+        route.to.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        route.from.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        route.category.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchHub && matchCategory && matchSearch;
     });
-  }, [selectedCategory, selectedPassengers, searchQuery]);
+  }, [selectedHub, selectedCategory, searchQuery]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -139,623 +120,921 @@ export default function VehiclesPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleWhatsAppRouteBooking = (route: TransferRoute) => {
+    const text = encodeURIComponent(
+      `Hello Nihar Sri Lanka Tour! 🇱🇰\n\nI would like to book a private Sedan Transfer:\n\n📍 Route: ${route.from} ➔ ${route.to}\n💰 Fixed Sedan Rate: Rs. ${route.priceLKR.toLocaleString()} (LKR)\n⏱️ Est. Duration: ${route.duration}\n\nPlease let me know driver availability and booking confirmation.`
+    );
+    window.open(`https://wa.me/94760782814?text=${text}`, '_blank');
+  };
+
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
     try {
       confetti({
-        particleCount: 80,
-        spread: 60,
+        particleCount: 90,
+        spread: 70,
         origin: { y: 0.6 },
       });
     } catch {
       // ignore
     }
+
+    // Prepare WhatsApp Message
+    const text = encodeURIComponent(
+      `Hello Nihar Sri Lanka Tour! 🇱🇰\n\nI want to book a Sedan Transfer:\n👤 Name: ${formData.fullName}\n📞 Contact: ${formData.phone}\n📧 Email: ${formData.email}\n📍 Pickup: ${formData.pickupLocation}\n🏁 Destination: ${formData.dropoffLocation}\n📅 Date: ${formData.pickupDate || 'To be confirmed'}\n⏰ Time: ${formData.pickupTime || 'Flexible'}${formData.flightNumber ? `\n✈️ Flight: ${formData.flightNumber}` : ''}\n👥 Passengers: ${formData.passengers} | 🧳 Luggage: ${formData.luggage} bags\n📝 Notes: ${formData.notes || 'None'}\n\nPlease confirm availability and rate!`
+    );
+
+    // Open WhatsApp after brief delay
+    setTimeout(() => {
+      window.open(`https://wa.me/94760782814?text=${text}`, '_blank');
+    }, 1200);
   };
 
-  const handleSelectVehicleForBooking = (vehicleModel: string) => {
+  const selectRouteForForm = (route: TransferRoute) => {
     setFormData((prev) => ({
       ...prev,
-      selectedVehicle: vehicleModel,
+      pickupLocation: route.from,
+      dropoffLocation: route.to,
     }));
-    const el = document.getElementById('rental-booking-form');
-    el?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleWhatsAppVehicleInquiry = (vehicleModel?: string) => {
-    const interest = vehicleModel ? `rental for "${vehicleModel}"` : 'vehicle rental with chauffeur in Sri Lanka';
-    const text = encodeURIComponent(
-      `Hello GoldenLine TOUR! I would like to inquire about the ${interest}. Please share the rates and availability.`
-    );
-    window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
-  };
-
-  const scrollToFleet = () => {
-    const el = document.getElementById('fleet-section');
+    const el = document.getElementById('booking-form-section');
     el?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <main className="min-h-screen flex flex-col bg-[#F5F2E6] relative">
-      {/* Walkers Navigation Header */}
+      {/* Header */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
         onOpenInquire={() => {
-          setInquireInterest('General Vehicle Fleet Inquiry');
+          setInquireInterest('General Sedan Transfer Inquiry');
           setIsInquireOpen(true);
         }}
       />
 
-      {/* Hero Banner with Background Auto Slider */}
-      <section className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
+      {/* =========================================================================
+          HERO BANNER: Luxury Dark Theme with Background Auto Slider & Signature Gold
+      ========================================================================== */}
+      <section className="relative min-h-[80vh] lg:min-h-[88vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
         <BackgroundAutoSlider
-          slides={vehicleSlides}
+          slides={transferSlides}
           intervalMs={4500}
           overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]"
         />
 
-        <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-0 flex flex-col items-center">
+          {/* Top Script Text */}
           <span
             data-reveal="fade-down"
             data-reveal-delay="100"
-            className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
+            className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
-            Islandwide Private Chauffeur &amp;
+            {CONTACT_INFO.tagline}
           </span>
 
           <h1 
             data-reveal="fade-up"
             data-reveal-delay="200"
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
+            className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[85px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6 lg:mb-8 mt-2"
           >
-            CAR RENTALS
+            SEDAN TRANSFERS
           </h1>
 
           <p 
             data-reveal="fade-up"
-            data-reveal-delay="350"
+            data-reveal-delay="300"
             className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md"
           >
-            Experience Sri Lanka in supreme comfort and total safety with our fleet of modern air-conditioned sedans, SUVs, luxury vans, and certified English-speaking tourist chauffeurs.
+            Fixed, transparent rates for comfortable private air-conditioned sedan drops across all of Sri Lanka. Driven by certified English-speaking tourist chauffeurs.
           </p>
 
-          <div data-reveal="zoom-in" data-reveal-delay="450" className="flex items-center justify-center gap-4 flex-wrap">
-            <button
-              onClick={scrollToFleet}
+          {/* Action CTAs */}
+          <div data-reveal="zoom-in" data-reveal-delay="400" className="flex items-center justify-center gap-4 flex-wrap">
+            <a
+              href="#rates-directory"
               className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
-              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
+              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
               </div>
-              <span className="text-xs uppercase tracking-widest font-bold">Explore Our Fleet</span>
-            </button>
+              <span className="text-xs uppercase tracking-widest font-bold">Browse All 57 Routes</span>
+            </a>
 
-            <button
-              onClick={() => handleWhatsAppVehicleInquiry()}
-              className="bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
+            <a
+              href={`https://wa.me/94760782814?text=${encodeURIComponent('Hello Nihar Sri Lanka Tour! I want to inquire about a private sedan transfer.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-2 shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
             >
-              <MessageSquare className="w-4 h-4 fill-white" />
-              <span>Instant WhatsApp Quote</span>
-            </button>
+              <WhatsAppIcon className="w-4 h-4 fill-white" />
+              <span>Instant WhatsApp Booking</span>
+            </a>
+          </div>
+
+          {/* Quick Contact Bar */}
+          <div className="mt-8 pt-6 border-t border-white/15 flex items-center justify-center gap-6 text-xs sm:text-sm text-gray-200 flex-wrap">
+            <span className="flex items-center gap-1.5">
+              <Phone className="w-4 h-4 text-[#cba258]" />
+              <a href="tel:+94760782814" className="hover:text-white font-bold tracking-wide">
+                +94 760 782 814
+              </a>
+            </span>
+            <span className="hidden sm:inline text-white/40">•</span>
+            <span className="text-[#cba258] font-semibold">
+              Pickup &amp; Drop-Off • Airport Transfers • Islandwide Drops
+            </span>
           </div>
         </div>
       </section>
 
-      {/* Trust Highlights Strip - Auto Sliding Marquee */}
-      <section data-reveal="fade-up" className="bg-[var(--color-primary)] text-white py-6 border-t border-white/10 relative z-20 overflow-hidden">
+      {/* =========================================================================
+          SERVICE HIGHLIGHTS STRIP: Auto-Sliding Marquee
+      ========================================================================== */}
+      <section className="bg-[#041B2D] border-t border-b border-[#cba258]/20 text-white py-6 relative z-20 overflow-hidden">
         <div className="flex group relative w-full">
           {/* First Marquee Group */}
           <div className="animate-marquee flex gap-12 md:gap-24 min-w-full justify-around shrink-0 pr-12 md:pr-24 group-hover:[animation-play-state:paused]">
-            {[
-              { icon: ShieldCheck, title: "Government Licensed", desc: "SLTDA Tourist Chauffeurs", color: "text-[#cba258]" },
-              { icon: Award, title: "Full Passenger Insurance", desc: "Comprehensive Coverage", color: "text-[#8ed1fc]" },
-              { icon: Clock, title: "24/7 Roadside Assistance", desc: "Replacement Guarantee", color: "text-[#cba258]" },
-              { icon: Sparkles, title: "No Hidden Fees", desc: "Transparent Pricing", color: "text-[#8ed1fc]" },
-            ].map((item, idx) => (
-              <div key={idx} className="flex flex-col items-center shrink-0">
-                <item.icon className={`w-6 h-6 ${item.color} mb-1.5`} />
-                <span className="text-xs font-bold uppercase tracking-wider">{item.title}</span>
-                <span className="text-[11px] text-gray-300">{item.desc}</span>
+            {SERVICE_PILLARS.map((pillar, idx) => (
+              <div key={idx} className="flex flex-col items-center justify-center shrink-0 group/item cursor-pointer">
+                <div className="w-12 h-12 rounded-2xl bg-[#cba258]/10 border border-[#cba258]/30 flex items-center justify-center mb-2.5 group-hover/item:bg-[#cba258] group-hover/item:scale-110 transition-all duration-300">
+                  {idx === 0 && <Car className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 1 && <ShieldCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 2 && <User className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 3 && <BadgePercent className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 4 && <Headphones className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                </div>
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap">
+                  {pillar.title}
+                </span>
+                <span className="text-[11px] text-gray-300 mt-0.5 whitespace-nowrap">
+                  {idx === 0 ? 'Toyota Sedans' : idx === 1 ? 'SLTDA Insured' : idx === 2 ? 'English Speaking' : idx === 3 ? 'Fixed Rates' : '24/7 Helpline'}
+                </span>
               </div>
             ))}
           </div>
+
           {/* Second Marquee Group (for seamless loop) */}
           <div className="animate-marquee flex gap-12 md:gap-24 min-w-full justify-around shrink-0 pr-12 md:pr-24 group-hover:[animation-play-state:paused]" aria-hidden="true">
-            {[
-              { icon: ShieldCheck, title: "Government Licensed", desc: "SLTDA Tourist Chauffeurs", color: "text-[#cba258]" },
-              { icon: Award, title: "Full Passenger Insurance", desc: "Comprehensive Coverage", color: "text-[#8ed1fc]" },
-              { icon: Clock, title: "24/7 Roadside Assistance", desc: "Replacement Guarantee", color: "text-[#cba258]" },
-              { icon: Sparkles, title: "No Hidden Fees", desc: "Transparent Pricing", color: "text-[#8ed1fc]" },
-            ].map((item, idx) => (
-              <div key={`dup-${idx}`} className="flex flex-col items-center shrink-0">
-                <item.icon className={`w-6 h-6 ${item.color} mb-1.5`} />
-                <span className="text-xs font-bold uppercase tracking-wider">{item.title}</span>
-                <span className="text-[11px] text-gray-300">{item.desc}</span>
+            {SERVICE_PILLARS.map((pillar, idx) => (
+              <div key={`dup-${idx}`} className="flex flex-col items-center justify-center shrink-0 group/item cursor-pointer">
+                <div className="w-12 h-12 rounded-2xl bg-[#cba258]/10 border border-[#cba258]/30 flex items-center justify-center mb-2.5 group-hover/item:bg-[#cba258] group-hover/item:scale-110 transition-all duration-300">
+                  {idx === 0 && <Car className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 1 && <ShieldCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 2 && <User className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 3 && <BadgePercent className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 4 && <Headphones className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                </div>
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap">
+                  {pillar.title}
+                </span>
+                <span className="text-[11px] text-gray-300 mt-0.5 whitespace-nowrap">
+                  {idx === 0 ? 'Toyota Sedans' : idx === 1 ? 'SLTDA Insured' : idx === 2 ? 'English Speaking' : idx === 3 ? 'Fixed Rates' : '24/7 Helpline'}
+                </span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Fleet Catalog Section */}
-      <section id="fleet-section" className="py-20 lg:py-28 bg-[#f8fbfa] relative overflow-hidden">
-        {/* Decorative Background SVGs */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
+      {/* =========================================================================
+          MAIN INTERACTIVE RATES DIRECTORY
+      ========================================================================== */}
+      <section id="rates-directory" className="py-16 lg:py-24 bg-[#F5F2E6] relative overflow-hidden">
+        {/* Background SVGs */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-15 text-[#cba258]">
           <MandalaBackground className="w-full h-full" />
         </div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[var(--color-primary)]">
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#041B2D]">
           <TropicalLeafBackground className="w-full h-full" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          {/* Section Header */}
-          <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-12">
-            <span
-              className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
+          {/* Section Heading */}
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span 
+              className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1 inline-block -rotate-2"
               style={{ fontFamily: 'var(--font-caveat), cursive' }}
             >
-              Immaculate Comfort
+              Guaranteed Upfront Pricing
             </span>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-4">
-              Our Vehicle Fleet
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#041B2D] mb-3">
+              Explore Rates by Origin Hub
             </h2>
-            <p className="text-gray-600 sm:text-base leading-relaxed">
-              Choose the ideal vehicle for your Sri Lankan itinerary. All rentals are driven by professional tourist chauffeurs with comprehensive passenger insurance.
+            <p className="text-sm sm:text-base text-gray-600">
+              Select your departure point to view all official fixed sedan transfer prices across Sri Lanka.
             </p>
           </div>
 
-          {/* Filter Pills */}
-          <div data-reveal="fade-down" className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-12">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                  selectedCategory === cat
-                    ? 'bg-[var(--color-primary)] text-white shadow-md scale-105'
-                    : 'bg-[#F5F2E6] text-[var(--color-primary)] hover:bg-[#eaf3f8] border border-gray-200'
-                }`}
-              >
-                {cat === 'All' ? 'All Vehicles' : cat}
-              </button>
-            ))}
-          </div>
-
-          {/* Vehicles Grid */}
-          <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
-            {filteredVehicles.map((vehicle) => (
-              <div
-                key={vehicle.id}
-                className="bg-[#F5F2E6] rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-[#e2ede7] transition-all duration-300 flex flex-col justify-between group"
-              >
-                {/* Vehicle Image */}
-                <div className="relative h-52 w-full bg-[#041B2D] overflow-hidden flex items-center justify-center p-2">
-                  <Image
-                    src={vehicle.image}
-                    alt={vehicle.model}
-                    fill
-                    className="object-contain p-3 group-hover:scale-105 transition-transform duration-700"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/80 via-transparent to-transparent pointer-events-none" />
-
-                  {/* Badges */}
-                  <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
-                    <span className="bg-[var(--color-primary)]/85 backdrop-blur-md text-[#8ed1fc] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full border border-white/10">
-                      {vehicle.category}
+          {/* =====================================================================
+              3 ORIGIN HUB TABS (Airport, Kandy, Nuwara Eliya)
+          ====================================================================== */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            {ORIGIN_HUBS.map((hub) => {
+              const isSelected = selectedHub === hub.slug;
+              return (
+                <button
+                  key={hub.slug}
+                  onClick={() => {
+                    setSelectedHub(hub.slug);
+                    setSelectedCategory('All');
+                  }}
+                  className={`relative text-left p-5 sm:p-6 rounded-3xl transition-all duration-300 cursor-pointer overflow-hidden border ${
+                    isSelected
+                      ? 'bg-[#041B2D] text-white border-[#cba258] shadow-xl scale-[1.02] ring-2 ring-[#cba258]/50'
+                      : 'bg-white text-[#041B2D] border-gray-200 hover:border-[#cba258]/50 hover:shadow-md'
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <span className={`text-[10px] sm:text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full ${
+                      isSelected ? 'bg-[#cba258] text-[#041B2D]' : 'bg-[#F5F2E6] text-[#cba258]'
+                    }`}>
+                      {hub.badge}
                     </span>
-                    <span className="bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-full">
-                      {vehicle.transmission}
-                    </span>
+                    {hub.slug === 'colombo-airport' && <Plane className={`w-5 h-5 ${isSelected ? 'text-[#cba258]' : 'text-gray-400'}`} />}
+                    {hub.slug === 'kandy' && <Compass className={`w-5 h-5 ${isSelected ? 'text-[#cba258]' : 'text-gray-400'}`} />}
+                    {hub.slug === 'nuwara-eliya' && <MapPin className={`w-5 h-5 ${isSelected ? 'text-[#cba258]' : 'text-gray-400'}`} />}
                   </div>
 
-                  <div className="absolute bottom-3 left-4 right-4 text-white z-10">
-                    <h3 className="font-serif text-xl font-bold uppercase tracking-wider leading-tight group-hover:text-[#8ed1fc] transition-colors">
-                      {vehicle.model}
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Specs Strip */}
-                <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
-                  {/* Key Specifications Grid */}
-                  <div className="grid grid-cols-3 gap-2 py-2 border-b border-gray-100 text-center">
-                    <div className="flex flex-col items-center justify-center p-2 rounded-xl bg-[#f8fbfa]">
-                      <Users className="w-4 h-4 text-[#0077b6] mb-1" />
-                      <span className="text-[11px] font-bold text-gray-800">{vehicle.passengers} Seats</span>
-                    </div>
-                    <div className="flex flex-col items-center justify-center p-2 rounded-xl bg-[#f8fbfa]">
-                      <Luggage className="w-4 h-4 text-[#0077b6] mb-1" />
-                      <span className="text-[11px] font-bold text-gray-800">{vehicle.luggage} Bags</span>
-                    </div>
-                    <div className="flex flex-col items-center justify-center p-2 rounded-xl bg-[#f8fbfa]">
-                      <Wind className="w-4 h-4 text-[#0077b6] mb-1" />
-                      <span className="text-[11px] font-bold text-gray-800">{vehicle.ac ? 'Dual A/C' : 'A/C'}</span>
-                    </div>
-                  </div>
-
-                  {/* Features List */}
-                  <div className="space-y-1.5">
-                    {vehicle.features.map((feat, i) => (
-                      <div key={i} className="flex items-center gap-2 text-xs text-gray-600 font-medium">
-                        <Check className="w-3.5 h-3.5 text-[#0077b6] shrink-0" />
-                        <span className="line-clamp-1">{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Pricing & Booking CTA */}
-                  <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
-                    <div>
-                      <div className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">Daily Rate From</div>
-                      <div className="font-serif text-lg font-bold text-[var(--color-primary)]">
-                        {formatPrice(vehicle.pricePerDayLKR)}
-                      </div>
-                    </div>
-
-                    <button
-                      onClick={() => handleSelectVehicleForBooking(vehicle.model)}
-                      className="bg-[var(--color-primary)] hover:bg-[#0077b6] text-white px-4 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-sm cursor-pointer"
-                    >
-                      Book Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* Popular Fixed Rate Airport Transfers */}
-      <section className="py-16 bg-[#F5F2E6] border-t border-[#e2ede7]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
-            <div>
-              <span
-                className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1 inline-block -rotate-2"
-                style={{ fontFamily: 'var(--font-caveat), cursive' }}
-              >
-                Fixed Price Guarantee
-              </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">
-                Popular Airport Transfers
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-gray-500 max-w-md leading-relaxed">
-              Includes meet-and-greet inside Colombo Airport arrivals, expressway highway tolls, fuel, and luggage assistance.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {popularTransfers.map((tf, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-3xl bg-[#f8fbfa] border border-[#e2ede7] hover:border-[var(--color-primary)] transition-all hover:shadow-md flex flex-col justify-between space-y-4"
-              >
-                <div>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#0077b6] bg-[#eaf3f8] px-2.5 py-1 rounded-full">
-                    {tf.badge}
-                  </span>
-                  <h3 className="font-serif text-lg font-bold text-[var(--color-primary)] mt-3">
-                    {tf.route}
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold mb-1">
+                    {hub.title}
                   </h3>
-                  <div className="flex items-center gap-1.5 text-xs text-gray-500 mt-1">
-                    <Clock className="w-3.5 h-3.5 text-[#cba258]" />
-                    <span>Approx. {tf.duration}</span>
-                  </div>
-                </div>
+                  <p className={`text-xs leading-relaxed line-clamp-2 ${isSelected ? 'text-gray-300' : 'text-gray-500'}`}>
+                    {hub.subtitle}
+                  </p>
 
-                <div className="pt-3 border-t border-gray-200 flex items-center justify-between">
-                  <div className="font-serif text-lg font-bold text-[var(--color-primary)]">
-                    {formatPrice(tf.priceLKR)}
+                  <div className="mt-4 pt-3 border-t border-current/10 flex items-center justify-between text-xs font-semibold">
+                    <span>19 Direct Routes</span>
+                    <span className={`flex items-center gap-1 ${isSelected ? 'text-[#cba258]' : 'text-[#041B2D]'}`}>
+                      View Price List <ChevronRight className="w-3.5 h-3.5" />
+                    </span>
                   </div>
-                  <button
-                    onClick={() => {
-                      setFormData((prev) => ({
-                        ...prev,
-                        pickupLocation: 'Bandaranaike International Airport (CMB)',
-                        dropoffLocation: tf.route.split('→ ')[1] || tf.route,
-                        notes: `Inquiry for fixed transfer route: ${tf.route}`,
-                      }));
-                      const el = document.getElementById('rental-booking-form');
-                      el?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="text-xs font-bold text-[#0077b6] hover:underline cursor-pointer flex items-center gap-1"
-                  >
-                    <span>Select</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            ))}
+                </button>
+              );
+            })}
           </div>
-        </div>
-      </section>
 
-      {/* Dedicated Vehicle Reservation & Quotation Form (Light Theme) */}
-      <section id="rental-booking-form" className="py-20 bg-[#f8fbfa] border-t border-[#e2ede7] scroll-mt-20">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="bg-[#F5F2E6] rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7]">
-            
-            <div className="text-center max-w-2xl mx-auto mb-10">
-              <span
-                className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1 inline-block -rotate-2"
-                style={{ fontFamily: 'var(--font-caveat), cursive' }}
-              >
-                Fast &amp; Transparent Booking
+          {/* =====================================================================
+              FILTER & SEARCH TOOLBAR
+          ====================================================================== */}
+          <div className="bg-white rounded-3xl p-4 sm:p-6 shadow-sm border border-gray-200 mb-8">
+            <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+              
+              {/* Search Box */}
+              <div className="relative flex-1">
+                <Search className="w-4 h-4 text-gray-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder={`Search destination from ${currentHubInfo.title} (e.g. Galle, Sigiriya, Ella)...`}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-11 pr-4 py-3 bg-[#F5F2E6]/60 border border-gray-200 rounded-full text-xs sm:text-sm text-[#041B2D] placeholder:text-gray-400 focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-gray-600"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+
+              {/* View Switcher */}
+              <div className="flex items-center justify-end gap-2 shrink-0">
+                <span className="text-xs font-bold text-gray-500 uppercase tracking-wider mr-1 hidden sm:inline">
+                  View:
+                </span>
+                <button
+                  onClick={() => setViewMode('grid')}
+                  className={`p-2.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                    viewMode === 'grid'
+                      ? 'bg-[#041B2D] text-[#cba258] shadow-sm'
+                      : 'bg-[#F5F2E6] text-gray-600 hover:bg-gray-200'
+                  }`}
+                  aria-label="Grid view"
+                >
+                  <LayoutGrid className="w-4 h-4" />
+                  <span className="hidden sm:inline">Cards</span>
+                </button>
+                <button
+                  onClick={() => setViewMode('table')}
+                  className={`p-2.5 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                    viewMode === 'table'
+                      ? 'bg-[#041B2D] text-[#cba258] shadow-sm'
+                      : 'bg-[#F5F2E6] text-gray-600 hover:bg-gray-200'
+                  }`}
+                  aria-label="Table view"
+                >
+                  <TableIcon className="w-4 h-4" />
+                  <span className="hidden sm:inline">Table</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Category Pills */}
+            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pt-4 mt-4 border-t border-gray-100">
+              <span className="text-[11px] font-bold uppercase text-gray-400 shrink-0">
+                Category:
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide text-[#1a1a1a] mb-3">
-                Reserve Your Vehicle &amp; Chauffeur
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Receive instant confirmation with transparent all-inclusive quotations. No hidden fees or surprise charges.
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-3.5 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                    selectedCategory === cat
+                      ? 'bg-[#cba258] text-[#041B2D] font-bold shadow-sm'
+                      : 'bg-[#F5F2E6] text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Active Hub Title & Count Banner */}
+          <div className="flex items-center justify-between gap-4 mb-6 px-2">
+            <div>
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#041B2D]">
+                {currentHubInfo.title} ➔ All Destinations
+              </h3>
+              <p className="text-xs text-gray-500 mt-0.5">
+                Showing {filteredRoutes.length} of 19 official sedan rates
               </p>
             </div>
 
-            {isSubmitted ? (
-              <div className="bg-[#f8fbfa] rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto border border-[#e2ede7] shadow-sm">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-200">
-                  <Check className="w-8 h-8" />
-                </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1a1a1a] mb-2">
-                  Reservation Request Received!
-                </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
-                  Thank you <strong>{formData.fullName}</strong>. We have received your booking request for the <strong>{formData.selectedVehicle}</strong>. Our logistics manager will contact you within 1 hour with the driver details and vouchers.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                  <button
-                    onClick={() => handleWhatsAppVehicleInquiry(formData.selectedVehicle)}
-                    className="bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md cursor-pointer"
-                  >
-                    <MessageSquare className="w-4 h-4 fill-white" />
-                    <span>Chat via WhatsApp</span>
-                  </button>
-                  <button
-                    onClick={() => setIsSubmitted(false)}
-                    className="bg-[#F5F2E6] hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer"
-                  >
-                    Submit Another Request
-                  </button>
-                </div>
-              </div>
-            ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                  
-                  {/* Full Name */}
-                  <div>
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-gray-700 block mb-2 flex items-center gap-1.5">
-                      <User className="w-3.5 h-3.5 text-[#cba258]" />
-                      <span>Full Name *</span>
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleInputChange}
-                      placeholder="e.g. David Miller"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
-                    />
-                  </div>
-
-                  {/* Email */}
-                  <div>
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-gray-700 block mb-2 flex items-center gap-1.5">
-                      <Mail className="w-3.5 h-3.5 text-[#cba258]" />
-                      <span>Email Address *</span>
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="david@example.com"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
-                    />
-                  </div>
-
-                  {/* Phone / WhatsApp */}
-                  <div>
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-gray-700 block mb-2 flex items-center gap-1.5">
-                      <Phone className="w-3.5 h-3.5 text-[#cba258]" />
-                      <span>Phone / WhatsApp *</span>
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="+1 (555) 000-0000"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
-                    />
-                  </div>
-
-                  {/* Vehicle Model Selection */}
-                  <div>
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-gray-700 block mb-2 flex items-center gap-1.5">
-                      <Car className="w-3.5 h-3.5 text-[#cba258]" />
-                      <span>Selected Vehicle</span>
-                    </label>
-                    <select
-                      name="selectedVehicle"
-                      value={formData.selectedVehicle}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] cursor-pointer"
-                    >
-                      {VEHICLES.map((v) => (
-                        <option key={v.id} value={v.model}>
-                          {v.model} ({v.category} - {v.passengers} Pax)
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Service Type */}
-                  <div>
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-gray-700 block mb-2 flex items-center gap-1.5">
-                      <Compass className="w-3.5 h-3.5 text-[#cba258]" />
-                      <span>Rental Service Type</span>
-                    </label>
-                    <select
-                      name="serviceType"
-                      value={formData.serviceType}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] cursor-pointer"
-                    >
-                      <option value="With Private English-Speaking Chauffeur">
-                        With Private Tourist Chauffeur Guide
-                      </option>
-                      <option value="Airport Arrival Pick-up Transfer Only">
-                        Airport Arrival Pick-up Transfer Only
-                      </option>
-                      <option value="Airport Departure Drop-off Only">
-                        Airport Departure Drop-off Only
-                      </option>
-                      <option value="Multi-Day Islandwide Round Trip Tour">
-                        Multi-Day Islandwide Round Trip Tour
-                      </option>
-                    </select>
-                  </div>
-
-                  {/* Passengers Count */}
-                  <div>
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-gray-700 block mb-2 flex items-center gap-1.5">
-                      <Users className="w-3.5 h-3.5 text-[#cba258]" />
-                      <span>Total Passengers</span>
-                    </label>
-                    <select
-                      name="passengers"
-                      value={formData.passengers}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] cursor-pointer"
-                    >
-                      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 12, '15+'].map((pax) => (
-                        <option key={pax} value={pax}>
-                          {pax} Passenger{pax !== 1 ? 's' : ''}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Pick-up Date */}
-                  <div>
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-gray-700 block mb-2 flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-[#cba258]" />
-                      <span>Pick-up Date *</span>
-                    </label>
-                    <input
-                      type="date"
-                      required
-                      name="pickupDate"
-                      value={formData.pickupDate}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] cursor-pointer"
-                    />
-                  </div>
-
-                  {/* Pick-up Location */}
-                  <div>
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-gray-700 block mb-2 flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-[#cba258]" />
-                      <span>Pick-up Location</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="pickupLocation"
-                      value={formData.pickupLocation}
-                      onChange={handleInputChange}
-                      placeholder="e.g. Airport CMB / Hotel Name"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] transition-all"
-                    />
-                  </div>
-
-                  {/* Drop-off Location */}
-                  <div>
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-gray-700 block mb-2 flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-[#cba258]" />
-                      <span>Drop-off Location</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="dropoffLocation"
-                      value={formData.dropoffLocation}
-                      onChange={handleInputChange}
-                      placeholder="e.g. Kandy / Galle / Airport"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] transition-all"
-                    />
-                  </div>
-
-                </div>
-
-                {/* Additional Notes */}
-                <div>
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-gray-700 block mb-2">
-                    Flight Number, Itinerary Stops, or Special Luggage Requirements
-                  </label>
-                  <textarea
-                    rows={3}
-                    name="notes"
-                    value={formData.notes}
-                    onChange={handleInputChange}
-                    placeholder="Provide any flight arrival details, infant car seat requirements, planned sightseeing stops..."
-                    className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all resize-none"
-                  />
-                </div>
-
-                {/* Actions */}
-                <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <div className="flex items-center gap-4 text-[11px] text-gray-500">
-                    <div className="flex items-center gap-1.5">
-                      <ShieldCheck className="w-4 h-4 text-[#0077b6]" />
-                      <span>Full Commercial Passenger Insurance</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-3 w-full sm:w-auto">
-                    <button
-                      type="button"
-                      onClick={() => handleWhatsAppVehicleInquiry()}
-                      className="h-12 sm:h-13 px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shrink-0"
-                      title="Instant WhatsApp Chat"
-                    >
-                      <MessageSquare className="w-4 h-4 fill-white" />
-                      <span>WhatsApp</span>
-                    </button>
-
-                    <button
-                      type="submit"
-                      className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[var(--color-primary)] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
-                    >
-                      <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
-                      <span>Confirm Vehicle Booking</span>
-                    </button>
-                  </div>
-                </div>
-
-              </form>
-            )}
-
+            <div className="flex items-center gap-2 text-xs font-bold text-[#cba258] bg-white px-3.5 py-1.5 rounded-full border border-gray-200 shadow-sm">
+              <Car className="w-3.5 h-3.5" />
+              <span>Air-Conditioned Sedan</span>
+            </div>
           </div>
 
+          {/* =====================================================================
+              VIEW 1: CARDS GRID VIEW (Matching Luxury Destination Cards UI)
+          ====================================================================== */}
+          {viewMode === 'grid' && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredRoutes.map((route) => (
+                <div
+                  key={route.id}
+                  onClick={() => selectRouteForForm(route)}
+                  className="hover-box group h-[440px] sm:h-[480px] cursor-pointer rounded-3xl overflow-hidden relative shadow-md hover:shadow-2xl transition-all duration-500 flex flex-col justify-end p-6 text-white border border-black/10"
+                >
+                  {/* Full Bleed Background Image */}
+                  <Image
+                    src={route.image || 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=600&q=80'}
+                    alt={`${route.from} to ${route.to}`}
+                    fill
+                    className="object-cover hover-box__img group-hover:scale-110 transition-transform duration-700"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/45 to-black/30" />
+
+                  {/* Top Badges */}
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+                    <span className="bg-black/60 backdrop-blur-md text-[#cba258] text-[10px] sm:text-[11px] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full border border-white/15 shadow-sm">
+                      {route.category}
+                    </span>
+                    <span className="w-9 h-9 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex items-center justify-center text-[#cba258] shadow-sm">
+                      <Car className="w-4 h-4" />
+                    </span>
+                  </div>
+
+                  {/* Card Footer Details */}
+                  <div className="relative z-10 flex flex-col justify-end">
+                    <div className="border-b border-white/20 pb-3 mb-3 group-hover:border-white/40 transition-colors">
+                      <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-[#cba258] font-bold tracking-widest uppercase mb-1">
+                        <MapPin className="w-3.5 h-3.5" />
+                        <span>{route.from} ➔</span>
+                      </div>
+                      <h3 className="font-serif text-xl sm:text-2xl font-bold uppercase tracking-wide leading-tight group-hover:text-[#cba258] transition-colors line-clamp-2 min-h-[3rem] flex items-center">
+                        {route.to}
+                      </h3>
+                      <p className="text-xs text-gray-300 line-clamp-2 mt-1.5 leading-relaxed">
+                        {route.duration} • Fixed Sedan Drop • Up to 4 Pax
+                      </p>
+                    </div>
+
+                    <div className="flex items-center justify-between pt-1">
+                      {/* Price */}
+                      <div>
+                        <div className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">
+                          Sedan Price
+                        </div>
+                        <div className="font-serif text-xl sm:text-2xl font-bold text-white group-hover:text-[#cba258] transition-colors">
+                          Rs. {route.priceLKR.toLocaleString()}
+                        </div>
+                      </div>
+
+                      {/* Next Button Style (Matching Destination Cards) */}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleWhatsAppRouteBooking(route);
+                        }}
+                        className="next-btn next-btn--white group-hover:scale-105 transition-transform cursor-pointer"
+                        aria-label={`Book transfer to ${route.to}`}
+                      >
+                        <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#25D366] transition-all duration-300">
+                          <ArrowRight className="w-4 h-4 text-[var(--color-primary)] group-hover:text-white transition-colors" />
+                        </div>
+                        <span className="text-xs uppercase tracking-widest font-bold">Book</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* =====================================================================
+              VIEW 2: GOLD PRICE TABLE VIEW (Exact layout as printed posters)
+          ====================================================================== */}
+          {viewMode === 'table' && (
+            <div className="bg-[#041B2D] rounded-3xl p-4 sm:p-8 shadow-2xl border-2 border-[#cba258]/30 overflow-hidden text-white">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-[#cba258]/30">
+                <div>
+                  <span className="text-xs uppercase font-bold tracking-widest text-[#cba258]">
+                    Official Sedan Transfer Price List
+                  </span>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold mt-1 text-white">
+                    {currentHubInfo.title} ➔ Islandwide Destinations
+                  </h3>
+                </div>
+                <div className="text-right text-xs text-gray-300">
+                  <span className="inline-block px-3 py-1 bg-[#cba258]/20 text-[#cba258] border border-[#cba258]/40 rounded-full font-bold">
+                    Fixed Rates • Fully Insured
+                  </span>
+                </div>
+              </div>
+
+              {/* Responsive Table Container */}
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-[#cba258]/40 text-xs sm:text-sm font-bold uppercase tracking-wider text-[#cba258]">
+                      <th className="py-3.5 px-4">Route</th>
+                      <th className="py-3.5 px-4 hidden md:table-cell">Category</th>
+                      <th className="py-3.5 px-4 hidden sm:table-cell">Est. Duration</th>
+                      <th className="py-3.5 px-4 text-right">Sedan Price (LKR)</th>
+                      <th className="py-3.5 px-4 text-center">Instant Action</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/10 text-xs sm:text-sm font-medium">
+                    {filteredRoutes.map((route, idx) => (
+                      <tr 
+                        key={route.id}
+                        className={`hover:bg-white/5 transition-colors ${idx % 2 === 0 ? 'bg-white/[0.02]' : ''}`}
+                      >
+                        <td className="py-3.5 px-4">
+                          <div className="flex items-center gap-2">
+                            <MapPin className="w-4 h-4 text-[#cba258] shrink-0" />
+                            <div>
+                              <span className="font-bold text-white text-sm sm:text-base">
+                                {route.from} ➔ {route.to}
+                              </span>
+                            </div>
+                          </div>
+                        </td>
+                        <td className="py-3.5 px-4 hidden md:table-cell text-gray-300">
+                          <span className="bg-white/10 px-2.5 py-1 rounded-full text-[11px]">
+                            {route.category}
+                          </span>
+                        </td>
+                        <td className="py-3.5 px-4 hidden sm:table-cell text-gray-300">
+                          {route.duration}
+                        </td>
+                        <td className="py-3.5 px-4 text-right">
+                          <div className="font-serif text-base sm:text-lg font-bold text-[#cba258]">
+                            Rs. {route.priceLKR.toLocaleString()}
+                          </div>
+                          <div className="text-[11px] text-gray-400">
+                            {formatPrice(route.priceLKR)}
+                          </div>
+                        </td>
+                        <td className="py-3.5 px-4 text-center">
+                          <button
+                            onClick={() => handleWhatsAppRouteBooking(route)}
+                            className="bg-[#25D366] hover:bg-[#20ba59] text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5 transition-transform hover:scale-105 active:scale-95 shadow-md cursor-pointer"
+                          >
+                            <WhatsAppIcon className="w-3.5 h-3.5 fill-white" />
+                            <span>Book</span>
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Poster Disclaimer Note */}
+              <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-xs text-gray-400">
+                <Info className="w-4 h-4 text-[#cba258] shrink-0" />
+                <span>
+                  <strong>Note:</strong> {CONTACT_INFO.disclaimer} Includes fuel, air-conditioned vehicle, and certified English-speaking tourist driver.
+                </span>
+              </div>
+            </div>
+          )}
+
+          {/* Fallback for no search results */}
+          {filteredRoutes.length === 0 && (
+            <div className="text-center py-16 bg-white rounded-3xl border border-gray-200 p-8">
+              <Search className="w-12 h-12 text-gray-300 mx-auto mb-3" />
+              <h3 className="font-serif text-xl font-bold text-[#041B2D]">No direct routes match your search</h3>
+              <p className="text-sm text-gray-500 mt-1 max-w-md mx-auto">
+                Looking for a custom pickup or off-the-beaten-path destination? Send us an inquiry and we will arrange a direct quotation!
+              </p>
+              <button
+                onClick={() => {
+                  setSearchQuery('');
+                  setSelectedCategory('All');
+                }}
+                className="mt-4 px-6 py-2.5 bg-[#cba258] text-[#041B2D] rounded-full text-xs font-bold uppercase tracking-wider"
+              >
+                Reset Filters
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
-      {/* Footer */}
+      {/* =========================================================================
+          SERVICE BADGES (4 Service Pillars from Posters)
+      ========================================================================== */}
+      <section className="py-12 bg-white border-t border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {SERVICE_TYPES.map((st, i) => (
+              <div key={i} className="p-6 rounded-3xl bg-[#F5F2E6]/60 border border-gray-200 hover:border-[#cba258] transition-all hover:shadow-md">
+                <div className="w-10 h-10 rounded-2xl bg-[#041B2D] text-[#cba258] flex items-center justify-center mb-4 shadow-sm">
+                  {i === 0 && <MapPin className="w-5 h-5" />}
+                  {i === 1 && <Plane className="w-5 h-5" />}
+                  {i === 2 && <Compass className="w-5 h-5" />}
+                  {i === 3 && <ShieldCheck className="w-5 h-5" />}
+                </div>
+                <h4 className="font-serif text-lg font-bold text-[#041B2D] mb-1">
+                  {st.title}
+                </h4>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  {st.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          INSTANT BOOKING & CUSTOM RIDE ESTIMATOR FORM
+      ========================================================================== */}
+      <section id="booking-form-section" className="py-20 lg:py-28 bg-[#041B2D] text-white relative overflow-hidden">
+        {/* Background Overlay */}
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#cba258_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Column: Information & Trust */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="inline-flex items-center gap-2 bg-[#cba258]/20 border border-[#cba258]/40 px-4 py-1.5 rounded-full">
+                <Sparkles className="w-3.5 h-3.5 text-[#cba258]" />
+                <span className="text-xs font-bold uppercase tracking-widest text-[#cba258]">
+                  Custom Drop Quotations
+                </span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
+                Book Your Ride Today
+              </h2>
+
+              <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+                Whether you need a quick airport transfer, intercity drop, or a dedicated chauffeur for your entire holiday, submit your itinerary and get instant confirmation.
+              </p>
+
+              {/* Key Features Checklist */}
+              <div className="space-y-3 pt-2">
+                {[
+                  'Free Colombo Airport Meet & Greet with Nameboard',
+                  'Luggage loading & unloading assistance',
+                  'Complimentary bottled water & cool refreshments',
+                  'Flexible photo and tea stops along scenic routes',
+                  'Direct WhatsApp coordination with your driver',
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-gray-200">
+                    <CheckCircle2 className="w-4 h-4 text-[#cba258] shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Direct Hotline Box */}
+              <div className="p-6 rounded-3xl bg-white/5 border border-[#cba258]/30 backdrop-blur-md">
+                <div className="text-xs uppercase font-bold text-[#cba258] tracking-wider mb-1">
+                  Direct Chauffeur Booking Hotline
+                </div>
+                <a
+                  href="tel:+94760782814"
+                  className="font-serif text-2xl sm:text-3xl font-bold text-white hover:text-[#cba258] transition-colors flex items-center gap-3"
+                >
+                  <Phone className="w-6 h-6 text-[#cba258]" />
+                  <span>+94 760 782 814</span>
+                </a>
+                <p className="text-xs text-gray-400 mt-2">
+                  Call or WhatsApp anytime 24/7 for urgent rides and transfers.
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column: Interactive Booking Form */}
+            <div className="lg:col-span-7">
+              <div className="bg-white rounded-3xl p-6 sm:p-10 text-[#041B2D] shadow-2xl border border-gray-200">
+                <div className="mb-6">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#041B2D]">
+                    Transfer Reservation
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-500 mt-1">
+                    Fill in your details below to calculate fare and confirm with our dispatch team.
+                  </p>
+                </div>
+
+                {isSubmitted ? (
+                  <div className="p-8 rounded-2xl bg-[#F5F2E6] border border-[#cba258] text-center space-y-4">
+                    <CheckCircle2 className="w-16 h-16 text-[#25D366] mx-auto animate-bounce" />
+                    <h4 className="font-serif text-2xl font-bold text-[#041B2D]">
+                      Transfer Request Received!
+                    </h4>
+                    <p className="text-sm text-gray-600 max-w-md mx-auto">
+                      Opening WhatsApp to connect you directly with <strong>+94 760 782 814</strong> for instant confirmation.
+                    </p>
+                    <button
+                      onClick={() => setIsSubmitted(false)}
+                      className="text-xs font-bold text-[#cba258] uppercase tracking-wider underline hover:text-[#041B2D]"
+                    >
+                      Book Another Transfer
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleFormSubmit} className="space-y-4">
+                    {/* Origin and Destination */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                          Pickup Location *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          name="pickupLocation"
+                          value={formData.pickupLocation}
+                          onChange={handleInputChange}
+                          placeholder="e.g. Colombo Airport (CMB)"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                          Drop-Off Destination *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          name="dropoffLocation"
+                          value={formData.dropoffLocation}
+                          onChange={handleInputChange}
+                          placeholder="e.g. Kandy, Galle, Sigiriya"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Date and Time */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                          Pickup Date *
+                        </label>
+                        <input
+                          type="date"
+                          required
+                          name="pickupDate"
+                          value={formData.pickupDate}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                          Pickup Time / Flight Time
+                        </label>
+                        <input
+                          type="time"
+                          name="pickupTime"
+                          value={formData.pickupTime}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Flight Number & Passengers */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                          Flight No. (Optional)
+                        </label>
+                        <input
+                          type="text"
+                          name="flightNumber"
+                          value={formData.flightNumber}
+                          onChange={handleInputChange}
+                          placeholder="e.g. UL 504"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                          Passengers
+                        </label>
+                        <select
+                          name="passengers"
+                          value={formData.passengers}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                        >
+                          <option value="1">1 Person</option>
+                          <option value="2">2 Persons</option>
+                          <option value="3">3 Persons</option>
+                          <option value="4">4 Persons (Max Sedan)</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                          Luggage
+                        </label>
+                        <select
+                          name="luggage"
+                          value={formData.luggage}
+                          onChange={handleInputChange}
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                        >
+                          <option value="1">1 Large Bag</option>
+                          <option value="2">2 Large Bags</option>
+                          <option value="3">3 Bags (Max Sedan)</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    {/* Contact Information */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          name="fullName"
+                          value={formData.fullName}
+                          onChange={handleInputChange}
+                          placeholder="Your Name"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                          WhatsApp / Phone *
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleInputChange}
+                          placeholder="+94 or Country Code"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                          Email (Optional)
+                        </label>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formData.email}
+                          onChange={handleInputChange}
+                          placeholder="name@email.com"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Special Notes */}
+                    <div>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5">
+                        Special Requests or Itinerary Stops
+                      </label>
+                      <textarea
+                        rows={2}
+                        name="notes"
+                        value={formData.notes}
+                        onChange={handleInputChange}
+                        placeholder="e.g. Stop at Pinnawala Elephant Orphanage on the way to Kandy..."
+                        className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                      />
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      className="w-full py-4 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-xl text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all cursor-pointer mt-2"
+                    >
+                      <WhatsAppIcon className="w-5 h-5 fill-white" />
+                      <span>Confirm &amp; Message on WhatsApp (+94 760 782 814)</span>
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          IMPORTANT BOOKING FAQ & VEHICLE SPECS
+      ========================================================================== */}
+      <section className="py-16 bg-[#F5F2E6] border-t border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <span 
+              className="font-caveat text-3xl text-[#cba258] mb-1 inline-block -rotate-2"
+              style={{ fontFamily: 'var(--font-caveat), cursive' }}
+            >
+              Good to Know
+            </span>
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#041B2D]">
+              Frequently Asked Questions &amp; Vehicle Guidelines
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white p-6 rounded-3xl border border-gray-200 space-y-2">
+              <h4 className="font-serif font-bold text-base text-[#041B2D] flex items-center gap-2">
+                <Car className="w-4 h-4 text-[#cba258]" /> What vehicles are used for Sedan Transfers?
+              </h4>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                We operate modern Japanese sedans including Toyota Axio, Toyota Premio, Toyota Corolla, and Honda Grace. All cars have dual air-conditioning, USB charging ports, and comfortable seating.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-3xl border border-gray-200 space-y-2">
+              <h4 className="font-serif font-bold text-base text-[#041B2D] flex items-center gap-2">
+                <Plane className="w-4 h-4 text-[#cba258]" /> How do airport meet-and-greets work?
+              </h4>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                Your chauffeur will wait inside the Colombo Bandaranaike Airport (CMB) arrival hall holding a personalized name sign. We track flights live, so delays are accommodated automatically at no extra fee.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-3xl border border-gray-200 space-y-2">
+              <h4 className="font-serif font-bold text-base text-[#041B2D] flex items-center gap-2">
+                <BadgePercent className="w-4 h-4 text-[#cba258]" /> Are highway tolls and fuel included?
+              </h4>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                Yes, our quoted prices include vehicle, professional driver fee, and fuel. Expressway highway tolls and parking charges may be added based on route as per standard transfer policy.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-3xl border border-gray-200 space-y-2">
+              <h4 className="font-serif font-bold text-base text-[#041B2D] flex items-center gap-2">
+                <Clock className="w-4 h-4 text-[#cba258]" /> Can we make stops along the journey?
+              </h4>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                Absolutely! Our chauffeurs are happy to pause for photo spots, fruit stalls, tea plantations, and restroom breaks whenever you need during the trip.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Mega Footer */}
       <WalkersFooter />
 
       {/* Floating WhatsApp Quick Action Button */}
       <div className="floating-whatsapp">
         <a
-          href="https://wa.me/94771234567"
+          href="https://wa.me/94760782814"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
@@ -769,7 +1048,18 @@ export default function VehiclesPage() {
       <OffcanvasSearch
         isOpen={isSearchOpen}
         onClose={() => setIsSearchOpen(false)}
-        onSelectSearch={(term) => setSearchQuery(term)}
+        onSelectSearch={(term) => {
+          setSearchQuery(term);
+          setIsSearchOpen(false);
+          const el = document.getElementById('rates-directory');
+          el?.scrollIntoView({ behavior: 'smooth' });
+        }}
+      />
+
+      <InquireDrawer
+        isOpen={isInquireOpen}
+        onClose={() => setIsInquireOpen(false)}
+        prefilledInterest={inquireInterest}
       />
     </main>
   );
