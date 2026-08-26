@@ -80,7 +80,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
         {/* Packages Grid */}
         {selectedCategory === 'All' ? (
           /* Bento Box Layout for All */
-          <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 auto-rows-min">
+          <div key="bento-all" data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 auto-rows-min is-revealed animate-in fade-in duration-300">
             {filteredPackages.map((pkg, index) => {
               if (index === 0) {
                 return (
@@ -102,24 +102,29 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                       {/* Dark Gradient Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
 
-                      {/* Badge */}
-                      <div className="absolute top-4 left-4 z-20 bg-[#c75d2f] text-white text-[11px] font-bold px-3 py-3 rounded-lg shadow-sm leading-tight w-24">
-                        MOST<br />POPULAR<br />TOUR
-                      </div>
+                      {/* Badge if available */}
+                      {pkg.badge && (
+                        <div className="absolute top-6 left-6 z-20 bg-[#c75d2f] text-white text-xs font-bold px-3.5 py-1.5 rounded-full shadow-md uppercase tracking-wider">
+                          {pkg.badge}
+                        </div>
+                      )}
 
                       {/* Card Body */}
-                      <div className="p-6 sm:p-7 relative z-10 text-white flex flex-col justify-end">
-                        <span className="text-[11px] uppercase tracking-widest text-[#cba258] font-bold block mb-1">
+                      <div className="p-8 sm:p-10 relative z-10 text-white flex flex-col justify-end">
+                        <span className="text-xs uppercase tracking-widest text-[#cba258] font-bold block mb-1">
                           {pkg.categoryLabel}
                         </span>
-                        <h3 className="font-serif text-2xl font-bold tracking-wide leading-snug mb-4 group-hover:text-[#cba258] transition-colors">
+                        <h3 className="font-serif text-3xl sm:text-4xl font-bold tracking-wide leading-tight mb-4 group-hover:text-[#cba258] transition-colors">
                           {pkg.title}
                         </h3>
+                        <p className="text-xs sm:text-sm text-gray-300 line-clamp-3 mb-6 leading-relaxed">
+                          {pkg.description}
+                        </p>
                         <div className="next-btn next-btn--white">
                           <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
                             <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
                           </div>
-                          <span className="text-xs uppercase tracking-widest font-bold bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">Explore</span>
+                          <span className="text-xs uppercase tracking-widest font-bold bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">Explore Journey</span>
                         </div>
                       </div>
                     </Link>
@@ -154,12 +159,58 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                 );
               }
 
-              // Normal Small Cards
+              // Top Right Horizontal Card (Index 1)
+              if (index === 1) {
+                return (
+                  <Link
+                    key={pkg.id}
+                    href={`/tours/${pkg.id}`}
+                    className="lg:col-span-2 h-[260px] sm:h-[280px] w-full group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
+                  >
+                    {/* Background Image */}
+                    <Image
+                      src={pkg.image}
+                      alt={pkg.title}
+                      fill
+                      className="object-cover hover-box__img"
+                      sizes="(max-width: 1024px) 100vw, 66vw"
+                    />
+
+                    {/* Dark Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
+
+                    {/* Badge if available */}
+                    {pkg.badge && (
+                      <div className="absolute top-5 left-5 z-20 bg-[#c75d2f] text-white text-[11px] font-bold px-3 py-1.5 rounded-full shadow-md uppercase tracking-wider">
+                        {pkg.badge}
+                      </div>
+                    )}
+
+                    {/* Card Body */}
+                    <div className="p-6 sm:p-8 relative z-10 text-white flex flex-col justify-end">
+                      <span className="text-xs uppercase tracking-widest text-[#cba258] font-bold block mb-1">
+                        {pkg.categoryLabel}
+                      </span>
+                      <h3 className="font-serif text-2xl sm:text-3xl font-bold tracking-wide leading-snug mb-3 group-hover:text-[#cba258] transition-colors">
+                        {pkg.title}
+                      </h3>
+                      <div className="next-btn next-btn--white">
+                        <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
+                          <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
+                        </div>
+                        <span className="text-xs uppercase tracking-widest font-bold bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full shadow-sm">Explore</span>
+                      </div>
+                    </div>
+                  </Link>
+                );
+              }
+
+              // Standard 4 grid items below
               return (
                 <Link
                   key={pkg.id}
                   href={`/tours/${pkg.id}`}
-                  className="hover-box group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end relative cursor-pointer h-[350px] block"
+                  className="lg:col-span-1 h-[260px] sm:h-[280px] w-full group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
                 >
                   {/* Background Image */}
                   <Image
@@ -167,14 +218,21 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                     alt={pkg.title}
                     fill
                     className="object-cover hover-box__img"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
                   />
 
                   {/* Dark Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
 
+                  {/* Badge if available */}
+                  {pkg.badge && (
+                    <div className="absolute top-4 left-4 z-20 bg-[#c75d2f] text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-md uppercase tracking-wider">
+                      {pkg.badge}
+                    </div>
+                  )}
+
                   {/* Card Body */}
-                  <div className="p-6 sm:p-7 relative z-10 text-white flex flex-col justify-end">
+                  <div className="p-6 relative z-10 text-white flex flex-col justify-end">
                     <span className="text-[11px] uppercase tracking-widest text-[#cba258] font-bold block mb-1">
                       {pkg.categoryLabel}
                     </span>
@@ -194,12 +252,12 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
           </div>
         ) : (
           /* Standard Grid for filtered category */
-          <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div key={`grid-${selectedCategory}`} data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 is-revealed animate-in fade-in duration-300">
             {filteredPackages.map((pkg) => (
               <Link
                 key={pkg.id}
                 href={`/tours/${pkg.id}`}
-                className="hover-box group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end relative cursor-pointer h-[380px] block"
+                className="hover-box group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end relative cursor-pointer h-[380px] block border-4 border-white is-revealed"
               >
                 {/* Background Image */}
                 <Image

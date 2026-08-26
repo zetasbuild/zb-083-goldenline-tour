@@ -257,7 +257,9 @@ html {
 }
 
 [data-reveal-stagger].is-revealed > *,
-.reveal-stagger.is-revealed > * {
+.reveal-stagger.is-revealed > *,
+[data-reveal-stagger] > *.is-revealed,
+.reveal-stagger > *.is-revealed {
   opacity: 1 !important;
   transform: translate3d(0, 0, 0) !important;
 }

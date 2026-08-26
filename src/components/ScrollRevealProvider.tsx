@@ -50,6 +50,17 @@ export const ScrollRevealProvider: React.FC<{ children: React.ReactNode }> = ({ 
       );
 
       targets.forEach((target) => {
+        // If it is a stagger container, ensure all current children have reveal index and are revealed if parent is
+        if (target.hasAttribute('data-reveal-stagger') || target.classList.contains('reveal-stagger')) {
+          const children = Array.from(target.children) as HTMLElement[];
+          children.forEach((child, index) => {
+            child.style.setProperty('--reveal-index', `${index + 1}`);
+            if (target.classList.contains('is-revealed')) {
+              child.classList.add('is-revealed');
+            }
+          });
+        }
+
         if (target.classList.contains('is-revealed')) return;
 
         if (!target.hasAttribute('data-reveal') && !target.hasAttribute('data-reveal-stagger')) {
@@ -75,9 +86,20 @@ export const ScrollRevealProvider: React.FC<{ children: React.ReactNode }> = ({ 
     // Initial registration
     const timer = setTimeout(registerElements, 50);
 
+    // Watch for dynamic DOM changes (filtering, tabs, accordion)
+    const mutationObserver = new MutationObserver(() => {
+      registerElements();
+    });
+
+    mutationObserver.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+
     return () => {
       clearTimeout(timer);
       observer.disconnect();
+      mutationObserver.disconnect();
     };
   }, [pathname]);
 

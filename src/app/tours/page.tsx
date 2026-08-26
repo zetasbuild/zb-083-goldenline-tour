@@ -39,7 +39,11 @@ export default function ToursOverviewPage() {
   const filteredPackages = useMemo(() => {
     return TOUR_PACKAGES.filter((pkg) => {
       const matchCat =
-        selectedCategory === 'All' || pkg.category === selectedCategory;
+        selectedCategory === 'All' ||
+        pkg.category === selectedCategory ||
+        pkg.categoryLabel === selectedCategory ||
+        pkg.category?.toLowerCase().includes(selectedCategory.toLowerCase()) ||
+        pkg.categoryLabel?.toLowerCase().includes(selectedCategory.toLowerCase());
       const matchSearch =
         searchQuery === '' ||
         pkg.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -164,7 +168,7 @@ export default function ToursOverviewPage() {
           </div>
 
           {/* Grid */}
-          <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div key={`grid-${selectedCategory}`} data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 is-revealed animate-in fade-in duration-300">
             {filteredPackages.map((pkg) => (
               <div
                 key={pkg.id}
