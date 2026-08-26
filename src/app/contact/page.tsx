@@ -1,13 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
 import { LotusBackground, TropicalLeafBackground } from '@/components/DecorativeBackgrounds';
-import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
 import {
@@ -17,12 +14,8 @@ import {
   Clock,
   MessageSquare,
   ShieldCheck,
-  Award,
   Sparkles,
-  Send,
   HelpCircle,
-  Headphones,
-  CheckCircle2,
   ArrowRight,
   User,
   Calendar,
@@ -39,8 +32,6 @@ export default function ContactPage() {
 
   // Modals state
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [inquireInterest, setInquireInterest] = useState('Contact Page Inquiry');
 
   // Contact Form State
   const [formData, setFormData] = useState({
@@ -184,10 +175,6 @@ export default function ContactPage() {
       {/* Walkers Header Navigation */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenInquire={() => {
-          setInquireInterest('Contact Us Page Inquiry');
-          setIsInquireOpen(true);
-        }}
       />
 
       {/* Hero Banner with Background Auto Slider */}

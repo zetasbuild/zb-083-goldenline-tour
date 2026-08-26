@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 
 export const WalkersGallery: React.FC = () => {
-  const images = Array.from({ length: 11 }, (_, i) => `/images/${i + 1}.jpeg`);
+  const images = Array.from({ length: 11 }, (_, i) => `/images/reviews/${i + 1}.webp`);
 
   return (
     <section className="pt-10 pb-6 lg:pt-16 lg:pb-8 bg-[#F5F2E6] overflow-hidden">

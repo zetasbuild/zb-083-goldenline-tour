@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
-import { Star, CheckCircle, Quote } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 
 interface ReviewItem {
   author: string;

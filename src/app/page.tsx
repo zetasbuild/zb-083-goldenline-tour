@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersHero } from '@/components/WalkersHero';
 import { WalkersIntro } from '@/components/WalkersIntro';
-import { WalkersTourCategories } from '@/components/WalkersTourCategories';
 import { WalkersDestinations } from '@/components/WalkersDestinations';
 import { WalkersTourPackages } from '@/components/WalkersTourPackages';
 import { WalkersBespokeTours } from '@/components/WalkersBespokeTours';
@@ -15,7 +14,6 @@ import { WalkersFAQ } from '@/components/WalkersFAQ';
 import { WalkersFooter } from '@/components/WalkersFooter';
 
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
-import { MessageSquare } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 export default function HomePage() {

@@ -20,7 +20,7 @@ const LEFT_IMAGES = [
     caption: 'Nine Arch Bridge, Ella',
   },
   {
-    src: '/images/wildlife.webp',
+    src: '/images/locations/wildlife.webp',
     alt: 'Wildlife Safari in Yala National Park',
     caption: 'Yala Safari Naturalist',
   },

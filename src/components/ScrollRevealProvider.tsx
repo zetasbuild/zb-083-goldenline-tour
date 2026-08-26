@@ -1,32 +1,22 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 export const ScrollRevealProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const pathname = usePathname();
-  const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Track scroll progress for the top luxury gold indicator bar
   useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (totalHeight > 0) {
-        const progress = Math.min(Math.max(window.scrollY / totalHeight, 0), 1);
-        setScrollProgress(progress);
-      }
-    };
+    if (typeof window === 'undefined') return;
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [pathname]);
-
-  // Comprehensive continuous scroll observer
-  useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-    const rootMargin = isMobile ? '0px 0px -10px 0px' : '0px 0px -30px 0px';
+    // Check for prefers-reduced-motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      document.querySelectorAll('[data-reveal], [data-reveal-stagger], section, footer').forEach((el) => {
+        el.classList.add('is-revealed');
+      });
+      return;
+    }
 
     const observerCallback: IntersectionObserverCallback = (entries, obs) => {
       entries.forEach((entry) => {
@@ -43,44 +33,31 @@ export const ScrollRevealProvider: React.FC<{ children: React.ReactNode }> = ({ 
             });
           }
 
-          // Do not unobserve, so we can re-trigger
-        } else {
-          // Reset animation if element goes below the viewport (so it animates again when scrolling down)
-          if (entry.boundingClientRect.top > 0) {
-            const el = entry.target as HTMLElement;
-            el.classList.remove('is-revealed');
-            
-            if (el.hasAttribute('data-reveal-stagger') || el.classList.contains('reveal-stagger')) {
-              const children = Array.from(el.children) as HTMLElement[];
-              children.forEach((child) => {
-                child.classList.remove('is-revealed');
-              });
-            }
-          }
+          // Unobserve once revealed to save CPU & battery
+          obs.unobserve(el);
         }
       });
     };
 
     const observer = new IntersectionObserver(observerCallback, {
-      threshold: [0, 0.05, 0.1],
-      rootMargin,
+      threshold: [0, 0.05],
+      rootMargin: '0px 0px -20px 0px',
     });
 
     const registerElements = () => {
-      // Find all designated elements and auto-enhance major page sections
       const targets = document.querySelectorAll<HTMLElement>(
         '[data-reveal], [data-reveal-stagger], section:not(.no-reveal), footer:not(.no-reveal), .reveal-section, .hover-box'
       );
 
       targets.forEach((target) => {
-        // If not already revealed, ensure data-reveal attribute exists
+        if (target.classList.contains('is-revealed')) return;
+
         if (!target.hasAttribute('data-reveal') && !target.hasAttribute('data-reveal-stagger')) {
           target.setAttribute('data-reveal', 'fade-up');
         }
 
         const rect = target.getBoundingClientRect();
-        // If element is already in viewport upon initial load, reveal immediately
-        if (rect.top < window.innerHeight - 20 && rect.bottom > 0) {
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
           target.classList.add('is-revealed');
           if (target.hasAttribute('data-reveal-stagger') || target.classList.contains('reveal-stagger')) {
             const children = Array.from(target.children) as HTMLElement[];
@@ -95,28 +72,14 @@ export const ScrollRevealProvider: React.FC<{ children: React.ReactNode }> = ({ 
       });
     };
 
-    registerElements();
-
-    // Re-check when DOM changes dynamically (filtering, client navigation)
-    const mutationObserver = new MutationObserver(() => {
-      registerElements();
-    });
-
-    mutationObserver.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
+    // Initial registration
+    const timer = setTimeout(registerElements, 50);
 
     return () => {
+      clearTimeout(timer);
       observer.disconnect();
-      mutationObserver.disconnect();
     };
   }, [pathname]);
 
-  return (
-    <>
-
-      {children}
-    </>
-  );
+  return <>{children}</>;
 };

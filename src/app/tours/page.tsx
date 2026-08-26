@@ -7,23 +7,16 @@ import { useRouter } from 'next/navigation';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
 import { MandalaBackground, TropicalLeafBackground } from '@/components/DecorativeBackgrounds';
-import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { WalkersCustomTripForm } from '@/components/WalkersCustomTripForm';
 import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
-import { TOUR_PACKAGES, CLASSIC_TOURS_INTRO } from '@/data/travelData';
+import { TOUR_PACKAGES } from '@/data/travelData';
 import { useCurrency } from '@/context/CurrencyContext';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 import {
   MapPin,
-  Star,
   ArrowRight,
-  MessageSquare,
-  Search,
-  ChevronDown,
-  Layers,
   Sparkles,
-  SlidersHorizontal,
 } from 'lucide-react';
 
 export default function ToursOverviewPage() {
@@ -33,8 +26,6 @@ export default function ToursOverviewPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [inquireInterest, setInquireInterest] = useState('Classic Tours Inquiry');
 
   const categories = [
     { id: 'All', label: 'All Packages' },
@@ -67,7 +58,6 @@ export default function ToursOverviewPage() {
       {/* Header */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenInquire={() => setIsInquireOpen(true)}
       />
 
       {/* Hero with Background Auto Slider */}

@@ -1,8 +1,7 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
-import { ArrowRight, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 interface WalkersHeroProps {
   onExploreClick: () => void;
@@ -18,6 +17,8 @@ export const WalkersHero: React.FC<WalkersHeroProps> = ({ onExploreClick }) => {
           loop
           muted
           playsInline
+          preload="metadata"
+          poster="/images/locations/hero-ella.webp"
           className="object-cover object-center w-full h-full filter brightness-95 scale-105 lg:scale-100 transition-transform duration-1000"
         >
           <source src="/videos/home-hero.mp4" type="video/mp4" />

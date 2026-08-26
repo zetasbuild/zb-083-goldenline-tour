@@ -2,12 +2,10 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
 import { LotusBackground, MandalaBackground } from '@/components/DecorativeBackgrounds';
-import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
@@ -15,21 +13,13 @@ import { RealTravelerExperiences } from '@/components/RealTravelerExperiences';
 import {
   Compass,
   ShieldCheck,
-  Award,
-  Clock,
   Sparkles,
   Heart,
-  Users,
-  TreePine,
   CheckCircle2,
   ArrowRight,
   MessageSquare,
-  Globe,
   Leaf,
-  Star,
   Check,
-  MapPin,
-  ChevronRight,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
@@ -39,8 +29,6 @@ export default function AboutUsPage() {
 
   // Modals state
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [inquireInterest, setInquireInterest] = useState('About Us - General Inquiry');
 
   // Contact Form State
   const [formData, setFormData] = useState({
@@ -119,10 +107,6 @@ export default function AboutUsPage() {
     <main className="min-h-screen flex flex-col bg-[#F5F2E6] relative">
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenInquire={() => {
-          setInquireInterest('About Us Page Inquiry');
-          setIsInquireOpen(true);
-        }}
       />
 
       {/* Hero Banner with Background Auto Slider */}

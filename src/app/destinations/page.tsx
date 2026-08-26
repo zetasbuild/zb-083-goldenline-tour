@@ -28,7 +28,6 @@ import {
   Droplets,
   Sun,
   Layers,
-  MessageSquare,
 } from 'lucide-react';
 
 export default function DestinationsPage() {
@@ -39,10 +38,7 @@ export default function DestinationsPage() {
   const [wishlist, setWishlist] = useState<string[]>(['mirissa', 'sigiriya']);
 
   // Modals state
-  const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [inquireInterest, setInquireInterest] = useState('General Destination Inquiry');
 
   // Categories list with matching Lucide icons
   const categories = [
@@ -87,11 +83,6 @@ export default function DestinationsPage() {
     }
   };
 
-  const handleOpenInquireWithInterest = (interest: string) => {
-    setInquireInterest(interest);
-    setIsInquireOpen(true);
-  };
-
   // Filter destinations based on search, category, and region
   const filteredDestinations = useMemo(() => {
     return DESTINATIONS.filter((dest) => {
@@ -121,7 +112,6 @@ export default function DestinationsPage() {
       {/* Walkers Style Header */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenInquire={() => handleOpenInquireWithInterest('Destination Guide Inquiry')}
       />
 
       {/* Hero Banner Section with Background Auto Slider */}

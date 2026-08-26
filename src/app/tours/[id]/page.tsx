@@ -6,12 +6,10 @@ import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
-import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { TOUR_PACKAGES } from '@/data/travelData';
 import { useCurrency } from '@/context/CurrencyContext';
 import {
-  MapPin,
   CheckCircle2,
   Hotel,
   ArrowRight,
@@ -25,7 +23,6 @@ import {
   Users,
   ShieldCheck,
   Award,
-  Send,
   Check,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
@@ -42,8 +39,6 @@ export default function TourDetailPage() {
 
   // Modals state
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [inquireInterest, setInquireInterest] = useState(`Booking Inquiry: ${tour.title}`);
 
   // Inline Form State
   const [formData, setFormData] = useState({
@@ -106,10 +101,6 @@ export default function TourDetailPage() {
       {/* Walkers Luxury Navigation */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenInquire={() => {
-          setInquireInterest(`Inquiry for ${tour.title}`);
-          setIsInquireOpen(true);
-        }}
       />
 
       {/* Main Tour Page Container */}

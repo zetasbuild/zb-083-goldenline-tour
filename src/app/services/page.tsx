@@ -2,12 +2,10 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
 import { MandalaBackground, TropicalLeafBackground } from '@/components/DecorativeBackgrounds';
-import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
 import {
@@ -25,14 +23,12 @@ import {
   CheckCircle2,
   ArrowRight,
   MessageSquare,
-  ChevronRight,
   User,
   Mail,
   Phone,
   Calendar,
   Users,
   Check,
-  HelpCircle,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
@@ -42,8 +38,6 @@ export default function ServicesPage() {
 
   // Modals state
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [inquireInterest, setInquireInterest] = useState('General Services Inquiry');
 
   // Service Booking Form State
   const [formData, setFormData] = useState({
@@ -92,7 +86,7 @@ export default function ServicesPage() {
       id: 'wildlife-safari',
       title: 'Wildlife Safaris & Naturalist Expeditions',
       category: 'Eco & Adventure',
-      image: '/images/wildlife.webp',
+      image: '/images/locations/wildlife.webp',
       description:
         'Witness Sri Lanka’s legendary biodiversity with thrilling game drives through Yala, Wilpattu, Udawalawe, and Minneriya. Our custom open-top 4x4 safari cruisers and dedicated naturalists maximize your chances of spotting leopards, sloth bears, and wild elephants.',
       features: [
@@ -192,7 +186,7 @@ export default function ServicesPage() {
     setIsSubmitted(true);
     try {
       confetti({
-        particleCount: 80,
+        particleCount: 75,
         spread: 60,
         origin: { y: 0.6 },
       });
@@ -207,10 +201,10 @@ export default function ServicesPage() {
     el?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleWhatsAppServiceInquiry = (serviceTitle?: string) => {
-    const interest = serviceTitle ? `"${serviceTitle}"` : 'GoldenLine TOUR travel & transport services';
+  const handleWhatsAppServiceInquiry = (customInterest?: string) => {
+    const interest = customInterest || 'General Services Inquiry';
     const text = encodeURIComponent(
-      `Hello GoldenLine TOUR! I would like to inquire about your ${interest}. Please share details and pricing.`
+      `Hello GoldenLine TOUR, I am interested in your service: "${interest}". Could you please share more details and availability?`
     );
     window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
   };
@@ -220,10 +214,6 @@ export default function ServicesPage() {
       {/* Walkers Navigation Header */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenInquire={() => {
-          setInquireInterest('General Travel Services Inquiry');
-          setIsInquireOpen(true);
-        }}
       />
 
       {/* Hero Banner with Background Auto Slider */}
