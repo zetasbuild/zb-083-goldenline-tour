@@ -189,9 +189,9 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
             <Link
               href="/"
               onClick={() => setMegaMenuOpen(false)}
-              className="flex items-center gap-3"
+              className="flex items-center gap-2.5 sm:gap-3 group"
             >
-              <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-[#001f35] border-2 border-[#cba258]/60 shadow-md shrink-0">
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-[#001f35] border-2 border-[#cba258]/60 shadow-md group-hover:scale-105 transition-transform duration-300 shrink-0">
                 <Image
                   src="/images/logo.webp"
                   alt="GoldenLine TOUR Logo"
@@ -200,14 +200,12 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
                   className="object-cover"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="font-serif text-xl sm:text-2xl font-bold tracking-wider text-white uppercase leading-none">
-                  GoldenLine <span className="text-[#cba258]">TOUR</span>
-                </span>
-                <span className="text-[10px] tracking-[0.25em] text-white/70 uppercase mt-0.5">
-                  Sri Lanka
-                </span>
-              </div>
+              <span 
+                className="font-caveat text-3xl sm:text-4xl text-white whitespace-nowrap group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
+                style={{ fontFamily: 'var(--font-caveat), cursive' }}
+              >
+                GoldenLine TOUR
+              </span>
             </Link>
 
             <button
