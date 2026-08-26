@@ -32,7 +32,7 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
     {
       id: 'wildlife-adventure',
       title: 'Wildlife & Adventure',
-      image: '/images/wildlife.webp',
+      image: '/images/locations/wildlife.webp',
     },
     {
       id: 'beach',

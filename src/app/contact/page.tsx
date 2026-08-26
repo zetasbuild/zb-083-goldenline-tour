@@ -23,6 +23,8 @@ import {
   Check,
   Globe,
   Compass,
+  Navigation,
+  ExternalLink,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
@@ -45,42 +47,6 @@ export default function ContactPage() {
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const contactOffices = [
-    {
-      title: 'Colombo Operations & Head Office',
-      type: 'Headquarters & Tour Operations',
-      address: '3/11 Sri Wimalarama Road, Kolonnawa, Sri Lanka',
-      phone: '+94 71 547 7149 / +94 72 321 0119',
-      email: 'info@goldenlinetour.com',
-      hours: 'Mon – Sun: 24/7 Guest Assistance',
-      mapsUrl: 'https://maps.app.goo.gl/zTcvDFJTytdRrH4S8?g_st=iw',
-    },
-    {
-      title: 'Airport Arrivals Concierge Desk',
-      type: '24/7 Meet & Greet Service',
-      address: 'Bandaranaike International Airport (CMB), Katunayake',
-      phone: '+94 71 547 7149',
-      email: 'airport@goldenlinetour.com',
-      hours: 'Open 24/7 / 365 Days',
-    },
-    {
-      title: 'Kandy Regional Chauffeur Hub',
-      type: 'Central Highlands Operations',
-      address: 'Central Highlands Chauffeur & Tour Station, Kandy',
-      phone: '+94 72 321 0119',
-      email: 'kandy@goldenlinetour.com',
-      hours: 'Mon – Sat: 8:00 AM – 7:00 PM',
-    },
-    {
-      title: 'Galle & South Coast Support',
-      type: 'South Coast Experience Center',
-      address: 'Southern Highway Express Chauffeur Concierge, Galle',
-      phone: '+94 71 547 7149',
-      email: 'galle@goldenlinetour.com',
-      hours: 'Daily: 8:30 AM – 8:00 PM',
-    },
-  ];
 
   const contactCards = [
     {
@@ -306,79 +272,8 @@ export default function ContactPage() {
           <TropicalLeafBackground className="w-full h-full" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
-            
-            {/* Left Column: Island Office Locations */}
-            <div className="lg:col-span-5 space-y-8">
-              <div>
-                <span
-                  className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1 inline-block -rotate-2"
-                  style={{ fontFamily: 'var(--font-caveat), cursive' }}
-                >
-                  Islandwide Presence
-                </span>
-                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-[#002b49] leading-tight mb-3">
-                  Our Ceylon Offices
-                </h2>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                  Headquartered in Colombo with operational hubs across the island to ensure round-the-clock ground support.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                {contactOffices.map((office, idx) => (
-                  <div
-                    key={idx}
-                    className="p-6 rounded-3xl bg-white border border-[#e2ede7] hover:border-[#002b49] transition-all shadow-sm space-y-3"
-                  >
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <h3 className="font-serif text-lg font-bold text-[#002b49]">
-                          {office.title}
-                        </h3>
-                        <span className="text-[11px] font-semibold text-[#0077b6]">
-                          {office.type}
-                        </span>
-                      </div>
-                      <div className="w-8 h-8 rounded-full bg-[#eaf3f8] text-[#0077b6] flex items-center justify-center">
-                        <MapPin className="w-4 h-4" />
-                      </div>
-                    </div>
-
-                    <p className="text-xs text-gray-600 leading-relaxed">
-                      {office.address}
-                    </p>
-
-                    <div className="pt-2 border-t border-gray-100 flex flex-wrap items-center justify-between text-[11px] text-gray-500 gap-2">
-                      <span className="font-medium text-[#002b49]">{office.phone}</span>
-                      <span className="italic">{office.hours}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Direct WhatsApp Callout */}
-              <div className="p-6 rounded-3xl bg-[#25D366]/10 border border-[#25D366]/30 flex items-center justify-between gap-4">
-                <div>
-                  <h4 className="text-sm font-bold text-[#002b49]">Prefer instant messaging?</h4>
-                  <p className="text-xs text-gray-600">Connect directly with our senior travel planner.</p>
-                </div>
-                <button
-                  onClick={handleWhatsAppContact}
-                  className="bg-[#25D366] hover:bg-[#20ba59] text-white px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shadow-md cursor-pointer shrink-0"
-                >
-                  <MessageSquare className="w-4 h-4 fill-white" />
-                  <span>WhatsApp</span>
-                </button>
-              </div>
-
-            </div>
-
-            {/* Right Column: Light-Theme Inquiry Form */}
-            <div className="lg:col-span-7">
-              <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7]">
                 
                 <div className="mb-8">
                   <span
@@ -613,8 +508,86 @@ export default function ContactPage() {
                 )}
 
               </div>
+        </div>
+      </section>
+
+      {/* Location Map Section */}
+      <section className="py-16 sm:py-24 bg-[#F5F2E6] border-t border-[#e2ede7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span
+              className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1 inline-block -rotate-2"
+              style={{ fontFamily: 'var(--font-caveat), cursive' }}
+            >
+              Visit Our Location
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#002b49] mb-3">
+              Headquarters &amp; Operations
+            </h2>
+            <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+              Find our central operations base in Kolonnawa, Colombo. Open 24/7 for guest assistance and tour planning.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-3xl p-4 sm:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7] overflow-hidden">
+            {/* Top Bar with Address and Direct Action Button */}
+            <div className="p-4 sm:p-6 bg-[#f8fbfa] rounded-2xl border border-[#e2ede7] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-[#002b49] text-[#cba258] flex items-center justify-center shrink-0 shadow-sm">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#002b49]">
+                    GoldenLine TOUR Head Office
+                  </h3>
+                  <p className="text-xs sm:text-sm text-gray-600 font-medium mt-0.5">
+                    3/11 Sri Wimalarama Road, Kolonnawa, Sri Lanka
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#0077b6] font-semibold mt-1">
+                    <Clock className="w-3.5 h-3.5" /> 24/7 Islandwide Operations &amp; Guest Assistance
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3 w-full md:w-auto flex-wrap sm:flex-nowrap">
+                <a
+                  href="https://maps.app.goo.gl/zTcvDFJTytdRrH4S8?g_st=iw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-md cursor-pointer"
+                >
+                  <Navigation className="w-4 h-4 text-[#cba258]" />
+                  <span>Open in Google Maps</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                </a>
+
+                <a
+                  href="https://wa.me/94715477149"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-md cursor-pointer shrink-0"
+                >
+                  <WhatsAppIcon className="w-4 h-4 fill-white" />
+                  <span>WhatsApp</span>
+                </a>
+              </div>
             </div>
 
+            {/* Embedded Google Map */}
+            <div className="relative w-full h-[380px] sm:h-[450px] lg:h-[500px] rounded-2xl overflow-hidden border border-gray-200 shadow-inner">
+              <iframe
+                title="GoldenLine TOUR Office Location Map"
+                src="https://maps.google.com/maps?q=3%2C%20Golden%20Line%20Tours%2C%2011%20Sri%20Vimalarama%20Rd%202%2C%20Kolonnawa%2010600&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={false}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              />
+            </div>
           </div>
 
         </div>

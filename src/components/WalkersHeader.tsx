@@ -98,7 +98,17 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Left: Brand Logo */}
-          <Link href="/" className="flex items-center group">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-[#001f35] border-2 border-[#cba258]/60 shadow-md group-hover:scale-105 transition-transform duration-300 shrink-0">
+              <Image
+                src="/images/logo.webp"
+                alt="GoldenLine TOUR Logo"
+                fill
+                sizes="40px"
+                className="object-cover"
+                priority
+              />
+            </div>
             <span 
               className="font-caveat text-3xl sm:text-4xl text-white whitespace-nowrap group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
               style={{ fontFamily: 'var(--font-caveat), cursive' }}
@@ -139,9 +149,9 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
             })}
           </nav>
 
-          {/* Right Action Icons: Search + Contact + Hamburger */}
+          {/* Right: Phone Hotline Pill & Hamburger */}
           <div className="flex items-center space-x-3 sm:space-x-4">
-            {/* Desktop WhatsApp Contact */}
+            {/* Top Contact Hotline Pill */}
             <a
               href="https://wa.me/94715477149"
               target="_blank"
@@ -157,9 +167,7 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
               </div>
             </a>
 
-
-
-            {/* Hamburger Button for Mobile & Mega Menu */}
+            {/* Hamburger Button (Mobile + Tablet) */}
             <button
               onClick={() => setMegaMenuOpen(true)}
               aria-label="Open menu"
@@ -183,11 +191,12 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
               onClick={() => setMegaMenuOpen(false)}
               className="flex items-center gap-3"
             >
-              <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-[#001f35] border-2 border-[#cba258]/60 shadow-md">
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-[#001f35] border-2 border-[#cba258]/60 shadow-md shrink-0">
                 <Image
-                  src="/images/logo.PNG"
+                  src="/images/logo.webp"
                   alt="GoldenLine TOUR Logo"
                   fill
+                  sizes="48px"
                   className="object-cover"
                 />
               </div>

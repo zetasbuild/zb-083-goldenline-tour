@@ -199,7 +199,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 42000,
     duration: '5.5 hrs',
     category: 'North & East',
-    image: '/images/trincomalee.webp',
+    image: '/images/locations/trincomalee.webp',
   },
   {
     id: 'cmb-pasikuda',
@@ -413,7 +413,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 26000,
     duration: '4.5 hrs',
     category: 'North & East',
-    image: '/images/trincomalee.webp',
+    image: '/images/locations/trincomalee.webp',
   },
   {
     id: 'kandy-pasikuda',
@@ -597,7 +597,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 48000,
     duration: '6 hrs',
     category: 'North & East',
-    image: '/images/trincomalee.webp',
+    image: '/images/locations/trincomalee.webp',
   },
   {
     id: 'ne-pasikuda',

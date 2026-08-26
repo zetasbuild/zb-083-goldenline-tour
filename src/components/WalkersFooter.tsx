@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Phone, Mail, MapPin, ShieldCheck, Award, Car, Headphones, ChevronRight } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
@@ -15,7 +16,16 @@ export const WalkersFooter: React.FC = () => {
           
           {/* Col 1: Brand & Contact Info */}
           <div className="lg:col-span-1 space-y-4">
-            <Link href="/" className="flex items-center group">
+            <Link href="/" className="flex items-center gap-2.5 group">
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-[#001f35] border-2 border-[#cba258]/60 shadow-md group-hover:scale-105 transition-transform duration-300 shrink-0">
+                <Image
+                  src="/images/logo.webp"
+                  alt="GoldenLine TOUR Logo"
+                  fill
+                  sizes="40px"
+                  className="object-cover"
+                />
+              </div>
               <span 
                 className="font-caveat text-3xl sm:text-4xl text-[#cba258] whitespace-nowrap group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
                 style={{ fontFamily: 'var(--font-caveat), cursive' }}

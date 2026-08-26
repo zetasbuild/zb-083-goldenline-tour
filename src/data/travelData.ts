@@ -251,7 +251,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
         title: 'YALA – GALLE – SOUTH BEACH',
         desc: 'After breakfast head out on an early morning game drive before departing Yala for the sunny beaches and warm crystal clear waters of southern Sri Lanka, and stop by in the city of Galle – a former Dutch colonial bastion. The city is built around the imposing Galle Fort – a beautifully preserved “city within a city” full of quaint restaurants, curio shops and colonial architecture. A definite must see when in Sri Lanka. Afterwards head to your hotel at the beach of your choice on the south coast and spend your afternoon enjoying the sights and sounds of the beach at any of the popular bars or restaurants, or simply relax at the hotel.',
         stay: 'Dinner and Overnight Stay at selected luxury beach resort in south.',
-        image: '/images/wildlife.webp',
+        image: '/images/locations/wildlife.webp',
       },
       {
         day: 'DAY 07',
@@ -346,7 +346,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
         title: 'ELLA – YALA',
         desc: 'Depart Ella after breakfast for the Yala National Park, and arrive at your hotel by lunchtime, after which you may spend your day resting by the pool and readying yourself for the excitement of a spectacular wildlife adventure to come the following day.',
         stay: 'Dinner and Overnight Stay at EKHO Safari Yala.',
-        image: '/images/wildlife.webp',
+        image: '/images/locations/wildlife.webp',
       },
       {
         day: 'DAY 09',
@@ -405,7 +405,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
         title: 'GALLE – YALA',
         desc: 'Depart Galle after breakfast for the Yala National Park, and arrive at your hotel for lunch, before the excitement of a spectacular late afternoon wildlife adventure through the park. Here you will be introduced to the most famous park inhabitants – elephants, sloth bear, mugger crocodiles, water buffalo, and the elusive leopards.',
         stay: 'Dinner and Overnight Stay at Amaya Lake Resort & Spa.',
-        image: '/images/wildlife.webp',
+        image: '/images/locations/wildlife.webp',
       },
       {
         day: 'DAY 03',
@@ -567,7 +567,7 @@ export const TOUR_PACKAGES: TourPackage[] = [
     priceLKR: 115000,
     rating: 4.9,
     reviewsCount: 360,
-    image: '/images/wildlife.webp',
+    image: '/images/locations/wildlife.webp',
     description: 'Thrilling wildlife safaris tracking leopards, sloth bears, and massive elephant herds across Sri Lanka’s top national wildlife sanctuaries.',
     destinationsCovered: ['Wilpattu', 'Minneriya', 'Gal Oya', 'Yala National Park', 'Sinharaja Rainforest'],
     includes: ['Private 4x4 Safari Jeeps with Naturalists', 'Luxury Glamping & Jungle Lodges', 'All Wildlife Permits', 'Night Walk Rainforest Safari', 'Private Dedicated Transport'],
