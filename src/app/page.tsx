@@ -75,7 +75,7 @@ export default function HomePage() {
       {/* Floating WhatsApp Quick Action Button */}
       <div className="floating-whatsapp">
         <a
-          href="https://wa.me/94771234567"
+          href="https://wa.me/94715477149"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

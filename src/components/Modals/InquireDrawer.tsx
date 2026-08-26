@@ -44,7 +44,7 @@ export const InquireDrawer: React.FC<InquireDrawerProps> = ({
       `Name: ${name} (${country})\n` +
       `Message: ${message || 'Please send me customized options.'}`
     );
-    window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/94715477149?text=${text}`, '_blank');
   };
 
   return (
@@ -213,9 +213,9 @@ export const InquireDrawer: React.FC<InquireDrawerProps> = ({
         {/* Footer Support */}
         <div className="p-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
           <span>Need immediate help?</span>
-          <a href="https://wa.me/94771234567" target="_blank" className="font-bold text-[#D4AF37] hover:underline flex items-center gap-1">
+          <a href="https://wa.me/94715477149" target="_blank" className="font-bold text-[#D4AF37] hover:underline flex items-center gap-1">
             <MessageSquare className="w-3.5 h-3.5" />
-            <span>+94 77 123 4567</span>
+            <span>+94 71 547 7149</span>
           </a>
         </div>
       </div>

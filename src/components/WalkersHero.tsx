@@ -33,7 +33,7 @@ export const WalkersHero: React.FC<WalkersHeroProps> = ({ onExploreClick }) => {
         <span 
           data-reveal="fade-down"
           data-reveal-delay="100"
-          className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 rotate-[-2deg]"
+          className="font-caveat text-3xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-8px] sm:mb-[-15px] z-10 rotate-[-2deg]"
           style={{ fontFamily: 'var(--font-caveat), cursive' }}
         >
           Uncover the Magic of
@@ -43,7 +43,7 @@ export const WalkersHero: React.FC<WalkersHeroProps> = ({ onExploreClick }) => {
         <h1 
           data-reveal="fade-up"
           data-reveal-delay="200"
-          className="font-serif text-6xl sm:text-7xl md:text-8xl lg:text-[110px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
+          className="font-serif text-4xl sm:text-7xl md:text-8xl lg:text-[110px] font-bold tracking-wider sm:tracking-widest text-[#f8fbfa] uppercase leading-tight sm:leading-none drop-shadow-2xl mb-6 max-w-full"
         >
           SRI LANKA
         </h1>
@@ -52,7 +52,7 @@ export const WalkersHero: React.FC<WalkersHeroProps> = ({ onExploreClick }) => {
         <p 
           data-reveal="fade-up"
           data-reveal-delay="350"
-          className="text-sm sm:text-base md:text-lg text-white font-medium max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md"
+          className="text-xs sm:text-base md:text-lg text-white font-medium max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md px-2"
         >
           Premium tours, unforgettable experiences and reliable travel services.
         </p>

@@ -31,13 +31,25 @@ export const WalkersFooter: React.FC = () => {
             <div className="space-y-2.5 text-[11px] pt-1">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#cba258] shrink-0 mt-0.5" />
-                <span>Kandy &amp; Colombo, Sri Lanka</span>
+                <a
+                  href="https://maps.app.goo.gl/zTcvDFJTytdRrH4S8?g_st=iw"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#cba258] transition-colors"
+                >
+                  3/11 Sri Wimalarama Road, Kolonnawa, Sri Lanka
+                </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#cba258] shrink-0" />
-                <a href="tel:+94760782814" className="hover:text-[#cba258] font-bold transition-colors">
-                  +94 760 782 814
-                </a>
+                <div className="flex flex-col">
+                  <a href="tel:+94715477149" className="hover:text-[#cba258] font-bold transition-colors">
+                    +94 71 547 7149
+                  </a>
+                  <a href="tel:+94723210119" className="hover:text-[#cba258] text-gray-400 text-[10px] transition-colors">
+                    +94 72 321 0119
+                  </a>
+                </div>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#cba258] shrink-0" />
@@ -47,13 +59,13 @@ export const WalkersFooter: React.FC = () => {
               </div>
               <div className="pt-2">
                 <a
-                  href="https://wa.me/94760782814"
+                  href="https://wa.me/94715477149"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-[#25D366]/20 hover:bg-[#25D366] text-[#25D366] hover:text-white border border-[#25D366]/40 rounded-full font-bold transition-all duration-300"
                 >
                   <WhatsAppIcon className="w-3.5 h-3.5 fill-current" />
-                  <span>WhatsApp Hotline</span>
+                  <span>WhatsApp (+94 71 547 7149)</span>
                 </a>
               </div>
             </div>
@@ -154,7 +166,7 @@ export const WalkersFooter: React.FC = () => {
               </li>
               <li>
                 <a 
-                  href="https://wa.me/94760782814?text=Hello%20Nihar%20Sri%20Lanka%20Tour!%20I%20want%20to%20book%20a%20private%20sedan%20transfer."
+                  href="https://wa.me/94715477149?text=Hello%20GoldenLine%20TOUR!%20I%20want%20to%20inquire%20about%20a%20private%20transfer."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-[#cba258] transition-colors flex items-center gap-1.5"

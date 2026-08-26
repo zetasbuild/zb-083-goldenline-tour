@@ -679,10 +679,16 @@ export const SERVICE_TYPES = [
 ];
 
 export const CONTACT_INFO = {
-  phone: '+94 760 782 814',
-  phoneDisplay: '+94 760 782 814',
-  whatsappUrl: 'https://wa.me/94760782814',
+  phone: '+94 71 547 7149',
+  phoneSecondary: '+94 72 321 0119',
+  phoneDisplay: '+94 71 547 7149 / +94 72 321 0119',
+  whatsappUrl: 'https://wa.me/94715477149',
+  whatsappUrlSecondary: 'https://wa.me/94723210119',
+  whatsappRaw: '94715477149',
+  whatsappSecondaryRaw: '94723210119',
+  address: '3/11 Sri Wimalarama Road, Kolonnawa, Sri Lanka',
+  mapsUrl: 'https://maps.app.goo.gl/zTcvDFJTytdRrH4S8?g_st=iw',
   tagline: 'Your Journey, Our Passion',
   subTagline: 'Explore Sri Lanka with Comfort & Care',
-  disclaimer: 'Prices may vary based on route, tolls, waiting time and season.',
+  disclaimer: 'Comfortable air-conditioned vehicles with certified English-speaking tourist chauffeurs.',
 };

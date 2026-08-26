@@ -86,7 +86,7 @@ export default function TourDetailPage() {
     const text = encodeURIComponent(
       `Hello GoldenLine TOUR! I would like to book or customize the ${interest}. Please share the detailed itinerary quotation and available dates.`
     );
-    window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/94715477149?text=${text}`, '_blank');
   };
 
   // Other tours in the same category
@@ -625,7 +625,7 @@ export default function TourDetailPage() {
       {/* Floating WhatsApp Quick Action Button */}
       <div className="floating-whatsapp">
         <a
-          href="https://wa.me/94771234567"
+          href="https://wa.me/94715477149"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

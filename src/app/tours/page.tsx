@@ -78,7 +78,7 @@ export default function ToursOverviewPage() {
           <h1 
             data-reveal="fade-up"
             data-reveal-delay="200"
-            className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6 lg:mb-8 mt-2"
+            className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-[90px] font-bold tracking-wider sm:tracking-widest text-[#f8fbfa] uppercase leading-tight sm:leading-none drop-shadow-2xl mb-6 lg:mb-8 mt-2 max-w-full"
           >
             TOUR PACKAGES
           </h1>
@@ -265,7 +265,7 @@ export default function ToursOverviewPage() {
       {/* Floating WhatsApp Quick Action Button */}
       <div className="floating-whatsapp">
         <a
-          href="https://wa.me/94771234567"
+          href="https://wa.me/94715477149"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

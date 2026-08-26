@@ -100,7 +100,7 @@ export default function AboutUsPage() {
     const text = encodeURIComponent(
       `Hello GoldenLine TOUR! My name is ${formData.fullName || 'Guest'}. I am contacting you regarding: ${formData.message || 'General Travel Inquiry'}`
     );
-    window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/94715477149?text=${text}`, '_blank');
   };
 
   return (
@@ -120,7 +120,7 @@ export default function AboutUsPage() {
           <span
             data-reveal="fade-down"
             data-reveal-delay="100"
-            className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
+            className="font-caveat text-3xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-8px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
             Pioneering Authentic Hospitality &amp;
@@ -129,7 +129,7 @@ export default function AboutUsPage() {
           <h1 
             data-reveal="fade-up"
             data-reveal-delay="200"
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
+            className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-[90px] font-bold tracking-wider sm:tracking-widest text-[#f8fbfa] uppercase leading-tight sm:leading-none drop-shadow-2xl mb-6 max-w-full"
           >
             ABOUT US
           </h1>
@@ -137,7 +137,7 @@ export default function AboutUsPage() {
           <p 
             data-reveal="fade-up"
             data-reveal-delay="350"
-            className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md"
+            className="text-xs sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md px-2"
           >
             Founded on an enduring love for Sri Lanka, GoldenLine TOUR handcrafts bespoke private holidays that celebrate the island&apos;s ancient heritage, untamed wildlife, and warm tropical spirit.
           </p>
@@ -333,7 +333,10 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* Founder */}
+      {/* Leadership & Guiding Heritage Section */}
+      <section className="py-20 lg:py-28 bg-[#F5F2E6] border-t border-[#e2ede7] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Founder */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24">
             <div className="order-2 lg:order-1 flex flex-col items-start">
               <h3 className="font-serif text-3xl sm:text-4xl font-bold text-[var(--color-primary)] mb-4">
@@ -416,6 +419,8 @@ export default function AboutUsPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
       {/* Real Traveler Experiences */}
       <RealTravelerExperiences />
@@ -573,7 +578,7 @@ export default function AboutUsPage() {
       {/* Floating WhatsApp Quick Action Button */}
       <div className="floating-whatsapp">
         <a
-          href="https://wa.me/94771234567"
+          href="https://wa.me/94715477149"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

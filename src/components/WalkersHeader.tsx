@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -142,7 +143,7 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
           <div className="flex items-center space-x-3 sm:space-x-4">
             {/* Desktop WhatsApp Contact */}
             <a
-              href="https://wa.me/94771234567"
+              href="https://wa.me/94715477149"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden lg:flex items-center gap-2.5 hover:opacity-90 transition-opacity"
@@ -151,8 +152,8 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
                 <Phone className="w-4 h-4" />
               </div>
               <div className="flex flex-col">
-                <span className="text-white font-bold text-[14.5px] leading-tight">+94 77 123 4567</span>
-                <span className="text-white/70 text-[11px] font-medium leading-tight">24/7 Support</span>
+                <span className="text-white font-bold text-[13.5px] leading-tight">+94 71 547 7149</span>
+                <span className="text-white/70 text-[10.5px] font-medium leading-tight">+94 72 321 0119</span>
               </div>
             </a>
 
@@ -164,150 +165,143 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
               aria-label="Open menu"
               className="lg:hidden w-10 h-10 rounded-full border border-white/30 hover:border-white/80 flex flex-col items-center justify-center gap-1 hover:bg-white/10 transition-all cursor-pointer"
             >
-              <span className="w-5 h-0.5 bg-[#F5F2E6] rounded-full"></span>
-              <span className="w-5 h-0.5 bg-[#F5F2E6] rounded-full"></span>
-              <span className="w-3.5 h-0.5 bg-[#F5F2E6] rounded-full self-start ml-2.5"></span>
+              <div className="w-5 h-0.5 bg-white transition-all" />
+              <div className="w-5 h-0.5 bg-white transition-all" />
             </button>
           </div>
         </div>
       </header>
 
-      {/* Full-Screen Drawer Menu */}
+      {/* Fullscreen Luxury Dark Navigation Overlay (Mega Menu) */}
       {megaMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-[#041B2D]/98 backdrop-blur-xl flex flex-col overflow-y-auto animate-in fade-in duration-300 text-white">
-          {/* Top Bar with Brand & Close */}
-          <div className="sticky top-0 z-20 bg-[#041B2D]/95 backdrop-blur-md px-5 sm:px-8 py-4 sm:py-6 border-b border-white/10 flex items-center justify-between max-w-7xl mx-auto w-full">
-            <Link 
-              href="/" 
-              onClick={() => setMegaMenuOpen(false)} 
-              className="flex items-center group"
+        <div className="fixed inset-0 z-50 bg-[#041B2D]/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-12 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
+          
+          {/* Top Bar inside Overlay */}
+          <div className="flex items-center justify-between max-w-7xl mx-auto w-full mb-8">
+            <Link
+              href="/"
+              onClick={() => setMegaMenuOpen(false)}
+              className="flex items-center gap-3"
             >
-              <span 
-                className="font-caveat text-3xl sm:text-4xl text-white whitespace-nowrap"
-                style={{ fontFamily: 'var(--font-caveat), cursive' }}
-              >
-                GoldenLine TOUR
-              </span>
+              <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden bg-[#001f35] border-2 border-[#cba258]/60 shadow-md">
+                <Image
+                  src="/images/logo.PNG"
+                  alt="GoldenLine TOUR Logo"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-serif text-xl sm:text-2xl font-bold tracking-wider text-white uppercase leading-none">
+                  GoldenLine <span className="text-[#cba258]">TOUR</span>
+                </span>
+                <span className="text-[10px] tracking-[0.25em] text-white/70 uppercase mt-0.5">
+                  Sri Lanka
+                </span>
+              </div>
             </Link>
 
             <button
               onClick={() => setMegaMenuOpen(false)}
               aria-label="Close menu"
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-white/30 hover:border-white flex items-center justify-center text-white hover:bg-white/10 transition-all cursor-pointer"
+              className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer"
             >
-              <X className="w-5 h-5" />
+              <X className="w-6 h-6" />
             </button>
           </div>
 
-          {/* Menu Body Content */}
-          <div className="flex-1 max-w-7xl mx-auto w-full px-5 sm:px-8 py-6 sm:py-10">
-            {/* Responsive Layout: Single Clean Column on Mobile, 3 Columns on Desktop */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+          {/* Main Grid Content */}
+          <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 my-auto">
+            
+            {/* Primary Nav Links */}
+            <div className="lg:col-span-7 space-y-4">
+              <span className="text-xs uppercase tracking-widest text-[#C79636] font-bold block mb-4">
+                Explore The Island
+              </span>
+              <ul className="space-y-3 sm:space-y-4">
+                {navLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setMegaMenuOpen(false)}
+                      className={`font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight transition-all block hover:translate-x-3 duration-200 ${
+                        isActive(link.href)
+                          ? 'text-[#C79636]'
+                          : 'text-white/80 hover:text-white'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Quick Categories & Contact Info */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-8 pt-6 lg:pt-0 border-t lg:border-t-0 lg:border-l border-white/10 lg:pl-12">
               
-              {/* Col 1: Main Navigation Links */}
-              <div className="space-y-2">
-                <h3 className="text-xs uppercase tracking-widest text-[#C79636] font-bold mb-3 flex items-center gap-2">
-                  <Compass className="w-3.5 h-3.5" />
-                  Navigation
-                </h3>
-                <nav className="flex flex-col space-y-1">
-                  {navLinks.map((link) => {
-                    const active = isActive(link.href);
-                    return (
-                      <Link
-                        key={link.name}
-                        href={link.href}
-                        onClick={() => setMegaMenuOpen(false)}
-                        className={`flex items-center justify-between px-4 py-3 rounded-xl transition-all ${
-                          active
-                            ? 'bg-white/15 text-[#C79636] font-bold'
-                            : 'text-white/90 hover:text-white hover:bg-white/5 font-medium'
-                        }`}
-                      >
-                        <span className="text-base sm:text-lg">{link.name}</span>
-                        <ChevronRight className={`w-4 h-4 transition-transform ${active ? 'text-[#C79636] translate-x-0.5' : 'text-white/40'}`} />
-                      </Link>
-                    );
-                  })}
-                </nav>
-              </div>
-
-              {/* Col 2: Sri Lanka Tours */}
-              <div className="border-t border-white/10 md:border-t-0 pt-6 md:pt-0">
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xs uppercase tracking-widest text-[#C79636] font-bold flex items-center gap-2">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    Popular Tour Styles
-                  </h3>
-                  <button
-                    onClick={() => setToursAccordionOpen(!toursAccordionOpen)}
-                    className="md:hidden text-xs text-gray-400 hover:text-white flex items-center gap-1"
-                  >
-                    {toursAccordionOpen ? 'Show less' : 'View all'}
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${toursAccordionOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                </div>
-
-                <ul className={`space-y-2 ${toursAccordionOpen ? 'block' : 'hidden md:block'}`}>
-                  {tourCategories.map((t) => (
-                    <li key={t.name}>
-                      <a
-                        href={t.href}
-                        onClick={() => setMegaMenuOpen(false)}
-                        className="flex items-center justify-between px-3 py-2 rounded-lg text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors group"
-                      >
-                        <span>{t.name}</span>
-                        <ArrowRight className="w-3.5 h-3.5 text-[#C79636] opacity-0 group-hover:opacity-100 transition-opacity" />
-                      </a>
-                    </li>
+              {/* Featured Tour Categories */}
+              <div>
+                <span className="text-xs uppercase tracking-widest text-[#C79636] font-bold block mb-3">
+                  Signature Tour Styles
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {tourCategories.map((cat) => (
+                    <Link
+                      key={cat.name}
+                      href={cat.href}
+                      onClick={() => setMegaMenuOpen(false)}
+                      className="text-xs font-semibold text-gray-300 hover:text-[#C79636] transition-colors py-1 flex items-center gap-1.5"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#C79636]" />
+                      <span>{cat.name}</span>
+                    </Link>
                   ))}
-                </ul>
-              </div>
-
-              {/* Col 3: Direct Contact & WhatsApp */}
-              <div className="border-t border-white/10 md:border-t-0 pt-6 md:pt-0 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-xs uppercase tracking-widest text-[#C79636] font-bold mb-3 flex items-center gap-2">
-                    <Phone className="w-3.5 h-3.5" />
-                    Direct Contact
-                  </h3>
-                  <div className="space-y-3 text-xs text-gray-300 mb-6 bg-white/5 p-4 rounded-2xl border border-white/10">
-                    <div className="flex items-center gap-3 text-white">
-                      <div className="w-8 h-8 rounded-full bg-[#C79636]/20 flex items-center justify-center text-[#C79636] shrink-0">
-                        <Phone className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] text-gray-400 block uppercase font-semibold">Call or WhatsApp</span>
-                        <a href="tel:+94771234567" className="text-sm font-bold hover:text-[#C79636] transition-colors">+94 77 123 4567</a>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-3 text-white pt-2 border-t border-white/10">
-                      <div className="w-8 h-8 rounded-full bg-[#C79636]/20 flex items-center justify-center text-[#C79636] shrink-0">
-                        <Mail className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <span className="text-[10px] text-gray-400 block uppercase font-semibold">Email Inquiries</span>
-                        <a href="mailto:info@goldenlinetour.lk" className="text-xs font-semibold hover:text-[#C79636] transition-colors">info@goldenlinetour.lk</a>
-                      </div>
-                    </div>
-                    <p className="text-[11px] text-gray-400 pt-1">
-                      24/7 Airport Counter &amp; Chauffeur Concierge Service
-                    </p>
-                  </div>
                 </div>
-
-                <a
-                  href="https://wa.me/94771234567"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setMegaMenuOpen(false)}
-                  className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 px-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all shadow-lg text-center flex items-center justify-center gap-2 cursor-pointer mt-2"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Chat on WhatsApp</span>
-                </a>
               </div>
 
+              {/* Direct Chauffeur Hotline */}
+              <div className="pt-4">
+                <h3 className="text-xs uppercase tracking-widest text-[#C79636] font-bold mb-3 flex items-center gap-2">
+                  <Phone className="w-3.5 h-3.5" />
+                  Direct Contact
+                </h3>
+                <div className="space-y-3 text-xs text-gray-300 mb-6 bg-white/5 p-4 rounded-2xl border border-white/10">
+                  <div className="flex items-center gap-3 text-white">
+                    <div className="w-8 h-8 rounded-full bg-[#C79636]/20 flex items-center justify-center text-[#C79636] shrink-0">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-gray-400 block uppercase font-semibold">Call or WhatsApp</span>
+                      <a href="tel:+94715477149" className="text-sm font-bold hover:text-[#C79636] transition-colors block">+94 71 547 7149</a>
+                      <a href="tel:+94723210119" className="text-xs text-gray-300 hover:text-[#C79636] transition-colors block">+94 72 321 0119</a>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3 text-white pt-2 border-t border-white/10">
+                    <div className="w-8 h-8 rounded-full bg-[#C79636]/20 flex items-center justify-center text-[#C79636] shrink-0">
+                      <Mail className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] text-gray-400 block uppercase font-semibold">Email Inquiries</span>
+                      <a href="mailto:info@goldenlinetour.lk" className="text-xs font-semibold hover:text-[#C79636] transition-colors">info@goldenlinetour.lk</a>
+                    </div>
+                  </div>
+                  <p className="text-[11px] text-gray-400 pt-1">
+                    3/11 Sri Wimalarama Road, Kolonnawa
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="https://wa.me/94715477149"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMegaMenuOpen(false)}
+                className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 px-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all shadow-lg text-center flex items-center justify-center gap-2 cursor-pointer mt-2"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Chat on WhatsApp (+94 71 547 7149)</span>
+              </a>
             </div>
           </div>
         </div>

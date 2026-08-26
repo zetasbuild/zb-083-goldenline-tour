@@ -48,36 +48,37 @@ export default function ContactPage() {
 
   const contactOffices = [
     {
-      title: 'Colombo Head Office',
+      title: 'Colombo Operations & Head Office',
       type: 'Headquarters & Tour Operations',
-      address: 'No. 45/A, Galle Face Terrace, Colombo 03, Sri Lanka',
-      phone: '+94 11 234 5678',
-      email: 'colombo@goldenlinetour.com',
-      hours: 'Mon – Sat: 8:00 AM – 7:00 PM (IST)',
+      address: '3/11 Sri Wimalarama Road, Kolonnawa, Sri Lanka',
+      phone: '+94 71 547 7149 / +94 72 321 0119',
+      email: 'info@goldenlinetour.com',
+      hours: 'Mon – Sun: 24/7 Guest Assistance',
+      mapsUrl: 'https://maps.app.goo.gl/zTcvDFJTytdRrH4S8?g_st=iw',
     },
     {
-      title: 'Airport Arrivals Concierge',
-      type: '24/7 Meet & Greet Desk',
-      address: 'Arrivals Lobby, Bandaranaike International Airport (CMB), Katunayake',
-      phone: '+94 77 123 4567',
+      title: 'Airport Arrivals Concierge Desk',
+      type: '24/7 Meet & Greet Service',
+      address: 'Bandaranaike International Airport (CMB), Katunayake',
+      phone: '+94 71 547 7149',
       email: 'airport@goldenlinetour.com',
       hours: 'Open 24/7 / 365 Days',
     },
     {
-      title: 'Kandy Regional Hub',
-      type: 'Hill Country Operations',
-      address: 'No. 12, Temple Street, Kandy, Sri Lanka',
-      phone: '+94 81 222 3344',
+      title: 'Kandy Regional Chauffeur Hub',
+      type: 'Central Highlands Operations',
+      address: 'Central Highlands Chauffeur & Tour Station, Kandy',
+      phone: '+94 72 321 0119',
       email: 'kandy@goldenlinetour.com',
-      hours: 'Mon – Sat: 8:30 AM – 6:00 PM',
+      hours: 'Mon – Sat: 8:00 AM – 7:00 PM',
     },
     {
-      title: 'Galle Fort Visitor Lounge',
+      title: 'Galle & South Coast Support',
       type: 'South Coast Experience Center',
-      address: 'No. 28, Church Street, Galle Fort, Sri Lanka',
-      phone: '+94 91 223 4455',
+      address: 'Southern Highway Express Chauffeur Concierge, Galle',
+      phone: '+94 71 547 7149',
       email: 'galle@goldenlinetour.com',
-      hours: 'Daily: 9:00 AM – 8:00 PM',
+      hours: 'Daily: 8:30 AM – 8:00 PM',
     },
   ];
 
@@ -85,28 +86,28 @@ export default function ContactPage() {
     {
       icon: Phone,
       title: 'Direct Phone & Hotline',
-      value: '+94 77 123 4567',
-      sub: '24/7 Islandwide Emergency & Guest Support',
-      action: 'tel:+94771234567',
+      value: '+94 71 547 7149',
+      sub: 'Secondary: +94 72 321 0119 (24/7 Support)',
+      action: 'tel:+94715477149',
       actionText: 'Call Now',
       color: 'bg-[#002b49] text-white',
     },
     {
       icon: MessageSquare,
       title: 'Official WhatsApp Concierge',
-      value: '+94 77 123 4567',
-      sub: 'Instant replies within ~5-10 minutes',
-      action: 'https://wa.me/94771234567',
+      value: '+94 71 547 7149',
+      sub: 'Instant replies for custom quotes & transfers',
+      action: 'https://wa.me/94715477149',
       actionText: 'Chat on WhatsApp',
       color: 'bg-[#25D366] text-white',
     },
     {
-      icon: Mail,
-      title: 'Inquiries & Reservations',
-      value: 'inquiries@goldenlinetour.com',
-      sub: 'Detailed quotes & day-by-day custom plans',
-      action: 'mailto:inquiries@goldenlinetour.com',
-      actionText: 'Send Email',
+      icon: MapPin,
+      title: 'Headquarters Location',
+      value: 'Kolonnawa, Colombo',
+      sub: '3/11 Sri Wimalarama Road, Kolonnawa',
+      action: 'https://maps.app.goo.gl/zTcvDFJTytdRrH4S8?g_st=iw',
+      actionText: 'Open in Google Maps',
       color: 'bg-[#0077b6] text-white',
     },
     {
@@ -167,7 +168,7 @@ export default function ContactPage() {
       `Guests: ${formData.guests}\n` +
       `Inquiry / Wishlist: ${formData.message || 'I would like to plan a trip to Sri Lanka.'}`
     );
-    window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/94715477149?text=${text}`, '_blank');
   };
 
   return (
@@ -188,7 +189,7 @@ export default function ContactPage() {
           <span
             data-reveal="fade-down"
             data-reveal-delay="100"
-            className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
+            className="font-caveat text-3xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-8px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
             Always At Your Service &amp;
@@ -197,7 +198,7 @@ export default function ContactPage() {
           <h1 
             data-reveal="fade-up"
             data-reveal-delay="200"
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
+            className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-[90px] font-bold tracking-wider sm:tracking-widest text-[#f8fbfa] uppercase leading-tight sm:leading-none drop-shadow-2xl mb-6 max-w-full"
           >
             CONTACT US
           </h1>
@@ -205,7 +206,7 @@ export default function ContactPage() {
           <p 
             data-reveal="fade-up"
             data-reveal-delay="350"
-            className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md"
+            className="text-xs sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md px-2"
           >
             Our destination specialists and 24/7 concierge team are here to assist with tailor-made tour planning, private vehicle rentals, and holiday advice.
           </p>
@@ -246,8 +247,11 @@ export default function ContactPage() {
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block">24/7 Hotline</span>
-                <a href="tel:+94771234567" className="text-sm font-bold text-white hover:text-[#8ed1fc] transition-colors">
-                  +94 77 123 4567
+                <a href="tel:+94715477149" className="text-sm font-bold text-white hover:text-[#8ed1fc] transition-colors block">
+                  +94 71 547 7149
+                </a>
+                <a href="tel:+94723210119" className="text-xs text-gray-300 hover:text-[#8ed1fc] transition-colors block">
+                  +94 72 321 0119
                 </a>
               </div>
             </div>
@@ -663,7 +667,7 @@ export default function ContactPage() {
       {/* Floating WhatsApp Quick Action Button */}
       <div className="floating-whatsapp">
         <a
-          href="https://wa.me/94771234567"
+          href="https://wa.me/94715477149"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

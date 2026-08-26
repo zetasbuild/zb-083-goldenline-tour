@@ -128,7 +128,7 @@ export default function DestinationsPage() {
           <span 
             data-reveal="fade-down"
             data-reveal-delay="100"
-            className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2"
+            className="font-caveat text-3xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-8px] sm:mb-[-15px] z-10 -rotate-2"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
             Explore the Wonder of
@@ -138,7 +138,7 @@ export default function DestinationsPage() {
           <h1 
             data-reveal="fade-up"
             data-reveal-delay="200"
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[95px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
+            className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-[95px] font-bold tracking-wider sm:tracking-widest text-[#f8fbfa] uppercase leading-tight sm:leading-none drop-shadow-2xl mb-6 max-w-full"
           >
             DESTINATIONS
           </h1>
@@ -147,7 +147,7 @@ export default function DestinationsPage() {
           <p 
             data-reveal="fade-up"
             data-reveal-delay="350"
-            className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md"
+            className="text-xs sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-10 leading-relaxed drop-shadow-md px-2"
           >
             From mist-veiled mountain peaks and sacred ancient citadels to wild leopard sanctuaries and pristine tropical beaches.
           </p>
@@ -451,7 +451,7 @@ export default function DestinationsPage() {
       {/* Floating WhatsApp Quick Action Button */}
       <div className="floating-whatsapp">
         <a
-          href="https://wa.me/94771234567"
+          href="https://wa.me/94715477149"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

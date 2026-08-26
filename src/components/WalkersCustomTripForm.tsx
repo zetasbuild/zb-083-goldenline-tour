@@ -112,7 +112,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
       `• Phone/WhatsApp: ${whatsapp}\n` +
       (notes ? `• Special Notes: ${notes}` : '')
     );
-    window.open(`https://wa.me/94771234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/94715477149?text=${text}`, '_blank');
   };
 
   return (

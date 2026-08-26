@@ -119,9 +119,9 @@ export default function SedanTransfersPage() {
 
   const handleWhatsAppRouteBooking = (route: TransferRoute) => {
     const text = encodeURIComponent(
-      `Hello Nihar Sri Lanka Tour! 🇱🇰\n\nI would like to book a private Sedan Transfer:\n\n📍 Route: ${route.from} ➔ ${route.to}\n🚗 Service: Private Chauffeur Sedan Drop\n⏱️ Est. Duration: ${route.duration}\n\nPlease let me know driver availability and booking confirmation.`
+      `Hello GoldenLine TOUR! 🇱🇰\n\nI would like to book a private Sedan Transfer:\n\n📍 Route: ${route.from} ➔ ${route.to}\n🚗 Service: Private Chauffeur Sedan Drop\n⏱️ Est. Duration: ${route.duration}\n\nPlease let me know driver availability and booking confirmation.`
     );
-    window.open(`https://wa.me/94760782814?text=${text}`, '_blank');
+    window.open(`https://wa.me/94715477149?text=${text}`, '_blank');
   };
 
   const handleFormSubmit = (e: React.FormEvent) => {
@@ -138,10 +138,10 @@ export default function SedanTransfersPage() {
     }
 
     const msg = encodeURIComponent(
-      `Hello Nihar Sri Lanka Tour! 🇱🇰\n\nI want to book a transfer:\n\n👤 Name: ${formData.fullName}\n📞 Contact: ${formData.phone || formData.email}\n📍 Pickup: ${formData.pickupLocation}\n🏁 Destination: ${formData.dropoffLocation}\n📅 Date: ${formData.pickupDate} at ${formData.pickupTime || 'Flexible'}\n✈️ Flight: ${formData.flightNumber || 'None'}\n👥 Passengers: ${formData.passengers} Pax (${formData.luggage} Bags)\n📝 Notes: ${formData.notes || 'None'}\n\nPlease provide quotation and confirm booking.`
+      `Hello GoldenLine TOUR! 🇱🇰\n\nI want to book a transfer:\n\n👤 Name: ${formData.fullName}\n📞 Contact: ${formData.phone || formData.email}\n📍 Pickup: ${formData.pickupLocation}\n🏁 Destination: ${formData.dropoffLocation}\n📅 Date: ${formData.pickupDate} at ${formData.pickupTime || 'Flexible'}\n✈️ Flight: ${formData.flightNumber || 'None'}\n👥 Passengers: ${formData.passengers} Pax (${formData.luggage} Bags)\n📝 Notes: ${formData.notes || 'None'}\n\nPlease provide quotation and confirm booking.`
     );
     setTimeout(() => {
-      window.open(`https://wa.me/94760782814?text=${msg}`, '_blank');
+      window.open(`https://wa.me/94715477149?text=${msg}`, '_blank');
     }, 900);
   };
 
@@ -176,7 +176,7 @@ export default function SedanTransfersPage() {
           <span
             data-reveal="fade-down"
             data-reveal-delay="100"
-            className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
+            className="font-caveat text-3xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-8px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
             Private Chauffeur &amp;
@@ -185,7 +185,7 @@ export default function SedanTransfersPage() {
           <h1 
             data-reveal="fade-up"
             data-reveal-delay="200"
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
+            className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-[90px] font-bold tracking-wider sm:tracking-widest text-[#f8fbfa] uppercase leading-tight sm:leading-none drop-shadow-2xl mb-6 max-w-full"
           >
             SEDAN TRANSFERS
           </h1>
@@ -193,7 +193,7 @@ export default function SedanTransfersPage() {
           <p 
             data-reveal="fade-up"
             data-reveal-delay="300"
-            className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md"
+            className="text-xs sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md px-2"
           >
             Safe, reliable, and comfortable private air-conditioned sedan drops across all of Sri Lanka. Driven by certified English-speaking tourist chauffeurs.
           </p>
@@ -211,7 +211,7 @@ export default function SedanTransfersPage() {
             </a>
 
             <a
-              href={`https://wa.me/94760782814?text=${encodeURIComponent('Hello Nihar Sri Lanka Tour! I want to inquire about a private sedan transfer.')}`}
+              href={`https://wa.me/94715477149?text=${encodeURIComponent('Hello GoldenLine TOUR! I want to inquire about a private sedan transfer.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-2 shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
@@ -704,13 +704,21 @@ export default function SedanTransfersPage() {
                 <div className="text-xs uppercase font-bold text-[#cba258] tracking-wider mb-1">
                   Direct Chauffeur Booking Hotline
                 </div>
-                <a
-                  href="tel:+94760782814"
-                  className="font-serif text-2xl sm:text-3xl font-bold text-white hover:text-[#cba258] transition-colors flex items-center gap-3"
-                >
-                  <Phone className="w-6 h-6 text-[#cba258]" />
-                  <span>+94 760 782 814</span>
-                </a>
+                <div className="space-y-1">
+                  <a
+                    href="tel:+94715477149"
+                    className="font-serif text-2xl sm:text-3xl font-bold text-white hover:text-[#cba258] transition-colors flex items-center gap-3"
+                  >
+                    <Phone className="w-6 h-6 text-[#cba258]" />
+                    <span>+94 71 547 7149</span>
+                  </a>
+                  <a
+                    href="tel:+94723210119"
+                    className="text-xs text-gray-300 hover:text-[#cba258] transition-colors block pl-9"
+                  >
+                    Secondary: +94 72 321 0119
+                  </a>
+                </div>
                 <p className="text-xs text-gray-400 mt-2">
                   Call or WhatsApp anytime 24/7 for urgent rides and transfers.
                 </p>
@@ -736,7 +744,7 @@ export default function SedanTransfersPage() {
                       Transfer Request Received!
                     </h4>
                     <p className="text-sm text-gray-600 max-w-md mx-auto">
-                      Opening WhatsApp to connect you directly with <strong>+94 760 782 814</strong> for instant confirmation.
+                      Opening WhatsApp to connect you directly with <strong>+94 71 547 7149</strong> for instant confirmation.
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
@@ -929,7 +937,7 @@ export default function SedanTransfersPage() {
                     >
                       <WhatsAppIcon className="w-5 h-5 fill-white shrink-0" />
                       <span className="text-center">
-                        <span className="hidden sm:inline">Confirm &amp; Message on WhatsApp (+94 760 782 814)</span>
+                        <span className="hidden sm:inline">Confirm &amp; Message on WhatsApp (+94 71 547 7149)</span>
                         <span className="sm:hidden">Confirm via WhatsApp</span>
                       </span>
                     </button>
@@ -1005,7 +1013,7 @@ export default function SedanTransfersPage() {
       {/* Floating WhatsApp Quick Action Button */}
       <div className="floating-whatsapp">
         <a
-          href="https://wa.me/94760782814"
+          href="https://wa.me/94715477149"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"
