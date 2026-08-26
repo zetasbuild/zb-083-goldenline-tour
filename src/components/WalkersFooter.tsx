@@ -11,30 +11,30 @@ export const WalkersFooter: React.FC = () => {
     <footer className="bg-[#041B2D] text-white pt-20 pb-10 border-t border-white/10 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* 5-Column Navigation Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10 text-xs text-gray-300">
+        {/* 12-Column Responsive Navigation Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 xl:gap-10 pb-16 border-b border-white/10 text-xs text-gray-300">
           
           {/* Col 1: Brand & Contact Info */}
-          <div className="lg:col-span-1 space-y-4">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden bg-[#001f35] border-2 border-[#cba258]/60 shadow-md group-hover:scale-105 transition-transform duration-300 shrink-0">
+          <div className="md:col-span-2 lg:col-span-4 space-y-4">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full overflow-hidden bg-[#001f35] border-2 border-[#cba258]/60 shadow-md group-hover:scale-105 transition-transform duration-300 shrink-0">
                 <Image
                   src="/images/logo.webp"
                   alt="GoldenLine TOUR Logo"
                   fill
-                  sizes="40px"
+                  sizes="44px"
                   className="object-cover"
                 />
               </div>
               <span 
-                className="font-caveat text-3xl sm:text-4xl text-[#cba258] whitespace-nowrap group-hover:scale-105 transition-transform duration-300 drop-shadow-sm"
+                className="font-caveat text-2xl sm:text-3xl text-[#cba258] whitespace-nowrap group-hover:scale-105 transition-transform duration-300 drop-shadow-sm leading-tight"
                 style={{ fontFamily: 'var(--font-caveat), cursive' }}
               >
                 GoldenLine TOUR
               </span>
             </Link>
 
-            <p className="text-[11px] text-gray-400 leading-relaxed">
+            <p className="text-[11px] text-gray-400 leading-relaxed max-w-sm">
               Your trusted partner for tailor-made bespoke tours, islandwide private sedan transfers, and unforgettable Sri Lankan journeys.
             </p>
 
@@ -82,7 +82,7 @@ export const WalkersFooter: React.FC = () => {
           </div>
 
           {/* Col 2: Tour Packages */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="text-xs uppercase tracking-widest text-[#cba258] font-bold mb-4">
               Tour Packages
             </h4>
@@ -133,7 +133,7 @@ export const WalkersFooter: React.FC = () => {
           </div>
 
           {/* Col 3: Sedan Transfers & Taxi Rates */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="text-xs uppercase tracking-widest text-[#cba258] font-bold mb-4">
               Sedan Transfers
             </h4>
@@ -189,7 +189,7 @@ export const WalkersFooter: React.FC = () => {
           </div>
 
           {/* Col 4: Quick Navigation */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="text-xs uppercase tracking-widest text-[#cba258] font-bold mb-4">
               Quick Links
             </h4>
@@ -234,7 +234,7 @@ export const WalkersFooter: React.FC = () => {
           </div>
 
           {/* Col 5: Accreditations & Trust */}
-          <div>
+          <div className="lg:col-span-2">
             <h4 className="text-xs uppercase tracking-widest text-[#cba258] font-bold mb-4">
               Trust &amp; Safety
             </h4>
