@@ -8,7 +8,6 @@ import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { TOUR_PACKAGES } from '@/data/travelData';
-import { useCurrency } from '@/context/CurrencyContext';
 import {
   CheckCircle2,
   Hotel,
@@ -32,7 +31,6 @@ export default function TourDetailPage() {
   const params = useParams();
   const router = useRouter();
   const tourId = params?.id as string;
-  const { formatPrice } = useCurrency();
 
   // Find the tour package
   const tour = TOUR_PACKAGES.find((t) => t.id === tourId) || TOUR_PACKAGES[0];
@@ -119,10 +117,10 @@ export default function TourDetailPage() {
               {tour.title}
             </h1>
 
-            {/* Price & Rating Bar */}
+            {/* Rating Bar */}
             <div className="flex items-center justify-center gap-4 mt-4 text-xs font-medium text-gray-500">
               <span className="text-[#9a752b] font-bold">
-                From {formatPrice(tour.priceLKR)} / person
+                Tailor-Made Private Tour
               </span>
               <span>·</span>
               <div className="flex items-center gap-1 text-[#cba258]">
@@ -599,8 +597,10 @@ export default function TourDetailPage() {
                         {relTour.description}
                       </p>
                       <div className="flex items-center justify-between pt-3 border-t border-white/20">
-                        <div className="font-serif text-lg font-bold text-[#8ed1fc]">
-                          {formatPrice(relTour.priceLKR)}
+                        <div>
+                          <span className="text-[10px] uppercase tracking-widest text-[#8ed1fc] font-bold block">
+                            Custom Itinerary
+                          </span>
                         </div>
                         <div className="next-btn next-btn--white">
                           <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">

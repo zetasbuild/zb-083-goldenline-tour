@@ -11,7 +11,6 @@ import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { WalkersCustomTripForm } from '@/components/WalkersCustomTripForm';
 import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
 import { TOUR_PACKAGES } from '@/data/travelData';
-import { useCurrency } from '@/context/CurrencyContext';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 import {
   MapPin,
@@ -21,7 +20,6 @@ import {
 
 export default function ToursOverviewPage() {
   const router = useRouter();
-  const { formatPrice } = useCurrency();
 
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -231,12 +229,12 @@ export default function ToursOverviewPage() {
                     </div>
                   </div>
 
-                  {/* Price & Action */}
+                  {/* Action */}
                   <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
                     <div>
-                      <div className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">Price From</div>
-                      <div className="font-serif text-xl font-bold text-[var(--color-primary)]">
-                        {formatPrice(pkg.priceLKR)}
+                      <div className="text-[10px] uppercase tracking-wider text-[#cba258] font-bold">Custom Tour</div>
+                      <div className="font-serif text-sm sm:text-base font-bold text-[var(--color-primary)]">
+                        Tailor-Made
                       </div>
                     </div>
 
