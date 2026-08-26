@@ -23,6 +23,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://goldenlinetour.lk'),
   title: 'GoldenLine TOUR | Premium Tours & Vehicle Rentals',
   description:
     'Uncover the magic of Sri Lanka with GoldenLine TOUR. Premium handcrafted tour packages, comfortable vehicle rentals, luxury chauffeur service, and authentic local experiences.',
