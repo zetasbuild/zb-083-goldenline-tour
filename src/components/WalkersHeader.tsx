@@ -74,7 +74,6 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
     { name: 'Destinations', href: '/destinations' },
     { name: 'Tour Packages', href: '/tours' },
     { name: 'Sedan Transfers', href: '/vehicles' },
-    { name: 'Services', href: '/services' },
     { name: 'About Us', href: '/about' },
     { name: 'Contact Us', href: '/contact' },
   ];

@@ -9,7 +9,6 @@ import { MandalaBackground, TropicalLeafBackground } from '@/components/Decorati
 import { InquireDrawer } from '@/components/Modals/InquireDrawer';
 import { OffcanvasSearch } from '@/components/Modals/OffcanvasSearch';
 import { BackgroundAutoSlider } from '@/components/BackgroundAutoSlider';
-import { useCurrency } from '@/context/CurrencyContext';
 import {
   TRANSFER_ROUTES,
   ORIGIN_HUBS,
@@ -52,8 +51,6 @@ import confetti from 'canvas-confetti';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 export default function SedanTransfersPage() {
-  const { formatPrice } = useCurrency();
-
   // Active Origin Hub Tab
   const [selectedHub, setSelectedHub] = useState<'colombo-airport' | 'kandy' | 'nuwara-eliya'>('colombo-airport');
   
@@ -122,7 +119,7 @@ export default function SedanTransfersPage() {
 
   const handleWhatsAppRouteBooking = (route: TransferRoute) => {
     const text = encodeURIComponent(
-      `Hello Nihar Sri Lanka Tour! 🇱🇰\n\nI would like to book a private Sedan Transfer:\n\n📍 Route: ${route.from} ➔ ${route.to}\n💰 Fixed Sedan Rate: Rs. ${route.priceLKR.toLocaleString()} (LKR)\n⏱️ Est. Duration: ${route.duration}\n\nPlease let me know driver availability and booking confirmation.`
+      `Hello Nihar Sri Lanka Tour! 🇱🇰\n\nI would like to book a private Sedan Transfer:\n\n📍 Route: ${route.from} ➔ ${route.to}\n🚗 Service: Private Chauffeur Sedan Drop\n⏱️ Est. Duration: ${route.duration}\n\nPlease let me know driver availability and booking confirmation.`
     );
     window.open(`https://wa.me/94760782814?text=${text}`, '_blank');
   };
@@ -140,15 +137,12 @@ export default function SedanTransfersPage() {
       // ignore
     }
 
-    // Prepare WhatsApp Message
-    const text = encodeURIComponent(
-      `Hello Nihar Sri Lanka Tour! 🇱🇰\n\nI want to book a Sedan Transfer:\n👤 Name: ${formData.fullName}\n📞 Contact: ${formData.phone}\n📧 Email: ${formData.email}\n📍 Pickup: ${formData.pickupLocation}\n🏁 Destination: ${formData.dropoffLocation}\n📅 Date: ${formData.pickupDate || 'To be confirmed'}\n⏰ Time: ${formData.pickupTime || 'Flexible'}${formData.flightNumber ? `\n✈️ Flight: ${formData.flightNumber}` : ''}\n👥 Passengers: ${formData.passengers} | 🧳 Luggage: ${formData.luggage} bags\n📝 Notes: ${formData.notes || 'None'}\n\nPlease confirm availability and rate!`
+    const msg = encodeURIComponent(
+      `Hello Nihar Sri Lanka Tour! 🇱🇰\n\nI want to book a transfer:\n\n👤 Name: ${formData.fullName}\n📞 Contact: ${formData.phone || formData.email}\n📍 Pickup: ${formData.pickupLocation}\n🏁 Destination: ${formData.dropoffLocation}\n📅 Date: ${formData.pickupDate} at ${formData.pickupTime || 'Flexible'}\n✈️ Flight: ${formData.flightNumber || 'None'}\n👥 Passengers: ${formData.passengers} Pax (${formData.luggage} Bags)\n📝 Notes: ${formData.notes || 'None'}\n\nPlease provide quotation and confirm booking.`
     );
-
-    // Open WhatsApp after brief delay
     setTimeout(() => {
-      window.open(`https://wa.me/94760782814?text=${text}`, '_blank');
-    }, 1200);
+      window.open(`https://wa.me/94760782814?text=${msg}`, '_blank');
+    }, 900);
   };
 
   const selectRouteForForm = (route: TransferRoute) => {
@@ -163,40 +157,35 @@ export default function SedanTransfersPage() {
 
   return (
     <main className="min-h-screen flex flex-col bg-[#F5F2E6] relative">
-      {/* Header */}
+      {/* GoldenLine TOUR Luxury Header */}
       <WalkersHeader
         onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenInquire={() => {
-          setInquireInterest('General Sedan Transfer Inquiry');
-          setIsInquireOpen(true);
-        }}
       />
 
       {/* =========================================================================
-          HERO BANNER: Luxury Dark Theme with Background Auto Slider & Signature Gold
+          HERO BANNER: High Impact Luxury Backdrop & GoldenLine Headline
       ========================================================================== */}
-      <section className="relative min-h-[80vh] lg:min-h-[88vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
+      <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
         <BackgroundAutoSlider
           slides={transferSlides}
           intervalMs={4500}
-          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]"
+          overlayGradient="bg-gradient-to-b from-black/85 via-black/45 to-[#041B2D]"
         />
 
-        <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-0 flex flex-col items-center">
-          {/* Top Script Text */}
+        <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <span
             data-reveal="fade-down"
             data-reveal-delay="100"
-            className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2"
+            className="font-caveat text-4xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-10px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
-            {CONTACT_INFO.tagline}
+            Private Chauffeur &amp;
           </span>
 
           <h1 
             data-reveal="fade-up"
             data-reveal-delay="200"
-            className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[85px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6 lg:mb-8 mt-2"
+            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[90px] font-bold tracking-widest text-[#f8fbfa] uppercase leading-none drop-shadow-2xl mb-6"
           >
             SEDAN TRANSFERS
           </h1>
@@ -206,7 +195,7 @@ export default function SedanTransfersPage() {
             data-reveal-delay="300"
             className="text-sm sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md"
           >
-            Fixed, transparent rates for comfortable private air-conditioned sedan drops across all of Sri Lanka. Driven by certified English-speaking tourist chauffeurs.
+            Safe, reliable, and comfortable private air-conditioned sedan drops across all of Sri Lanka. Driven by certified English-speaking tourist chauffeurs.
           </p>
 
           {/* Action CTAs */}
@@ -218,7 +207,7 @@ export default function SedanTransfersPage() {
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
               </div>
-              <span className="text-xs uppercase tracking-widest font-bold">Browse All 57 Routes</span>
+              <span className="text-xs uppercase tracking-widest font-bold">Browse All Routes</span>
             </a>
 
             <a
@@ -230,20 +219,6 @@ export default function SedanTransfersPage() {
               <WhatsAppIcon className="w-4 h-4 fill-white" />
               <span>Instant WhatsApp Booking</span>
             </a>
-          </div>
-
-          {/* Quick Contact Bar */}
-          <div className="mt-8 pt-6 border-t border-white/15 flex items-center justify-center gap-6 text-xs sm:text-sm text-gray-200 flex-wrap">
-            <span className="flex items-center gap-1.5">
-              <Phone className="w-4 h-4 text-[#cba258]" />
-              <a href="tel:+94760782814" className="hover:text-white font-bold tracking-wide">
-                +94 760 782 814
-              </a>
-            </span>
-            <span className="hidden sm:inline text-white/40">•</span>
-            <span className="text-[#cba258] font-semibold">
-              Pickup &amp; Drop-Off • Airport Transfers • Islandwide Drops
-            </span>
           </div>
         </div>
       </section>
@@ -268,7 +243,7 @@ export default function SedanTransfersPage() {
                   {pillar.title}
                 </span>
                 <span className="text-[11px] text-gray-300 mt-0.5 whitespace-nowrap">
-                  {idx === 0 ? 'Toyota Sedans' : idx === 1 ? 'SLTDA Insured' : idx === 2 ? 'English Speaking' : idx === 3 ? 'Fixed Rates' : '24/7 Helpline'}
+                  {idx === 0 ? 'Toyota Sedans' : idx === 1 ? 'SLTDA Insured' : idx === 2 ? 'English Speaking' : idx === 3 ? 'Dedicated Chauffeur' : '24/7 Helpline'}
                 </span>
               </div>
             ))}
@@ -289,7 +264,7 @@ export default function SedanTransfersPage() {
                   {pillar.title}
                 </span>
                 <span className="text-[11px] text-gray-300 mt-0.5 whitespace-nowrap">
-                  {idx === 0 ? 'Toyota Sedans' : idx === 1 ? 'SLTDA Insured' : idx === 2 ? 'English Speaking' : idx === 3 ? 'Fixed Rates' : '24/7 Helpline'}
+                  {idx === 0 ? 'Toyota Sedans' : idx === 1 ? 'SLTDA Insured' : idx === 2 ? 'English Speaking' : idx === 3 ? 'Dedicated Chauffeur' : '24/7 Helpline'}
                 </span>
               </div>
             ))}
@@ -316,13 +291,13 @@ export default function SedanTransfersPage() {
               className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1 inline-block -rotate-2"
               style={{ fontFamily: 'var(--font-caveat), cursive' }}
             >
-              Guaranteed Upfront Pricing
+              Direct Islandwide Transfers
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#041B2D] mb-3">
-              Explore Rates by Origin Hub
+              Explore Routes by Origin Hub
             </h2>
             <p className="text-sm sm:text-base text-gray-600">
-              Select your departure point to view all official fixed sedan transfer prices across Sri Lanka.
+              Select your departure point to view all official private sedan transfer routes across Sri Lanka.
             </p>
           </div>
 
@@ -366,7 +341,7 @@ export default function SedanTransfersPage() {
                   <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between text-[11px] font-semibold">
                     <span className={isSelected ? 'text-gray-600' : 'text-gray-400'}>19 Direct Routes</span>
                     <span className={`flex items-center gap-1 shrink-0 ${isSelected ? 'text-[#cba258]' : 'text-gray-400 group-hover:text-gray-600'}`}>
-                      View Price List <ChevronRight className="w-3.5 h-3.5" />
+                      View Routes <ChevronRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
                 </button>
@@ -421,10 +396,10 @@ export default function SedanTransfersPage() {
                       ? 'bg-[#041B2D] text-[#cba258] shadow-sm'
                       : 'text-gray-600 hover:text-[#041B2D]'
                   }`}
-                  aria-label="Price table view"
+                  aria-label="Routes table view"
                 >
                   <TableIcon className="w-3.5 h-3.5" />
-                  <span>Price Table</span>
+                  <span>Route Table</span>
                 </button>
               </div>
             </div>
@@ -457,7 +432,7 @@ export default function SedanTransfersPage() {
                 {currentHubInfo.title} ➔ All Destinations
               </h3>
               <p className="text-xs text-gray-500 mt-0.5">
-                Showing {filteredRoutes.length} of 19 official sedan rates
+                Showing {filteredRoutes.length} of 19 official transfer routes
               </p>
             </div>
 
@@ -468,7 +443,7 @@ export default function SedanTransfersPage() {
           </div>
 
           {/* =====================================================================
-              VIEW 1: CARDS GRID VIEW (Matching Luxury Destination Cards UI)
+              VIEW 1: CARDS GRID VIEW
           ====================================================================== */}
           {viewMode === 'grid' && (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -516,17 +491,16 @@ export default function SedanTransfersPage() {
                     </div>
 
                     <div className="flex items-center justify-between pt-1">
-                      {/* Price */}
                       <div>
-                        <div className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">
-                          Sedan Price
+                        <div className="text-[10px] uppercase tracking-wider text-[#cba258] font-bold">
+                          Vehicle Service
                         </div>
-                        <div className="font-serif text-xl sm:text-2xl font-bold text-white group-hover:text-[#cba258] transition-colors">
-                          Rs. {route.priceLKR.toLocaleString()}
+                        <div className="font-serif text-sm sm:text-base font-bold text-white group-hover:text-[#cba258] transition-colors">
+                          Private Chauffeur
                         </div>
                       </div>
 
-                      {/* Next Button Style (Matching Destination Cards) */}
+                      {/* Next Button Style */}
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
@@ -548,14 +522,14 @@ export default function SedanTransfersPage() {
           )}
 
           {/* =====================================================================
-              VIEW 2: GOLD PRICE TABLE VIEW (Exact layout as printed posters)
+              VIEW 2: TABLE VIEW
           ====================================================================== */}
           {viewMode === 'table' && (
             <div className="bg-[#041B2D] rounded-3xl p-4 sm:p-8 shadow-2xl border-2 border-[#cba258]/30 overflow-hidden text-white">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-[#cba258]/30">
                 <div>
                   <span className="text-xs uppercase font-bold tracking-widest text-[#cba258]">
-                    Official Sedan Transfer Price List
+                    Official Sedan Transfer Route Directory
                   </span>
                   <h3 className="font-serif text-2xl sm:text-3xl font-bold mt-1 text-white">
                     {currentHubInfo.title} ➔ Islandwide Destinations
@@ -563,7 +537,7 @@ export default function SedanTransfersPage() {
                 </div>
                 <div className="text-right text-xs text-gray-300">
                   <span className="inline-block px-3 py-1 bg-[#cba258]/20 text-[#cba258] border border-[#cba258]/40 rounded-full font-bold">
-                    Fixed Rates • Fully Insured
+                    Private Drops • Fully Insured
                   </span>
                 </div>
               </div>
@@ -576,7 +550,7 @@ export default function SedanTransfersPage() {
                       <th className="py-3.5 px-4 min-w-[200px]">Route</th>
                       <th className="py-3.5 px-4 hidden md:table-cell">Category</th>
                       <th className="py-3.5 px-4 hidden sm:table-cell">Est. Duration</th>
-                      <th className="py-3.5 px-4 text-right min-w-[130px]">Sedan Price (LKR)</th>
+                      <th className="py-3.5 px-4 text-right min-w-[130px]">Service Type</th>
                       <th className="py-3.5 px-4 text-center min-w-[120px]">Instant Action</th>
                     </tr>
                   </thead>
@@ -605,12 +579,9 @@ export default function SedanTransfersPage() {
                           {route.duration}
                         </td>
                         <td className="py-3.5 px-4 text-right">
-                          <div className="font-serif text-base sm:text-lg font-bold text-[#cba258]">
-                            Rs. {route.priceLKR.toLocaleString()}
-                          </div>
-                          <div className="text-[11px] text-gray-400">
-                            {formatPrice(route.priceLKR)}
-                          </div>
+                          <span className="inline-block px-3 py-1 bg-white/10 text-[#cba258] rounded-full text-xs font-semibold">
+                            Private Chauffeur
+                          </span>
                         </td>
                         <td className="py-3.5 px-4 text-center">
                           <button

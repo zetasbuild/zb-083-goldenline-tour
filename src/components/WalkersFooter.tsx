@@ -197,12 +197,6 @@ export const WalkersFooter: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
-                  <ChevronRight className="w-3 h-3 text-[#cba258]/60" />
-                  <span>Our Services</span>
-                </Link>
-              </li>
-              <li>
                 <Link href="/about" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3 h-3 text-[#cba258]/60" />
                   <span>About Us</span>
