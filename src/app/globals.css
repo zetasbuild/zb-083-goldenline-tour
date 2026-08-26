@@ -178,8 +178,11 @@ body {
    PREMIUM SMOOTH SCROLL REVEAL & SECTION APPEAR ANIMATION SYSTEM
    ========================================================================= */
 
-html {
+html[data-scroll-behavior="smooth"] {
   scroll-behavior: smooth;
+}
+
+html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

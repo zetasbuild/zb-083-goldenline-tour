@@ -51,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${playfair.variable} ${caveat.variable} scroll-smooth`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${outfit.variable} ${playfair.variable} ${caveat.variable} scroll-smooth`}>
       <body className="font-sans antialiased text-[#13261f] bg-[#fbfdfc] selection:bg-[#D4AF37] selection:text-white">
         <CurrencyProvider>
           <ScrollRevealProvider>
