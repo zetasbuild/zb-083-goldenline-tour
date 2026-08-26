@@ -27,7 +27,7 @@ export const ORIGIN_HUBS: OriginHub[] = [
     subtitle: 'Bandaranaike International Airport Transfers to Islandwide Destinations',
     badge: 'Airport Arrivals Hub',
     iconName: 'PlaneTakeoff',
-    bgImage: '/images/airport.jpg',
+    bgImage: '/images/locations/airport.webp',
   },
   {
     slug: 'kandy',
@@ -35,7 +35,7 @@ export const ORIGIN_HUBS: OriginHub[] = [
     subtitle: 'From Central Highlands to Coastal Resorts & Cultural Heritage Sites',
     badge: 'Central Highlands Hub',
     iconName: 'Landmark',
-    bgImage: '/images/kandy.webp',
+    bgImage: '/images/locations/kandy.webp',
   },
   {
     slug: 'nuwara-eliya',
@@ -43,7 +43,7 @@ export const ORIGIN_HUBS: OriginHub[] = [
     subtitle: 'From High Altitude Tea Country to Beach Towns, Airport & Safaris',
     badge: 'Tea Country Hub',
     iconName: 'Mountain',
-    bgImage: '/images/nuwaraeliya.jpg',
+    bgImage: '/images/locations/nuwaraeliya.webp',
   },
 ];
 
@@ -59,7 +59,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 8500,
     duration: '45 mins (Expressway)',
     category: 'Popular',
-    image: '/images/colombo.webp',
+    image: '/images/locations/colombo.webp',
   },
   {
     id: 'cmb-negombo',
@@ -69,7 +69,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 7500,
     duration: '20 mins',
     category: 'Popular',
-    image: '/images/weligama.jpg',
+    image: '/images/locations/weligama.webp',
   },
   {
     id: 'cmb-bentota',
@@ -79,7 +79,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 15000,
     duration: '1 hr 45 mins (Expressway)',
     category: 'Beaches',
-    image: '/images/bentota.jpg',
+    image: '/images/locations/bentota.webp',
   },
   {
     id: 'cmb-hikkaduwa',
@@ -89,7 +89,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 18000,
     duration: '2 hrs (Expressway)',
     category: 'Beaches',
-    image: '/images/mirissa.jpg',
+    image: '/images/locations/mirissa.webp',
   },
   {
     id: 'cmb-galle',
@@ -99,7 +99,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 20000,
     duration: '2 hrs 15 mins (Expressway)',
     category: 'Beaches',
-    image: '/images/gallefort.png',
+    image: '/images/locations/gallefort.webp',
   },
   {
     id: 'cmb-mirissa',
@@ -109,7 +109,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 24000,
     duration: '2.5 hrs (Expressway)',
     category: 'Beaches',
-    image: '/images/mirissa_coconut_tree_hill.jpg',
+    image: '/images/locations/mirissa_coconut_tree_hill.webp',
   },
   {
     id: 'cmb-tangalle',
@@ -119,7 +119,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 28000,
     duration: '3 hrs (Expressway)',
     category: 'Beaches',
-    image: '/images/tangalle.jpg',
+    image: '/images/locations/tangalle.webp',
   },
   {
     id: 'cmb-yala',
@@ -129,7 +129,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 38000,
     duration: '4.5 hrs',
     category: 'Wildlife',
-    image: '/images/yala.jpg',
+    image: '/images/locations/yala.webp',
   },
   {
     id: 'cmb-kandy',
@@ -139,7 +139,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 23000,
     duration: '3 hrs 15 mins',
     category: 'Hill Country',
-    image: '/images/kandy.webp',
+    image: '/images/locations/kandy.webp',
   },
   {
     id: 'cmb-sigiriya',
@@ -149,7 +149,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 24000,
     duration: '3.5 hrs',
     category: 'Cultural',
-    image: '/images/sigiriya.jpg',
+    image: '/images/locations/sigiriya.webp',
   },
   {
     id: 'cmb-dambulla',
@@ -159,7 +159,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 23000,
     duration: '3 hrs 15 mins',
     category: 'Cultural',
-    image: '/images/dambulla.jpg',
+    image: '/images/locations/dambulla.webp',
   },
   {
     id: 'cmb-nuwara-eliya',
@@ -169,7 +169,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 28000,
     duration: '5 hrs',
     category: 'Hill Country',
-    image: '/images/nuwaraeliya.jpg',
+    image: '/images/locations/nuwaraeliya.webp',
   },
   {
     id: 'cmb-ella',
@@ -179,7 +179,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 36000,
     duration: '5.5 hrs',
     category: 'Hill Country',
-    image: '/images/hero-ella.jpg',
+    image: '/images/locations/hero-ella.webp',
   },
   {
     id: 'cmb-arugam-bay',
@@ -189,7 +189,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 48000,
     duration: '7 hrs',
     category: 'Beaches',
-    image: '/images/arugambay.jpeg',
+    image: '/images/locations/arugambay.webp',
   },
   {
     id: 'cmb-trincomalee',
@@ -209,7 +209,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 46000,
     duration: '6 hrs',
     category: 'North & East',
-    image: '/images/pigeon.jpg',
+    image: '/images/locations/pigeon.webp',
   },
   {
     id: 'cmb-anuradhapura',
@@ -219,7 +219,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 30000,
     duration: '4 hrs',
     category: 'Cultural',
-    image: '/images/cultural.jpg',
+    image: '/images/locations/cultural.webp',
   },
   {
     id: 'cmb-polonnaruwa',
@@ -229,7 +229,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 34000,
     duration: '4.5 hrs',
     category: 'Cultural',
-    image: '/images/polonnaruwa.jpg',
+    image: '/images/locations/polonnaruwa.webp',
   },
   {
     id: 'cmb-jaffna',
@@ -239,7 +239,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 60000,
     duration: '7.5 hrs',
     category: 'North & East',
-    image: '/images/classic.webp',
+    image: '/images/locations/classic.webp',
   },
 
   // ==========================================
@@ -253,7 +253,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 18000,
     duration: '3 hrs 15 mins',
     category: 'Popular',
-    image: '/images/colombo.webp',
+    image: '/images/locations/colombo.webp',
   },
   {
     id: 'kandy-colombo-airport',
@@ -263,7 +263,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 23000,
     duration: '3 hrs 15 mins',
     category: 'Popular',
-    image: '/images/airport.jpg',
+    image: '/images/locations/airport.webp',
   },
   {
     id: 'kandy-negombo',
@@ -273,7 +273,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 22000,
     duration: '3 hrs',
     category: 'Beaches',
-    image: '/images/weligama.jpg',
+    image: '/images/locations/weligama.webp',
   },
   {
     id: 'kandy-pinnawala',
@@ -283,7 +283,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 10000,
     duration: '1 hr 15 mins',
     category: 'Wildlife',
-    image: '/images/minneriya.jpg',
+    image: '/images/locations/minneriya.webp',
   },
   {
     id: 'kandy-sigiriya',
@@ -293,7 +293,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 15000,
     duration: '2.5 hrs',
     category: 'Cultural',
-    image: '/images/sigiriya.jpg',
+    image: '/images/locations/sigiriya.webp',
   },
   {
     id: 'kandy-dambulla',
@@ -303,7 +303,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 14000,
     duration: '2 hrs 15 mins',
     category: 'Cultural',
-    image: '/images/dambulla.jpg',
+    image: '/images/locations/dambulla.webp',
   },
   {
     id: 'kandy-polonnaruwa',
@@ -313,7 +313,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 24000,
     duration: '3.5 hrs',
     category: 'Cultural',
-    image: '/images/polonnaruwa.jpg',
+    image: '/images/locations/polonnaruwa.webp',
   },
   {
     id: 'kandy-anuradhapura',
@@ -323,7 +323,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 25000,
     duration: '3.5 hrs',
     category: 'Cultural',
-    image: '/images/cultural.jpg',
+    image: '/images/locations/cultural.webp',
   },
   {
     id: 'kandy-nuwara-eliya',
@@ -333,7 +333,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 18000,
     duration: '2.5 hrs',
     category: 'Hill Country',
-    image: '/images/nuwaraeliya.jpg',
+    image: '/images/locations/nuwaraeliya.webp',
   },
   {
     id: 'kandy-ella',
@@ -343,7 +343,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 26000,
     duration: '4 hrs',
     category: 'Hill Country',
-    image: '/images/hero-ella.jpg',
+    image: '/images/locations/hero-ella.webp',
   },
   {
     id: 'kandy-yala',
@@ -353,7 +353,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 36000,
     duration: '5.5 hrs',
     category: 'Wildlife',
-    image: '/images/yala.jpg',
+    image: '/images/locations/yala.webp',
   },
   {
     id: 'kandy-bentota',
@@ -363,7 +363,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 28000,
     duration: '4 hrs',
     category: 'Beaches',
-    image: '/images/bentota.jpg',
+    image: '/images/locations/bentota.webp',
   },
   {
     id: 'kandy-hikkaduwa',
@@ -373,7 +373,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 30000,
     duration: '4.5 hrs',
     category: 'Beaches',
-    image: '/images/weligama.jpg',
+    image: '/images/locations/weligama.webp',
   },
   {
     id: 'kandy-galle',
@@ -383,7 +383,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 32000,
     duration: '4.5 hrs',
     category: 'Beaches',
-    image: '/images/gallefort.png',
+    image: '/images/locations/gallefort.webp',
   },
   {
     id: 'kandy-mirissa',
@@ -393,7 +393,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 36000,
     duration: '5 hrs',
     category: 'Beaches',
-    image: '/images/mirissa.jpg',
+    image: '/images/locations/mirissa.webp',
   },
   {
     id: 'kandy-tangalle',
@@ -403,7 +403,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 40000,
     duration: '5.5 hrs',
     category: 'Beaches',
-    image: '/images/tangalle.jpg',
+    image: '/images/locations/tangalle.webp',
   },
   {
     id: 'kandy-trincomalee',
@@ -423,7 +423,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 30000,
     duration: '4.5 hrs',
     category: 'North & East',
-    image: '/images/pigeon.jpg',
+    image: '/images/locations/pigeon.webp',
   },
   {
     id: 'kandy-jaffna',
@@ -433,7 +433,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 50000,
     duration: '6.5 hrs',
     category: 'North & East',
-    image: '/images/classic.webp',
+    image: '/images/locations/classic.webp',
   },
 
   // ==========================================
@@ -447,7 +447,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 28000,
     duration: '4.5 hrs',
     category: 'Popular',
-    image: '/images/colombo.webp',
+    image: '/images/locations/colombo.webp',
   },
   {
     id: 'ne-colombo-airport',
@@ -457,7 +457,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 33000,
     duration: '5 hrs',
     category: 'Popular',
-    image: '/images/airport.jpg',
+    image: '/images/locations/airport.webp',
   },
   {
     id: 'ne-negombo',
@@ -467,7 +467,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 32000,
     duration: '5 hrs',
     category: 'Beaches',
-    image: '/images/weligama.jpg',
+    image: '/images/locations/weligama.webp',
   },
   {
     id: 'ne-kandy',
@@ -477,7 +477,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 18000,
     duration: '2.5 hrs',
     category: 'Hill Country',
-    image: '/images/kandy.webp',
+    image: '/images/locations/kandy.webp',
   },
   {
     id: 'ne-ella',
@@ -487,7 +487,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 12000,
     duration: '2 hrs',
     category: 'Hill Country',
-    image: '/images/hero-ella.jpg',
+    image: '/images/locations/hero-ella.webp',
   },
   {
     id: 'ne-bentota',
@@ -497,7 +497,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 30000,
     duration: '5 hrs',
     category: 'Beaches',
-    image: '/images/bentota.jpg',
+    image: '/images/locations/bentota.webp',
   },
   {
     id: 'ne-hikkaduwa',
@@ -507,7 +507,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 32000,
     duration: '5 hrs',
     category: 'Beaches',
-    image: '/images/weligama.jpg',
+    image: '/images/locations/weligama.webp',
   },
   {
     id: 'ne-galle',
@@ -517,7 +517,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 34000,
     duration: '5.5 hrs',
     category: 'Beaches',
-    image: '/images/gallefort.png',
+    image: '/images/locations/gallefort.webp',
   },
   {
     id: 'ne-mirissa',
@@ -527,7 +527,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 36000,
     duration: '5.5 hrs',
     category: 'Beaches',
-    image: '/images/mirissa_coconut_tree_hill.jpg',
+    image: '/images/locations/mirissa_coconut_tree_hill.webp',
   },
   {
     id: 'ne-tangalle',
@@ -537,7 +537,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 40000,
     duration: '5 hrs',
     category: 'Beaches',
-    image: '/images/tangalle.jpg',
+    image: '/images/locations/tangalle.webp',
   },
   {
     id: 'ne-yala',
@@ -547,7 +547,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 42000,
     duration: '5 hrs',
     category: 'Wildlife',
-    image: '/images/yala.jpg',
+    image: '/images/locations/yala.webp',
   },
   {
     id: 'ne-sigiriya',
@@ -557,7 +557,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 30000,
     duration: '4 hrs',
     category: 'Cultural',
-    image: '/images/sigiriya.jpg',
+    image: '/images/locations/sigiriya.webp',
   },
   {
     id: 'ne-dambulla',
@@ -567,7 +567,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 28000,
     duration: '3.5 hrs',
     category: 'Cultural',
-    image: '/images/dambulla.jpg',
+    image: '/images/locations/dambulla.webp',
   },
   {
     id: 'ne-anuradhapura',
@@ -577,7 +577,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 36000,
     duration: '5 hrs',
     category: 'Cultural',
-    image: '/images/cultural.jpg',
+    image: '/images/locations/cultural.webp',
   },
   {
     id: 'ne-polonnaruwa',
@@ -587,7 +587,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 38000,
     duration: '5 hrs',
     category: 'Cultural',
-    image: '/images/polonnaruwa.jpg',
+    image: '/images/locations/polonnaruwa.webp',
   },
   {
     id: 'ne-trincomalee',
@@ -607,7 +607,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 52000,
     duration: '6 hrs',
     category: 'North & East',
-    image: '/images/pigeon.jpg',
+    image: '/images/locations/pigeon.webp',
   },
   {
     id: 'ne-arugam-bay',
@@ -617,7 +617,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 54000,
     duration: '6 hrs',
     category: 'Beaches',
-    image: '/images/arugambay.jpeg',
+    image: '/images/locations/arugambay.webp',
   },
   {
     id: 'ne-jaffna',
@@ -627,7 +627,7 @@ export const TRANSFER_ROUTES: TransferRoute[] = [
     priceLKR: 65000,
     duration: '8.5 hrs',
     category: 'North & East',
-    image: '/images/classic.webp',
+    image: '/images/locations/classic.webp',
   },
 ];
 

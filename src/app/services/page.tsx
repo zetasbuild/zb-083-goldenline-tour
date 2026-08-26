@@ -107,7 +107,7 @@ export default function ServicesPage() {
       id: 'cultural-heritage',
       title: 'Cultural Heritage & Archaeological Tours',
       category: 'Historic Wonders',
-      image: '/images/sigiriya.jpg',
+      image: '/images/locations/sigiriya.webp',
       description:
         'Unravel over 2,500 years of glorious ancient civilization. Climb the 5th-century Sigiriya Rock Fortress, wander the UNESCO sacred ruins of Polonnaruwa and Anuradhapura, explore the Dambulla Cave Monasteries, and experience the sacred Temple of the Tooth in Kandy.',
       features: [
@@ -152,7 +152,7 @@ export default function ServicesPage() {
       id: 'scenic-train-air',
       title: 'Scenic Hill Country Trains & Helicopter Charters',
       category: 'Exclusive Transit',
-      image: '/images/hero-ella.jpg',
+      image: '/images/locations/hero-ella.webp',
       description:
         'Elevate your journey with unforgettable scenic transport. We secure coveted first-class observation train tickets for the legendary Kandy to Ella mountain railway, as well as domestic seaplane and private helicopter charter transfers.',
       features: [

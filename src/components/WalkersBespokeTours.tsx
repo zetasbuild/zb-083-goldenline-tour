@@ -61,7 +61,7 @@ export const WalkersBespokeTours: React.FC<WalkersBespokeToursProps> = ({ onPlan
             {/* Small Overlapping Foreground Image */}
             <div className="hidden sm:block absolute -bottom-8 -left-6 w-60 h-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20 group hover-lift">
               <Image
-                src="/images/sigiriya.jpg"
+                src="/images/locations/sigiriya.webp"
                 alt="Sigiriya Heritage Journey"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"

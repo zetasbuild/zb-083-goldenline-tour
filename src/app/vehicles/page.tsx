@@ -86,12 +86,12 @@ export default function SedanTransfersPage() {
   const categories = ['All', 'Popular', 'Beaches', 'Hill Country', 'Cultural', 'Wildlife', 'North & East'];
 
   const transferSlides = [
-    { image: '/images/hero-ella.jpg', alt: 'Scenic Sri Lanka Mountain Highway & Tea Country', location: 'Highland Scenic Routes' },
-    { image: '/images/sigiriya.jpg', alt: 'Sigiriya Rock Citadel Cultural Transfers', location: 'Cultural Triangle' },
-    { image: '/images/mirissa.jpg', alt: 'Southern Expressway & Beach Resort Transfers', location: 'South Coast Beaches' },
-    { image: '/images/nuwaraeliya.jpg', alt: 'Nuwara Eliya Tea Gardens Chauffeur Drive', location: 'Little England Highlands' },
-    { image: '/images/gallefort.png', alt: 'Historic Galle Fort Lighthouse Coastal Drop', location: 'Galle & Southern Coast' },
-    { image: '/images/yala.jpg', alt: 'Yala National Park Safari Chauffeur Drop', location: 'Yala & Deep South' },
+    { image: '/images/locations/hero-ella.webp', alt: 'Scenic Sri Lanka Mountain Highway & Tea Country', location: 'Highland Scenic Routes' },
+    { image: '/images/locations/sigiriya.webp', alt: 'Sigiriya Rock Citadel Cultural Transfers', location: 'Cultural Triangle' },
+    { image: '/images/locations/mirissa.webp', alt: 'Southern Expressway & Beach Resort Transfers', location: 'South Coast Beaches' },
+    { image: '/images/locations/nuwaraeliya.webp', alt: 'Nuwara Eliya Tea Gardens Chauffeur Drive', location: 'Little England Highlands' },
+    { image: '/images/locations/gallefort.webp', alt: 'Historic Galle Fort Lighthouse Coastal Drop', location: 'Galle & Southern Coast' },
+    { image: '/images/locations/yala.webp', alt: 'Yala National Park Safari Chauffeur Drop', location: 'Yala & Deep South' },
   ];
 
   // Current Active Hub Information

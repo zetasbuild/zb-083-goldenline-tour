@@ -10,12 +10,12 @@ interface WalkersIntroProps {
 
 const LEFT_IMAGES = [
   {
-    src: '/images/sigiriya.jpg',
+    src: '/images/locations/sigiriya.webp',
     alt: 'Sigiriya Rock Fortress Sri Lanka',
     caption: 'Sigiriya Fortress',
   },
   {
-    src: '/images/hero-ella.jpg',
+    src: '/images/locations/hero-ella.webp',
     alt: 'Nine Arch Bridge Ella Sri Lanka',
     caption: 'Nine Arch Bridge, Ella',
   },
@@ -33,7 +33,7 @@ const LEFT_IMAGES = [
 
 const RIGHT_IMAGES = [
   {
-    src: '/images/mirissa.jpg',
+    src: '/images/locations/mirissa.webp',
     alt: 'Mirissa Tropical Beach Coastline',
     caption: 'Mirissa Beach Coast',
   },

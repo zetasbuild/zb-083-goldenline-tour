@@ -14,7 +14,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenVideo }) => {
       {/* Scenic Background Image */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <Image
-          src="/images/hero-ella.jpg"
+          src="/images/locations/hero-ella.webp"
           alt="Nine Arch Bridge Ella Sri Lanka"
           fill
           priority

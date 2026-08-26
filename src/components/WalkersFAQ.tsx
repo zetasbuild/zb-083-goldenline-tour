@@ -71,7 +71,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
           <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-5">
             <div className="relative h-[420px] sm:h-[480px] rounded-3xl overflow-hidden shadow-xl flex flex-col justify-between p-8 text-white group hover-lift">
               <Image
-                src="/images/sigiriya.jpg"
+                src="/images/locations/sigiriya.webp"
                 alt="Sri Lanka Travel FAQ"
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-700"

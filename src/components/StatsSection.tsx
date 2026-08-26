@@ -11,7 +11,7 @@ export const StatsSection: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/mirissa.jpg"
+          src="/images/locations/mirissa.webp"
           alt="Sri Lanka Tropical Coastline"
           fill
           className="object-cover object-center filter brightness-90"

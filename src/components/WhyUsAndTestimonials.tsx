@@ -59,7 +59,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
               {/* Top Main Image */}
               <div className="col-span-2 relative h-44 sm:h-52 rounded-2xl overflow-hidden shadow-md group hover-lift">
                 <Image
-                  src="/images/hero-ella.jpg"
+                  src="/images/locations/hero-ella.webp"
                   alt="Scenic Ella Train Sri Lanka"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -88,7 +88,7 @@ export const WhyUsAndTestimonials: React.FC = () => {
               {/* Bottom Right: Mirissa Tropical Beach */}
               <div className="relative h-32 sm:h-36 rounded-2xl overflow-hidden shadow-md group hover-lift">
                 <Image
-                  src="/images/mirissa.jpg"
+                  src="/images/locations/mirissa.webp"
                   alt="Mirissa Beach Coastline"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"

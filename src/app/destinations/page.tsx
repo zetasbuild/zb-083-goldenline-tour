@@ -58,12 +58,12 @@ export default function DestinationsPage() {
   ] as const;
 
   const destinationSlides = [
-    { image: '/images/sigiriya.jpg', alt: 'Sigiriya Ancient Rock Fortress', location: 'Sigiriya' },
-    { image: '/images/hero-ella.jpg', alt: 'Ella Nine Arch Bridge and Tea Hills', location: 'Ella' },
-    { image: '/images/mirissa.jpg', alt: 'Mirissa Palm Trees and Tropical Ocean', location: 'Mirissa' },
-    { image: '/images/yala.jpg', alt: 'Yala National Park Wildlife Safari', location: 'Yala' },
-    { image: '/images/nuwaraeliya.jpg', alt: 'Nuwara Eliya Tea Gardens', location: 'Nuwara Eliya' },
-    { image: '/images/gallefort.png', alt: 'Historic Galle Fort & Lighthouse', location: 'Galle Fort' },
+    { image: '/images/locations/sigiriya.webp', alt: 'Sigiriya Ancient Rock Fortress', location: 'Sigiriya' },
+    { image: '/images/locations/hero-ella.webp', alt: 'Ella Nine Arch Bridge and Tea Hills', location: 'Ella' },
+    { image: '/images/locations/mirissa.webp', alt: 'Mirissa Palm Trees and Tropical Ocean', location: 'Mirissa' },
+    { image: '/images/locations/yala.webp', alt: 'Yala National Park Wildlife Safari', location: 'Yala' },
+    { image: '/images/locations/nuwaraeliya.webp', alt: 'Nuwara Eliya Tea Gardens', location: 'Nuwara Eliya' },
+    { image: '/images/locations/gallefort.webp', alt: 'Historic Galle Fort & Lighthouse', location: 'Galle Fort' },
   ];
 
   const regions = [
@@ -440,7 +440,7 @@ export default function DestinationsPage() {
               {/* Small Overlapping Foreground Image */}
               <div className="hidden sm:block absolute -bottom-8 -left-4 w-64 h-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20 group">
                 <Image
-                  src="/images/sigiriya.jpg"
+                  src="/images/locations/sigiriya.webp"
                   alt="Sigiriya Heritage"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"

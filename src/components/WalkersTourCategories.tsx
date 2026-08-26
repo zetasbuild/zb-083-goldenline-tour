@@ -17,17 +17,17 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
     {
       id: 'classic',
       title: 'Classic Tours',
-      image: '/images/classic.webp',
+      image: '/images/locations/classic.webp',
     },
     {
       id: 'cultural',
       title: 'Cultural Tours',
-      image: '/images/cultural.jpg',
+      image: '/images/locations/cultural.webp',
     },
     {
       id: 'hill-country',
       title: 'Hill Country Scenic',
-      image: '/images/hillcountry.jpg',
+      image: '/images/locations/hillcountry.webp',
     },
     {
       id: 'wildlife-adventure',
@@ -37,17 +37,17 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
     {
       id: 'beach',
       title: 'Beach Holidays',
-      image: '/images/mirissa.jpg',
+      image: '/images/locations/mirissa.webp',
     },
     {
       id: 'honeymoon',
       title: 'Honeymoon Tours',
-      image: '/images/honeymoon.jpg',
+      image: '/images/locations/honeymoon.webp',
     },
     {
       id: 'luxury',
       title: 'Luxury Tours',
-      image: '/images/luxury.jpg',
+      image: '/images/locations/luxury.webp',
     },
   ];
 

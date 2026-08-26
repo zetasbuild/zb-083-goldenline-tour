@@ -19,32 +19,32 @@ interface BackgroundAutoSliderProps {
 
 const DEFAULT_SLIDES: SlideItem[] = [
   {
-    image: '/images/sigiriya.jpg',
+    image: '/images/locations/sigiriya.webp',
     alt: 'Sigiriya Ancient Rock Citadel at Sunrise',
     location: 'Sigiriya Rock Fortress',
   },
   {
-    image: '/images/hero-ella.jpg',
+    image: '/images/locations/hero-ella.webp',
     alt: 'Nine Arch Bridge & Scenic Mountain Railway Ella',
     location: 'Ella Highlands',
   },
   {
-    image: '/images/mirissa.jpg',
+    image: '/images/locations/mirissa.webp',
     alt: 'Pristine Golden Sand Tropical Beaches of Mirissa',
     location: 'Mirissa & South Coast',
   },
   {
-    image: '/images/nuwaraeliya.jpg',
+    image: '/images/locations/nuwaraeliya.webp',
     alt: 'Lush Emerald Tea Estates of Nuwara Eliya',
     location: 'Tea Country Highlands',
   },
   {
-    image: '/images/yala.jpg',
+    image: '/images/locations/yala.webp',
     alt: 'Wild Elephant Gathering & Leopard Safari in Yala',
     location: 'Yala National Park Safari',
   },
   {
-    image: '/images/gallefort.png',
+    image: '/images/locations/gallefort.webp',
     alt: 'Historic Galle Lighthouse and Dutch Coastal Fort',
     location: 'Galle Fort Heritage',
   },
