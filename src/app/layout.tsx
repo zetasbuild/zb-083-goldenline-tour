@@ -36,16 +36,6 @@ export const metadata: Metadata = {
     'Sigiriya',
     'Luxury Van Rental Sri Lanka',
   ],
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/images/logo.webp', type: 'image/webp' },
-    ],
-    shortcut: ['/favicon.ico'],
-    apple: [
-      { url: '/images/logo.webp', sizes: '180x180', type: 'image/webp' },
-    ],
-  },
   openGraph: {
     title: 'GoldenLine TOUR | Uncover the Magic of Sri Lanka',
     description: 'Premium tours, unforgettable experiences and reliable vehicle rental services in Sri Lanka.',
