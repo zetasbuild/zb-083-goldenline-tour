@@ -298,7 +298,7 @@ export default function DestinationsPage() {
               {filteredDestinations.map((dest) => (
                 <Link
                   key={dest.id}
-                  href={`/tours`}
+                  href={`/destinations/${dest.id}`}
                   className="hover-box group flex-shrink-0 h-[440px] sm:h-[460px] cursor-pointer rounded-3xl overflow-hidden relative shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#041B2D] block"
                 >
                   {/* Full Background Image */}

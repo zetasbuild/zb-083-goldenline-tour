@@ -18,6 +18,19 @@ export type DestinationCategory =
   | 'Waterfalls'
   | 'Island';
 
+export interface DestinationAttractionItem {
+  name: string;
+  desc: string;
+  image?: string;
+}
+
+export interface DestinationThingToDo {
+  title: string;
+  desc: string;
+  tag?: string;
+  image?: string;
+}
+
 export interface Destination {
   id: string;
   name: string;
@@ -28,11 +41,19 @@ export interface Destination {
   reviewsCount: number;
   popular?: boolean;
   image: string;
+  heroImage?: string;
   shortDesc: string;
   description: string;
   tag: string;
   bestTime: string;
+  weather?: string;
+  idealDuration?: string;
   attractions: string[];
+  attractionDetails?: DestinationAttractionItem[];
+  thingsToDo?: DestinationThingToDo[];
+  travelTips?: string[];
+  gallery?: string[];
+  nearbyTours?: string[];
 }
 
 export interface TourItineraryDay {
