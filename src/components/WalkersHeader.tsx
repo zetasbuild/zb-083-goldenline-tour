@@ -62,12 +62,12 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
 
   const tourCategories = [
     { name: 'Classic Tours Sri Lanka', href: '/tours/tropical-highlights-tour' },
-    { name: 'Cultural Heritage Tours', href: '/tours' },
-    { name: 'Hill Country Scenic Tours', href: '/tours' },
-    { name: 'Wildlife & Safari Tours', href: '/tours' },
-    { name: 'Tropical Beach Holidays', href: '/tours' },
-    { name: 'Honeymoon & Romantic Tours', href: '/tours' },
-    { name: 'Ultra-Luxury Bespoke Tours', href: '/tours' },
+    { name: 'Cultural Heritage Tours', href: '/tours/ancient-legacy-tour' },
+    { name: 'Hill Country Scenic Tours', href: '/tours/scenic-escapes-tour' },
+    { name: 'Wildlife & Safari Tours', href: '/tours/wild-adventures-tour' },
+    { name: 'Tropical Beach Holidays', href: '/tours/wild-surf-tour' },
+    { name: 'Honeymoon & Romantic Tours', href: '/tours/romantic-climes-tour' },
+    { name: 'Ultra-Luxury Bespoke Tours', href: '/tours/expedition-tropical-luxury' },
   ];
 
   const navLinks = [

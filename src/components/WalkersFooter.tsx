@@ -88,45 +88,45 @@ export const WalkersFooter: React.FC = () => {
             </h4>
             <ul className="space-y-2.5">
               <li>
-                <Link href="/tours" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
+                <Link href="/tours/tropical-highlights-tour" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3 h-3 text-[#cba258]/60" />
                   <span>Classic Highlights</span>
                 </Link>
               </li>
               <li>
-                <Link href="/tours" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
+                <Link href="/tours/ancient-legacy-tour" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3 h-3 text-[#cba258]/60" />
                   <span>Cultural Triangle</span>
                 </Link>
               </li>
               <li>
-                <Link href="/tours" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
+                <Link href="/tours/scenic-escapes-tour" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3 h-3 text-[#cba258]/60" />
                   <span>Hill Country &amp; Tea</span>
                 </Link>
               </li>
               <li>
-                <Link href="/tours" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
+                <Link href="/tours/wild-adventures-tour" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3 h-3 text-[#cba258]/60" />
                   <span>Wildlife &amp; Safari</span>
                 </Link>
               </li>
               <li>
-                <Link href="/tours" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
+                <Link href="/tours/wild-surf-tour" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3 h-3 text-[#cba258]/60" />
                   <span>Tropical Beach Holidays</span>
                 </Link>
               </li>
               <li>
-                <Link href="/tours" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
+                <Link href="/tours/romantic-climes-tour" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3 h-3 text-[#cba258]/60" />
                   <span>Honeymoon &amp; Romantic</span>
                 </Link>
               </li>
               <li>
-                <Link href="/tours#custom-tour-form" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
+                <Link href="/tours/expedition-tropical-luxury" className="hover:text-[#cba258] transition-colors flex items-center gap-1.5">
                   <ChevronRight className="w-3 h-3 text-[#cba258]/60" />
-                  <span className="text-[#cba258]">Custom Trip Planner</span>
+                  <span className="text-[#cba258]">Ultra-Luxury Tours</span>
                 </Link>
               </li>
             </ul>

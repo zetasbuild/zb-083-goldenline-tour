@@ -87,7 +87,7 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
           {DESTINATIONS.map((dest) => (
             <Link
               key={dest.id}
-              href={`/destinations?q=${encodeURIComponent(dest.name)}`}
+              href={`/destinations/${dest.id}`}
               className="hover-box group flex-shrink-0 w-[260px] sm:w-[290px] h-[400px] sm:h-[440px] cursor-pointer snap-start rounded-2xl overflow-hidden relative block"
             >
               <Image
