@@ -638,43 +638,116 @@ export const SERVICE_PILLARS = [
     description: 'Modern, fully air-conditioned sedans (Toyota Axio / Premio / Corolla) with pristine interiors and ample luggage space.',
   },
   {
+    iconName: 'Award',
+    title: 'NTCA Certified Drivers',
+    description: 'Accredited National Tourist Chauffeur Drivers’ Association members with verified police clearance & tourism licenses.',
+  },
+  {
     iconName: 'ShieldCheck',
-    title: 'Safe & Reliable',
-    description: 'Committed to utmost passenger safety with comprehensive insurance and careful, defensive driving across island roads.',
+    title: 'Safe & Fully Insured',
+    description: 'Committed to utmost passenger safety with comprehensive commercial tourism passenger insurance and defensive driving.',
   },
   {
     iconName: 'UserCheck',
-    title: 'Experienced Drivers',
-    description: 'Certified English-speaking Sri Lankan tourist chauffeurs with extensive route knowledge and warm hospitality.',
+    title: 'English-Speaking Guides',
+    description: 'Fluent English-speaking Sri Lankan tourist chauffeurs with deep islandwide route knowledge and warm hospitality.',
   },
   {
     iconName: 'BadgePercent',
-    title: 'Best Price Guarantee',
-    description: 'Clear, transparent rates with zero hidden charges. Fixed upfront fares for complete peace of mind.',
+    title: '100% Honest Fixed Fares',
+    description: 'Strict zero-commission guarantee — no forced souvenir stops or hidden fees. Clear, upfront prices.',
   },
   {
     iconName: 'Headphones',
-    title: '24/7 Customer Support',
-    description: 'Round-the-clock coordination, flight monitoring, and instant assistance for seamless travel.',
+    title: '24/7 Dispatch & Support',
+    description: 'Round-the-clock coordination, live flight tracking, and instant WhatsApp support from start to finish.',
+  },
+];
+
+export const NTCA_TRUST_PILLARS = [
+  {
+    id: 'sltda-licensed',
+    title: 'Official NTCA & SLTDA Accredited',
+    subtitle: 'Government Registered Chauffeurs',
+    description: 'All GoldenLine TOUR drivers are official card-holding members of the National Tourist Chauffeur Drivers’ Association (NTCA) and registered with the Sri Lanka Tourism Development Authority (SLTDA).',
+    badge: '100% Certified',
+    icon: 'ShieldCheck',
+  },
+  {
+    id: 'zero-scam-policy',
+    title: 'Zero Commission & No Forced Stops',
+    subtitle: '100% Guest-Driven Itinerary',
+    description: 'We adhere strictly to the NTCA professional code of ethics. Our chauffeurs never take you to unauthorized spice gardens, gem shops, or commission-trap souvenir stores unless you specifically request.',
+    badge: 'Strict Code of Conduct',
+    icon: 'Award',
+  },
+  {
+    id: 'passenger-safety',
+    title: 'Comprehensive Passenger Insurance',
+    subtitle: 'Defensive Driving & Safety First',
+    description: 'Every vehicle and passenger is protected by full commercial passenger liability insurance. Our drivers undergo regular defensive driving assessments and first aid safety refresher training.',
+    badge: 'Fully Protected',
+    icon: 'Sparkles',
+  },
+  {
+    id: 'local-expertise',
+    title: 'Fluent English & Deep Local Knowledge',
+    subtitle: 'Chauffeur-Guide Service',
+    description: 'More than just a driver — your chauffeur is a courteous local guide who knows the safest scenic routes, best photo viewpoints, reliable currency exchanges, and authentic culinary stops.',
+    badge: 'Experienced Chauffeur',
+    icon: 'Compass',
+  },
+];
+
+export const NTCA_COMPARISON = [
+  {
+    feature: 'Official Tourism Accreditation',
+    unregistered: 'Unverified / No Tourism License',
+    goldenline: 'Official NTCA Member & SLTDA Registered',
+  },
+  {
+    feature: 'Driver Background & Safety Check',
+    unregistered: 'No standard police or background vetting',
+    goldenline: '100% Police Verified & Screened Chauffeurs',
+  },
+  {
+    feature: 'Fare Transparency & Commission Traps',
+    unregistered: 'Hidden charges, aggressive shopping stops',
+    goldenline: 'Fixed upfront pricing, 0% forced shopping',
+  },
+  {
+    feature: 'Passenger & Vehicle Insurance',
+    unregistered: 'Basic standard car insurance (risky for tourists)',
+    goldenline: 'Full Commercial Tourist Passenger Insurance',
+  },
+  {
+    feature: 'Airport Meet & Greet + Live Tracking',
+    unregistered: 'Unreliable waiting, charges extra for delays',
+    goldenline: 'Free Live Flight Tracking & Nameboard Welcome',
+  },
+  {
+    feature: 'Language & Tour Guiding',
+    unregistered: 'Limited English, basic navigation only',
+    goldenline: 'Fluent English, Islandwide Sightseeing Guidance',
   },
 ];
 
 export const SERVICE_TYPES = [
   {
     title: 'Pickup & Drop-Off',
-    description: 'Direct door-to-door transfers between hotels, villas, railway stations, and city points.',
+    description: 'Direct door-to-door transfers between hotels, villas, railway stations, and city points with dedicated NTCA chauffeurs.',
   },
   {
     title: 'Airport Transfers',
-    description: 'Prompt airport pickups with complimentary flight tracking, meet-and-greet in arrivals, and luggage assistance.',
+    description: 'Prompt airport pickups with complimentary flight tracking, meet-and-greet in arrivals with nameboard, and luggage assistance.',
   },
   {
     title: 'Islandwide Drop Services',
-    description: 'Long-distance private sedan drops connecting any two points across all 9 provinces of Sri Lanka.',
+    description: 'Long-distance private sedan drops connecting any two points across all 9 provinces of Sri Lanka in total comfort.',
   },
   {
     title: 'Travel with Confidence',
-    description: 'Flexible stops for refreshments, tea plantations, scenic viewpoints, and photography at your pace.',
+    description: 'Flexible stops for refreshments, tea plantations, scenic viewpoints, and photography at your own pace.',
   },
 ];
 
@@ -690,5 +763,5 @@ export const CONTACT_INFO = {
   mapsUrl: 'https://maps.app.goo.gl/zTcvDFJTytdRrH4S8?g_st=iw',
   tagline: 'Your Journey, Our Passion',
   subTagline: 'Explore Sri Lanka with Comfort & Care',
-  disclaimer: 'Comfortable air-conditioned vehicles with certified English-speaking tourist chauffeurs.',
+  disclaimer: 'Comfortable air-conditioned vehicles with certified NTCA Association English-speaking tourist chauffeurs.',
 };
