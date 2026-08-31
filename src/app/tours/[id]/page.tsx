@@ -12,7 +12,6 @@ import {
   CheckCircle2,
   Hotel,
   ArrowRight,
-  MessageSquare,
   Sparkles,
   Star,
   User,
@@ -311,7 +310,7 @@ export default function TourDetailPage() {
                               className="w-10 h-10 rounded-full bg-[#25D366]/10 hover:bg-[#25D366] text-[#25D366] hover:text-white flex items-center justify-center transition-colors cursor-pointer"
                               title="Inquire via WhatsApp"
                             >
-                              <MessageSquare className="w-4 h-4 fill-current" />
+                              <WhatsAppIcon className="w-4 h-4 fill-current" />
                             </button>
                           </div>
                         </div>
@@ -374,7 +373,7 @@ export default function TourDetailPage() {
                               className="w-10 h-10 rounded-full bg-[#25D366]/10 hover:bg-[#25D366] text-[#25D366] hover:text-white flex items-center justify-center transition-colors cursor-pointer"
                               title="Inquire via WhatsApp"
                             >
-                              <MessageSquare className="w-4 h-4 fill-current" />
+                              <WhatsAppIcon className="w-4 h-4 fill-current" />
                             </button>
                           </div>
                         </div>
@@ -486,7 +485,7 @@ export default function TourDetailPage() {
                         onClick={() => handleWhatsAppInquiry()}
                         className="bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md cursor-pointer"
                       >
-                        <MessageSquare className="w-4 h-4 fill-white" />
+                        <WhatsAppIcon className="w-4 h-4 fill-white" />
                         <span>Chat via WhatsApp</span>
                       </button>
                       <button
@@ -662,7 +661,7 @@ export default function TourDetailPage() {
                           className="h-12 sm:h-13 px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shrink-0"
                           title="Instant WhatsApp Chat"
                         >
-                          <MessageSquare className="w-4 h-4 fill-white" />
+                          <WhatsAppIcon className="w-4 h-4 fill-white" />
                           <span>WhatsApp</span>
                         </button>
 

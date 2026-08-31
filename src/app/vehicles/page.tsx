@@ -32,7 +32,6 @@ import {
   Mail,
   User,
   UserCheck,
-  MessageSquare,
   ArrowRight,
   Search,
   Compass,

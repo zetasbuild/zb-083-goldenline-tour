@@ -18,7 +18,6 @@ import {
   Heart,
   CheckCircle2,
   ArrowRight,
-  MessageSquare,
   Leaf,
   Check,
 } from 'lucide-react';
@@ -168,7 +167,7 @@ export default function AboutUsPage() {
               rel="noopener noreferrer"
               className="bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
             >
-              <MessageSquare className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4 fill-white" />
               <span>Direct WhatsApp</span>
             </a>
           </div>
@@ -181,7 +180,7 @@ export default function AboutUsPage() {
           {stats.map((stat, idx) => (
             <div key={idx} className="flex flex-col items-center">
               <span className="font-serif text-4xl sm:text-5xl font-bold text-[#cba258] mb-1">
-                {stat.value}
+                <AnimatedCounter value={stat.value} duration={1800} />
               </span>
               <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)] mb-0.5">
                 {stat.label}
@@ -456,7 +455,7 @@ export default function AboutUsPage() {
                     onClick={handleWhatsAppContact}
                     className="bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md cursor-pointer"
                   >
-                    <MessageSquare className="w-4 h-4 fill-white" />
+                    <WhatsAppIcon className="w-4 h-4 fill-white" />
                     <span>Chat via WhatsApp</span>
                   </button>
                   <button
@@ -546,7 +545,7 @@ export default function AboutUsPage() {
                       className="h-12 sm:h-13 px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shrink-0"
                       title="Instant WhatsApp Chat"
                     >
-                      <MessageSquare className="w-4 h-4 fill-white" />
+                      <WhatsAppIcon className="w-4 h-4 fill-white" />
                       <span>WhatsApp</span>
                     </button>
 

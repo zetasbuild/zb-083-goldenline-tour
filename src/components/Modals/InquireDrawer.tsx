@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, Check, MessageSquare, Sparkles, Send } from 'lucide-react';
+import { X, Check, Sparkles, Send } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 import confetti from 'canvas-confetti';
 
 interface InquireDrawerProps {
@@ -87,9 +88,9 @@ export const InquireDrawer: React.FC<InquireDrawerProps> = ({
               <div className="space-y-3 w-full">
                 <button
                   onClick={handleWhatsApp}
-                  className="w-full bg-[#D4AF37] hover:bg-[#AA8C2C] text-white py-3 rounded-2xl text-xs font-bold flex items-center justify-center gap-2 shadow-md cursor-pointer"
+                  className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md cursor-pointer transition-colors"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <WhatsAppIcon className="w-4 h-4 fill-white" />
                   <span>Chat on WhatsApp Instantly</span>
                 </button>
                 <button
@@ -208,8 +209,8 @@ export const InquireDrawer: React.FC<InquireDrawerProps> = ({
         {/* Footer Support */}
         <div className="p-4 bg-gray-50 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
           <span>Need immediate help?</span>
-          <a href="https://wa.me/94715477149" target="_blank" className="font-bold text-[#D4AF37] hover:underline flex items-center gap-1">
-            <MessageSquare className="w-3.5 h-3.5" />
+          <a href="https://wa.me/94715477149" target="_blank" className="font-bold text-[#25D366] hover:underline flex items-center gap-1.5">
+            <WhatsAppIcon className="w-3.5 h-3.5 fill-[#25D366]" />
             <span>+94 71 547 7149</span>
           </a>
         </div>

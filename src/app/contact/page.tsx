@@ -12,7 +12,6 @@ import {
   Mail,
   MapPin,
   Clock,
-  MessageSquare,
   ShieldCheck,
   Sparkles,
   HelpCircle,
@@ -59,7 +58,7 @@ export default function ContactPage() {
       color: 'bg-[#1C1917] text-white',
     },
     {
-      icon: MessageSquare,
+      icon: WhatsAppIcon,
       title: 'Official WhatsApp Concierge',
       value: '+94 71 547 7149',
       sub: 'Instant replies for custom quotes & transfers',
@@ -195,7 +194,7 @@ export default function ContactPage() {
               onClick={handleWhatsAppContact}
               className="bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
             >
-              <MessageSquare className="w-4 h-4 fill-white" />
+              <WhatsAppIcon className="w-4 h-4 fill-white" />
               <span>Instant WhatsApp Chat</span>
             </button>
           </div>
@@ -306,7 +305,7 @@ export default function ContactPage() {
                         onClick={handleWhatsAppContact}
                         className="bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md cursor-pointer"
                       >
-                        <MessageSquare className="w-4 h-4 fill-white" />
+                        <WhatsAppIcon className="w-4 h-4 fill-white" />
                         <span>Chat via WhatsApp</span>
                       </button>
                       <button
@@ -490,7 +489,7 @@ export default function ContactPage() {
                           className="h-12 sm:h-13 px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shrink-0"
                           title="Instant WhatsApp Chat"
                         >
-                          <MessageSquare className="w-4 h-4 fill-white" />
+                          <WhatsAppIcon className="w-4 h-4 fill-white" />
                           <span>WhatsApp</span>
                         </button>
 

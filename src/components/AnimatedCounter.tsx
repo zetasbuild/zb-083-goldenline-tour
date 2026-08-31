@@ -10,7 +10,7 @@ interface AnimatedCounterProps {
 
 export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   value,
-  duration = 2000,
+  duration = 1800,
   className = '',
 }) => {
   const countRef = useRef<HTMLSpanElement>(null);
@@ -29,7 +29,7 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       numericValue: parseFloat(numStr),
       suffix: match[3],
       isFloat,
-      decimals
+      decimals,
     };
   }, [value]);
 
@@ -41,53 +41,70 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          let startTime: number | null = null;
-          
-          if (animationRef.current) cancelAnimationFrame(animationRef.current);
-          
-          const animate = (currentTime: number) => {
-            if (!startTime) startTime = currentTime;
-            const progress = currentTime - startTime;
-            
-            const percentage = Math.min(progress / duration, 1);
-            // Easing function: easeOutExpo
-            const easeProgress = percentage === 1 ? 1 : 1 - Math.pow(2, -10 * percentage);
-            
-            setCurrentValue(numericValue * easeProgress);
-            
-            if (percentage < 1) {
-              animationRef.current = requestAnimationFrame(animate);
-            }
-          };
-          
+    const startAnimation = () => {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+      let startTime: number | null = null;
+
+      const animate = (currentTime: number) => {
+        if (!startTime) startTime = currentTime;
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Ease Out Cubic: 1 - pow(1 - progress, 3)
+        const ease = 1 - Math.pow(1 - progress, 3);
+        setCurrentValue(numericValue * ease);
+
+        if (progress < 1) {
           animationRef.current = requestAnimationFrame(animate);
         } else {
-          // Reset count to 0 when out of view so it animates from 0 again when scrolling down
-          setCurrentValue(0);
-          if (animationRef.current) cancelAnimationFrame(animationRef.current);
+          setCurrentValue(numericValue);
         }
+      };
+
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Trigger animation on enter (both scrolling down and scrolling up)
+            startAnimation();
+          } else {
+            // Reset to 0 when out of view so it replays smoothly when scrolling back from either direction
+            if (animationRef.current) {
+              cancelAnimationFrame(animationRef.current);
+              animationRef.current = null;
+            }
+            setCurrentValue(0);
+          }
+        });
       },
-      { threshold: 0.1 }
+      {
+        threshold: 0.15,
+        rootMargin: '0px 0px -40px 0px',
+      }
     );
 
-    if (countRef.current) {
-      observer.observe(countRef.current);
+    const currentEl = countRef.current;
+    if (currentEl) {
+      observer.observe(currentEl);
     }
 
     return () => {
-      if (countRef.current) observer.unobserve(countRef.current);
+      if (currentEl) observer.unobserve(currentEl);
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
   }, [numericValue, duration]);
 
-  const displayValue = isFloat ? currentValue.toFixed(decimals) : Math.floor(currentValue).toString();
+  const displayValue = isFloat 
+    ? currentValue.toFixed(decimals) 
+    : Math.floor(currentValue).toLocaleString();
 
   return (
-    <span ref={countRef} className={className}>
+    <span ref={countRef} className={`inline-block tabular-nums transition-transform ${className}`}>
       {prefix}{displayValue}{suffix}
     </span>
   );
 };
+
