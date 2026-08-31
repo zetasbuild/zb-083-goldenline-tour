@@ -44,7 +44,7 @@ export default function AboutUsPage() {
 
 
   const stats = [
-    { value: '30+', label: 'Years of Heritage', sub: 'Pioneering Sri Lanka tourism since 2001' },
+    { value: '20+', label: 'Years of Heritage', sub: 'Pioneering Sri Lanka tourism with excellence' },
     { value: '15k+', label: 'Global Travelers', sub: 'From over 45 countries worldwide' },
     { value: '600+', label: 'Fleet & Safari Jeeps', sub: 'Modern luxury sedans, vans & 4x4s' },
     { value: '98.8%', label: '5-Star Ratings', sub: 'On TripAdvisor & verified reviews' },
@@ -344,7 +344,7 @@ export default function AboutUsPage() {
               </h3>
               <div className="space-y-4 text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
                 <p>
-                  With over 30 years of experience in the transportation and tourism industry, our founder has built a strong reputation for delivering reliable, professional, and customer-focused travel solutions. Throughout his career, he has successfully managed transportation operations, coordinated inbound tours, and provided exceptional service to travelers from around the world.
+                  With over 20 years of experience in the transportation and tourism industry, our founder has built a strong reputation for delivering reliable, professional, and customer-focused travel solutions. Throughout his career, he has successfully managed transportation operations, coordinated inbound tours, and provided exceptional service to travelers from around the world.
                 </p>
                 <p>
                   His extensive expertise in handling inbound tourism, travel logistics, and group transportation has enabled countless visitors to enjoy seamless and memorable travel experiences. Having worked with clients from diverse cultural backgrounds, he possesses a deep understanding of the unique needs and expectations of international travelers.
@@ -357,7 +357,7 @@ export default function AboutUsPage() {
               <h4 className="font-bold text-[var(--color-primary)] mb-3">Why Choose Us?</h4>
               <ul className="space-y-2 mb-6">
                 {[
-                  'Over 30 years of industry experience',
+                  'Over 20 years of industry experience',
                   'Expertise in transportation and inbound tourism services',
                   "Strong understanding of multicultural travelers' needs",
                   'Professional, reliable, and customer-focused service',
