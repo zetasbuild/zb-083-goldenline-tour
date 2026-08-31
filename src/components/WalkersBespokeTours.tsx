@@ -15,7 +15,7 @@ export const WalkersBespokeTours: React.FC<WalkersBespokeToursProps> = ({ onPlan
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Text */}
-          <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-6">
+          <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-5">
             <div>
               <span 
                 className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
@@ -43,7 +43,7 @@ export const WalkersBespokeTours: React.FC<WalkersBespokeToursProps> = ({ onPlan
 
           {/* Right Dual Overlapping Photography */}
           <div data-reveal="fade-left" data-reveal-duration="850" data-reveal-delay="200" className="lg:col-span-7 relative">
-            <div className="relative h-[380px] sm:h-[460px] rounded-3xl overflow-hidden shadow-2xl z-10 w-full sm:w-4/5 ml-auto group hover-lift">
+            <div className="relative h-[380px] sm:h-[460px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl z-10 w-full group hover-lift border border-[#E7E0D0]">
               <Image
                 src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1200&q=80"
                 alt="Bespoke Luxury Highlands Sri Lanka"
@@ -54,7 +54,7 @@ export const WalkersBespokeTours: React.FC<WalkersBespokeToursProps> = ({ onPlan
             </div>
 
             {/* Small Overlapping Foreground Image */}
-            <div className="hidden sm:block absolute -bottom-8 -left-6 w-60 h-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20 group hover-lift">
+            <div className="hidden sm:block absolute -bottom-6 -left-6 w-56 h-60 rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20 group hover-lift">
               <Image
                 src="/images/locations/sigiriya.webp"
                 alt="Sigiriya Heritage Journey"
