@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
@@ -14,6 +14,20 @@ interface WalkersTourPackagesProps {
 
 export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const packagesTabsRef = useRef<HTMLDivElement>(null);
+
+  const handleCategorySelect = (cat: string, e: React.MouseEvent<HTMLButtonElement>) => {
+    setSelectedCategory(cat);
+    const container = packagesTabsRef.current;
+    const button = e.currentTarget;
+    if (container && button) {
+      const scrollOffset = button.offsetLeft - container.offsetWidth / 2 + button.offsetWidth / 2;
+      container.scrollTo({
+        left: Math.max(0, scrollOffset),
+        behavior: 'smooth',
+      });
+    }
+  };
 
   const categories = [
     'All',
@@ -58,15 +72,16 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Category Filter Pills */}
-        <div data-reveal="fade-down" className="w-full -mx-4 sm:mx-0 px-4 sm:px-0 overflow-x-auto no-scrollbar pb-3 sm:pb-0 mb-12 py-2">
+        <div
+          ref={packagesTabsRef}
+          data-reveal="fade-down"
+          className="w-full -mx-4 sm:mx-0 px-4 sm:px-0 overflow-x-auto no-scrollbar pb-3 sm:pb-0 mb-12 py-2 scroll-smooth"
+        >
           <div className="flex items-center sm:flex-wrap gap-2 sm:gap-3 sm:justify-center w-max sm:w-auto min-w-full px-2 py-1 pr-10 sm:pr-2">
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={(e) => {
-                  setSelectedCategory(cat);
-                  e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-                }}
+                onClick={(e) => handleCategorySelect(cat, e)}
                 className={`shrink-0 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap cursor-pointer ${
                   selectedCategory === cat
                     ? 'bg-[var(--color-primary)] text-white shadow-md'

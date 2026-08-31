@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { WalkersHeader } from '@/components/WalkersHeader';
@@ -36,6 +36,20 @@ export default function DestinationsPage() {
   const [selectedCategory, setSelectedCategory] = useState<DestinationCategory>('All');
   const [selectedRegion, setSelectedRegion] = useState('All Regions');
   const [wishlist, setWishlist] = useState<string[]>(['mirissa', 'sigiriya']);
+  const regionTabsRef = useRef<HTMLDivElement>(null);
+
+  const handleRegionSelect = (region: string, e: React.MouseEvent<HTMLButtonElement>) => {
+    setSelectedRegion(region);
+    const container = regionTabsRef.current;
+    const button = e.currentTarget;
+    if (container && button) {
+      const scrollOffset = button.offsetLeft - container.offsetWidth / 2 + button.offsetWidth / 2;
+      container.scrollTo({
+        left: Math.max(0, scrollOffset),
+        behavior: 'smooth',
+      });
+    }
+  };
 
   // Modals state
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -256,14 +270,19 @@ export default function DestinationsPage() {
           </div>
 
           {/* Region Tabs Filter */}
-          <div data-reveal="fade-up" data-reveal-delay="100" className="w-full -mx-4 sm:mx-0 px-4 sm:px-0 overflow-x-auto pb-4 mb-12 no-scrollbar py-2">
+          <div
+            ref={regionTabsRef}
+            data-reveal="fade-up"
+            data-reveal-delay="100"
+            className="w-full -mx-4 sm:mx-0 px-4 sm:px-0 overflow-x-auto pb-4 mb-12 no-scrollbar py-2 scroll-smooth"
+          >
             <div className="flex items-center justify-start md:justify-center gap-2.5 w-max md:w-auto md:flex-wrap min-w-full px-2 py-1 pr-10 md:pr-2">
               {regions.map((region) => {
                 const isSelected = selectedRegion === region;
                 return (
                   <button
                     key={region}
-                    onClick={() => setSelectedRegion(region)}
+                    onClick={(e) => handleRegionSelect(region, e)}
                     className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shrink-0 whitespace-nowrap cursor-pointer ${
                       isSelected
                         ? 'bg-[var(--color-primary)] text-[#cba258] shadow-md ring-2 ring-[#cba258]/30'

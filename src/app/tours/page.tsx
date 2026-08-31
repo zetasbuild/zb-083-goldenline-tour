@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -25,6 +25,20 @@ export default function ToursOverviewPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const categoryTabsRef = useRef<HTMLDivElement>(null);
+
+  const handleCategorySelect = (id: string, e: React.MouseEvent<HTMLButtonElement>) => {
+    setSelectedCategory(id);
+    const container = categoryTabsRef.current;
+    const button = e.currentTarget;
+    if (container && button) {
+      const scrollOffset = button.offsetLeft - container.offsetWidth / 2 + button.offsetWidth / 2;
+      container.scrollTo({
+        left: Math.max(0, scrollOffset),
+        behavior: 'smooth',
+      });
+    }
+  };
 
   const categories = [
     { id: 'All', label: 'All Packages' },
@@ -147,14 +161,19 @@ export default function ToursOverviewPage() {
           </div>
 
           {/* Category Tabs */}
-          <div data-reveal="fade-up" data-reveal-delay="100" className="w-full -mx-4 sm:mx-0 px-4 sm:px-0 overflow-x-auto pb-4 mb-12 no-scrollbar py-2">
+          <div
+            ref={categoryTabsRef}
+            data-reveal="fade-up"
+            data-reveal-delay="100"
+            className="w-full -mx-4 sm:mx-0 px-4 sm:px-0 overflow-x-auto pb-4 mb-12 no-scrollbar py-2 scroll-smooth"
+          >
             <div className="flex items-center justify-start md:justify-center gap-2.5 w-max md:w-auto md:flex-wrap min-w-full px-2 py-1 pr-10 md:pr-2">
               {categories.map((cat) => {
                 const isSelected = selectedCategory === cat.id;
                 return (
                   <button
                     key={cat.id}
-                    onClick={() => setSelectedCategory(cat.id)}
+                    onClick={(e) => handleCategorySelect(cat.id, e)}
                     className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shrink-0 whitespace-nowrap cursor-pointer ${
                       isSelected
                         ? 'bg-[var(--color-primary)] text-[#cba258] shadow-md ring-2 ring-[#cba258]/30'
