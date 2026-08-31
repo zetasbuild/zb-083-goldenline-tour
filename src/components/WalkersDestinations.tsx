@@ -13,6 +13,7 @@ interface WalkersDestinationsProps {
 
 export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const isHoveredRef = useRef<boolean>(false);
 
   const handleScroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -21,18 +22,18 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
     }
   };
 
-  // Auto Slider functionality
+  // Auto Slider functionality (faster interval: 2400ms)
   useEffect(() => {
     const interval = setInterval(() => {
-      if (scrollRef.current) {
+      if (scrollRef.current && !isHoveredRef.current) {
         const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
         if (scrollLeft + clientWidth >= scrollWidth - 10) {
           scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
         } else {
-          scrollRef.current.scrollBy({ left: 320, behavior: 'smooth' });
+          scrollRef.current.scrollBy({ left: 310, behavior: 'smooth' });
         }
       }
-    }, 4500);
+    }, 2400);
 
     return () => clearInterval(interval);
   }, []);
@@ -79,8 +80,10 @@ export const WalkersDestinations: React.FC<WalkersDestinationsProps> = () => {
         {/* Destinations Carousel */}
         <div
           ref={scrollRef}
+          onMouseEnter={() => { isHoveredRef.current = true; }}
+          onMouseLeave={() => { isHoveredRef.current = false; }}
           data-reveal-stagger
-          className="flex space-x-5 overflow-x-auto no-scrollbar pb-6 pt-2 snap-x snap-mandatory"
+          className="flex space-x-5 overflow-x-auto no-scrollbar pb-6 pt-2 snap-x snap-mandatory scroll-smooth"
         >
           {/* Spacer for alignment */}
           <div className="w-4 sm:w-6 lg:w-8 shrink-0" aria-hidden="true" />

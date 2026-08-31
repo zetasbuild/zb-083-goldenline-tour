@@ -21,8 +21,6 @@ import {
   Compass,
   ArrowRight,
   Send,
-  Heart,
-  Share2,
   Sparkles,
   ShieldCheck,
 } from 'lucide-react';
@@ -32,8 +30,6 @@ export default function DestinationDetailPage() {
   const id = params?.id as string;
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isWishlisted, setIsWishlisted] = useState(false);
-  const [copied, setCopied] = useState(false);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -77,14 +73,6 @@ export default function DestinationDetailPage() {
   const otherDestinations = useMemo(() => {
     return DESTINATIONS.filter((d) => d.id !== dest.id).slice(0, 4);
   }, [dest]);
-
-  const handleShare = () => {
-    if (typeof window !== 'undefined') {
-      navigator.clipboard.writeText(window.location.href);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2500);
-    }
-  };
 
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -179,22 +167,6 @@ export default function DestinationDetailPage() {
                   <span>{dest.rating.toFixed(1)}</span>
                   <span className="text-white/60 font-normal">({dest.reviewsCount} Traveler Reviews)</span>
                 </div>
-
-                <button
-                  onClick={() => setIsWishlisted(!isWishlisted)}
-                  className="bg-black/40 backdrop-blur-md text-white hover:text-[#cba258] px-3.5 py-1.5 rounded-full border border-white/10 text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
-                >
-                  <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-[#cba258] text-[#cba258]' : ''}`} />
-                  <span>{isWishlisted ? 'Saved to Wishlist' : 'Save'}</span>
-                </button>
-
-                <button
-                  onClick={handleShare}
-                  className="bg-black/40 backdrop-blur-md text-white hover:text-[#cba258] px-3.5 py-1.5 rounded-full border border-white/10 text-xs font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
-                >
-                  <Share2 className="w-4 h-4" />
-                  <span>{copied ? 'Link Copied!' : 'Share'}</span>
-                </button>
               </div>
             </div>
 

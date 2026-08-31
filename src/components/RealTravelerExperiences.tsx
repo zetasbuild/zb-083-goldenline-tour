@@ -1,7 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, Pencil } from 'lucide-react';
+import { TripAdvisorIcon } from '@/components/TripAdvisorIcon';
 
 interface ReviewItem {
   author: string;
@@ -102,24 +103,18 @@ export const RealTravelerExperiences: React.FC = () => {
 
 
   return (
-    <section className="py-20 lg:py-28 bg-[#F5F2E6] relative overflow-hidden">
-      {/* Background Watermark */}
-      <div className="absolute top-2 sm:top-4 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
-        <span className="watermark-text" style={{ color: 'rgba(4, 27, 45, 0.05)' }}>
-          experiences
-        </span>
-      </div>
-
+    <section className="py-20 lg:py-28 bg-[#FAF7EE] relative overflow-hidden border-t border-[#E7E0D0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
         {/* Section Header */}
-        <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+        <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-12">
           <span 
-            className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
+            className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-1 inline-block -rotate-2"
             style={{ fontFamily: 'var(--font-caveat), cursive' }}
           >
             Real Traveler Experiences
           </span>
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[#041B2D] mb-3 mt-1 leading-tight">
+          <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-3 mt-1 leading-tight">
             Loved By Travelers Worldwide
           </h2>
           <div className="flex items-center justify-center gap-2 mt-2">
@@ -133,7 +128,7 @@ export const RealTravelerExperiences: React.FC = () => {
 
         {/* Carousel Controls */}
         <div data-reveal="fade-up" data-reveal-delay="100" className="flex justify-between items-center w-full mb-4 px-2">
-          <span className="text-xs uppercase tracking-widest font-bold text-[#55697a]">
+          <span className="text-xs uppercase tracking-widest font-bold text-[#6B635B]">
             Verified Guest Reviews
           </span>
         </div>
@@ -145,7 +140,7 @@ export const RealTravelerExperiences: React.FC = () => {
             {reviews.map((review, idx) => (
               <div 
                 key={idx}
-                className="bg-white rounded-3xl p-7 sm:p-9 shadow-sm border border-[#e2ede7] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col flex-shrink-0 w-[300px] sm:w-[370px] md:w-[390px] relative"
+                className="bg-white rounded-3xl p-7 sm:p-9 shadow-sm border border-[#E7E0D0] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col flex-shrink-0 w-[300px] sm:w-[370px] md:w-[390px] relative"
               >
                 <Quote className="w-10 h-10 text-[#cba258]/15 absolute top-6 right-6 pointer-events-none" />
 
@@ -162,19 +157,19 @@ export const RealTravelerExperiences: React.FC = () => {
                 </div>
                 
                 {/* Review Text */}
-                <p className="text-[#243e34] italic leading-relaxed mb-6 flex-grow text-sm sm:text-base whitespace-pre-wrap line-clamp-6 overflow-hidden">
-                  "{review.text}"
+                <p className="text-gray-700 italic leading-relaxed mb-6 flex-grow text-sm sm:text-base whitespace-pre-wrap line-clamp-6 overflow-hidden">
+                  &ldquo;{review.text}&rdquo;
                 </p>
                 
                 {/* Author & Tour Info */}
                 <div className="border-t border-gray-100 pt-5 flex items-center gap-3.5 mt-auto">
                   <div className="overflow-hidden">
                     <div className="flex items-center gap-1.5">
-                      <h4 className="text-[#041B2D] font-bold text-sm sm:text-base truncate">
+                      <h4 className="text-[var(--color-primary)] font-bold text-sm sm:text-base truncate">
                         {review.author}
                       </h4>
                     </div>
-                    <p className="text-[#55697a] text-xs font-medium truncate mt-0.5">
+                    <p className="text-[#6B635B] text-xs font-medium truncate mt-0.5">
                       {review.location} · <span className="text-[#cba258] font-semibold">{review.tour}</span>
                     </p>
                   </div>
@@ -188,7 +183,7 @@ export const RealTravelerExperiences: React.FC = () => {
             {reviews.map((review, idx) => (
               <div 
                 key={`clone-${idx}`}
-                className="bg-white rounded-3xl p-7 sm:p-9 shadow-sm border border-[#e2ede7] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col flex-shrink-0 w-[300px] sm:w-[370px] md:w-[390px] relative"
+                className="bg-white rounded-3xl p-7 sm:p-9 shadow-sm border border-[#E7E0D0] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col flex-shrink-0 w-[300px] sm:w-[370px] md:w-[390px] relative"
               >
                 <Quote className="w-10 h-10 text-[#cba258]/15 absolute top-6 right-6 pointer-events-none" />
 
@@ -205,19 +200,19 @@ export const RealTravelerExperiences: React.FC = () => {
                 </div>
                 
                 {/* Review Text */}
-                <p className="text-[#243e34] italic leading-relaxed mb-6 flex-grow text-sm sm:text-base whitespace-pre-wrap line-clamp-6 overflow-hidden">
-                  "{review.text}"
+                <p className="text-gray-700 italic leading-relaxed mb-6 flex-grow text-sm sm:text-base whitespace-pre-wrap line-clamp-6 overflow-hidden">
+                  &ldquo;{review.text}&rdquo;
                 </p>
                 
                 {/* Author & Tour Info */}
                 <div className="border-t border-gray-100 pt-5 flex items-center gap-3.5 mt-auto">
                   <div className="overflow-hidden">
                     <div className="flex items-center gap-1.5">
-                      <h4 className="text-[#041B2D] font-bold text-sm sm:text-base truncate">
+                      <h4 className="text-[var(--color-primary)] font-bold text-sm sm:text-base truncate">
                         {review.author}
                       </h4>
                     </div>
-                    <p className="text-[#55697a] text-xs font-medium truncate mt-0.5">
+                    <p className="text-[#6B635B] text-xs font-medium truncate mt-0.5">
                       {review.location} · <span className="text-[#cba258] font-semibold">{review.tour}</span>
                     </p>
                   </div>
@@ -227,18 +222,28 @@ export const RealTravelerExperiences: React.FC = () => {
           </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 pb-4" data-reveal="fade-up">
+        {/* Action Buttons (Write a Review & Read More on TripAdvisor) */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5 pb-4" data-reveal="fade-up">
+          {/* Write a Review Button */}
           <a
             href="https://www.tripadvisor.com/UserReviewEdit-g12272474-d28158011-Nihar_Srilanka_Tours_Travels-Meemure_Kandy_District_Central_Province.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#cba258] hover:bg-[#1C1917] text-white font-bold text-sm sm:text-base rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-[#C39A4D] hover:bg-[#b0883d] text-white font-bold text-sm sm:text-base rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto cursor-pointer"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-            </svg>
-            Write a Review
+            <Pencil className="w-4 h-4 text-white" />
+            <span>Write a Review</span>
+          </a>
+
+          {/* Read more reviews on TripAdvisor Button */}
+          <a
+            href="https://www.tripadvisor.com/Attraction_Review-g12272474-d28158011-Reviews-Nihar_Srilanka_Tours_Travels-Meemure_Kandy_District_Central_Province.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white hover:bg-[#FAF7EE] text-[#1C1917] hover:text-[#00aa6c] border border-[#00aa6c]/30 hover:border-[#00aa6c] font-bold text-sm sm:text-base rounded-full shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto cursor-pointer"
+          >
+            <TripAdvisorIcon className="w-5 h-5 text-[#00aa6c] shrink-0" />
+            <span>Read more reviews on Tripadvisor</span>
           </a>
         </div>
       </div>

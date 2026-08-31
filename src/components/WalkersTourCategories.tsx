@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -12,6 +12,7 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
   onSelectCategory,
 }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const isHoveredRef = useRef<boolean>(false);
 
   const categories = [
     {
@@ -58,6 +59,22 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
     }
   };
 
+  // Auto Slider functionality (faster interval: 2400ms)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (scrollRef.current && !isHoveredRef.current) {
+        const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+        if (scrollLeft + clientWidth >= scrollWidth - 10) {
+          scrollRef.current.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          scrollRef.current.scrollBy({ left: 310, behavior: 'smooth' });
+        }
+      }
+    }, 2400);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="categories" className="py-20 lg:py-24 bg-[#FAF7EE] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,8 +114,10 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
         {/* Categories Carousel */}
         <div
           ref={scrollRef}
+          onMouseEnter={() => { isHoveredRef.current = true; }}
+          onMouseLeave={() => { isHoveredRef.current = false; }}
           data-reveal-stagger
-          className="flex space-x-5 overflow-x-auto no-scrollbar pb-6 pt-2 snap-x snap-mandatory"
+          className="flex space-x-5 overflow-x-auto no-scrollbar pb-6 pt-2 snap-x snap-mandatory scroll-smooth"
         >
           {categories.map((cat) => (
             <div
