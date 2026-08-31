@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
   Search,
-  MessageSquare,
   Menu,
   X,
   ChevronDown,
@@ -18,6 +17,7 @@ import {
   Compass,
   ArrowRight,
 } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 import { useCurrency } from '@/context/CurrencyContext';
 import { CurrencyType } from '@/types';
 
@@ -182,7 +182,7 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
 
       {/* Fullscreen Luxury Dark Navigation Overlay (Mega Menu) */}
       {megaMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-[#041B2D]/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-12 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-50 bg-[#181513]/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-12 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
           
           {/* Top Bar inside Overlay */}
           <div className="flex items-center justify-between max-w-7xl mx-auto w-full mb-8">
@@ -306,7 +306,7 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
                 onClick={() => setMegaMenuOpen(false)}
                 className="w-full bg-[#25D366] hover:bg-[#20ba59] text-white py-3.5 px-4 rounded-2xl text-xs font-bold uppercase tracking-wider transition-all shadow-lg text-center flex items-center justify-center gap-2 cursor-pointer mt-2"
               >
-                <MessageSquare className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4 fill-white" />
                 <span>Chat on WhatsApp (+94 71 547 7149)</span>
               </a>
             </div>

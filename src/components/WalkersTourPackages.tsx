@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
@@ -14,6 +14,20 @@ interface WalkersTourPackagesProps {
 
 export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const packagesTabsRef = useRef<HTMLDivElement>(null);
+
+  const handleCategorySelect = (cat: string, e: React.MouseEvent<HTMLButtonElement>) => {
+    setSelectedCategory(cat);
+    const container = packagesTabsRef.current;
+    const button = e.currentTarget;
+    if (container && button) {
+      const scrollOffset = button.offsetLeft - container.offsetWidth / 2 + button.offsetWidth / 2;
+      container.scrollTo({
+        left: Math.max(0, scrollOffset),
+        behavior: 'smooth',
+      });
+    }
+  };
 
   const categories = [
     'All',
@@ -58,23 +72,26 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Category Filter Pills */}
-        <div data-reveal="fade-down" className="flex sm:flex-wrap items-center gap-2 sm:gap-3 mb-12 overflow-x-auto no-scrollbar pb-3 sm:pb-0 sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={(e) => {
-                setSelectedCategory(cat);
-                e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-              }}
-              className={`shrink-0 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                selectedCategory === cat
-                  ? 'bg-[var(--color-primary)] text-white shadow-md scale-105'
-                  : 'bg-[#f4f7f6] text-[var(--color-primary)] hover:bg-[#e2ede7] hover:text-[var(--color-primary)]'
-              }`}
-            >
-              {cat === 'All' ? 'All Packages' : cat}
-            </button>
-          ))}
+        <div
+          ref={packagesTabsRef}
+          data-reveal="fade-down"
+          className="w-full -mx-4 sm:mx-0 px-4 sm:px-0 overflow-x-auto no-scrollbar pb-3 sm:pb-0 mb-12 py-2 scroll-smooth"
+        >
+          <div className="flex items-center sm:flex-wrap gap-2 sm:gap-3 sm:justify-center w-max sm:w-auto min-w-full px-2 py-1 pr-10 sm:pr-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={(e) => handleCategorySelect(cat, e)}
+                className={`shrink-0 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap cursor-pointer ${
+                  selectedCategory === cat
+                    ? 'bg-[var(--color-primary)] text-white shadow-md'
+                    : 'bg-[#f4f7f6] text-[var(--color-primary)] hover:bg-[#e2ede7] hover:text-[var(--color-primary)]'
+                }`}
+              >
+                {cat === 'All' ? 'All Packages' : cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Packages Grid */}
@@ -88,7 +105,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                     {/* The Large Left Card */}
                     <Link
                       href={`/tours/${pkg.id}`}
-                      className="lg:col-span-1 lg:row-span-2 h-[460px] md:h-[600px] lg:h-full w-full group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
+                      className="lg:col-span-1 lg:row-span-2 h-[460px] md:h-[600px] lg:h-full w-full group bg-[#181513] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
                     >
                       {/* Background Image */}
                       <Image
@@ -97,10 +114,11 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                         fill
                         className="object-cover hover-box__img"
                         sizes="(max-width: 1024px) 100vw, 33vw"
+                        priority
                       />
 
                       {/* Dark Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/95 via-[#181513]/40 to-transparent group-hover:from-[#181513]/98 transition-colors duration-300" />
 
                       {/* Badge if available */}
                       {pkg.badge && (
@@ -149,7 +167,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                         href="/tours"
                         className="next-btn next-btn--blue group cursor-pointer w-fit"
                       >
-                        <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
+                        <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#C85A32] transition-all duration-300">
                           <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
                         </div>
                         <span className="text-xs uppercase tracking-widest font-bold text-[var(--color-primary)]">Explore All Categories</span>
@@ -165,7 +183,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                   <Link
                     key={pkg.id}
                     href={`/tours/${pkg.id}`}
-                    className="lg:col-span-2 h-[260px] sm:h-[280px] w-full group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
+                    className="lg:col-span-2 h-[260px] sm:h-[280px] w-full group bg-[#181513] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
                   >
                     {/* Background Image */}
                     <Image
@@ -177,7 +195,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                     />
 
                     {/* Dark Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/95 via-[#181513]/40 to-transparent group-hover:from-[#181513]/98 transition-colors duration-300" />
 
                     {/* Badge if available */}
                     {pkg.badge && (
@@ -210,7 +228,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                 <Link
                   key={pkg.id}
                   href={`/tours/${pkg.id}`}
-                  className="lg:col-span-1 h-[260px] sm:h-[280px] w-full group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
+                  className="lg:col-span-1 h-[260px] sm:h-[280px] w-full group bg-[#181513] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
                 >
                   {/* Background Image */}
                   <Image
@@ -222,7 +240,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                   />
 
                   {/* Dark Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/95 via-[#181513]/40 to-transparent group-hover:from-[#181513]/98 transition-colors duration-300" />
 
                   {/* Badge if available */}
                   {pkg.badge && (
@@ -257,7 +275,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
               <Link
                 key={pkg.id}
                 href={`/tours/${pkg.id}`}
-                className="hover-box group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end relative cursor-pointer h-[380px] block border-4 border-white is-revealed"
+                className="hover-box group bg-[#181513] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end relative cursor-pointer h-[380px] block border-4 border-white is-revealed"
               >
                 {/* Background Image */}
                 <Image
@@ -269,7 +287,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                 />
 
                 {/* Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/95 via-[#181513]/40 to-transparent group-hover:from-[#181513]/98 transition-colors duration-300" />
 
                 {/* Badge if available */}
                 {pkg.badge && (

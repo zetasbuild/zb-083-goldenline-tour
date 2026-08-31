@@ -8,7 +8,7 @@ import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 export const WalkersFooter: React.FC = () => {
   return (
-    <footer className="bg-[#041B2D] text-white pt-20 pb-10 border-t border-white/10 relative z-10">
+    <footer className="bg-[#181513] text-white pt-20 pb-10 border-t border-[#CBA258]/20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* 12-Column Responsive Navigation Grid */}

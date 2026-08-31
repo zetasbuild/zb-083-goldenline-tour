@@ -32,7 +32,6 @@ import {
   Mail,
   User,
   UserCheck,
-  MessageSquare,
   ArrowRight,
   Search,
   Compass,
@@ -176,7 +175,7 @@ export default function SedanTransfersPage() {
         <BackgroundAutoSlider
           slides={transferSlides}
           intervalMs={4500}
-          overlayGradient="bg-gradient-to-b from-black/85 via-black/45 to-[#041B2D]"
+          overlayGradient="bg-gradient-to-b from-black/85 via-black/45 to-[#181513]"
         />
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -185,7 +184,7 @@ export default function SedanTransfersPage() {
           <div
             data-reveal="fade-down"
             data-reveal-delay="50"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#041B2D]/85 border border-[#cba258]/60 backdrop-blur-md text-[#cba258] mb-5 shadow-2xl"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#181513]/85 border border-[#cba258]/60 backdrop-blur-md text-[#cba258] mb-5 shadow-2xl"
           >
             <ShieldCheck className="w-4 h-4 text-[#cba258] shrink-0" />
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white">
@@ -248,9 +247,9 @@ export default function SedanTransfersPage() {
           <div data-reveal="zoom-in" data-reveal-delay="400" className="flex items-center justify-center gap-4 flex-wrap">
             <a
               href="#ntca-trust"
-              className="px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#cba258] hover:bg-[#b88f46] text-[#041B2D] shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+              className="px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#cba258] hover:bg-[#b88f46] text-[#181513] shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
             >
-              <Award className="w-4 h-4 text-[#041B2D]" />
+              <Award className="w-4 h-4 text-[#181513]" />
               <span>Why NTCA Drivers Matter</span>
             </a>
 
@@ -280,19 +279,19 @@ export default function SedanTransfersPage() {
       {/* =========================================================================
           SERVICE HIGHLIGHTS STRIP: Auto-Sliding Marquee
       ========================================================================== */}
-      <section className="bg-[#041B2D] border-t border-b border-[#cba258]/20 text-white py-6 relative z-20 overflow-hidden">
+      <section className="bg-[#181513] border-t border-b border-[#cba258]/20 text-white py-6 relative z-20 overflow-hidden">
         <div className="flex group relative w-full">
           {/* First Marquee Group */}
           <div className="animate-marquee flex gap-12 md:gap-24 min-w-full justify-around shrink-0 pr-12 md:pr-24 group-hover:[animation-play-state:paused]">
             {SERVICE_PILLARS.map((pillar, idx) => (
               <div key={idx} className="flex flex-col items-center justify-center shrink-0 group/item cursor-pointer">
                 <div className="w-12 h-12 rounded-2xl bg-[#cba258]/10 border border-[#cba258]/30 flex items-center justify-center mb-2.5 group-hover/item:bg-[#cba258] group-hover/item:scale-110 transition-all duration-300">
-                  {idx === 0 && <Car className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 1 && <Award className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 2 && <ShieldCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 3 && <UserCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 4 && <BadgePercent className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 5 && <Headphones className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 0 && <Car className="w-6 h-6 text-[#cba258] group-hover/item:text-[#181513] transition-colors" />}
+                  {idx === 1 && <Award className="w-6 h-6 text-[#cba258] group-hover/item:text-[#181513] transition-colors" />}
+                  {idx === 2 && <ShieldCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#181513] transition-colors" />}
+                  {idx === 3 && <UserCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#181513] transition-colors" />}
+                  {idx === 4 && <BadgePercent className="w-6 h-6 text-[#cba258] group-hover/item:text-[#181513] transition-colors" />}
+                  {idx === 5 && <Headphones className="w-6 h-6 text-[#cba258] group-hover/item:text-[#181513] transition-colors" />}
                 </div>
                 <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap">
                   {pillar.title}
@@ -309,12 +308,12 @@ export default function SedanTransfersPage() {
             {SERVICE_PILLARS.map((pillar, idx) => (
               <div key={`dup-${idx}`} className="flex flex-col items-center justify-center shrink-0 group/item cursor-pointer">
                 <div className="w-12 h-12 rounded-2xl bg-[#cba258]/10 border border-[#cba258]/30 flex items-center justify-center mb-2.5 group-hover/item:bg-[#cba258] group-hover/item:scale-110 transition-all duration-300">
-                  {idx === 0 && <Car className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 1 && <Award className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 2 && <ShieldCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 3 && <UserCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 4 && <BadgePercent className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 5 && <Headphones className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 0 && <Car className="w-6 h-6 text-[#cba258] group-hover/item:text-[#181513] transition-colors" />}
+                  {idx === 1 && <Award className="w-6 h-6 text-[#cba258] group-hover/item:text-[#181513] transition-colors" />}
+                  {idx === 2 && <ShieldCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#181513] transition-colors" />}
+                  {idx === 3 && <UserCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#181513] transition-colors" />}
+                  {idx === 4 && <BadgePercent className="w-6 h-6 text-[#cba258] group-hover/item:text-[#181513] transition-colors" />}
+                  {idx === 5 && <Headphones className="w-6 h-6 text-[#cba258] group-hover/item:text-[#181513] transition-colors" />}
                 </div>
                 <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap">
                   {pillar.title}
@@ -331,7 +330,7 @@ export default function SedanTransfersPage() {
       {/* =========================================================================
           DEDICATED NTCA TRUST & SAFETY SECTION: Why NTCA Drivers Make the Difference
       ========================================================================== */}
-      <section id="ntca-trust" className="py-20 lg:py-28 bg-[#041B2D] text-white relative overflow-hidden border-b border-[#cba258]/30">
+      <section id="ntca-trust" className="py-20 lg:py-28 bg-[#181513] text-white relative overflow-hidden border-b border-[#cba258]/30">
         {/* Background Mandala & Radial Highlights */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] -translate-y-1/3 translate-x-1/3 pointer-events-none opacity-10 text-[#cba258]">
           <MandalaBackground className="w-full h-full" />
@@ -371,7 +370,7 @@ export default function SedanTransfersPage() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-2xl bg-[#cba258]/15 border border-[#cba258]/40 flex items-center justify-center text-[#cba258] group-hover:bg-[#cba258] group-hover:text-[#041B2D] transition-all duration-300">
+                    <div className="w-12 h-12 rounded-2xl bg-[#cba258]/15 border border-[#cba258]/40 flex items-center justify-center text-[#cba258] group-hover:bg-[#cba258] group-hover:text-[#181513] transition-all duration-300">
                       {idx === 0 && <ShieldCheck className="w-6 h-6" />}
                       {idx === 1 && <Award className="w-6 h-6" />}
                       {idx === 2 && <Sparkles className="w-6 h-6" />}
@@ -458,7 +457,7 @@ export default function SedanTransfersPage() {
             </div>
 
             {/* Chauffeur Details Guarantee Footer Note */}
-            <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#041B2D]/80 p-4 sm:p-6 rounded-2xl border border-[#cba258]/30">
+            <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#181513]/80 p-4 sm:p-6 rounded-2xl border border-[#cba258]/30">
               <div className="flex items-start sm:items-center gap-3.5">
                 <div className="w-10 h-10 rounded-xl bg-[#cba258]/20 flex items-center justify-center text-[#cba258] shrink-0 mt-0.5 sm:mt-0">
                   <FileCheck className="w-5 h-5" />
@@ -475,7 +474,7 @@ export default function SedanTransfersPage() {
 
               <a
                 href="#booking-form-section"
-                className="px-5 py-2.5 rounded-full bg-[#cba258] hover:bg-[#b88f46] text-[#041B2D] text-xs font-bold uppercase tracking-wider shrink-0 text-center transition-transform hover:scale-105"
+                className="px-5 py-2.5 rounded-full bg-[#cba258] hover:bg-[#b88f46] text-[#181513] text-xs font-bold uppercase tracking-wider shrink-0 text-center transition-transform hover:scale-105"
               >
                 Reserve Your Chauffeur
               </a>
@@ -493,7 +492,7 @@ export default function SedanTransfersPage() {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-15 text-[#cba258]">
           <MandalaBackground className="w-full h-full" />
         </div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#041B2D]">
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#181513]">
           <TropicalLeafBackground className="w-full h-full" />
         </div>
 
@@ -506,7 +505,7 @@ export default function SedanTransfersPage() {
             >
               Direct Islandwide Transfers
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#041B2D] mb-3">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#181513] mb-3">
               Explore Routes by Origin Hub
             </h2>
             <p className="text-sm sm:text-base text-gray-600">
@@ -529,7 +528,7 @@ export default function SedanTransfersPage() {
                   }}
                   className={`relative text-left p-4 sm:p-5 rounded-2xl transition-all duration-300 cursor-pointer overflow-hidden border flex-shrink-0 w-[260px] sm:w-[280px] md:w-auto snap-start ${
                     isSelected
-                      ? 'bg-white text-[#041B2D] border-[#cba258] shadow-md ring-1 ring-[#cba258] scale-[1.02]'
+                      ? 'bg-white text-[#181513] border-[#cba258] shadow-md ring-1 ring-[#cba258] scale-[1.02]'
                       : 'bg-white/60 text-gray-500 border-gray-200 hover:border-[#cba258]/50 hover:bg-white hover:shadow-sm'
                   }`}
                 >
@@ -544,7 +543,7 @@ export default function SedanTransfersPage() {
                     {hub.slug === 'nuwara-eliya' && <MapPin className={`w-4 h-4 shrink-0 ${isSelected ? 'text-[#cba258]' : 'text-gray-400'}`} />}
                   </div>
 
-                  <h3 className={`font-serif text-lg sm:text-xl font-bold mb-1 ${isSelected ? 'text-[#041B2D]' : 'text-gray-600'}`}>
+                  <h3 className={`font-serif text-lg sm:text-xl font-bold mb-1 ${isSelected ? 'text-[#181513]' : 'text-gray-600'}`}>
                     {hub.title}
                   </h3>
                   <p className={`text-[11px] leading-relaxed line-clamp-2 ${isSelected ? 'text-gray-600' : 'text-gray-400'}`}>
@@ -576,7 +575,7 @@ export default function SedanTransfersPage() {
                   placeholder={`Search destination from ${currentHubInfo.title}...`}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-11 pr-10 py-3 bg-[#F5F2E6]/60 border border-gray-200 rounded-full text-xs sm:text-sm text-[#041B2D] placeholder:text-gray-400 focus:outline-none focus:border-[#cba258] focus:bg-white transition-all truncate"
+                  className="w-full pl-11 pr-10 py-3 bg-[#F5F2E6]/60 border border-gray-200 rounded-full text-xs sm:text-sm text-[#181513] placeholder:text-gray-400 focus:outline-none focus:border-[#cba258] focus:bg-white transition-all truncate"
                 />
                 {searchQuery && (
                   <button
@@ -594,8 +593,8 @@ export default function SedanTransfersPage() {
                   onClick={() => setViewMode('grid')}
                   className={`px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 transition-all duration-300 cursor-pointer ${
                     viewMode === 'grid'
-                      ? 'bg-[#041B2D] text-[#cba258] shadow-sm'
-                      : 'text-gray-600 hover:text-[#041B2D]'
+                      ? 'bg-[#181513] text-[#cba258] shadow-sm'
+                      : 'text-gray-600 hover:text-[#181513]'
                   }`}
                   aria-label="Cards view"
                 >
@@ -606,8 +605,8 @@ export default function SedanTransfersPage() {
                   onClick={() => setViewMode('table')}
                   className={`px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1.5 transition-all duration-300 cursor-pointer ${
                     viewMode === 'table'
-                      ? 'bg-[#041B2D] text-[#cba258] shadow-sm'
-                      : 'text-gray-600 hover:text-[#041B2D]'
+                      ? 'bg-[#181513] text-[#cba258] shadow-sm'
+                      : 'text-gray-600 hover:text-[#181513]'
                   }`}
                   aria-label="Routes table view"
                 >
@@ -628,7 +627,7 @@ export default function SedanTransfersPage() {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-300 cursor-pointer shrink-0 ${
                     selectedCategory === cat
-                      ? 'bg-[#041B2D] text-[#cba258] shadow-md scale-105'
+                      ? 'bg-[#181513] text-[#cba258] shadow-md scale-105'
                       : 'bg-[#F5F2E6] text-gray-600 hover:bg-[#eae1c8] border border-gray-200'
                   }`}
                 >
@@ -641,7 +640,7 @@ export default function SedanTransfersPage() {
           {/* Active Hub Title & Count Banner */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-6 px-2 items-start">
             <div>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#041B2D]">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#181513]">
                 {currentHubInfo.title} ➔ All Destinations
               </h3>
               <p className="text-xs text-gray-500 mt-0.5">
@@ -676,14 +675,14 @@ export default function SedanTransfersPage() {
                   />
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/45 to-black/30" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/95 via-[#181513]/45 to-black/30" />
 
                   {/* Top Badges */}
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
                     <span className="bg-black/60 backdrop-blur-md text-[#cba258] text-[10px] sm:text-[11px] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full border border-white/15 shadow-sm">
                       {route.category}
                     </span>
-                    <span className="bg-[#041B2D]/80 backdrop-blur-md border border-[#cba258]/50 px-2.5 py-1 rounded-full text-[10px] font-bold text-[#cba258] flex items-center gap-1 shadow-sm">
+                    <span className="bg-[#181513]/80 backdrop-blur-md border border-[#cba258]/50 px-2.5 py-1 rounded-full text-[10px] font-bold text-[#cba258] flex items-center gap-1 shadow-sm">
                       <Award className="w-3 h-3 text-[#cba258]" />
                       <span>NTCA Driver</span>
                     </span>
@@ -739,7 +738,7 @@ export default function SedanTransfersPage() {
               VIEW 2: TABLE VIEW
           ====================================================================== */}
           {viewMode === 'table' && (
-            <div className="bg-[#041B2D] rounded-3xl p-4 sm:p-8 shadow-2xl border-2 border-[#cba258]/30 overflow-hidden text-white">
+            <div className="bg-[#181513] rounded-3xl p-4 sm:p-8 shadow-2xl border-2 border-[#cba258]/30 overflow-hidden text-white">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-[#cba258]/30">
                 <div>
                   <span className="text-xs uppercase font-bold tracking-widest text-[#cba258]">
@@ -826,7 +825,7 @@ export default function SedanTransfersPage() {
           {filteredRoutes.length === 0 && (
             <div className="text-center py-16 bg-white rounded-3xl border border-gray-200 p-8">
               <Search className="w-12 h-12 text-gray-300 mx-auto mb-3" />
-              <h3 className="font-serif text-xl font-bold text-[#041B2D]">No direct routes match your search</h3>
+              <h3 className="font-serif text-xl font-bold text-[#181513]">No direct routes match your search</h3>
               <p className="text-sm text-gray-500 mt-1 max-w-md mx-auto">
                 Looking for a custom pickup or off-the-beaten-path destination? Send us an inquiry and we will arrange a direct quotation with an NTCA chauffeur!
               </p>
@@ -835,7 +834,7 @@ export default function SedanTransfersPage() {
                   setSearchQuery('');
                   setSelectedCategory('All');
                 }}
-                className="mt-4 px-6 py-2.5 bg-[#cba258] text-[#041B2D] rounded-full text-xs font-bold uppercase tracking-wider"
+                className="mt-4 px-6 py-2.5 bg-[#cba258] text-[#181513] rounded-full text-xs font-bold uppercase tracking-wider"
               >
                 Reset Filters
               </button>
@@ -852,13 +851,13 @@ export default function SedanTransfersPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {SERVICE_TYPES.map((st, i) => (
               <div key={i} className="p-6 rounded-3xl bg-[#F5F2E6]/60 border border-gray-200 hover:border-[#cba258] transition-all hover:shadow-md">
-                <div className="w-10 h-10 rounded-2xl bg-[#041B2D] text-[#cba258] flex items-center justify-center mb-4 shadow-sm">
+                <div className="w-10 h-10 rounded-2xl bg-[#181513] text-[#cba258] flex items-center justify-center mb-4 shadow-sm">
                   {i === 0 && <MapPin className="w-5 h-5" />}
                   {i === 1 && <Plane className="w-5 h-5" />}
                   {i === 2 && <Compass className="w-5 h-5" />}
                   {i === 3 && <ShieldCheck className="w-5 h-5" />}
                 </div>
-                <h4 className="font-serif text-lg font-bold text-[#041B2D] mb-1">
+                <h4 className="font-serif text-lg font-bold text-[#181513] mb-1">
                   {st.title}
                 </h4>
                 <p className="text-xs text-gray-600 leading-relaxed">
@@ -873,7 +872,7 @@ export default function SedanTransfersPage() {
       {/* =========================================================================
           INSTANT BOOKING & CUSTOM RIDE ESTIMATOR FORM
       ========================================================================== */}
-      <section id="booking-form-section" className="py-20 lg:py-28 bg-[#041B2D] text-white relative overflow-hidden">
+      <section id="booking-form-section" className="py-20 lg:py-28 bg-[#181513] text-white relative overflow-hidden">
         {/* Background Overlay */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#cba258_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none" />
 
@@ -942,13 +941,13 @@ export default function SedanTransfersPage() {
 
             {/* Right Column: Interactive Booking Form */}
             <div className="lg:col-span-7">
-              <div className="bg-white rounded-3xl p-6 sm:p-10 text-[#041B2D] shadow-2xl border border-gray-200">
+              <div className="bg-white rounded-3xl p-6 sm:p-10 text-[#181513] shadow-2xl border border-gray-200">
                 <div className="mb-6">
                   <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#cba258] bg-[#F5F2E6] px-3 py-1 rounded-full mb-2">
                     <Award className="w-3.5 h-3.5 text-[#cba258]" />
                     <span>NTCA Accredited Dispatch</span>
                   </div>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#041B2D]">
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#181513]">
                     Transfer Reservation
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-500 mt-1">
@@ -959,7 +958,7 @@ export default function SedanTransfersPage() {
                 {isSubmitted ? (
                   <div className="p-8 rounded-2xl bg-[#F5F2E6] border border-[#cba258] text-center space-y-4">
                     <CheckCircle2 className="w-16 h-16 text-[#25D366] mx-auto animate-bounce" />
-                    <h4 className="font-serif text-2xl font-bold text-[#041B2D]">
+                    <h4 className="font-serif text-2xl font-bold text-[#181513]">
                       Transfer Request Received!
                     </h4>
                     <p className="text-sm text-gray-600 max-w-md mx-auto">
@@ -967,7 +966,7 @@ export default function SedanTransfersPage() {
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
-                      className="text-xs font-bold text-[#cba258] uppercase tracking-wider underline hover:text-[#041B2D]"
+                      className="text-xs font-bold text-[#cba258] uppercase tracking-wider underline hover:text-[#181513]"
                     >
                       Book Another Transfer
                     </button>
@@ -987,7 +986,7 @@ export default function SedanTransfersPage() {
                           value={formData.pickupLocation}
                           onChange={handleInputChange}
                           placeholder="e.g. Colombo Airport (CMB)"
-                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#181513] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
                         />
                       </div>
 
@@ -1002,7 +1001,7 @@ export default function SedanTransfersPage() {
                           value={formData.dropoffLocation}
                           onChange={handleInputChange}
                           placeholder="e.g. Kandy, Galle, Sigiriya"
-                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#181513] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
                         />
                       </div>
                     </div>
@@ -1019,7 +1018,7 @@ export default function SedanTransfersPage() {
                           name="pickupDate"
                           value={formData.pickupDate}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#181513] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
                         />
                       </div>
 
@@ -1032,7 +1031,7 @@ export default function SedanTransfersPage() {
                           name="pickupTime"
                           value={formData.pickupTime}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#181513] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
                         />
                       </div>
                     </div>
@@ -1049,7 +1048,7 @@ export default function SedanTransfersPage() {
                           value={formData.flightNumber}
                           onChange={handleInputChange}
                           placeholder="e.g. UL 504"
-                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#181513] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
                         />
                       </div>
 
@@ -1061,7 +1060,7 @@ export default function SedanTransfersPage() {
                           name="passengers"
                           value={formData.passengers}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#181513] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
                         >
                           <option value="1">1 Person</option>
                           <option value="2">2 Persons</option>
@@ -1078,7 +1077,7 @@ export default function SedanTransfersPage() {
                           name="luggage"
                           value={formData.luggage}
                           onChange={handleInputChange}
-                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#181513] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
                         >
                           <option value="1">1 Large Bag</option>
                           <option value="2">2 Large Bags</option>
@@ -1100,7 +1099,7 @@ export default function SedanTransfersPage() {
                           value={formData.fullName}
                           onChange={handleInputChange}
                           placeholder="Your Name"
-                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#181513] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
                         />
                       </div>
 
@@ -1115,7 +1114,7 @@ export default function SedanTransfersPage() {
                           value={formData.phone}
                           onChange={handleInputChange}
                           placeholder="+94 or Country Code"
-                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#181513] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
                         />
                       </div>
 
@@ -1129,7 +1128,7 @@ export default function SedanTransfersPage() {
                           value={formData.email}
                           onChange={handleInputChange}
                           placeholder="name@email.com"
-                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                          className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#181513] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
                         />
                       </div>
                     </div>
@@ -1145,7 +1144,7 @@ export default function SedanTransfersPage() {
                         value={formData.notes}
                         onChange={handleInputChange}
                         placeholder="e.g. Stop at Pinnawala Elephant Orphanage on the way to Kandy..."
-                        className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#041B2D] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
+                        className="w-full px-4 py-3 bg-[#F5F2E6]/50 border border-gray-300 rounded-xl text-xs sm:text-sm text-[#181513] focus:outline-none focus:border-[#cba258] focus:bg-white transition-all"
                       />
                     </div>
 

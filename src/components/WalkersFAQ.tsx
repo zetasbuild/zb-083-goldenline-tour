@@ -43,10 +43,10 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
   };
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-[#f8fbfa] border-t border-[#e2ede7] relative overflow-hidden">
+    <section id="faq" className="py-20 lg:py-28 bg-[#FAF7EE] border-t border-[#E7E0D0] relative overflow-hidden">
       {/* Background Watermark Text */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none z-0">
-        <span className="watermark-text text-[#eef4f2]">answers</span>
+        <span className="watermark-text text-[#E8E0D0]">answers</span>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -77,7 +77,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 1024px) 100vw, 40vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/95 via-[#181513]/40 to-transparent" />
 
               <div className="relative z-10 flex items-center gap-2">
                 <span className="text-xs uppercase tracking-widest text-[#cba258] font-bold">
@@ -103,26 +103,23 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
             </div>
           </div>
 
-          {/* Right Expandable Accordions */}
-          <div data-reveal-stagger className="lg:col-span-7 space-y-3">
+          {/* Right Accordion */}
+          <div data-reveal="fade-left" data-reveal-duration="850" data-reveal-delay="200" className="lg:col-span-7 space-y-4">
             {faqs.map((faq, idx) => {
               const isOpen = openIndex === idx;
               return (
                 <div
                   key={idx}
-                  className="bg-[#F5F2E6] rounded-2xl border border-[#e2ede7] overflow-hidden shadow-sm transition-all duration-200"
+                  className="bg-white rounded-2xl border border-[#E7E0D0] overflow-hidden shadow-sm transition-all duration-200"
                 >
                   <button
-                    type="button"
                     onClick={() => toggleAccordion(idx)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-gray-50/70 transition-colors"
+                    className="w-full px-5 py-4 text-left font-serif font-bold text-base sm:text-lg text-[var(--color-primary)] flex items-center justify-between gap-4 hover:text-[#C85A32] transition-colors cursor-pointer"
                   >
-                    <span className="font-serif text-base sm:text-lg font-bold text-[var(--color-primary)]">
-                      {faq.q}
-                    </span>
+                    <span>{faq.q}</span>
                     <div
-                      className={`w-8 h-8 rounded-full bg-[#f0f6fa] text-[var(--color-primary)] flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                        isOpen ? 'rotate-180 bg-[var(--color-primary)] text-white' : ''
+                      className={`w-8 h-8 rounded-full bg-[#F4EFE6] text-[var(--color-primary)] flex items-center justify-center shrink-0 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180 bg-[#C85A32] text-white' : ''
                       }`}
                     >
                       <ChevronDown className="w-4 h-4" />
@@ -130,7 +127,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#55697a] leading-relaxed border-t border-gray-100 animate-in fade-in duration-200">
+                    <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#6B635B] leading-relaxed border-t border-gray-100 animate-in fade-in duration-200">
                       {faq.a}
                     </div>
                   )}

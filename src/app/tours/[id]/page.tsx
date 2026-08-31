@@ -12,7 +12,6 @@ import {
   CheckCircle2,
   Hotel,
   ArrowRight,
-  MessageSquare,
   Sparkles,
   Star,
   User,
@@ -163,7 +162,7 @@ export default function TourDetailPage() {
               <span className="hidden sm:inline">·</span>
               <button
                 onClick={() => scrollToBookingForm()}
-                className="text-[#0077b6] hover:underline font-bold cursor-pointer inline-flex items-center gap-1"
+                className="text-[#C85A32] hover:underline font-bold cursor-pointer inline-flex items-center gap-1"
               >
                 <span>Book This Itinerary ↓</span>
               </button>
@@ -173,7 +172,7 @@ export default function TourDetailPage() {
           {/* Key Overview Feature Strip */}
           <div data-reveal="fade-up" className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-16 bg-[#faf8f2] p-5 sm:p-6 rounded-3xl border border-[#e2ede7] shadow-sm">
             <div className="flex items-center gap-3 p-2">
-              <div className="w-10 h-10 rounded-2xl bg-[#0077b6]/10 text-[#0077b6] flex items-center justify-center shrink-0">
+              <div className="w-10 h-10 rounded-2xl bg-[#C85A32]/10 text-[#C85A32] flex items-center justify-center shrink-0">
                 <Clock className="w-5 h-5" />
               </div>
               <div>
@@ -253,7 +252,7 @@ export default function TourDetailPage() {
                     key={idx}
                     className="flex items-start gap-3 p-3.5 rounded-2xl bg-[#F5F2E6] border border-gray-100 shadow-2xs"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-[#0077b6] shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 text-[#C85A32] shrink-0 mt-0.5" />
                     <span className="text-xs sm:text-sm font-semibold text-gray-800 leading-snug">
                       {highlight}
                     </span>
@@ -311,7 +310,7 @@ export default function TourDetailPage() {
                               className="w-10 h-10 rounded-full bg-[#25D366]/10 hover:bg-[#25D366] text-[#25D366] hover:text-white flex items-center justify-center transition-colors cursor-pointer"
                               title="Inquire via WhatsApp"
                             >
-                              <MessageSquare className="w-4 h-4 fill-current" />
+                              <WhatsAppIcon className="w-4 h-4 fill-current" />
                             </button>
                           </div>
                         </div>
@@ -374,7 +373,7 @@ export default function TourDetailPage() {
                               className="w-10 h-10 rounded-full bg-[#25D366]/10 hover:bg-[#25D366] text-[#25D366] hover:text-white flex items-center justify-center transition-colors cursor-pointer"
                               title="Inquire via WhatsApp"
                             >
-                              <MessageSquare className="w-4 h-4 fill-current" />
+                              <WhatsAppIcon className="w-4 h-4 fill-current" />
                             </button>
                           </div>
                         </div>
@@ -417,7 +416,7 @@ export default function TourDetailPage() {
                   </p>
                   <button
                     onClick={() => scrollToBookingForm()}
-                    className="bg-[var(--color-primary)] hover:bg-[#0077b6] text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-md cursor-pointer"
+                    className="bg-[var(--color-primary)] hover:bg-[#C85A32] text-white px-7 py-3 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-md cursor-pointer"
                   >
                     Customize This Tour
                   </button>
@@ -430,7 +429,7 @@ export default function TourDetailPage() {
                         key={i}
                         className="flex items-start gap-3 p-3 rounded-2xl bg-[#F5F2E6] border border-gray-100 shadow-sm"
                       >
-                        <CheckCircle2 className="w-4 h-4 text-[#0077b6] shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-[#C85A32] shrink-0 mt-0.5" />
                         <span className="text-xs sm:text-sm font-semibold text-[var(--color-primary)]">
                           {inc}
                         </span>
@@ -486,7 +485,7 @@ export default function TourDetailPage() {
                         onClick={() => handleWhatsAppInquiry()}
                         className="bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md cursor-pointer"
                       >
-                        <MessageSquare className="w-4 h-4 fill-white" />
+                        <WhatsAppIcon className="w-4 h-4 fill-white" />
                         <span>Chat via WhatsApp</span>
                       </button>
                       <button
@@ -646,7 +645,7 @@ export default function TourDetailPage() {
                     <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
                       <div className="flex items-center gap-4 text-[11px] text-gray-500">
                         <div className="flex items-center gap-1.5">
-                          <ShieldCheck className="w-4 h-4 text-[#0077b6]" />
+                          <ShieldCheck className="w-4 h-4 text-[#C85A32]" />
                           <span>100% Tailor-Made &amp; Free Quote</span>
                         </div>
                         <div className="hidden sm:flex items-center gap-1.5">
@@ -662,13 +661,13 @@ export default function TourDetailPage() {
                           className="h-12 sm:h-13 px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shrink-0"
                           title="Instant WhatsApp Chat"
                         >
-                          <MessageSquare className="w-4 h-4 fill-white" />
+                          <WhatsAppIcon className="w-4 h-4 fill-white" />
                           <span>WhatsApp</span>
                         </button>
 
                         <button
                           type="submit"
-                          className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[var(--color-primary)] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
+                          className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[var(--color-primary)] hover:bg-[#C85A32] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                         >
                           <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
                           <span>Submit Booking Request</span>
@@ -700,7 +699,7 @@ export default function TourDetailPage() {
                   href="/tours"
                   className="next-btn next-btn--blue group hover:scale-105 transition-transform"
                 >
-                  <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all">
+                  <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#C85A32] transition-all">
                     <ArrowRight className="w-4 h-4 text-white" />
                   </div>
                   <span className="text-xs uppercase tracking-widest font-bold">View All 17 Tours</span>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { WalkersHeader } from '@/components/WalkersHeader';
 import { WalkersFooter } from '@/components/WalkersFooter';
@@ -17,12 +18,18 @@ import {
   Heart,
   CheckCircle2,
   ArrowRight,
-  MessageSquare,
   Leaf,
   Check,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
+
+const aboutHeroSlides = [
+  { image: '/images/locations/sigiriya.webp', alt: 'Sigiriya Ancient Rock Fortress' },
+  { image: '/images/locations/hero-ella.webp', alt: 'Ella Scenic Highlands' },
+  { image: '/images/locations/gallefort.webp', alt: 'Historic Galle Fort' },
+  { image: '/images/locations/nuwaraeliya.webp', alt: 'Nuwara Eliya Tea Gardens' },
+];
 
 export default function AboutUsPage() {
   const router = useRouter();
@@ -40,8 +47,6 @@ export default function AboutUsPage() {
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-
 
   const stats = [
     { value: '20+', label: 'Years of Heritage', sub: 'Pioneering Sri Lanka tourism with excellence' },
@@ -110,177 +115,166 @@ export default function AboutUsPage() {
       />
 
       {/* Hero Banner with Background Auto Slider */}
-      <section className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
+      <section className="relative min-h-[75vh] lg:min-h-[85vh] flex flex-col items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
+        {/* Auto Changing Hero Background Slider */}
         <BackgroundAutoSlider
+          slides={aboutHeroSlides}
           intervalMs={4500}
-          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]"
+          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#181513]"
         />
 
-        <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span
-            data-reveal="fade-down"
-            data-reveal-delay="100"
-            className="font-caveat text-3xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-8px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
-            style={{ fontFamily: 'var(--font-caveat), cursive' }}
-          >
-            Pioneering Authentic Hospitality &amp;
-          </span>
+        <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8 flex flex-col items-center">
+          
+          <div data-reveal="fade-down" data-reveal-duration="850">
+            <span
+              className="font-caveat text-3xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-8px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
+              style={{ fontFamily: 'var(--font-caveat), cursive' }}
+            >
+              Our Story &amp; Heritage
+            </span>
+          </div>
 
-          <h1 
+          <h1
             data-reveal="fade-up"
-            data-reveal-delay="200"
+            data-reveal-delay="100"
             className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-[90px] font-bold tracking-wider sm:tracking-widest text-[#f8fbfa] uppercase leading-tight sm:leading-none drop-shadow-2xl mb-6 max-w-full"
           >
-            ABOUT US
+            Crafting Ceylon Journeys
           </h1>
 
-          <p 
+          <p
             data-reveal="fade-up"
-            data-reveal-delay="350"
-            className="text-xs sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md px-2"
+            data-reveal-delay="200"
+            className="text-sm sm:text-base md:text-lg text-gray-200 font-light max-w-2xl mx-auto leading-relaxed mb-8 drop-shadow-md"
           >
-            Founded on an enduring love for Sri Lanka, GoldenLine TOUR handcrafts bespoke private holidays that celebrate the island&apos;s ancient heritage, untamed wildlife, and warm tropical spirit.
+            Founded on a passion for authenticity, conservation, and exceptional hospitality, GoldenLine TOUR has introduced travelers to the wonders of Sri Lanka for generations.
           </p>
 
-          <div data-reveal="zoom-in" data-reveal-delay="450" className="flex items-center justify-center gap-4 flex-wrap">
-            <button
-              onClick={() => {
-                const el = document.getElementById('our-story');
-                el?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
+          <div data-reveal="zoom-in" data-reveal-delay="300" className="flex items-center justify-center gap-4 flex-wrap">
+            <Link
+              href="#our-story"
+              className="next-btn next-btn--white group cursor-pointer"
             >
-              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
+              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
               </div>
-              <span className="text-xs uppercase tracking-widest font-bold">Discover Our Story</span>
-            </button>
+              <span className="text-xs uppercase tracking-widest font-bold">Discover More</span>
+            </Link>
 
-            <button
-              onClick={handleWhatsAppContact}
+            <a
+              href="https://wa.me/94715477149?text=Hello%20GoldenLine%20TOUR,%20I%20would%20like%20to%20learn%20more%20about%20your%20story%20and%20tours."
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
             >
-              <MessageSquare className="w-4 h-4 fill-white" />
-              <span>Chat With Our Team</span>
-            </button>
+              <WhatsAppIcon className="w-4 h-4 fill-white" />
+              <span>Direct WhatsApp</span>
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Verified Stats Strip */}
-      <section data-reveal="fade-up" className="bg-[var(--color-primary)] text-white py-10 border-t border-white/10 relative z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div data-reveal-stagger className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, idx) => (
-              <div key={idx} className="flex flex-col items-center">
-                <span className="font-serif text-4xl sm:text-5xl font-bold text-[#cba258] mb-1">
-                  <AnimatedCounter value={stat.value} />
-                </span>
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white mb-1">
-                  {stat.label}
-                </span>
-                <span className="text-[11px] text-gray-300 max-w-[180px]">
-                  {stat.sub}
-                </span>
-              </div>
-            ))}
-          </div>
+      {/* Floating Quick Stats Ribbon */}
+      <div className="relative z-30 max-w-5xl mx-auto px-4 sm:px-6 w-full -mt-10 sm:-mt-14">
+        <div data-reveal="fade-up" data-reveal-delay="400" className="bg-white rounded-3xl shadow-[0_20px_50px_rgba(28,25,23,0.12)] border border-[#E7E0D0] p-6 sm:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {stats.map((stat, idx) => (
+            <div key={idx} className="flex flex-col items-center">
+              <span className="font-serif text-4xl sm:text-5xl font-bold text-[#cba258] mb-1">
+                <AnimatedCounter value={stat.value} duration={1800} />
+              </span>
+              <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)] mb-0.5">
+                {stat.label}
+              </span>
+              <span className="text-[11px] text-[#6B635B] font-normal">
+                {stat.sub}
+              </span>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
 
-      {/* Our Story & Heritage Section */}
-      <section id="our-story" className="py-20 lg:py-28 bg-[#f8fbfa] relative overflow-hidden">
-        {/* Decorative Background SVGs */}
+      {/* =========================================================================
+          SECTION 1: OUR ROOTS & FOUNDING STORY
+      ========================================================================== */}
+      <section id="our-story" className="py-20 lg:py-28 bg-[#FAF7EE] relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
-          <LotusBackground className="w-full h-full" />
-        </div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[var(--color-primary)]">
           <MandalaBackground className="w-full h-full" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* Left Multi-Layer Photo Collage */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative h-[420px] sm:h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-[#041B2D]">
+            {/* Left Column: Visual Story Frame */}
+            <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-6 relative">
+              <div className="relative h-[420px] sm:h-[500px] rounded-3xl overflow-hidden shadow-2xl bg-[#181513]">
                 <Image
-                  src="/images/locations/sigiriya.webp"
-                  alt="GoldenLine TOUR Historical Roots"
+                  src="/images/locations/wildlife.webp"
+                  alt="Sri Lanka Wildlife Heritage"
                   fill
-                  className="object-cover"
+                  className="object-cover hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/60 via-transparent to-transparent" />
               </div>
 
-              {/* Overlapping Floating Inset Card */}
-              <div className="hidden sm:block absolute -bottom-8 -right-8 w-64 bg-[#F5F2E6] rounded-3xl p-6 shadow-2xl border border-[#e2ede7]">
-                <div className="flex items-center gap-3 mb-2">
+              {/* Floating Mini Badge Card */}
+              <div className="hidden sm:block absolute -bottom-8 -right-8 w-64 bg-[#F5F2E6] rounded-3xl p-6 shadow-2xl border border-[#E7E0D0]">
+                <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-[var(--color-primary)] text-[#cba258] flex items-center justify-center font-bold">
-                    ★
+                    <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-bold text-[var(--color-primary)]">SLTDA Licensed</div>
-                    <div className="text-[10px] text-gray-500">Reg No: TS/2026/SL</div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-[var(--color-primary)] block">Pioneers</span>
+                    <span className="text-[11px] text-gray-500">Curating luxury Ceylon journeys</span>
                   </div>
                 </div>
-                <p className="text-[11px] text-gray-600 leading-relaxed">
-                  Certified Tour Operator ensuring 100% compliance, passenger safety &amp; fair wages.
-                </p>
               </div>
             </div>
 
-            {/* Right Story Text */}
-            <div className="lg:col-span-6 flex flex-col items-start">
-              <span
-                className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
-                style={{ fontFamily: 'var(--font-caveat), cursive' }}
-              >
-                Our Passion &amp; Purpose
-              </span>
+            {/* Right Column: Narrative */}
+            <div data-reveal="fade-left" data-reveal-duration="850" className="lg:col-span-6 flex flex-col justify-center">
+              <div>
+                <span
+                  className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
+                  style={{ fontFamily: 'var(--font-caveat), cursive' }}
+                >
+                  Authentic Hospitality
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-6 leading-tight">
+                  Born Out of Love for Our Enchanting Island
+                </h2>
+              </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] leading-tight mb-6">
-                Curating Sri Lanka Beyond The Ordinary
-              </h2>
-
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-4">
-                At <strong>GoldenLine TOUR</strong>, travel is not merely about visiting landmarks—it is about heartfelt connections. For over two decades, our destination specialists, naturalist trackers, and certified chauffeur guides have opened doors to the hidden soul of Sri Lanka.
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
+                GoldenLine TOUR was created with a clear singular mission: to showcase the rich biodiversity, sacred heritage, and timeless warmth of Sri Lanka to travelers seeking authentic, deeply personalized holidays.
               </p>
 
-              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
-                From misty mountain tea plantations where private planters share century-old brewing secrets, to secluded coastlines where sea turtles nest under starlit skies, we design journeys that touch the heart and leave lasting memories.
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-8">
+                What began as private guided journeys for curious adventurers has grown into one of the island's premier destination management companies, trusted by international luxury agents, honeymooners, and independent explorers worldwide.
               </p>
 
-              {/* Checklist */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full mb-8">
+              <div className="space-y-3 mb-8">
                 {[
-                  '100% Tailor-Made Itineraries',
-                  'Dedicated 24/7 Guest Concierge',
-                  'English-Speaking Chauffeurs',
-                  'Direct Local Operator Rates',
-                  'Ethical Wildlife Safaris',
-                  'Comprehensive Travel Protection',
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-xs font-bold text-[var(--color-primary)]">
-                    <CheckCircle2 className="w-4 h-4 text-[#0077b6] shrink-0" />
-                    <span>{item}</span>
+                  '100% locally-owned & operated destination management specialist',
+                  'Dedicated private chauffeur-guides with fluent language skills',
+                  'Strict ethical wildlife protocols and sustainable tourism commitments',
+                  '24/7 dedicated guest concierge support throughout your stay',
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-3">
+                    <CheckCircle2 className="w-4 h-4 text-[#C85A32] shrink-0" />
+                    <span className="text-xs sm:text-sm font-semibold text-gray-700">{item}</span>
                   </div>
                 ))}
               </div>
 
               <div className="flex items-center gap-4">
-                <button
-                  onClick={() => {
-                    const el = document.getElementById('contact-section');
-                    el?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="bg-[var(--color-primary)] hover:bg-[#0077b6] text-white px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-md cursor-pointer"
+                <Link
+                  href="#contact-section"
+                  className="bg-[var(--color-primary)] hover:bg-[#C85A32] text-white px-8 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors shadow-md cursor-pointer"
                 >
-                  Plan Your Escape
-                </button>
+                  Get In Touch
+                </Link>
               </div>
-
             </div>
 
           </div>
@@ -312,7 +306,7 @@ export default function AboutUsPage() {
               return (
                 <div
                   key={idx}
-                  className="p-8 rounded-3xl bg-[#f8fbfa] border border-[#e2ede7] hover:border-[var(--color-primary)] transition-all hover:shadow-lg flex flex-col justify-between"
+                  className="p-8 rounded-3xl bg-white border border-[#E7E0D0] hover:border-[var(--color-primary)] transition-all hover:shadow-lg flex flex-col justify-between"
                 >
                   <div>
                     <div className="w-14 h-14 rounded-2xl bg-[var(--color-primary)] text-[#cba258] flex items-center justify-center mb-6 shadow-sm">
@@ -334,7 +328,7 @@ export default function AboutUsPage() {
       </section>
 
       {/* Leadership & Guiding Heritage Section */}
-      <section className="py-20 lg:py-28 bg-[#F5F2E6] border-t border-[#e2ede7] overflow-hidden">
+      <section className="py-20 lg:py-28 bg-[#F5F2E6] border-t border-[#E7E0D0] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Founder */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24">
@@ -426,9 +420,9 @@ export default function AboutUsPage() {
       <RealTravelerExperiences />
 
       {/* Light-Theme Contact / Inquiry Section */}
-      <section id="contact-section" className="py-20 bg-[#f8fbfa] border-t border-[#e2ede7] scroll-mt-20">
+      <section id="contact-section" className="py-20 bg-[#FAF7EE] border-t border-[#E7E0D0] scroll-mt-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#F5F2E6] rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7]">
+          <div className="bg-[#FAF7EE] rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#E7E0D0]">
             
             <div className="text-center max-w-2xl mx-auto mb-10">
               <span
@@ -437,7 +431,7 @@ export default function AboutUsPage() {
               >
                 Start Your Conversation
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide text-[#1a1a1a] mb-3">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide text-[#1C1917] mb-3">
                 Connect With Our Specialists
               </h2>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
@@ -446,11 +440,11 @@ export default function AboutUsPage() {
             </div>
 
             {isSubmitted ? (
-              <div className="bg-[#f8fbfa] rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto border border-[#e2ede7] shadow-sm">
+              <div className="bg-[#FAF7EE] rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto border border-[#E7E0D0] shadow-sm">
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-200">
                   <Check className="w-8 h-8" />
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1a1a1a] mb-2">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1C1917] mb-2">
                   Message Sent Successfully!
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
@@ -461,12 +455,12 @@ export default function AboutUsPage() {
                     onClick={handleWhatsAppContact}
                     className="bg-[#25D366] hover:bg-[#20ba59] text-white px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-md cursor-pointer"
                   >
-                    <MessageSquare className="w-4 h-4 fill-white" />
+                    <WhatsAppIcon className="w-4 h-4 fill-white" />
                     <span>Chat via WhatsApp</span>
                   </button>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="bg-[#F5F2E6] hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer"
+                    className="bg-[#FAF7EE] hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 py-3 rounded-full text-xs font-bold uppercase tracking-wider cursor-pointer"
                   >
                     Send Another Note
                   </button>
@@ -487,7 +481,7 @@ export default function AboutUsPage() {
                       value={formData.fullName}
                       onChange={handleInputChange}
                       placeholder="e.g. Thomas Brown"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-white focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                     />
                   </div>
 
@@ -502,7 +496,7 @@ export default function AboutUsPage() {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="thomas@example.com"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-white focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                     />
                   </div>
 
@@ -517,7 +511,7 @@ export default function AboutUsPage() {
                       value={formData.phone}
                       onChange={handleInputChange}
                       placeholder="+1 (555) 000-0000"
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-white focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all"
                     />
                   </div>
 
@@ -534,13 +528,13 @@ export default function AboutUsPage() {
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Tell us about your dream Sri Lanka journey, estimated travel dates, group size, and any questions..."
-                    className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-[#F5F2E6] focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all resize-none"
+                    className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[var(--color-primary)] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[var(--color-primary)] focus:bg-white focus:ring-2 focus:ring-[var(--color-primary)]/10 transition-all resize-none"
                   />
                 </div>
 
                 <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-2 text-xs text-gray-500">
-                    <ShieldCheck className="w-4 h-4 text-[#0077b6]" />
+                    <ShieldCheck className="w-4 h-4 text-[#C85A32]" />
                     <span>Privacy Guaranteed · No Spam Ever</span>
                   </div>
 
@@ -551,13 +545,13 @@ export default function AboutUsPage() {
                       className="h-12 sm:h-13 px-6 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer shrink-0"
                       title="Instant WhatsApp Chat"
                     >
-                      <MessageSquare className="w-4 h-4 fill-white" />
+                      <WhatsAppIcon className="w-4 h-4 fill-white" />
                       <span>WhatsApp</span>
                     </button>
 
                     <button
                       type="submit"
-                      className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[var(--color-primary)] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
+                      className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[var(--color-primary)] hover:bg-[#C85A32] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                     >
                       <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
                       <span>Send Message</span>

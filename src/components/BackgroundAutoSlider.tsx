@@ -55,7 +55,7 @@ export const BackgroundAutoSlider: React.FC<BackgroundAutoSliderProps> = ({
   intervalMs = 4500,
   showIndicators = true,
   className = '',
-  overlayGradient = 'bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]',
+  overlayGradient = 'bg-gradient-to-b from-black/80 via-black/45 to-[#181513]',
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
