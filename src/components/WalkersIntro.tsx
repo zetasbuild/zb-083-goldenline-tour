@@ -72,7 +72,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
           
           {/* Left Portrait Image (Auto Changing with Cross-Fade) */}
           <div data-reveal="fade-right" data-reveal-duration="850" className="md:col-span-3">
-            <div className="relative h-[400px] sm:h-[480px] rounded-2xl overflow-hidden shadow-lg group bg-[#041B2D] hover-lift">
+            <div className="relative h-[400px] sm:h-[480px] rounded-2xl overflow-hidden shadow-lg group bg-[#181513] hover-lift">
               {LEFT_IMAGES.map((img, index) => {
                 const isActive = activeSlide === index;
                 return (
@@ -137,7 +137,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
                 onClick={onAboutClick}
                 className="next-btn next-btn--blue group cursor-pointer shrink-0 hover:scale-105 transition-transform"
               >
-                <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
+                <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#C85A32] transition-all duration-300">
                   <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
                 </div>
                 <span className="text-xs uppercase tracking-widest font-bold">About Us</span>
@@ -147,7 +147,7 @@ export const WalkersIntro: React.FC<WalkersIntroProps> = ({ onAboutClick }) => {
 
           {/* Right Portrait Image (Auto Changing with Cross-Fade) */}
           <div data-reveal="fade-left" data-reveal-duration="850" data-reveal-delay="200" className="md:col-span-3 hidden md:block">
-            <div className="relative h-[340px] sm:h-[420px] rounded-2xl overflow-hidden shadow-lg group bg-[#041B2D] hover-lift">
+            <div className="relative h-[340px] sm:h-[420px] rounded-2xl overflow-hidden shadow-lg group bg-[#181513] hover-lift">
               {RIGHT_IMAGES.map((img, index) => {
                 const isActive = activeSlide === index;
                 return (

@@ -16,6 +16,7 @@ import {
   MapPin,
   ArrowRight,
   Sparkles,
+  Clock,
 } from 'lucide-react';
 
 export default function ToursOverviewPage() {
@@ -66,7 +67,7 @@ export default function ToursOverviewPage() {
       <section className="relative min-h-[75vh] lg:min-h-[85vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
         <BackgroundAutoSlider
           intervalMs={4500}
-          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]"
+          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#181513]"
         />
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 sm:mt-0">
@@ -86,8 +87,6 @@ export default function ToursOverviewPage() {
           >
             TOUR PACKAGES
           </h1>
-
-
 
           <div data-reveal="zoom-in" data-reveal-delay="450" className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full max-w-[280px] sm:max-w-none mx-auto">
             <button
@@ -120,7 +119,7 @@ export default function ToursOverviewPage() {
       </section>
 
       {/* Filter Section */}
-      <section id="packages-list" className="py-16 lg:py-24 bg-[#f8fbfa] relative overflow-hidden">
+      <section id="packages-list" className="py-16 lg:py-24 bg-[#FAF7EE] relative overflow-hidden">
         {/* Decorative Background SVGs */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
           <MandalaBackground className="w-full h-full" />
@@ -148,47 +147,44 @@ export default function ToursOverviewPage() {
           </div>
 
           {/* Category Tabs */}
-          <div data-reveal="fade-down" className="flex sm:flex-wrap items-center gap-2 sm:gap-3 mb-12 overflow-x-auto no-scrollbar pb-3 sm:pb-0 sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
-            {categories.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={(e) => {
-                  setSelectedCategory(cat.id);
-                  e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-                }}
-                className={`shrink-0 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                  selectedCategory === cat.id
-                    ? 'bg-[var(--color-primary)] text-white shadow-md scale-105'
-                    : 'bg-[#F5F2E6] text-[var(--color-primary)] hover:bg-[#eaf3f8] border border-gray-200'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
+          <div data-reveal="fade-up" data-reveal-delay="100" className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-12 no-scrollbar">
+            {categories.map((cat) => {
+              const isSelected = selectedCategory === cat.id;
+              return (
+                <button
+                  key={cat.id}
+                  onClick={() => setSelectedCategory(cat.id)}
+                  className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shrink-0 cursor-pointer ${
+                    isSelected
+                      ? 'bg-[var(--color-primary)] text-[#cba258] shadow-md scale-105'
+                      : 'bg-[#F5F2E6] text-[var(--color-primary)] hover:bg-[#EAE4D5] border border-gray-200'
+                  }`}
+                >
+                  {cat.label}
+                </button>
+              );
+            })}
           </div>
 
-          {/* Grid */}
-          <div key={`grid-${selectedCategory}`} data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 is-revealed animate-in fade-in duration-300">
+          <div data-reveal-stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPackages.map((pkg) => (
               <div
                 key={pkg.id}
-                className="bg-[#F5F2E6] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl border border-[#e2ede7] transition-all duration-500 flex flex-col justify-between group"
+                className="bg-[#F5F2E6] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl border border-[#E7E0D0] transition-all duration-500 flex flex-col justify-between group"
               >
-                {/* Image Cover */}
-                <div className="relative h-64 w-full bg-[#041B2D] overflow-hidden">
+                <div className="relative h-64 w-full bg-[#181513] overflow-hidden">
                   <Image
                     src={pkg.image}
                     alt={pkg.title}
                     fill
-                    className="object-cover group-hover:scale-108 transition-transform duration-700"
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 768px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/90 via-[#041B2D]/20 to-transparent" />
-
-                  {/* Badges */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/90 via-[#181513]/20 to-transparent" />
+                  
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
                     <span className="bg-black/40 backdrop-blur-md text-[#cba258] text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/10">
-                      {pkg.duration}
+                      {pkg.categoryLabel}
                     </span>
                     {pkg.badge && (
                       <span className="bg-[#cba258] text-[var(--color-primary)] text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
@@ -197,9 +193,10 @@ export default function ToursOverviewPage() {
                     )}
                   </div>
 
-                  <div className="absolute bottom-4 left-5 right-5 text-white z-10">
+                  <div className="absolute bottom-4 left-4 right-4 z-10 text-white">
                     <div className="flex items-center gap-1 text-xs font-bold text-[#cba258] mb-1">
-                      ★ {pkg.rating} <span className="text-gray-300 font-normal">({pkg.reviewsCount}+ reviews)</span>
+                      <Clock className="w-3.5 h-3.5" />
+                      <span>{pkg.duration}</span>
                     </div>
                     <h3 className="font-serif text-2xl font-bold uppercase tracking-wider leading-tight group-hover:text-[#cba258] transition-colors">
                       {pkg.title}
@@ -207,33 +204,32 @@ export default function ToursOverviewPage() {
                   </div>
                 </div>
 
-                {/* Body Content */}
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <p className="text-xs sm:text-sm text-gray-600 line-clamp-3 leading-relaxed">
-                    {pkg.description}
-                  </p>
-
-                  {/* Destinations Covered */}
+                <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-1.5">
-                      Key Destinations
-                    </span>
-                    <div className="flex flex-wrap gap-1.5">
-                      {pkg.destinationsCovered.slice(0, 5).map((d) => (
-                        <span key={d} className="text-[11px] font-semibold text-[var(--color-primary)] bg-[#f0f4f8] px-2.5 py-1 rounded-md flex items-center gap-1">
-                          <MapPin className="w-2.5 h-2.5 text-[#cba258]" />
-                          {d}
-                        </span>
-                      ))}
-                      {pkg.destinationsCovered.length > 5 && (
-                        <span className="text-[11px] font-semibold text-gray-500 bg-gray-100 px-2 py-1 rounded-md">
-                          +{pkg.destinationsCovered.length - 5} more
-                        </span>
-                      )}
+                    <p className="text-xs sm:text-sm text-gray-600 line-clamp-3 mb-5 leading-relaxed">
+                      {pkg.description}
+                    </p>
+
+                    <div className="mb-6">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-2">
+                        Key Stops
+                      </span>
+                      <div className="flex flex-wrap gap-1.5">
+                        {pkg.destinationsCovered.slice(0, 4).map((d) => (
+                          <span key={d} className="text-[11px] font-semibold text-[var(--color-primary)] bg-[#FAF7EE] px-2.5 py-1 rounded-md flex items-center gap-1">
+                            <MapPin className="w-2.5 h-2.5 text-[#cba258]" />
+                            {d}
+                          </span>
+                        ))}
+                        {pkg.destinationsCovered.length > 4 && (
+                          <span className="text-[11px] font-semibold text-gray-500 bg-[#FAF7EE] px-2 py-1 rounded-md">
+                            +{pkg.destinationsCovered.length - 4} more
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Action */}
                   <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
                     <div>
                       <div className="text-[10px] uppercase tracking-wider text-[#cba258] font-bold">Custom Tour</div>

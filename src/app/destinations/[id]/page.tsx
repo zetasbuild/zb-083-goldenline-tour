@@ -93,7 +93,7 @@ export default function DestinationDetailPage() {
       particleCount: 80,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#cba258', '#041B2D', '#25D366', '#ffffff'],
+      colors: ['#cba258', '#181513', '#25D366', '#ffffff'],
     });
 
     const msg = `Hello GoldenLine TOUR! I want to plan a custom trip to *${dest.name}* (${dest.region}).\n\n*Traveler:* ${formData.name}\n*Phone:* ${formData.phone}\n*Date:* ${formData.travelDate || 'Flexible'}\n*Guests:* ${formData.travelers}\n*Hotel Style:* ${formData.hotelStyle}\n*Notes:* ${formData.notes || 'None'}`;
@@ -125,7 +125,7 @@ export default function DestinationDetailPage() {
           sizes="100vw"
         />
         {/* Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D] via-[#041B2D]/55 to-black/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#181513] via-[#181513]/55 to-black/60" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           {/* Breadcrumb Trail */}
@@ -143,7 +143,7 @@ export default function DestinationDetailPage() {
             <div className="max-w-3xl">
               {/* Category & Region Pills */}
               <div className="flex flex-wrap items-center gap-2.5 mb-4">
-                <span className="bg-[#cba258] text-[#041B2D] text-xs font-bold uppercase tracking-widest px-3.5 py-1 rounded-full shadow-md">
+                <span className="bg-[#cba258] text-[#181513] text-xs font-bold uppercase tracking-widest px-3.5 py-1 rounded-full shadow-md">
                   {dest.category}
                 </span>
                 <span className="bg-black/50 backdrop-blur-md text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20 flex items-center gap-1.5">
@@ -202,7 +202,7 @@ export default function DestinationDetailPage() {
             <div className="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
               <button
                 onClick={scrollToForm}
-                className="bg-[#cba258] hover:bg-[#b58d46] text-[#041B2D] font-bold text-xs sm:text-sm uppercase tracking-wider px-7 py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
+                className="bg-[#cba258] hover:bg-[#b58d46] text-[#181513] font-bold text-xs sm:text-sm uppercase tracking-wider px-7 py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Plan Custom Trip Here</span>
                 <ArrowRight className="w-4 h-4" />
@@ -234,7 +234,7 @@ export default function DestinationDetailPage() {
             </div>
             <div>
               <span className="text-[11px] uppercase tracking-wider text-gray-400 font-bold block">Best Season</span>
-              <span className="text-xs sm:text-sm font-bold text-[#041B2D]">{dest.bestTime}</span>
+              <span className="text-xs sm:text-sm font-bold text-[#181513]">{dest.bestTime}</span>
             </div>
           </div>
 
@@ -245,7 +245,7 @@ export default function DestinationDetailPage() {
             </div>
             <div>
               <span className="text-[11px] uppercase tracking-wider text-gray-400 font-bold block">Ideal Stay</span>
-              <span className="text-xs sm:text-sm font-bold text-[#041B2D]">{dest.idealDuration || '1 - 2 Days'}</span>
+              <span className="text-xs sm:text-sm font-bold text-[#181513]">{dest.idealDuration || '1 - 2 Days'}</span>
             </div>
           </div>
 
@@ -256,7 +256,7 @@ export default function DestinationDetailPage() {
             </div>
             <div>
               <span className="text-[11px] uppercase tracking-wider text-gray-400 font-bold block">Climate</span>
-              <span className="text-xs sm:text-sm font-bold text-[#041B2D]">{dest.weather || 'Warm & Tropical'}</span>
+              <span className="text-xs sm:text-sm font-bold text-[#181513]">{dest.weather || 'Warm & Tropical'}</span>
             </div>
           </div>
 
@@ -267,7 +267,7 @@ export default function DestinationDetailPage() {
             </div>
             <div>
               <span className="text-[11px] uppercase tracking-wider text-gray-400 font-bold block">Province</span>
-              <span className="text-xs sm:text-sm font-bold text-[#041B2D]">{dest.region}</span>
+              <span className="text-xs sm:text-sm font-bold text-[#181513]">{dest.region}</span>
             </div>
           </div>
         </div>
@@ -283,7 +283,7 @@ export default function DestinationDetailPage() {
               <Sparkles className="w-4 h-4" />
               <span>Destination Spotlight</span>
             </div>
-            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#041B2D] mb-6">
+            <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#181513] mb-6">
               About {dest.name}
             </h2>
             <div className="prose prose-stone max-w-none text-gray-600 text-sm sm:text-base leading-relaxed space-y-4">
@@ -296,7 +296,7 @@ export default function DestinationDetailPage() {
             {/* Travel Tips Alert Box */}
             {dest.travelTips && dest.travelTips.length > 0 && (
               <div className="mt-8 bg-[#F5F2E6] border border-[#cba258]/30 rounded-2xl p-5 sm:p-6">
-                <h3 className="font-serif text-base sm:text-lg font-bold text-[#041B2D] flex items-center gap-2 mb-3">
+                <h3 className="font-serif text-base sm:text-lg font-bold text-[#181513] flex items-center gap-2 mb-3">
                   <ShieldCheck className="w-5 h-5 text-[#cba258]" />
                   <span>GoldenLine Local Travel Tips</span>
                 </h3>
@@ -321,7 +321,7 @@ export default function DestinationDetailPage() {
               >
                 Must-Visit Landmarks
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#041B2D]">
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#181513]">
                 Top Attractions in {dest.name}
               </h2>
             </div>
@@ -343,14 +343,14 @@ export default function DestinationDetailPage() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
-                        <span className="bg-[#041B2D]/80 backdrop-blur-md px-3 py-1 rounded-full font-bold uppercase tracking-widest text-[#cba258] text-[10px]">
+                        <span className="bg-[#181513]/80 backdrop-blur-md px-3 py-1 rounded-full font-bold uppercase tracking-widest text-[#cba258] text-[10px]">
                           Attraction #{idx + 1}
                         </span>
                       </div>
                     </div>
                     <div className="p-6 flex-1 flex flex-col justify-between">
                       <div>
-                        <h3 className="font-serif text-lg font-bold text-[#041B2D] mb-2 group-hover:text-[#cba258] transition-colors">
+                        <h3 className="font-serif text-lg font-bold text-[#181513] mb-2 group-hover:text-[#cba258] transition-colors">
                           {item.name}
                         </h3>
                         <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
@@ -371,7 +371,7 @@ export default function DestinationDetailPage() {
                     <div className="w-8 h-8 rounded-full bg-[#F5F2E6] flex items-center justify-center text-[#cba258] font-bold text-xs shrink-0">
                       {idx + 1}
                     </div>
-                    <span className="font-serif font-bold text-[#041B2D] text-sm sm:text-base">
+                    <span className="font-serif font-bold text-[#181513] text-sm sm:text-base">
                       {attr}
                     </span>
                   </div>
@@ -390,7 +390,7 @@ export default function DestinationDetailPage() {
                 >
                   Unforgettable Experiences
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#041B2D]">
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#181513]">
                   Signature Things to Do
                 </h2>
               </div>
@@ -402,11 +402,11 @@ export default function DestinationDetailPage() {
                     className="p-5 rounded-2xl bg-[#F9F7F1] border border-gray-100 hover:border-[#cba258]/40 transition-all hover:bg-white hover:shadow-md"
                   >
                     <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#cba258] bg-[#041B2D] px-2.5 py-1 rounded-md">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#cba258] bg-[#181513] px-2.5 py-1 rounded-md">
                         {todo.tag || 'Experience'}
                       </span>
                     </div>
-                    <h3 className="font-serif text-base font-bold text-[#041B2D] mb-1.5">
+                    <h3 className="font-serif text-base font-bold text-[#181513] mb-1.5">
                       {todo.title}
                     </h3>
                     <p className="text-xs text-gray-600 leading-relaxed">
@@ -428,13 +428,13 @@ export default function DestinationDetailPage() {
                 >
                   Ready-Made Itineraries
                 </span>
-                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#041B2D]">
+                <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#181513]">
                   Tours Visiting {dest.name}
                 </h2>
               </div>
               <Link
                 href="/tours"
-                className="text-xs uppercase tracking-wider font-bold text-[#cba258] hover:text-[#041B2D] flex items-center gap-1 transition-colors"
+                className="text-xs uppercase tracking-wider font-bold text-[#cba258] hover:text-[#181513] flex items-center gap-1 transition-colors"
               >
                 <span>View All Tour Packages</span>
                 <ChevronRight className="w-4 h-4" />
@@ -457,9 +457,9 @@ export default function DestinationDetailPage() {
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/85 via-transparent to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/85 via-transparent to-transparent" />
                       <div className="absolute top-3 left-3">
-                        <span className="bg-[#cba258] text-[#041B2D] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
+                        <span className="bg-[#cba258] text-[#181513] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full shadow">
                           {tour.duration}
                         </span>
                       </div>
@@ -469,7 +469,7 @@ export default function DestinationDetailPage() {
                     </div>
                     <div className="p-5 flex-1 flex flex-col justify-between">
                       <div>
-                        <h3 className="font-serif text-base font-bold text-[#041B2D] group-hover:text-[#cba258] transition-colors line-clamp-1 mb-2">
+                        <h3 className="font-serif text-base font-bold text-[#181513] group-hover:text-[#cba258] transition-colors line-clamp-1 mb-2">
                           {tour.title}
                         </h3>
                         <p className="text-xs text-gray-500 line-clamp-2 mb-4 leading-relaxed">
@@ -477,7 +477,7 @@ export default function DestinationDetailPage() {
                         </p>
                       </div>
                       <div className="border-t border-gray-100 pt-3 flex items-center justify-between text-xs">
-                        <span className="font-bold text-[#041B2D] flex items-center gap-1">
+                        <span className="font-bold text-[#181513] flex items-center gap-1">
                           <Star className="w-3.5 h-3.5 fill-[#cba258] text-[#cba258]" />
                           <span>{tour.rating.toFixed(1)}</span>
                         </span>
@@ -497,7 +497,7 @@ export default function DestinationDetailPage() {
                 </p>
                 <button
                   onClick={scrollToForm}
-                  className="bg-[#041B2D] hover:bg-[#cba258] text-white hover:text-[#041B2D] px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
+                  className="bg-[#181513] hover:bg-[#cba258] text-white hover:text-[#181513] px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
                 >
                   Request A Custom Itinerary
                 </button>
@@ -515,7 +515,7 @@ export default function DestinationDetailPage() {
                 <Sparkles className="w-4 h-4" />
                 <span>Tailor-Made Journey</span>
               </div>
-              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#041B2D] mb-2">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#181513] mb-2">
                 Plan a Trip to {dest.name}
               </h3>
               <p className="text-xs text-gray-500 mb-6">
@@ -623,7 +623,7 @@ export default function DestinationDetailPage() {
 
                   <button
                     type="submit"
-                    className="w-full bg-[#cba258] hover:bg-[#b58d46] text-[#041B2D] font-bold text-xs sm:text-sm uppercase tracking-wider py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer mt-2"
+                    className="w-full bg-[#cba258] hover:bg-[#b58d46] text-[#181513] font-bold text-xs sm:text-sm uppercase tracking-wider py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer mt-2"
                   >
                     <Send className="w-4 h-4" />
                     <span>Get Custom Tour Quote</span>
@@ -649,7 +649,7 @@ export default function DestinationDetailPage() {
             </div>
 
             {/* Why Book With GoldenLine Card */}
-            <div className="bg-[#041B2D] text-white rounded-3xl p-6 sm:p-8 shadow-xl">
+            <div className="bg-[#181513] text-white rounded-3xl p-6 sm:p-8 shadow-xl">
               <h4 className="font-serif text-lg font-bold text-[#cba258] mb-4 flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5" />
                 <span>GoldenLine Guarantee</span>
@@ -688,13 +688,13 @@ export default function DestinationDetailPage() {
               >
                 Continue Exploring
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#041B2D]">
+              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#181513]">
                 More Iconic Destinations
               </h2>
             </div>
             <Link
               href="/destinations"
-              className="text-xs uppercase tracking-wider font-bold text-[#cba258] hover:text-[#041B2D] flex items-center gap-1 transition-colors"
+              className="text-xs uppercase tracking-wider font-bold text-[#cba258] hover:text-[#181513] flex items-center gap-1 transition-colors"
             >
               <span>View All 20 Destinations</span>
               <ChevronRight className="w-4 h-4" />
@@ -706,7 +706,7 @@ export default function DestinationDetailPage() {
               <Link
                 key={other.id}
                 href={`/destinations/${other.id}`}
-                className="group relative h-80 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 block bg-[#041B2D]"
+                className="group relative h-80 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 block bg-[#181513]"
               >
                 <Image
                   src={other.image}
@@ -715,7 +715,7 @@ export default function DestinationDetailPage() {
                   className="object-cover group-hover:scale-110 transition-transform duration-700"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/35 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/95 via-[#181513]/35 to-transparent" />
                 <div className="absolute top-4 left-4">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-[#cba258] bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
                     {other.category}

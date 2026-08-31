@@ -10,39 +10,34 @@ interface WalkersBespokeToursProps {
 
 export const WalkersBespokeTours: React.FC<WalkersBespokeToursProps> = ({ onPlanTrip }) => {
   return (
-    <section id="bespoke" className="py-20 lg:py-28 bg-[#f8fbfa] border-t border-[#e2ede7] overflow-hidden">
+    <section id="bespoke" className="py-20 lg:py-28 bg-[#F5F2E6] border-t border-[#E7E0D0] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Narrative Column */}
-          <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-5 flex flex-col items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Text */}
+          <div data-reveal="fade-right" data-reveal-duration="850" className="lg:col-span-6">
             <div>
               <span 
                 className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
                 style={{ fontFamily: 'var(--font-caveat), cursive' }}
               >
-                Tailor-made
+                Tailored Journeys
               </span>
-              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-6 mt-2">
-                Bespoke Tours
+              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-6 leading-tight">
+                Craft Your Perfect<br />Ceylon Holiday
               </h2>
             </div>
-
-            <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)] mb-3">
-              Create your perfect Sri Lankan adventure with us…
-            </h3>
-
-            <p className="text-sm sm:text-base text-[#55697a] font-normal leading-relaxed mb-8">
-              Tailor-made tours are our hallmark specialty at GoldenLine TOUR. For decades, we have been crafting bespoke Sri Lankan journeys tailored to individual client requests. Our expert planners and guides ensure every guest enjoys a truly unique, seamless, and personalized experience.
+            <p className="text-sm sm:text-base text-[#6B635B] font-normal leading-relaxed mb-8">
+              Every traveler is unique. Whether you wish to explore undiscovered wild safari corridors, unwind in colonial tea bungalows, or track down the finest street food in Pettah, our travel specialists design an itinerary tailored precisely to your schedule, preferences, and desires.
             </p>
-
             <button
               onClick={onPlanTrip}
               className="next-btn next-btn--blue group cursor-pointer hover:scale-105 transition-transform"
             >
-              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
+              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#C85A32] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
               </div>
-              <span className="text-xs uppercase tracking-widest font-bold">Plan Your Tour</span>
+              <span className="text-xs uppercase tracking-widest font-bold">Plan Your Bespoke Tour</span>
             </button>
           </div>
 

@@ -233,24 +233,12 @@ export const RealTravelerExperiences: React.FC = () => {
             href="https://www.tripadvisor.com/UserReviewEdit-g12272474-d28158011-Nihar_Srilanka_Tours_Travels-Meemure_Kandy_District_Central_Province.html"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#cba258] hover:bg-[#041B2D] text-white font-bold text-sm sm:text-base rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#cba258] hover:bg-[#1C1917] text-white font-bold text-sm sm:text-base rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
             </svg>
             Write a Review
-          </a>
-
-          <a
-            href="https://www.tripadvisor.com/Attraction_Review-g12272474-d28158011-Reviews-Nihar_Srilanka_Tours_Travels-Meemure_Kandy_District_Central_Province.html"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white border border-[#34E0A1]/40 hover:border-[#34E0A1] text-[#041B2D] font-bold text-sm sm:text-base rounded-full shadow-sm hover:shadow-lg transition-all duration-300 group w-full sm:w-auto"
-          >
-            <svg role="img" viewBox="0 0 24 24" className="w-6 h-6 fill-[#34E0A1] group-hover:scale-110 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12.006 4.295c-2.67 0-5.338.784-7.645 2.353H0l1.963 2.135a5.997 5.997 0 0 0 4.04 10.43 5.976 5.976 0 0 0 4.075-1.6L12 19.705l1.922-2.09a5.972 5.972 0 0 0 4.072 1.598 6 6 0 0 0 6-5.998 5.982 5.982 0 0 0-1.957-4.432L24 6.648h-4.35a13.573 13.573 0 0 0-7.644-2.353zM12 6.255c1.531 0 3.063.303 4.504.903C13.943 8.138 12 10.43 12 13.1c0-2.671-1.942-4.962-4.504-5.942A11.72 11.72 0 0 1 12 6.256zM6.002 9.157a4.059 4.059 0 1 1 0 8.118 4.059 4.059 0 0 1 0-8.118zm11.992.002a4.057 4.057 0 1 1 .003 8.115 4.057 4.057 0 0 1-.003-8.115zm-11.992 1.93a2.128 2.128 0 0 0 0 4.256 2.128 2.128 0 0 0 0-4.256zm11.992 0a2.128 2.128 0 0 0 0 4.256 2.128 2.128 0 0 0 0-4.256z"/>
-            </svg>
-            Read more reviews on Tripadvisor
           </a>
         </div>
       </div>

@@ -88,7 +88,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                     {/* The Large Left Card */}
                     <Link
                       href={`/tours/${pkg.id}`}
-                      className="lg:col-span-1 lg:row-span-2 h-[460px] md:h-[600px] lg:h-full w-full group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
+                      className="lg:col-span-1 lg:row-span-2 h-[460px] md:h-[600px] lg:h-full w-full group bg-[#181513] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
                     >
                       {/* Background Image */}
                       <Image
@@ -97,10 +97,11 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                         fill
                         className="object-cover hover-box__img"
                         sizes="(max-width: 1024px) 100vw, 33vw"
+                        priority
                       />
 
                       {/* Dark Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/95 via-[#181513]/40 to-transparent group-hover:from-[#181513]/98 transition-colors duration-300" />
 
                       {/* Badge if available */}
                       {pkg.badge && (
@@ -149,7 +150,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                         href="/tours"
                         className="next-btn next-btn--blue group cursor-pointer w-fit"
                       >
-                        <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#0077b6] transition-all duration-300">
+                        <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#C85A32] transition-all duration-300">
                           <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
                         </div>
                         <span className="text-xs uppercase tracking-widest font-bold text-[var(--color-primary)]">Explore All Categories</span>
@@ -165,7 +166,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                   <Link
                     key={pkg.id}
                     href={`/tours/${pkg.id}`}
-                    className="lg:col-span-2 h-[260px] sm:h-[280px] w-full group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
+                    className="lg:col-span-2 h-[260px] sm:h-[280px] w-full group bg-[#181513] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
                   >
                     {/* Background Image */}
                     <Image
@@ -177,7 +178,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                     />
 
                     {/* Dark Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/95 via-[#181513]/40 to-transparent group-hover:from-[#181513]/98 transition-colors duration-300" />
 
                     {/* Badge if available */}
                     {pkg.badge && (
@@ -210,7 +211,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                 <Link
                   key={pkg.id}
                   href={`/tours/${pkg.id}`}
-                  className="lg:col-span-1 h-[260px] sm:h-[280px] w-full group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
+                  className="lg:col-span-1 h-[260px] sm:h-[280px] w-full group bg-[#181513] rounded-3xl overflow-hidden shadow-lg border-[8px] border-white relative cursor-pointer flex flex-col justify-end block"
                 >
                   {/* Background Image */}
                   <Image
@@ -222,7 +223,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                   />
 
                   {/* Dark Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/95 via-[#181513]/40 to-transparent group-hover:from-[#181513]/98 transition-colors duration-300" />
 
                   {/* Badge if available */}
                   {pkg.badge && (
@@ -257,7 +258,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
               <Link
                 key={pkg.id}
                 href={`/tours/${pkg.id}`}
-                className="hover-box group bg-[#041B2D] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end relative cursor-pointer h-[380px] block border-4 border-white is-revealed"
+                className="hover-box group bg-[#181513] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 flex flex-col justify-end relative cursor-pointer h-[380px] block border-4 border-white is-revealed"
               >
                 {/* Background Image */}
                 <Image
@@ -269,7 +270,7 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
                 />
 
                 {/* Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/40 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/95 via-[#181513]/40 to-transparent group-hover:from-[#181513]/98 transition-colors duration-300" />
 
                 {/* Badge if available */}
                 {pkg.badge && (

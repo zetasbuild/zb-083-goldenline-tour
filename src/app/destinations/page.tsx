@@ -173,133 +173,136 @@ export default function DestinationsPage() {
         </div>
       </section>
 
-      {/* Floating Filter Card */}
-      <section data-reveal="zoom-in" data-reveal-delay="200" className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12 sm:-mt-14 w-full">
-        <div className="bg-[#F5F2E6] rounded-3xl p-5 sm:p-6 shadow-[0_20px_50px_rgba(0,43,73,0.15)] border border-[#e2ede7]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 items-center">
-            {/* Field 1: Category Selector */}
-            <div className="w-full">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary)] block mb-1.5">
-                Category
-              </label>
-              <div className="relative">
-                <select
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value as DestinationCategory)}
-                  className="w-full p-3 rounded-2xl border border-gray-200 hover:border-[var(--color-primary)] bg-[#f8fbfa] text-xs sm:text-sm font-medium text-gray-800 outline-none appearance-none cursor-pointer pr-10"
-                >
-                  {categories.map((cat) => (
-                    <option key={cat.id} value={cat.id}>
-                      {cat.label}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown className="w-4 h-4 text-gray-500 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
-              </div>
+      {/* Sticky Quick Filter Bar */}
+      <div className="relative z-30 max-w-5xl mx-auto px-4 sm:px-6 w-full -mt-8 sm:-mt-10">
+        <div className="bg-[#FAF7EE] rounded-3xl p-5 sm:p-6 shadow-[0_20px_50px_rgba(28,25,23,0.15)] border border-[#E7E0D0]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 sm:gap-4 items-center">
+            
+            {/* Search Input */}
+            <div className="sm:col-span-2 lg:col-span-5 relative">
+              <input
+                type="text"
+                placeholder="Search by city, activity, landmark..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full p-3 pl-10 rounded-2xl border border-gray-200 hover:border-[var(--color-primary)] bg-white text-xs sm:text-sm font-medium text-gray-800 outline-none focus:border-[var(--color-primary)] focus:bg-white transition-all shadow-xs"
+              />
+              <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
             </div>
 
-            {/* Field 2: Region Selector */}
-            <div className="w-full">
-              <label className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-primary)] block mb-1.5">
-                Region
-              </label>
+            {/* Region Select */}
+            <div className="lg:col-span-4 relative">
               <div className="relative">
                 <select
                   value={selectedRegion}
                   onChange={(e) => setSelectedRegion(e.target.value)}
-                  className="w-full p-3 rounded-2xl border border-gray-200 hover:border-[var(--color-primary)] bg-[#f8fbfa] text-xs sm:text-sm font-medium text-gray-800 outline-none appearance-none cursor-pointer pr-10"
+                  className="w-full p-3 rounded-2xl border border-gray-200 hover:border-[var(--color-primary)] bg-white text-xs sm:text-sm font-medium text-gray-800 outline-none appearance-none cursor-pointer pr-10"
                 >
-                  {regions.map((reg) => (
-                    <option key={reg} value={reg}>
-                      {reg}
+                  {regions.map((r) => (
+                    <option key={r} value={r}>
+                      {r === 'All Regions' ? 'All Regions (Islandwide)' : r}
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="w-4 h-4 text-gray-500 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
               </div>
             </div>
+
+            {/* Category Select */}
+            <div className="lg:col-span-3 relative">
+              <div className="relative">
+                <select
+                  value={selectedCategory}
+                  onChange={(e) => setSelectedCategory(e.target.value as DestinationCategory)}
+                  className="w-full p-3 rounded-2xl border border-gray-200 hover:border-[var(--color-primary)] bg-white text-xs sm:text-sm font-medium text-gray-800 outline-none appearance-none cursor-pointer pr-10"
+                >
+                  {categories.map((c) => (
+                    <option key={c.id} value={c.id}>
+                      {c.label}
+                    </option>
+                  ))}
+                </select>
+                <ChevronDown className="w-4 h-4 text-gray-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              </div>
+            </div>
+
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Main Content Section */}
-      <section id="destinations-grid" className="pt-20 pb-24 lg:pt-28 lg:pb-32 bg-[#f8fbfa] relative overflow-hidden">
-        {/* Decorative Background SVGs */}
+      {/* Main Destinations Grid Section */}
+      <section id="destinations-grid" className="pt-20 pb-24 lg:pt-28 lg:pb-32 bg-[#FAF7EE] relative overflow-hidden">
+        {/* Background Mandala */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
           <LotusBackground className="w-full h-full" />
-        </div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[var(--color-primary)]">
-          <TropicalLeafBackground className="w-full h-full" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          {/* Section Header with Signature Cursive */}
-          <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-12">
-            <span 
+          {/* Section Header */}
+          <div data-reveal="fade-up" className="text-center max-w-3xl mx-auto mb-16">
+            <span
               className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
               style={{ fontFamily: 'var(--font-caveat), cursive' }}
             >
-              Handcrafted Highlights
+              Explore Sri Lanka
             </span>
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-4">
-              Iconic Places of Sri Lanka
+            <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-6">
+              Iconic Destinations &amp; Wonders
             </h2>
-            <p className="text-gray-600 sm:text-base leading-relaxed">
-              Showing <strong className="text-[var(--color-primary)]">{filteredDestinations.length}</strong> remarkable destinations tailored for bespoke adventures.
+            <p className="text-gray-600 sm:text-lg leading-relaxed">
+              Explore the rich tapestry of Sri Lanka across sacred ancient ruins, misty high-elevation tea trails, untamed safari corridors, and turquoise coastline bays.
             </p>
           </div>
 
-          {/* Quick Category Tabs */}
-          <div data-reveal="fade-down" className="flex sm:flex-wrap items-center gap-2 sm:gap-3 mb-10 overflow-x-auto no-scrollbar pb-3 sm:pb-0 sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
-            {categories.map((cat) => {
-              const Icon = cat.icon;
+          {/* Region Tabs Filter */}
+          <div data-reveal="fade-up" data-reveal-delay="100" className="flex items-center justify-start sm:justify-center gap-2 overflow-x-auto pb-4 mb-12 no-scrollbar">
+            {regions.map((region) => {
+              const isSelected = selectedRegion === region;
               return (
                 <button
-                  key={cat.id}
-                  onClick={(e) => {
-                    setSelectedCategory(cat.id as DestinationCategory);
-                    e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-                  }}
-                  className={`shrink-0 flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                    selectedCategory === cat.id
-                      ? 'bg-[var(--color-primary)] text-white shadow-md scale-105'
-                      : 'bg-[#F5F2E6] text-[var(--color-primary)] hover:bg-[#eaf3f8] border border-gray-200'
+                  key={region}
+                  onClick={() => setSelectedRegion(region)}
+                  className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 shrink-0 cursor-pointer ${
+                    isSelected
+                      ? 'bg-[var(--color-primary)] text-[#cba258] shadow-md scale-105'
+                      : 'bg-[#F5F2E6] text-[var(--color-primary)] hover:bg-[#EAE4D5] border border-gray-200'
                   }`}
                 >
-                  <Icon className="w-3.5 h-3.5" />
-                  <span>{cat.label}</span>
+                  {region}
                 </button>
               );
             })}
           </div>
 
-          {/* Destinations Grid (Matching Walkers Luxury Card UI) */}
+          {/* Results Grid */}
           {filteredDestinations.length === 0 ? (
-            <div className="bg-[#F5F2E6] rounded-3xl p-12 text-center max-w-md mx-auto shadow-sm border border-gray-200">
+            <div className="bg-[#FAF7EE] rounded-3xl p-12 text-center max-w-md mx-auto shadow-sm border border-gray-200">
               <Compass className="w-12 h-12 text-[#cba258] mx-auto mb-4 animate-bounce" />
-              <h3 className="font-serif text-xl font-bold text-[var(--color-primary)] mb-2">No Destinations Found</h3>
+              <h3 className="font-serif text-2xl font-bold text-[var(--color-primary)] mb-2">
+                No Destinations Found
+              </h3>
               <p className="text-xs text-gray-500 mb-6">
-                Try clearing your search query or selecting a different category.
+                Try adjusting your search filters or clearing the region selector.
               </p>
               <button
                 onClick={() => {
-                  setSearchQuery('');
-                  setSelectedCategory('All');
                   setSelectedRegion('All Regions');
+                  setSelectedCategory('All');
+                  setSearchQuery('');
                 }}
                 className="bg-[var(--color-primary)] hover:bg-[#cba258] text-white px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-colors cursor-pointer"
               >
-                Reset Filters
+                Reset All Filters
               </button>
             </div>
           ) : (
-            <div key={`dest-grid-${selectedCategory}-${selectedRegion}`} data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 is-revealed animate-in fade-in duration-300">
+            <div data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
               {filteredDestinations.map((dest) => (
                 <Link
                   key={dest.id}
                   href={`/destinations/${dest.id}`}
-                  className="hover-box group flex-shrink-0 h-[440px] sm:h-[460px] cursor-pointer rounded-3xl overflow-hidden relative shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#041B2D] block"
+                  className="hover-box group flex-shrink-0 h-[440px] sm:h-[460px] cursor-pointer rounded-3xl overflow-hidden relative shadow-lg hover:shadow-2xl transition-all duration-500 bg-[#181513] block"
                 >
                   {/* Full Background Image */}
                   <Image
@@ -311,7 +314,7 @@ export default function DestinationsPage() {
                   />
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#041B2D]/95 via-[#041B2D]/35 to-transparent group-hover:from-[#041B2D]/98 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#181513]/95 via-[#181513]/35 to-transparent group-hover:from-[#181513]/98 transition-colors duration-300" />
 
                   {/* Top Badges (Category + Wishlist) */}
                   <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-20">
@@ -319,16 +322,12 @@ export default function DestinationsPage() {
                       {dest.category}
                     </span>
                     <button
-                      onClick={(e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        toggleWishlist(dest.id, e);
-                      }}
-                      aria-label="Save to wishlist"
-                      className="w-9 h-9 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:scale-110 transition-transform cursor-pointer"
+                      onClick={(e) => toggleWishlist(dest.id, e)}
+                      className="w-8 h-8 rounded-full bg-black/40 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:text-[#cba258] transition-colors cursor-pointer"
+                      aria-label="Save to favorites"
                     >
                       <Heart
-                        className={`w-4 h-4 transition-colors ${
+                        className={`w-4 h-4 transition-all duration-300 ${
                           wishlist.includes(dest.id)
                             ? 'fill-[#cba258] text-[#cba258]'
                             : 'text-white'
@@ -337,34 +336,32 @@ export default function DestinationsPage() {
                     </button>
                   </div>
 
-                  {/* Card Footer Details */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white flex flex-col justify-end z-10">
-                    <div className="border-b border-white/20 pb-3 mb-3 group-hover:border-white/40 transition-colors">
-                      <div className="flex items-center gap-1.5 text-[10px] text-[#cba258] font-bold tracking-widest uppercase mb-1">
-                        <MapPin className="w-3 h-3" />
-                        <span>{dest.region}</span>
-                      </div>
-                      <h3 className="font-serif text-2xl font-bold uppercase tracking-wider leading-tight group-hover:text-[#cba258] transition-colors">
-                        {dest.name}
-                      </h3>
-                      <p className="text-xs text-gray-300 line-clamp-2 mt-2 leading-relaxed">
-                        {dest.shortDesc}
-                      </p>
+                  {/* Card Bottom Body */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 z-20 text-white flex flex-col justify-end">
+                    <div className="flex items-center gap-1.5 text-[10px] text-[#cba258] font-bold tracking-widest uppercase mb-1">
+                      <MapPin className="w-3 h-3" />
+                      <span>{dest.region}</span>
                     </div>
 
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-1 text-xs font-bold text-white">
+                    <h3 className="font-serif text-2xl font-bold uppercase tracking-wider leading-tight group-hover:text-[#cba258] transition-colors">
+                      {dest.name}
+                    </h3>
+
+                    <p className="text-xs text-gray-200 line-clamp-2 my-2 leading-relaxed opacity-90 font-light">
+                      {dest.shortDesc}
+                    </p>
+
+                    <div className="flex items-center justify-between pt-3 border-t border-white/15 mt-2">
+                      <div className="flex items-center gap-1 text-xs font-bold">
                         <Star className="w-3.5 h-3.5 fill-[#cba258] text-[#cba258]" />
                         <span>{dest.rating}</span>
-                        <span className="text-gray-400 font-normal text-[11px]">({dest.reviewsCount})</span>
+                        <span className="text-[10px] text-gray-300 font-normal">({dest.reviewsCount})</span>
                       </div>
 
-                      {/* Next Button Style */}
                       <div className="next-btn next-btn--white">
                         <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
-                          <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
+                          <ArrowRight className="w-3.5 h-3.5 text-[var(--color-primary)]" />
                         </div>
-                        <span className="text-xs uppercase tracking-widest font-bold">Explore</span>
                       </div>
                     </div>
                   </div>
@@ -372,72 +369,51 @@ export default function DestinationsPage() {
               ))}
             </div>
           )}
+
         </div>
       </section>
 
-      {/* Tailor-Made Bespoke Callout Section */}
-      <section className="py-20 lg:py-28 bg-[#F5F2E6] border-t border-[#e2ede7] overflow-hidden">
+      {/* Tailor-Made CTA Strip */}
+      <section className="py-20 lg:py-28 bg-[#F5F2E6] border-t border-[#E7E0D0] overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left Narrative Column */}
-            <div className="lg:col-span-6 flex flex-col items-start">
-              <div>
-                <span 
-                  className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
-                  style={{ fontFamily: 'var(--font-caveat), cursive' }}
-                >
-                  Tailor-made Itineraries
-                </span>
-                <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-[var(--color-primary)] mb-6 mt-2">
-                  Can't Decide Where to Go?
-                </h2>
-              </div>
-
-              <h3 className="text-base sm:text-lg font-bold text-[var(--color-primary)] mb-3">
-                Let our destination specialists build your dream holiday.
-              </h3>
-
-              <p className="text-sm sm:text-base text-[#55697a] font-normal leading-relaxed mb-8">
-                Every traveler is unique. Whether you want to witness wild elephants in Yala, climb the ancient citadel of Sigiriya at sunrise, or unwind in secluded coastal boutique villas, our team crafts seamless bespoke journeys tailored specifically to your desires.
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div className="lg:col-span-7">
+              <span
+                className="font-caveat text-3xl sm:text-4xl text-[#cba258] mb-2 inline-block -rotate-2"
+                style={{ fontFamily: 'var(--font-caveat), cursive' }}
+              >
+                Personalized Itineraries
+              </span>
+              <h2 className="font-serif text-4xl sm:text-5xl font-bold text-[var(--color-primary)] mb-6 leading-tight">
+                Want to Combine Multiple Destinations?
+              </h2>
+              <p className="text-sm sm:text-base text-[#6B635B] font-normal leading-relaxed mb-8">
+                Let our destination specialists craft a seamless route connecting Sigiriya, Kandy, Ella, Yala, and the southern coast with private air-conditioned transport and dedicated chauffeur guides.
               </p>
-
-              <button
-                onClick={() => {
-                  const el = document.getElementById('custom-tour-form');
-                  el?.scrollIntoView({ behavior: 'smooth' });
-                }}
+              <Link
+                href="/tours#custom-tour-form"
                 className="next-btn next-btn--blue group cursor-pointer"
               >
                 <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
-                  <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRight className="w-4 h-4 text-white" />
                 </div>
-                <span className="text-xs uppercase tracking-widest font-bold">Plan Your Custom Trip</span>
-              </button>
+                <span className="text-xs uppercase tracking-widest font-bold">Design Custom Journey</span>
+              </Link>
             </div>
 
-            {/* Right Photography Layout */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative h-[380px] sm:h-[460px] rounded-3xl overflow-hidden shadow-2xl z-10 w-full sm:w-5/6 ml-auto group">
+            <div className="lg:col-span-5 relative">
+              <div className="relative h-[320px] sm:h-[380px] rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&w=1200&q=80"
-                  alt="Scenic Sri Lanka Highlands"
+                  src="/images/locations/hero-ella.webp"
+                  alt="Custom Tour Journey in Ella"
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-
-              {/* Small Overlapping Foreground Image */}
-              <div className="hidden sm:block absolute -bottom-8 -left-4 w-64 h-64 rounded-3xl overflow-hidden shadow-2xl border-4 border-white z-20 group">
-                <Image
-                  src="/images/locations/sigiriya.webp"
-                  alt="Sigiriya Heritage"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                  sizes="260px"
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
                 />
               </div>
             </div>
+
           </div>
         </div>
       </section>

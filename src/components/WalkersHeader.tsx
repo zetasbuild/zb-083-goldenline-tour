@@ -182,7 +182,7 @@ export const WalkersHeader: React.FC<WalkersHeaderProps> = ({
 
       {/* Fullscreen Luxury Dark Navigation Overlay (Mega Menu) */}
       {megaMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-[#041B2D]/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-12 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 z-50 bg-[#181513]/98 backdrop-blur-xl flex flex-col justify-between p-6 sm:p-12 overflow-y-auto animate-in fade-in zoom-in-95 duration-200">
           
           {/* Top Bar inside Overlay */}
           <div className="flex items-center justify-between max-w-7xl mx-auto w-full mb-8">

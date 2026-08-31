@@ -5,15 +5,16 @@
   --font-serif: var(--font-playfair), Georgia, serif;
   --font-script: var(--font-caveat), cursive;
 
-  --color-primary: #002b49; /* GoldenLine TOUR Deep Navy */
-  --color-primary-dark: #001a2c;
-  --color-primary-blue: #0b4d75;
-  --color-accent: #0077b6;
+  --color-primary: #1C1917; /* GoldenLine TOUR Luxury Espresso Charcoal */
+  --color-primary-dark: #12100E;
+  --color-primary-charcoal: #292524;
+  --color-accent: #C85A32; /* Warm Terracotta / Rust */
+  --color-gold: #CBA258; /* Warm Golden Sand */
   --color-dark-green: #0d3827; /* Sustainability deep forest green */
-  --color-bg-light: #ffffff;
-  --color-bg-subtle: #f4f8fb;
-  --color-text-main: #111827;
-  --color-text-muted: #55697a;
+  --color-bg-light: #FAF7EE; /* Warm Ivory Sand */
+  --color-bg-subtle: #F4EFE6;
+  --color-text-main: #1C1917;
+  --color-text-muted: #6B635B;
 }
 
 body {
@@ -37,7 +38,7 @@ body {
 .watermark-text {
   font-size: clamp(4rem, 12vw, 11rem);
   line-height: 0.85;
-  color: #ebf1f5;
+  color: #E8E0D0;
   font-weight: 800;
   text-transform: lowercase;
   pointer-events: none;
@@ -73,7 +74,7 @@ body {
 }
 
 .next-btn--blue {
-  color: #002b49;
+  color: #1C1917;
 }
 
 .next-btn-circle {
@@ -88,11 +89,11 @@ body {
 
 .next-btn--white .next-btn-circle {
   background-color: #ffffff;
-  color: #002b49;
+  color: #1C1917;
 }
 
 .next-btn--blue .next-btn-circle {
-  background-color: #002b49;
+  background-color: #1C1917;
   color: #ffffff;
 }
 
@@ -101,11 +102,13 @@ body {
 }
 
 .next-btn--white:hover .next-btn-circle {
-  background-color: #f0f7fb;
+  background-color: #CBA258;
+  color: #1C1917;
 }
 
 .next-btn--blue:hover .next-btn-circle {
-  background-color: #0b4d75;
+  background-color: #C85A32;
+  color: #ffffff;
 }
 
 /* Hover Box Card in GoldenLine TOUR style */
@@ -118,7 +121,7 @@ body {
 
 .hover-box:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 43, 73, 0.15);
+  box-shadow: 0 20px 40px rgba(28, 25, 23, 0.15);
 }
 
 .hover-box__img {
@@ -156,16 +159,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f8;
+  background: #F4EFE6;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #002b49;
+  background: #443E3A;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #0b4d75;
+  background: #C85A32;
 }
 
 .no-scrollbar::-webkit-scrollbar {

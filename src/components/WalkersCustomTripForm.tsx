@@ -134,7 +134,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
               >
                 Plan Your Dream
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide text-[#002b49] mb-3">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-wide text-[#1C1917] mb-3">
                 Custom Sri Lanka Itinerary
               </h2>
               <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed">
@@ -144,11 +144,11 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
 
             {isSubmitted ? (
               /* Success Confirmation Screen */
-              <div className="bg-[#f8fbfa] rounded-3xl p-8 sm:p-12 text-center max-w-2xl mx-auto border border-[#e2ede7] shadow-sm animate-in fade-in duration-300">
+              <div className="bg-[#FAF7EE] rounded-3xl p-8 sm:p-12 text-center max-w-2xl mx-auto border border-[#E7E0D0] shadow-sm animate-in fade-in duration-300">
                 <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-200 shadow-sm">
                   <Check className="w-8 h-8" />
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#002b49] mb-2">
+                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1C1917] mb-2">
                   Trip Itinerary Request Received!
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
@@ -167,7 +167,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                   <button
                     type="button"
                     onClick={() => setIsSubmitted(false)}
-                    className="flex-1 h-12 bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 rounded-full text-xs font-bold uppercase tracking-wider transition-all hover:border-[#002b49] cursor-pointer"
+                    className="flex-1 h-12 bg-white hover:bg-gray-50 text-gray-800 border border-gray-300 px-6 rounded-full text-xs font-bold uppercase tracking-wider transition-all hover:border-[#1C1917] cursor-pointer"
                   >
                     Edit / Submit Another
                   </button>
@@ -178,10 +178,10 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
               <form onSubmit={handleSubmit} className="space-y-8">
                 
                 {/* Step 1: Destination Selection Pills */}
-                <div className="bg-[#f8fbfa] p-5 sm:p-7 rounded-2xl border border-[#e2ede7]">
+                <div className="bg-[#FAF7EE] p-5 sm:p-7 rounded-2xl border border-[#E7E0D0]">
                   <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-                    <label className="text-xs sm:text-[13px] font-bold text-[#002b49] uppercase tracking-wider flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-[#0077b6]" />
+                    <label className="text-xs sm:text-[13px] font-bold text-[#1C1917] uppercase tracking-wider flex items-center gap-2">
+                      <MapPin className="w-4 h-4 text-[#C85A32]" />
                       <span>1. Select Destinations of Interest (Click to add / remove)</span>
                     </label>
                     <span className="text-[11px] font-semibold text-gray-500">
@@ -198,8 +198,8 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                           onClick={() => toggleDestination(dest)}
                           className={`px-3 py-2.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-all duration-200 flex items-center justify-between w-full text-left cursor-pointer ${
                             isSelected
-                              ? 'bg-[#002b49] text-white shadow-sm scale-[1.02]'
-                              : 'bg-white text-gray-700 border border-gray-200 hover:border-[#002b49] hover:bg-gray-50'
+                              ? 'bg-[#1C1917] text-white shadow-sm scale-[1.02]'
+                              : 'bg-white text-gray-700 border border-gray-200 hover:border-[#1C1917] hover:bg-gray-50'
                           }`}
                         >
                           <span className="truncate pr-1">{dest}</span>
@@ -213,9 +213,9 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                 {/* Step 2: Trip Style & Duration Selection */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {/* Trip Style */}
-                  <div className="bg-[#f8fbfa] p-5 sm:p-7 rounded-2xl border border-[#e2ede7] flex flex-col justify-between">
+                  <div className="bg-[#FAF7EE] p-5 sm:p-7 rounded-2xl border border-[#E7E0D0] flex flex-col justify-between">
                     <div>
-                      <label className="text-xs sm:text-[13px] font-bold text-[#002b49] uppercase tracking-wider block mb-3 flex items-center gap-2">
+                      <label className="text-xs sm:text-[13px] font-bold text-[#1C1917] uppercase tracking-wider block mb-3 flex items-center gap-2">
                         <Compass className="w-4 h-4 text-[#cba258]" />
                         <span>2. Preferred Travel Style</span>
                       </label>
@@ -227,8 +227,8 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                             onClick={() => setTripType(t)}
                             className={`px-3 py-2.5 rounded-xl text-[11px] sm:text-xs font-semibold border transition-all cursor-pointer w-full text-center truncate ${
                               tripType === t
-                                ? 'bg-[#002b49] text-white border-[#002b49] shadow-sm'
-                                : 'bg-white text-gray-700 border-gray-200 hover:border-[#002b49]'
+                                ? 'bg-[#1C1917] text-white border-[#1C1917] shadow-sm'
+                                : 'bg-white text-gray-700 border-gray-200 hover:border-[#1C1917]'
                             }`}
                           >
                             {t}
@@ -239,10 +239,10 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                   </div>
 
                   {/* Duration */}
-                  <div className="bg-[#f8fbfa] p-5 sm:p-7 rounded-2xl border border-[#e2ede7] flex flex-col justify-between">
+                  <div className="bg-[#FAF7EE] p-5 sm:p-7 rounded-2xl border border-[#E7E0D0] flex flex-col justify-between">
                     <div>
-                      <label className="text-xs sm:text-[13px] font-bold text-[#002b49] uppercase tracking-wider block mb-3 flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-[#0077b6]" />
+                      <label className="text-xs sm:text-[13px] font-bold text-[#1C1917] uppercase tracking-wider block mb-3 flex items-center gap-2">
+                        <Calendar className="w-4 h-4 text-[#C85A32]" />
                         <span>3. Target Trip Duration</span>
                       </label>
                       <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
@@ -253,8 +253,8 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                             onClick={() => setDuration(d)}
                             className={`py-2 px-1 text-center rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
                               duration === d
-                                ? 'bg-[#002b49] text-white border-[#002b49] shadow-sm'
-                                : 'bg-white text-gray-700 border-gray-200 hover:border-[#002b49]'
+                                ? 'bg-[#1C1917] text-white border-[#1C1917] shadow-sm'
+                                : 'bg-white text-gray-700 border-gray-200 hover:border-[#1C1917]'
                             }`}
                           >
                             {d}
@@ -270,13 +270,13 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                   {/* Vehicle */}
                   <div>
                     <label className="text-[11px] font-bold uppercase tracking-wider text-gray-700 block mb-2 flex items-center gap-1.5">
-                      <Car className="w-4 h-4 text-[#0077b6]" />
+                      <Car className="w-4 h-4 text-[#C85A32]" />
                       <span>Preferred Vehicle &amp; Chauffeur Logistics</span>
                     </label>
                     <select
                       value={vehicle}
                       onChange={(e) => setVehicle(e.target.value)}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all cursor-pointer"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all cursor-pointer"
                     >
                       <option value="Private Car (Toyota Aqua / Sedan - 2-3 Pax)">Private Car (Toyota Aqua / Sedan - 2-3 Pax)</option>
                       <option value="Compact SUV (Toyota Rush - 4-5 Pax)">Compact SUV (Toyota Rush - 4-5 Pax)</option>
@@ -294,7 +294,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                     <select
                       value={hotelType}
                       onChange={(e) => setHotelType(e.target.value)}
-                      className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all cursor-pointer"
+                      className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all cursor-pointer"
                     >
                       <option value="4-5 Star Luxury & Boutique">4-5 Star Luxury &amp; Signature Boutique Hotels</option>
                       <option value="3-4 Star Comfort & Heritage">3-4 Star Comfort &amp; Heritage Lodges</option>
@@ -322,7 +322,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
                         placeholder="e.g. John Smith"
-                        className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                        className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all"
                       />
                     </div>
 
@@ -337,7 +337,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="john@example.com"
-                        className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                        className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all"
                       />
                     </div>
 
@@ -352,7 +352,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                         value={whatsapp}
                         onChange={(e) => setWhatsapp(e.target.value)}
                         placeholder="+1 (555) 019-283"
-                        className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                        className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all"
                       />
                     </div>
 
@@ -366,7 +366,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                         value={travelers}
                         onChange={(e) => setTravelers(e.target.value)}
                         placeholder="e.g. 2 Adults, 1 Child"
-                        className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                        className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all"
                       />
                     </div>
                   </div>
@@ -381,7 +381,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                         type="date"
                         value={travelDate}
                         onChange={(e) => setTravelDate(e.target.value)}
-                        className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all cursor-pointer"
+                        className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all cursor-pointer"
                       />
                     </div>
 
@@ -394,7 +394,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                         value={notes}
                         onChange={(e) => setNotes(e.target.value)}
                         placeholder="e.g. Scenic train ride in Ella, private safari jeep, ocean view rooms..."
-                        className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                        className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all"
                       />
                     </div>
                   </div>
@@ -404,7 +404,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
                 <div className="pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div className="flex items-center gap-4 text-xs text-gray-500">
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-[#0077b6]" />
+                      <ShieldCheck className="w-4 h-4 text-[#C85A32]" />
                       <span className="font-medium">100% Tailored · Free Quotation · Direct Local Operator</span>
                     </div>
                   </div>
@@ -422,7 +422,7 @@ export const WalkersCustomTripForm: React.FC<WalkersCustomTripFormProps> = ({
 
                     <button
                       type="submit"
-                      className="min-h-[3rem] sm:min-h-[3.25rem] py-3 sm:py-0 px-6 sm:px-8 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
+                      className="min-h-[3rem] sm:min-h-[3.25rem] py-3 sm:py-0 px-6 sm:px-8 rounded-full bg-[#1C1917] hover:bg-[#C85A32] text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                     >
                       <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
                       <span className="leading-tight text-center">Submit &amp; Get Free Itinerary Quote</span>

@@ -56,7 +56,7 @@ export default function ContactPage() {
       sub: 'Secondary: +94 72 321 0119 (24/7 Support)',
       action: 'tel:+94715477149',
       actionText: 'Call Now',
-      color: 'bg-[#002b49] text-white',
+      color: 'bg-[#1C1917] text-white',
     },
     {
       icon: MessageSquare,
@@ -74,7 +74,7 @@ export default function ContactPage() {
       sub: '3/11 Sri Wimalarama Road, Kolonnawa',
       action: 'https://maps.app.goo.gl/zTcvDFJTytdRrH4S8?g_st=iw',
       actionText: 'Open in Google Maps',
-      color: 'bg-[#0077b6] text-white',
+      color: 'bg-[#C85A32] text-white',
     },
     {
       icon: MapPin,
@@ -148,7 +148,7 @@ export default function ContactPage() {
       <section className="relative min-h-[80vh] lg:min-h-[85vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
         <BackgroundAutoSlider
           intervalMs={4500}
-          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#041B2D]"
+          overlayGradient="bg-gradient-to-b from-black/80 via-black/45 to-[#181513]"
         />
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -185,8 +185,8 @@ export default function ContactPage() {
               }}
               className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
             >
-              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#8ed1fc] transition-all duration-300">
-                <ArrowRight className="w-4 h-4 text-[#002b49]" />
+              <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
+                <ArrowRight className="w-4 h-4 text-[#1C1917]" />
               </div>
               <span className="text-xs uppercase tracking-widest font-bold">Send Message</span>
             </button>
@@ -203,7 +203,7 @@ export default function ContactPage() {
       </section>
 
       {/* Quick Contact Bar */}
-      <section data-reveal="fade-up" className="bg-[#002b49] text-white py-8 border-t border-white/10 relative z-20">
+      <section data-reveal="fade-up" className="bg-[#1C1917] text-white py-8 border-t border-white/10 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div data-reveal-stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             
@@ -213,22 +213,22 @@ export default function ContactPage() {
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block">24/7 Hotline</span>
-                <a href="tel:+94715477149" className="text-sm font-bold text-white hover:text-[#8ed1fc] transition-colors block">
+                <a href="tel:+94715477149" className="text-sm font-bold text-white hover:text-[#cba258] transition-colors block">
                   +94 71 547 7149
                 </a>
-                <a href="tel:+94723210119" className="text-xs text-gray-300 hover:text-[#8ed1fc] transition-colors block">
+                <a href="tel:+94723210119" className="text-xs text-gray-300 hover:text-[#cba258] transition-colors block">
                   +94 72 321 0119
                 </a>
               </div>
             </div>
 
             <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/10">
-              <div className="w-12 h-12 rounded-full bg-[#8ed1fc]/20 text-[#8ed1fc] flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-full bg-[#cba258]/20 text-[#cba258] flex items-center justify-center shrink-0">
                 <Mail className="w-6 h-6" strokeWidth={1.5} />
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block">Email Inquiries</span>
-                <a href="mailto:info@goldenlinetour.com" className="text-sm font-bold text-white hover:text-[#8ed1fc] transition-colors">
+                <a href="mailto:info@goldenlinetour.com" className="text-sm font-bold text-white hover:text-[#cba258] transition-colors">
                   info@goldenlinetour.com
                 </a>
               </div>
@@ -263,17 +263,17 @@ export default function ContactPage() {
       </section>
 
       {/* Main Interactive Contact Section */}
-      <section id="contact-form-section" className="py-20 lg:py-28 bg-[#f8fbfa] relative overflow-hidden scroll-mt-20">
+      <section id="contact-form-section" className="py-20 lg:py-28 bg-[#FAF7EE] relative overflow-hidden scroll-mt-20">
         {/* Decorative Background SVGs */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] -translate-y-1/4 translate-x-1/4 pointer-events-none select-none z-0 opacity-20 text-[#cba258]">
           <LotusBackground className="w-full h-full" />
         </div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#002b49]">
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] translate-y-1/4 -translate-x-1/4 pointer-events-none select-none z-0 opacity-10 text-[#1C1917]">
           <TropicalLeafBackground className="w-full h-full" />
         </div>
 
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7]">
+          <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#E7E0D0]">
                 
                 <div className="mb-8">
                   <span
@@ -282,7 +282,7 @@ export default function ContactPage() {
                   >
                     Get In Touch
                   </span>
-                  <h2 className="font-serif text-3xl sm:text-4xl font-bold uppercase tracking-wide text-[#1a1a1a] mb-2">
+                  <h2 className="font-serif text-3xl sm:text-4xl font-bold uppercase tracking-wide text-[#1C1917] mb-2">
                     Send Us A Message
                   </h2>
                   <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
@@ -291,11 +291,11 @@ export default function ContactPage() {
                 </div>
 
                 {isSubmitted ? (
-                  <div className="bg-[#f8fbfa] rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto border border-[#e2ede7] shadow-sm">
+                  <div className="bg-[#FAF7EE] rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto border border-[#E7E0D0] shadow-sm">
                     <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4 border border-emerald-200">
                       <Check className="w-8 h-8" />
                     </div>
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1a1a1a] mb-2">
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#1C1917] mb-2">
                       Inquiry Received Successfully!
                     </h3>
                     <p className="text-xs sm:text-sm text-gray-600 leading-relaxed mb-6">
@@ -334,7 +334,7 @@ export default function ContactPage() {
                           value={formData.fullName}
                           onChange={handleInputChange}
                           placeholder="e.g. Jessica Taylor"
-                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                          className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all"
                         />
                       </div>
 
@@ -351,7 +351,7 @@ export default function ContactPage() {
                           value={formData.email}
                           onChange={handleInputChange}
                           placeholder="jessica@example.com"
-                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                          className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all"
                         />
                       </div>
 
@@ -368,7 +368,7 @@ export default function ContactPage() {
                           value={formData.phone}
                           onChange={handleInputChange}
                           placeholder="+1 (555) 000-0000"
-                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                          className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all"
                         />
                       </div>
 
@@ -384,7 +384,7 @@ export default function ContactPage() {
                           value={formData.country}
                           onChange={handleInputChange}
                           placeholder="e.g. United Kingdom / USA"
-                          className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all"
+                          className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all"
                         />
                       </div>
 
@@ -401,7 +401,7 @@ export default function ContactPage() {
                           name="inquiryType"
                           value={formData.inquiryType}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white cursor-pointer"
+                          className="w-full px-3 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white cursor-pointer"
                         >
                           <option value="Bespoke Tour Package Customization">
                             Tour Package Customization
@@ -435,7 +435,7 @@ export default function ContactPage() {
                           name="travelMonth"
                           value={formData.travelMonth}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white cursor-pointer"
+                          className="w-full px-3 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white cursor-pointer"
                         />
                       </div>
 
@@ -449,7 +449,7 @@ export default function ContactPage() {
                           name="guests"
                           value={formData.guests}
                           onChange={handleInputChange}
-                          className="w-full px-3 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white cursor-pointer"
+                          className="w-full px-3 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white cursor-pointer"
                         >
                           {['Solo Traveler', '2 Adults (Couple)', '3-4 (Family)', '5-8 (Small Group)', '9+ (Large Group / Tour)'].map((g) => (
                             <option key={g} value={g}>
@@ -472,14 +472,14 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={handleInputChange}
                         placeholder="Tell us about the destinations you want to visit, preferred hotel standards, special dietary needs, or any questions..."
-                        className="w-full px-4 py-3.5 rounded-2xl bg-[#f8fbfa] border border-gray-200 hover:border-[#002b49] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#002b49] focus:bg-white focus:ring-2 focus:ring-[#002b49]/10 transition-all resize-none"
+                        className="w-full px-4 py-3.5 rounded-2xl bg-[#FAF7EE] border border-gray-200 hover:border-[#1C1917] text-gray-900 placeholder-gray-400 text-xs sm:text-sm font-medium outline-none focus:border-[#1C1917] focus:bg-white focus:ring-2 focus:ring-[#1C1917]/10 transition-all resize-none"
                       />
                     </div>
 
                     {/* Actions */}
                     <div className="pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
                       <div className="flex items-center gap-2 text-xs text-gray-500">
-                        <ShieldCheck className="w-4 h-4 text-[#0077b6]" />
+                        <ShieldCheck className="w-4 h-4 text-[#C85A32]" />
                         <span>SLTDA Certified · 100% Free Consultation</span>
                       </div>
 
@@ -496,7 +496,7 @@ export default function ContactPage() {
 
                         <button
                           type="submit"
-                          className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
+                          className="flex-1 sm:flex-initial h-12 sm:h-13 px-8 rounded-full bg-[#1C1917] hover:bg-[#C85A32] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2.5 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer group"
                         >
                           <Sparkles className="w-4 h-4 text-[#cba258] shrink-0" />
                           <span>Send Your Inquiry</span>
@@ -512,7 +512,7 @@ export default function ContactPage() {
       </section>
 
       {/* Location Map Section */}
-      <section className="py-16 sm:py-24 bg-[#F5F2E6] border-t border-[#e2ede7]">
+      <section className="py-16 sm:py-24 bg-[#F5F2E6] border-t border-[#E7E0D0]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-12">
@@ -522,7 +522,7 @@ export default function ContactPage() {
             >
               Visit Our Location
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#002b49] mb-3">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1C1917] mb-3">
               Headquarters &amp; Operations
             </h2>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
@@ -530,21 +530,21 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl p-4 sm:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#e2ede7] overflow-hidden">
+          <div className="bg-white rounded-3xl p-4 sm:p-6 shadow-[0_20px_60px_rgba(0,0,0,0.06)] border border-[#E7E0D0] overflow-hidden">
             {/* Top Bar with Address and Direct Action Button */}
-            <div className="p-4 sm:p-6 bg-[#f8fbfa] rounded-2xl border border-[#e2ede7] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
+            <div className="p-4 sm:p-6 bg-[#FAF7EE] rounded-2xl border border-[#E7E0D0] flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#002b49] text-[#cba258] flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-[#1C1917] text-[#cba258] flex items-center justify-center shrink-0 shadow-sm">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#002b49]">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-[#1C1917]">
                     GoldenLine TOUR Head Office
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-600 font-medium mt-0.5">
                     3/11 Sri Wimalarama Road, Kolonnawa, Sri Lanka
                   </p>
-                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#0077b6] font-semibold mt-1">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] text-[#C85A32] font-semibold mt-1">
                     <Clock className="w-3.5 h-3.5" /> 24/7 Islandwide Operations &amp; Guest Assistance
                   </span>
                 </div>
@@ -555,7 +555,7 @@ export default function ContactPage() {
                   href="https://maps.app.goo.gl/zTcvDFJTytdRrH4S8?g_st=iw"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#002b49] hover:bg-[#0077b6] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-md cursor-pointer"
+                  className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#1C1917] hover:bg-[#C85A32] text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all shadow-sm hover:shadow-md cursor-pointer"
                 >
                   <Navigation className="w-4 h-4 text-[#cba258]" />
                   <span>Open in Google Maps</span>
@@ -594,7 +594,7 @@ export default function ContactPage() {
       </section>
 
       {/* Frequently Asked Questions */}
-      <section className="py-20 bg-white border-t border-[#e2ede7]">
+      <section className="py-20 bg-white border-t border-[#E7E0D0]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="text-center max-w-2xl mx-auto mb-16">
@@ -604,7 +604,7 @@ export default function ContactPage() {
             >
               Help &amp; Advice
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#002b49] mb-3">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1C1917] mb-3">
               Frequently Asked Questions
             </h2>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
@@ -616,11 +616,11 @@ export default function ContactPage() {
             {faqs.map((faq, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-3xl bg-[#f8fbfa] border border-[#e2ede7] space-y-2"
+                className="p-6 rounded-3xl bg-[#FAF7EE] border border-[#E7E0D0] space-y-2"
               >
                 <div className="flex items-start gap-3">
                   <HelpCircle className="w-5 h-5 text-[#cba258] shrink-0 mt-0.5" />
-                  <h3 className="font-serif text-lg font-bold text-[#002b49]">
+                  <h3 className="font-serif text-lg font-bold text-[#1C1917]">
                     {faq.q}
                   </h3>
                 </div>
