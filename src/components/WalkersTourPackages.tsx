@@ -58,23 +58,25 @@ export const WalkersTourPackages: React.FC<WalkersTourPackagesProps> = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
         {/* Category Filter Pills */}
-        <div data-reveal="fade-down" className="flex sm:flex-wrap items-center gap-2 sm:gap-3 mb-12 overflow-x-auto no-scrollbar pb-3 sm:pb-0 sm:justify-center -mx-4 px-4 sm:mx-0 sm:px-0">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={(e) => {
-                setSelectedCategory(cat);
-                e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-              }}
-              className={`shrink-0 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
-                selectedCategory === cat
-                  ? 'bg-[var(--color-primary)] text-white shadow-md scale-105'
-                  : 'bg-[#f4f7f6] text-[var(--color-primary)] hover:bg-[#e2ede7] hover:text-[var(--color-primary)]'
-              }`}
-            >
-              {cat === 'All' ? 'All Packages' : cat}
-            </button>
-          ))}
+        <div data-reveal="fade-down" className="w-full -mx-4 sm:mx-0 px-4 sm:px-0 overflow-x-auto no-scrollbar pb-3 sm:pb-0 mb-12 py-2">
+          <div className="flex items-center sm:flex-wrap gap-2 sm:gap-3 sm:justify-center w-max sm:w-auto min-w-full px-2 py-1 pr-10 sm:pr-2">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={(e) => {
+                  setSelectedCategory(cat);
+                  e.currentTarget.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }}
+                className={`shrink-0 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 whitespace-nowrap cursor-pointer ${
+                  selectedCategory === cat
+                    ? 'bg-[var(--color-primary)] text-white shadow-md'
+                    : 'bg-[#f4f7f6] text-[var(--color-primary)] hover:bg-[#e2ede7] hover:text-[var(--color-primary)]'
+                }`}
+              >
+                {cat === 'All' ? 'All Packages' : cat}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Packages Grid */}

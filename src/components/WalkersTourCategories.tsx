@@ -59,7 +59,7 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
   };
 
   return (
-    <section id="categories" className="py-20 lg:py-24 bg-[#eaf3f8] overflow-hidden">
+    <section id="categories" className="py-20 lg:py-24 bg-[#FAF7EE] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div data-reveal="fade-up" className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end mb-12">
@@ -71,7 +71,7 @@ export const WalkersTourCategories: React.FC<WalkersTourCategoriesProps> = ({
           </div>
 
           <div className="md:col-span-5">
-            <p className="text-sm sm:text-base text-[#55697a] font-normal leading-relaxed">
+            <p className="text-sm sm:text-base text-gray-600 font-normal leading-relaxed">
               As Sri Lanka’s leading travel agency, we craft seamless journeys to iconic UNESCO heritage citadels and hidden tropical paradises.
             </p>
           </div>
