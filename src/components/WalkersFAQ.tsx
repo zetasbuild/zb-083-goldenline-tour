@@ -34,7 +34,7 @@ export const WalkersFAQ: React.FC<WalkersFAQProps> = ({ onViewAllFaq }) => {
     },
     {
       q: 'Why should I use a travel agency to plan my trip to Sri Lanka?',
-      a: 'Planning a round tour in Sri Lanka requires reliable transport, vetted hotel partners, and local knowledge of roads and train ticketing. As an established DMC with over 50 years of experience, GoldenLine TOUR handles all logistics, private chauffeurs, entry permits, and 24/7 support so you can relax completely.',
+      a: 'Planning a round tour in Sri Lanka requires reliable transport, vetted hotel partners, and local knowledge of roads and train ticketing. As an established DMC with over 20 years of experience, GoldenLine TOUR handles all logistics, private chauffeurs, entry permits, and 24/7 support so you can relax completely.',
     },
   ];
 

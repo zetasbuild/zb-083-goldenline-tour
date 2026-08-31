@@ -15,6 +15,8 @@ import {
   SERVICE_PILLARS,
   SERVICE_TYPES,
   CONTACT_INFO,
+  NTCA_TRUST_PILLARS,
+  NTCA_COMPARISON,
   TransferRoute,
 } from '@/data/transferRates';
 import {
@@ -29,6 +31,7 @@ import {
   Phone,
   Mail,
   User,
+  UserCheck,
   MessageSquare,
   ArrowRight,
   Search,
@@ -46,6 +49,10 @@ import {
   Luggage,
   Users,
   Check,
+  X,
+  Shield,
+  FileCheck,
+  Lock,
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { WhatsAppIcon } from '@/components/WhatsAppIcon';
@@ -62,7 +69,7 @@ export default function SedanTransfersPage() {
   // Modals state
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isInquireOpen, setIsInquireOpen] = useState(false);
-  const [inquireInterest, setInquireInterest] = useState('Sedan Transfer Inquiry');
+  const [inquireInterest, setInquireInterest] = useState('NTCA Chauffeur Sedan Transfer Inquiry');
 
   // Booking / Fare Inquiry Form State
   const [formData, setFormData] = useState({
@@ -119,7 +126,7 @@ export default function SedanTransfersPage() {
 
   const handleWhatsAppRouteBooking = (route: TransferRoute) => {
     const text = encodeURIComponent(
-      `Hello GoldenLine TOUR! 🇱🇰\n\nI would like to book a private Sedan Transfer:\n\n📍 Route: ${route.from} ➔ ${route.to}\n🚗 Service: Private Chauffeur Sedan Drop\n⏱️ Est. Duration: ${route.duration}\n\nPlease let me know driver availability and booking confirmation.`
+      `Hello GoldenLine TOUR! 🇱🇰\n\nI would like to book a private Sedan Transfer with an NTCA Association Driver:\n\n📍 Route: ${route.from} ➔ ${route.to}\n🚗 Service: Private A/C Sedan + Certified NTCA Chauffeur\n⏱️ Est. Duration: ${route.duration}\n\nPlease confirm driver availability and reservation details.`
     );
     window.open(`https://wa.me/94715477149?text=${text}`, '_blank');
   };
@@ -138,7 +145,7 @@ export default function SedanTransfersPage() {
     }
 
     const msg = encodeURIComponent(
-      `Hello GoldenLine TOUR! 🇱🇰\n\nI want to book a transfer:\n\n👤 Name: ${formData.fullName}\n📞 Contact: ${formData.phone || formData.email}\n📍 Pickup: ${formData.pickupLocation}\n🏁 Destination: ${formData.dropoffLocation}\n📅 Date: ${formData.pickupDate} at ${formData.pickupTime || 'Flexible'}\n✈️ Flight: ${formData.flightNumber || 'None'}\n👥 Passengers: ${formData.passengers} Pax (${formData.luggage} Bags)\n📝 Notes: ${formData.notes || 'None'}\n\nPlease provide quotation and confirm booking.`
+      `Hello GoldenLine TOUR! 🇱🇰\n\nI want to book an NTCA Chauffeur Transfer:\n\n👤 Name: ${formData.fullName}\n📞 Contact: ${formData.phone || formData.email}\n📍 Pickup: ${formData.pickupLocation}\n🏁 Destination: ${formData.dropoffLocation}\n📅 Date: ${formData.pickupDate} at ${formData.pickupTime || 'Flexible'}\n✈️ Flight: ${formData.flightNumber || 'None'}\n👥 Passengers: ${formData.passengers} Pax (${formData.luggage} Bags)\n📝 Notes: ${formData.notes || 'None'}\n\nPlease confirm my certified NTCA driver reservation.`
     );
     setTimeout(() => {
       window.open(`https://wa.me/94715477149?text=${msg}`, '_blank');
@@ -165,7 +172,7 @@ export default function SedanTransfersPage() {
       {/* =========================================================================
           HERO BANNER: High Impact Luxury Backdrop & GoldenLine Headline
       ========================================================================== */}
-      <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
+      <section className="relative min-h-[88vh] lg:min-h-[92vh] flex items-center justify-center text-white overflow-hidden text-center pt-28 pb-20">
         <BackgroundAutoSlider
           slides={transferSlides}
           intervalMs={4500}
@@ -173,33 +180,80 @@ export default function SedanTransfersPage() {
         />
 
         <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <span
+          
+          {/* NTCA Association Driver Official Trust Badge */}
+          <div
             data-reveal="fade-down"
-            data-reveal-delay="100"
-            className="font-caveat text-3xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-8px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
-            style={{ fontFamily: 'var(--font-caveat), cursive' }}
+            data-reveal-delay="50"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#041B2D]/85 border border-[#cba258]/60 backdrop-blur-md text-[#cba258] mb-5 shadow-2xl"
           >
-            Private Chauffeur &amp;
-          </span>
+            <ShieldCheck className="w-4 h-4 text-[#cba258] shrink-0" />
+            <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-white">
+              Official NTCA Association Drivers • SLTDA Certified &amp; Vetted
+            </span>
+          </div>
 
-          <h1 
-            data-reveal="fade-up"
-            data-reveal-delay="200"
-            className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-[90px] font-bold tracking-wider sm:tracking-widest text-[#f8fbfa] uppercase leading-tight sm:leading-none drop-shadow-2xl mb-6 max-w-full"
-          >
-            SEDAN TRANSFERS
-          </h1>
+          <div>
+            <span
+              data-reveal="fade-down"
+              data-reveal-delay="100"
+              className="font-caveat text-3xl sm:text-5xl md:text-6xl text-[#cba258] mb-[-8px] sm:mb-[-15px] z-10 -rotate-2 inline-block"
+              style={{ fontFamily: 'var(--font-caveat), cursive' }}
+            >
+              Private Chauffeur &amp;
+            </span>
+
+            <h1 
+              data-reveal="fade-up"
+              data-reveal-delay="200"
+              className="font-serif text-3xl sm:text-5xl md:text-7xl lg:text-[86px] font-bold tracking-wider sm:tracking-widest text-[#f8fbfa] uppercase leading-tight sm:leading-none drop-shadow-2xl mb-5 max-w-full"
+            >
+              SEDAN TRANSFERS
+            </h1>
+          </div>
 
           <p 
             data-reveal="fade-up"
             data-reveal-delay="300"
-            className="text-xs sm:text-base md:text-lg text-white/90 font-medium max-w-2xl mx-auto mb-8 leading-relaxed drop-shadow-md px-2"
+            className="text-xs sm:text-base md:text-lg text-white/90 font-medium max-w-3xl mx-auto mb-6 leading-relaxed drop-shadow-md px-2"
           >
-            Safe, reliable, and comfortable private air-conditioned sedan drops across all of Sri Lanka. Driven by certified English-speaking tourist chauffeurs.
+            Safe, reliable, and premium private vehicle transfers across Sri Lanka. Driven exclusively by accredited <strong>National Tourist Chauffeur Drivers’ Association (NTCA)</strong> members with comprehensive passenger insurance, zero commission traps, and fluent English.
           </p>
+
+          {/* Trust Highlights Checklist in Hero */}
+          <div 
+            data-reveal="fade-up" 
+            data-reveal-delay="350"
+            className="flex items-center justify-center gap-2 sm:gap-4 flex-wrap text-[11px] sm:text-xs text-gray-200 mb-8 max-w-3xl mx-auto"
+          >
+            <span className="inline-flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#cba258]" />
+              <span>NTCA Licensed Drivers</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#cba258]" />
+              <span>SLTDA Tourism Registered</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#cba258]" />
+              <span>Zero Forced Shopping</span>
+            </span>
+            <span className="inline-flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#cba258]" />
+              <span>Full Passenger Insurance</span>
+            </span>
+          </div>
 
           {/* Action CTAs */}
           <div data-reveal="zoom-in" data-reveal-delay="400" className="flex items-center justify-center gap-4 flex-wrap">
+            <a
+              href="#ntca-trust"
+              className="px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#cba258] hover:bg-[#b88f46] text-[#041B2D] shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2"
+            >
+              <Award className="w-4 h-4 text-[#041B2D]" />
+              <span>Why NTCA Drivers Matter</span>
+            </a>
+
             <a
               href="#rates-directory"
               className="next-btn next-btn--white group cursor-pointer hover:scale-105 transition-transform"
@@ -207,11 +261,11 @@ export default function SedanTransfersPage() {
               <div className="next-btn-circle group-hover:scale-110 group-hover:bg-[#cba258] transition-all duration-300">
                 <ArrowRight className="w-4 h-4 text-[var(--color-primary)]" />
               </div>
-              <span className="text-xs uppercase tracking-widest font-bold">Browse All Routes</span>
+              <span className="text-xs uppercase tracking-widest font-bold">Browse Routes</span>
             </a>
 
             <a
-              href={`https://wa.me/94715477149?text=${encodeURIComponent('Hello GoldenLine TOUR! I want to inquire about a private sedan transfer.')}`}
+              href={`https://wa.me/94715477149?text=${encodeURIComponent('Hello GoldenLine TOUR! I want to book a private sedan transfer with a certified NTCA chauffeur.')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] hover:bg-[#20ba59] text-white px-7 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider flex items-center gap-2 shadow-xl hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
@@ -234,16 +288,17 @@ export default function SedanTransfersPage() {
               <div key={idx} className="flex flex-col items-center justify-center shrink-0 group/item cursor-pointer">
                 <div className="w-12 h-12 rounded-2xl bg-[#cba258]/10 border border-[#cba258]/30 flex items-center justify-center mb-2.5 group-hover/item:bg-[#cba258] group-hover/item:scale-110 transition-all duration-300">
                   {idx === 0 && <Car className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 1 && <ShieldCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 2 && <User className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 3 && <BadgePercent className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 4 && <Headphones className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 1 && <Award className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 2 && <ShieldCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 3 && <UserCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 4 && <BadgePercent className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 5 && <Headphones className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
                 </div>
                 <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap">
                   {pillar.title}
                 </span>
                 <span className="text-[11px] text-gray-300 mt-0.5 whitespace-nowrap">
-                  {idx === 0 ? 'Toyota Sedans' : idx === 1 ? 'SLTDA Insured' : idx === 2 ? 'English Speaking' : idx === 3 ? 'Dedicated Chauffeur' : '24/7 Helpline'}
+                  {idx === 0 ? 'Toyota Sedans' : idx === 1 ? 'SLTDA & NTCA' : idx === 2 ? 'Fully Insured' : idx === 3 ? 'Fluent English' : idx === 4 ? 'No Hidden Fees' : '24/7 Helpline'}
                 </span>
               </div>
             ))}
@@ -255,20 +310,178 @@ export default function SedanTransfersPage() {
               <div key={`dup-${idx}`} className="flex flex-col items-center justify-center shrink-0 group/item cursor-pointer">
                 <div className="w-12 h-12 rounded-2xl bg-[#cba258]/10 border border-[#cba258]/30 flex items-center justify-center mb-2.5 group-hover/item:bg-[#cba258] group-hover/item:scale-110 transition-all duration-300">
                   {idx === 0 && <Car className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 1 && <ShieldCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 2 && <User className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 3 && <BadgePercent className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
-                  {idx === 4 && <Headphones className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 1 && <Award className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 2 && <ShieldCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 3 && <UserCheck className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 4 && <BadgePercent className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
+                  {idx === 5 && <Headphones className="w-6 h-6 text-[#cba258] group-hover/item:text-[#041B2D] transition-colors" />}
                 </div>
                 <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap">
                   {pillar.title}
                 </span>
                 <span className="text-[11px] text-gray-300 mt-0.5 whitespace-nowrap">
-                  {idx === 0 ? 'Toyota Sedans' : idx === 1 ? 'SLTDA Insured' : idx === 2 ? 'English Speaking' : idx === 3 ? 'Dedicated Chauffeur' : '24/7 Helpline'}
+                  {idx === 0 ? 'Toyota Sedans' : idx === 1 ? 'SLTDA & NTCA' : idx === 2 ? 'Fully Insured' : idx === 3 ? 'Fluent English' : idx === 4 ? 'No Hidden Fees' : '24/7 Helpline'}
                 </span>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          DEDICATED NTCA TRUST & SAFETY SECTION: Why NTCA Drivers Make the Difference
+      ========================================================================== */}
+      <section id="ntca-trust" className="py-20 lg:py-28 bg-[#041B2D] text-white relative overflow-hidden border-b border-[#cba258]/30">
+        {/* Background Mandala & Radial Highlights */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] -translate-y-1/3 translate-x-1/3 pointer-events-none opacity-10 text-[#cba258]">
+          <MandalaBackground className="w-full h-full" />
+        </div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] translate-y-1/3 -translate-x-1/3 pointer-events-none opacity-10 text-[#cba258]">
+          <TropicalLeafBackground className="w-full h-full" />
+        </div>
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#cba258_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 bg-[#cba258]/20 border border-[#cba258]/50 px-4 py-1.5 rounded-full mb-4">
+              <Award className="w-4 h-4 text-[#cba258]" />
+              <span className="text-xs font-bold uppercase tracking-widest text-[#cba258]">
+                Official Sri Lanka Tourism Accreditation
+              </span>
+            </div>
+            
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white mb-4">
+              Travel with Total Trust: <br />
+              <span className="text-[#cba258]">Official NTCA Association Drivers</span>
+            </h2>
+            
+            <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
+              When renting a vehicle in Sri Lanka, passenger safety, honest conduct, and experienced local navigation matter most. All GoldenLine TOUR transfers are driven by official card-holding members of the <strong>National Tourist Chauffeur Drivers’ Association (NTCA)</strong>, registered with the <strong>Sri Lanka Tourism Development Authority (SLTDA)</strong>.
+            </p>
+          </div>
+
+          {/* 4 Core NTCA Trust Pillar Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {NTCA_TRUST_PILLARS.map((pillar, idx) => (
+              <div
+                key={pillar.id}
+                className="bg-white/5 backdrop-blur-md rounded-3xl p-6 sm:p-7 border border-[#cba258]/25 hover:border-[#cba258] transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 rounded-2xl bg-[#cba258]/15 border border-[#cba258]/40 flex items-center justify-center text-[#cba258] group-hover:bg-[#cba258] group-hover:text-[#041B2D] transition-all duration-300">
+                      {idx === 0 && <ShieldCheck className="w-6 h-6" />}
+                      {idx === 1 && <Award className="w-6 h-6" />}
+                      {idx === 2 && <Sparkles className="w-6 h-6" />}
+                      {idx === 3 && <Compass className="w-6 h-6" />}
+                    </div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#cba258]/15 text-[#cba258] border border-[#cba258]/30">
+                      {pillar.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-white mb-1 group-hover:text-[#cba258] transition-colors">
+                    {pillar.title}
+                  </h3>
+                  <div className="text-xs text-[#cba258] font-medium mb-3">
+                    {pillar.subtitle}
+                  </div>
+                  <p className="text-xs sm:text-[13px] text-gray-300 leading-relaxed">
+                    {pillar.description}
+                  </p>
+                </div>
+
+                <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-[11px] text-[#cba258] font-semibold">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                  <span>GoldenLine Verified Standard</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Comparison Matrix: Unregistered Cabs vs GoldenLine NTCA Drivers */}
+          <div className="bg-white/5 backdrop-blur-lg rounded-3xl p-4 sm:p-10 border-2 border-[#cba258]/30 shadow-2xl mb-12">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-6 border-b border-white/10">
+              <div>
+                <span className="text-xs uppercase font-bold tracking-widest text-[#cba258]">
+                  Safety &amp; Transparency Comparison
+                </span>
+                <h3 className="font-serif text-xl sm:text-3xl font-bold text-white mt-1">
+                  Why Booking an NTCA Association Driver Protects You
+                </h3>
+              </div>
+              <div className="inline-flex items-center gap-2 bg-[#25D366]/20 border border-[#25D366]/50 px-4 py-1.5 rounded-full text-xs font-bold text-[#25D366] shrink-0 self-start md:self-auto">
+                <Check className="w-4 h-4" />
+                <span>100% Guest Satisfaction Track Record</span>
+              </div>
+            </div>
+
+            <div className="overflow-x-auto -mx-1 sm:mx-0">
+              <table className="w-full text-left border-collapse table-fixed md:table-auto">
+                <thead>
+                  <tr className="border-b border-white/10 text-[11px] sm:text-sm uppercase tracking-wider text-gray-400">
+                    <th className="py-3 px-4 font-bold min-w-[180px] hidden md:table-cell">
+                      Service Standard
+                    </th>
+                    <th className="py-3 px-2.5 sm:px-4 font-bold text-red-400 w-1/2 md:w-auto md:min-w-[200px]">
+                      Unregistered Street Taxis
+                    </th>
+                    <th className="py-3 px-2.5 sm:px-4 font-bold text-[#cba258] w-1/2 md:w-auto md:min-w-[220px] bg-[#cba258]/10 rounded-t-xl">
+                      GoldenLine NTCA Chauffeurs
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/5 text-xs sm:text-sm">
+                  {NTCA_COMPARISON.map((row, idx) => (
+                    <tr key={idx} className="hover:bg-white/5 transition-colors">
+                      <td className="py-3.5 px-4 font-semibold text-white hidden md:table-cell">
+                        {row.feature}
+                      </td>
+                      <td className="py-3.5 px-2.5 sm:px-4 text-gray-400 w-1/2 md:w-auto align-top">
+                        <div className="flex items-start gap-1.5 sm:gap-2">
+                          <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-red-400 shrink-0 mt-0.5" />
+                          <span className="leading-tight sm:leading-snug">{row.unregistered}</span>
+                        </div>
+                      </td>
+                      <td className="py-3.5 px-2.5 sm:px-4 font-medium text-white bg-[#cba258]/10 w-1/2 md:w-auto align-top">
+                        <div className="flex items-start gap-1.5 sm:gap-2">
+                          <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#cba258] shrink-0 mt-0.5" />
+                          <span className="leading-tight sm:leading-snug">{row.goldenline}</span>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Chauffeur Details Guarantee Footer Note */}
+            <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#041B2D]/80 p-4 sm:p-6 rounded-2xl border border-[#cba258]/30">
+              <div className="flex items-start sm:items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#cba258]/20 flex items-center justify-center text-[#cba258] shrink-0 mt-0.5 sm:mt-0">
+                  <FileCheck className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-white text-sm sm:text-base">
+                    Pre-Trip Driver Transparency Guarantee
+                  </h4>
+                  <p className="text-xs text-gray-300 mt-0.5">
+                    Before your journey begins, we send you your assigned NTCA driver&apos;s photo ID, full name, WhatsApp contact, and vehicle registration number.
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="#booking-form-section"
+                className="px-5 py-2.5 rounded-full bg-[#cba258] hover:bg-[#b88f46] text-[#041B2D] text-xs font-bold uppercase tracking-wider shrink-0 text-center transition-transform hover:scale-105"
+              >
+                Reserve Your Chauffeur
+              </a>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -297,7 +510,7 @@ export default function SedanTransfersPage() {
               Explore Routes by Origin Hub
             </h2>
             <p className="text-sm sm:text-base text-gray-600">
-              Select your departure point to view all official private sedan transfer routes across Sri Lanka.
+              Select your departure point to view all official private sedan transfer routes with certified NTCA chauffeurs across Sri Lanka.
             </p>
           </div>
 
@@ -432,13 +645,13 @@ export default function SedanTransfersPage() {
                 {currentHubInfo.title} ➔ All Destinations
               </h3>
               <p className="text-xs text-gray-500 mt-0.5">
-                Showing {filteredRoutes.length} of 19 official transfer routes
+                Showing {filteredRoutes.length} of 19 official transfer routes • Driven by NTCA Association Chauffeurs
               </p>
             </div>
 
             <div className="flex items-center gap-2 text-xs font-bold text-[#cba258] bg-white px-3.5 py-1.5 rounded-full border border-gray-200 shadow-sm shrink-0 whitespace-nowrap">
-              <Car className="w-3.5 h-3.5 shrink-0" />
-              <span>Air-Conditioned Sedan</span>
+              <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
+              <span>NTCA Driver &amp; Fuel Included</span>
             </div>
           </div>
 
@@ -470,8 +683,9 @@ export default function SedanTransfersPage() {
                     <span className="bg-black/60 backdrop-blur-md text-[#cba258] text-[10px] sm:text-[11px] font-bold uppercase tracking-widest px-3.5 py-1.5 rounded-full border border-white/15 shadow-sm">
                       {route.category}
                     </span>
-                    <span className="w-9 h-9 rounded-full bg-black/50 backdrop-blur-md border border-white/20 flex items-center justify-center text-[#cba258] shadow-sm">
-                      <Car className="w-4 h-4" />
+                    <span className="bg-[#041B2D]/80 backdrop-blur-md border border-[#cba258]/50 px-2.5 py-1 rounded-full text-[10px] font-bold text-[#cba258] flex items-center gap-1 shadow-sm">
+                      <Award className="w-3 h-3 text-[#cba258]" />
+                      <span>NTCA Driver</span>
                     </span>
                   </div>
 
@@ -486,17 +700,17 @@ export default function SedanTransfersPage() {
                         {route.to}
                       </h3>
                       <p className="text-xs text-gray-300 line-clamp-2 mt-1.5 leading-relaxed">
-                        {route.duration} • Fixed Sedan Drop • Up to 4 Pax
+                        {route.duration} • Fixed Drop • Up to 4 Pax • A/C
                       </p>
                     </div>
 
                     <div className="flex items-center justify-between pt-1">
                       <div>
                         <div className="text-[10px] uppercase tracking-wider text-[#cba258] font-bold">
-                          Vehicle Service
+                          Official Service
                         </div>
                         <div className="font-serif text-sm sm:text-base font-bold text-white group-hover:text-[#cba258] transition-colors">
-                          Private Chauffeur
+                          NTCA Chauffeur Drop
                         </div>
                       </div>
 
@@ -537,7 +751,7 @@ export default function SedanTransfersPage() {
                 </div>
                 <div className="text-right text-xs text-gray-300">
                   <span className="inline-block px-3 py-1 bg-[#cba258]/20 text-[#cba258] border border-[#cba258]/40 rounded-full font-bold">
-                    Private Drops • Fully Insured
+                    100% NTCA Certified • Fully Insured
                   </span>
                 </div>
               </div>
@@ -550,7 +764,7 @@ export default function SedanTransfersPage() {
                       <th className="py-3.5 px-4 min-w-[200px]">Route</th>
                       <th className="py-3.5 px-4 hidden md:table-cell">Category</th>
                       <th className="py-3.5 px-4 hidden sm:table-cell">Est. Duration</th>
-                      <th className="py-3.5 px-4 text-right min-w-[130px]">Service Type</th>
+                      <th className="py-3.5 px-4 text-right min-w-[150px]">Chauffeur Standard</th>
                       <th className="py-3.5 px-4 text-center min-w-[120px]">Instant Action</th>
                     </tr>
                   </thead>
@@ -579,8 +793,8 @@ export default function SedanTransfersPage() {
                           {route.duration}
                         </td>
                         <td className="py-3.5 px-4 text-right">
-                          <span className="inline-block px-3 py-1 bg-white/10 text-[#cba258] rounded-full text-xs font-semibold">
-                            Private Chauffeur
+                          <span className="inline-block px-3 py-1 bg-[#cba258]/15 text-[#cba258] border border-[#cba258]/30 rounded-full text-xs font-semibold">
+                            NTCA Chauffeur
                           </span>
                         </td>
                         <td className="py-3.5 px-4 text-center">
@@ -602,7 +816,7 @@ export default function SedanTransfersPage() {
               <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-xs text-gray-400">
                 <Info className="w-4 h-4 text-[#cba258] shrink-0" />
                 <span>
-                  <strong>Note:</strong> {CONTACT_INFO.disclaimer} Includes fuel, air-conditioned vehicle, and certified English-speaking tourist driver.
+                  <strong>Official Guarantee:</strong> {CONTACT_INFO.disclaimer} Includes fuel, clean air-conditioned Japanese sedan, and full passenger insurance.
                 </span>
               </div>
             </div>
@@ -614,7 +828,7 @@ export default function SedanTransfersPage() {
               <Search className="w-12 h-12 text-gray-300 mx-auto mb-3" />
               <h3 className="font-serif text-xl font-bold text-[#041B2D]">No direct routes match your search</h3>
               <p className="text-sm text-gray-500 mt-1 max-w-md mx-auto">
-                Looking for a custom pickup or off-the-beaten-path destination? Send us an inquiry and we will arrange a direct quotation!
+                Looking for a custom pickup or off-the-beaten-path destination? Send us an inquiry and we will arrange a direct quotation with an NTCA chauffeur!
               </p>
               <button
                 onClick={() => {
@@ -669,28 +883,29 @@ export default function SedanTransfersPage() {
             {/* Left Column: Information & Trust */}
             <div className="lg:col-span-5 space-y-6">
               <div className="inline-flex items-center gap-2 bg-[#cba258]/20 border border-[#cba258]/40 px-4 py-1.5 rounded-full">
-                <Sparkles className="w-3.5 h-3.5 text-[#cba258]" />
+                <ShieldCheck className="w-3.5 h-3.5 text-[#cba258]" />
                 <span className="text-xs font-bold uppercase tracking-widest text-[#cba258]">
-                  Custom Drop Quotations
+                  Verified NTCA Chauffeur Booking
                 </span>
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight text-white">
-                Book Your Ride Today
+                Book Your Ride with Total Confidence
               </h2>
 
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                Whether you need a quick airport transfer, intercity drop, or a dedicated chauffeur for your entire holiday, submit your itinerary and get instant confirmation.
+                Whether you need a prompt airport transfer, intercity sedan drop, or an English-speaking chauffeur for your whole Sri Lankan holiday, submit your itinerary and get direct confirmation.
               </p>
 
               {/* Key Features Checklist */}
               <div className="space-y-3 pt-2">
                 {[
-                  'Free Colombo Airport Meet & Greet with Nameboard',
-                  'Luggage loading & unloading assistance',
-                  'Complimentary bottled water & cool refreshments',
-                  'Flexible photo and tea stops along scenic routes',
-                  'Direct WhatsApp coordination with your driver',
+                  'Official NTCA Certified Tourist Chauffeur assigned upon booking',
+                  'Free Colombo Airport Meet & Greet with personalized Nameboard',
+                  'Full Commercial Tourist Passenger Insurance on all journeys',
+                  'Strict Zero-Commission & No Forced Shopping Guarantee',
+                  'Luggage assistance, clean vehicle & cool bottled water included',
+                  'Direct WhatsApp coordination & driver photo ID shared before pickup',
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-xs sm:text-sm text-gray-200">
                     <CheckCircle2 className="w-4 h-4 text-[#cba258] shrink-0" />
@@ -720,7 +935,7 @@ export default function SedanTransfersPage() {
                   </a>
                 </div>
                 <p className="text-xs text-gray-400 mt-2">
-                  Call or WhatsApp anytime 24/7 for urgent rides and transfers.
+                  Call or WhatsApp anytime 24/7 for urgent rides and custom itinerary planning.
                 </p>
               </div>
             </div>
@@ -729,11 +944,15 @@ export default function SedanTransfersPage() {
             <div className="lg:col-span-7">
               <div className="bg-white rounded-3xl p-6 sm:p-10 text-[#041B2D] shadow-2xl border border-gray-200">
                 <div className="mb-6">
+                  <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#cba258] bg-[#F5F2E6] px-3 py-1 rounded-full mb-2">
+                    <Award className="w-3.5 h-3.5 text-[#cba258]" />
+                    <span>NTCA Accredited Dispatch</span>
+                  </div>
                   <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#041B2D]">
                     Transfer Reservation
                   </h3>
                   <p className="text-xs sm:text-sm text-gray-500 mt-1">
-                    Fill in your details below to calculate fare and confirm with our dispatch team.
+                    Fill in your travel details to reserve your private vehicle with a certified NTCA tourist chauffeur.
                   </p>
                 </div>
 
@@ -744,7 +963,7 @@ export default function SedanTransfersPage() {
                       Transfer Request Received!
                     </h4>
                     <p className="text-sm text-gray-600 max-w-md mx-auto">
-                      Opening WhatsApp to connect you directly with <strong>+94 71 547 7149</strong> for instant confirmation.
+                      Connecting you directly to our dispatch WhatsApp at <strong>+94 71 547 7149</strong> to confirm your NTCA chauffeur.
                     </p>
                     <button
                       onClick={() => setIsSubmitted(false)}
@@ -963,17 +1182,35 @@ export default function SedanTransfersPage() {
               Good to Know
             </span>
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#041B2D]">
-              Frequently Asked Questions &amp; Vehicle Guidelines
+              Frequently Asked Questions &amp; Chauffeur Guidelines
             </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="bg-white p-6 rounded-3xl border border-gray-200 space-y-2">
               <h4 className="font-serif font-bold text-base text-[#041B2D] flex items-center gap-2">
+                <Award className="w-4 h-4 text-[#cba258]" /> What is an NTCA Association Driver?
+              </h4>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                The National Tourist Chauffeur Drivers’ Association (NTCA) is the official government-recognized association of professional tourist chauffeurs in Sri Lanka. All NTCA drivers are vetted, registered with the Sri Lanka Tourism Development Authority (SLTDA), trained in defensive driving, and bound by strict ethical passenger conduct rules.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-3xl border border-gray-200 space-y-2">
+              <h4 className="font-serif font-bold text-base text-[#041B2D] flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#cba258]" /> Do your drivers make commission or forced shopping stops?
+              </h4>
+              <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                No, never. GoldenLine TOUR strictly enforces a <strong>Zero-Commission Anti-Scam Policy</strong>. Our chauffeurs will never pressure you or redirect you to unauthorized spice gardens, gem museums, or souvenir shops unless you explicitly request a stop.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-3xl border border-gray-200 space-y-2">
+              <h4 className="font-serif font-bold text-base text-[#041B2D] flex items-center gap-2">
                 <Car className="w-4 h-4 text-[#cba258]" /> What vehicles are used for Sedan Transfers?
               </h4>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                We operate modern Japanese sedans including Toyota Axio, Toyota Premio, Toyota Corolla, and Honda Grace. All cars have dual air-conditioning, USB charging ports, and comfortable seating.
+                We operate modern Japanese sedans including Toyota Axio, Toyota Premio, Toyota Corolla, and Honda Grace. All cars feature dual air-conditioning, clean interiors, USB charging ports, and full commercial passenger insurance.
               </p>
             </div>
 
@@ -982,25 +1219,25 @@ export default function SedanTransfersPage() {
                 <Plane className="w-4 h-4 text-[#cba258]" /> How do airport meet-and-greets work?
               </h4>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Your chauffeur will wait inside the Colombo Bandaranaike Airport (CMB) arrival hall holding a personalized name sign. We track flights live, so delays are accommodated automatically at no extra fee.
+                Your NTCA chauffeur will wait inside the Colombo Bandaranaike Airport (CMB) arrival hall holding a personalized name sign. We track flights live via radar, so delays are accommodated automatically with zero extra waiting charges.
               </p>
             </div>
 
             <div className="bg-white p-6 rounded-3xl border border-gray-200 space-y-2">
               <h4 className="font-serif font-bold text-base text-[#041B2D] flex items-center gap-2">
-                <BadgePercent className="w-4 h-4 text-[#cba258]" /> Are highway tolls and fuel included?
+                <BadgePercent className="w-4 h-4 text-[#cba258]" /> Are highway tolls and fuel included in the price?
               </h4>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Yes, our quoted prices include vehicle, professional driver fee, and fuel. Expressway highway tolls and parking charges may be added based on route as per standard transfer policy.
+                Yes, our quoted prices include vehicle hire, dedicated professional NTCA chauffeur guide, fuel, and air-conditioning. Expressway tolls are transparently included or advised upfront with no hidden surprises.
               </p>
             </div>
 
             <div className="bg-white p-6 rounded-3xl border border-gray-200 space-y-2">
               <h4 className="font-serif font-bold text-base text-[#041B2D] flex items-center gap-2">
-                <Clock className="w-4 h-4 text-[#cba258]" /> Can we make stops along the journey?
+                <Clock className="w-4 h-4 text-[#cba258]" /> Can we make spontaneous stops along the journey?
               </h4>
               <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
-                Absolutely! Our chauffeurs are happy to pause for photo spots, fruit stalls, tea plantations, and restroom breaks whenever you need during the trip.
+                Yes, absolutely! Our chauffeurs are flexible and happy to pause for photo spots, king coconut fruit stalls, tea plantations, or restroom breaks at your convenience.
               </p>
             </div>
           </div>
